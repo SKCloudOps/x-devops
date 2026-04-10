@@ -2,8 +2,8 @@ name: Daily AI Explainer
 
 on:
   schedule:
-    # Runs daily at 16:00 UTC (11:00 AM CDT)
-    - cron: '0 16 * * *'
+    # Runs daily at 15:30 UTC (10:30 AM CDT)
+    - cron: '30 15 * * *'
   workflow_dispatch:
     inputs:
       dry_run:

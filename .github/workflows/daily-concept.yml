@@ -2,8 +2,8 @@ name: Daily Concept Explainer
 
 on:
   schedule:
-    # Runs daily at 20:00 UTC (3:00 PM CDT)
-    - cron: '0 20 * * *'
+    # Runs daily at 20:30 UTC (3:30 PM CDT)
+    - cron: '30 20 * * *'
   workflow_dispatch:
     inputs:
       dry_run:
