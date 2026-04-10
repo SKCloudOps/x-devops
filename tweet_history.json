@@ -1,1 +1,11 @@
-[]
+[
+  {
+    "date": "2026-04-10T16:07:36.337995+00:00",
+    "category": "aws_interview_question",
+    "tweet": "Interview Q: Your CISO wants centralized security findings across 50+ AWS accounts. SecurityHub is enabled but findings are scattered. How do you aggregate them for executive reporting? #AWS #CloudSecurity",
+    "reply": "Enable SecurityHub in a dedicated security account as the aggregator. Use cross-account access to collect findings from all member accounts. Set up EventBridge rules for critical findings. Most miss the custom insights feature for exec summaries.",
+    "main_tweet_id": "2042635616660127957",
+    "reply_tweet_id": "2042635617540898863",
+    "content_hash": "bf854bf2507547d9d88da72fd5094347"
+  }
+]
