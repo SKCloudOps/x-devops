@@ -101,24 +101,27 @@ def truncate_to_limit(text: str, limit: int = MAX_TWEET_LENGTH) -> str:
 
 def _call_claude_with_retry(client, system_prompt: str, messages: list,
                             max_api_retries: int = 5, base_delay: float = 2.0):
-    """Call Claude API with exponential backoff for transient errors (529, 429, 5xx)."""
+    """Call Claude API with exponential backoff for transient errors (429, 5xx, 529)."""
     for api_attempt in range(1, max_api_retries + 1):
         try:
             return client.messages.create(
-                model="claude-haiku-4-20250414",
+                model="claude-haiku-4-5-20251001",
                 max_tokens=500,
                 system=system_prompt,
                 messages=messages,
             )
-        except (anthropic.OverloadedError, anthropic.RateLimitError,
-                anthropic.InternalServerError) as e:
-            if api_attempt == max_api_retries:
-                print(f"Claude API failed after {max_api_retries} attempts.")
-                raise
-            delay = base_delay * (2 ** (api_attempt - 1))  # 2s, 4s, 8s, 16s, 32s
-            print(f"Claude API error ({type(e).__name__}), retrying in {delay}s... "
-                  f"(attempt {api_attempt}/{max_api_retries})")
-            time.sleep(delay)
+        except anthropic.APIStatusError as e:
+            # Retry on rate limit (429), server errors (5xx), and overloaded (529)
+            if e.status_code in (429, 500, 502, 503, 504, 529):
+                if api_attempt == max_api_retries:
+                    print(f"Claude API failed after {max_api_retries} attempts.")
+                    raise
+                delay = base_delay * (2 ** (api_attempt - 1))  # 2s, 4s, 8s, 16s, 32s
+                print(f"Claude API error (HTTP {e.status_code}), retrying in {delay}s... "
+                      f"(attempt {api_attempt}/{max_api_retries})")
+                time.sleep(delay)
+            else:
+                raise  # Don't retry client errors (400, 401, 403, 404, etc.)
 
 
 def generate_content(category: str) -> dict:
