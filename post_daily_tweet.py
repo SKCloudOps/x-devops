@@ -7,6 +7,7 @@ import os
 import json
 import random
 import hashlib
+import time
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -75,6 +76,27 @@ def truncate_to_limit(text: str, limit: int = MAX_TWEET_LENGTH) -> str:
         return truncated[:last_space].rstrip() + "…"
     return truncated[:limit - 1] + "…"
 
+def _call_claude_with_retry(client, system_prompt: str, messages: list,
+                            max_api_retries: int = 5, base_delay: float = 2.0):
+    """Call Claude API with exponential backoff for transient errors (529, 429, 5xx)."""
+    for api_attempt in range(1, max_api_retries + 1):
+        try:
+            return client.messages.create(
+                model="claude-sonnet-4-20250514",
+                max_tokens=500,
+                system=system_prompt,
+                messages=messages,
+            )
+        except (anthropic.OverloadedError, anthropic.RateLimitError,
+                anthropic.InternalServerError) as e:
+            if api_attempt == max_api_retries:
+                print(f"Claude API failed after {max_api_retries} attempts.")
+                raise
+            delay = base_delay * (2 ** (api_attempt - 1))  # 2s, 4s, 8s, 16s, 32s
+            print(f"Claude API error ({type(e).__name__}), retrying in {delay}s... "
+                  f"(attempt {api_attempt}/{max_api_retries})")
+            time.sleep(delay)
+
 
 def generate_content(category: str) -> dict:
     """Use Claude API to generate tweet + reply, with retries for length violations."""
@@ -101,11 +123,8 @@ Generate today's tweet and reply. STRICT LIMIT: each must be under 270 character
     messages = [{"role": "user", "content": user_prompt}]
 
     for attempt in range(1, MAX_RETRIES + 1):
-        message = client.messages.create(
-            model="claude-sonnet-4-20250514",
-            max_tokens=500,
-            system=SYSTEM_PROMPT,
-            messages=messages,
+        message = _call_claude_with_retry(
+            client, SYSTEM_PROMPT, messages
         )
 
         response_text = message.content[0].text.strip()
