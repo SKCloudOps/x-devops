@@ -16,5 +16,14 @@
     "main_tweet_id": "2042639393702449567",
     "reply_tweet_id": "2042639395640295596",
     "content_hash": "a71d4345670884acdbdf89af82d462c5"
+  },
+  {
+    "date": "2026-04-10T18:54:43.566235+00:00",
+    "category": "aws_interview_question",
+    "tweet": "Interview question I keep hearing: \"Why would you choose Fargate over EC2?\" Most people fumble the answer. The real reason? You're paying for compute you actually use, not idle capacity. But there's a catch most miss.",
+    "reply": "Fargate shines when you have unpredictable, bursty workloads. Cold starts matter less, scaling's instant. BUT if you're running 24/7 steady-state apps, EC2 Reserved Instances destroy Fargate on cost. Know your workload pattern or you'll burn money.",
+    "main_tweet_id": "2042677673978151066",
+    "reply_tweet_id": "2042677674879951299",
+    "content_hash": "b379e52b9cb29c270f04fcdc524fe5a5"
   }
 ]
