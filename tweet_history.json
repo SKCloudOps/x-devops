@@ -7,5 +7,14 @@
     "main_tweet_id": "2042635616660127957",
     "reply_tweet_id": "2042635617540898863",
     "content_hash": "bf854bf2507547d9d88da72fd5094347"
+  },
+  {
+    "date": "2026-04-10T16:22:37.118193+00:00",
+    "category": "aws_interview_question",
+    "tweet": "Interview question I keep hearing: \"You've got 50 AWS accounts. How do you manage IAM across all of them without losing your mind?\" Most people blank here. #AWS #DevOps",
+    "reply": "Real answer: AWS Organizations + SCPs for guardrails, then cross-account roles with external IDs. Don't try to manage each account manually \u2014 you'll hate yourself in 6 months. #AWS",
+    "main_tweet_id": "2042639393702449567",
+    "reply_tweet_id": "2042639395640295596",
+    "content_hash": "a71d4345670884acdbdf89af82d462c5"
   }
 ]
