@@ -85,7 +85,7 @@ def _call_claude_with_retry(client, system_prompt: str, messages: list,
     for api_attempt in range(1, max_api_retries + 1):
         try:
             return client.messages.create(
-                model="claude-sonnet-4-20250514",
+                model="claude-haiku-4-20250414",
                 max_tokens=500,
                 system=system_prompt,
                 messages=messages,
