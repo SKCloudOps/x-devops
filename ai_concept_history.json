@@ -1,0 +1,17 @@
+[
+  {
+    "date": "2026-04-10T17:28:00.142144+00:00",
+    "concept": "Underfitting in LLMs",
+    "tweet_1": "Everyone talks about overfitting (your model memorizes data). But underfitting? That's the opposite problem nobody warns you about. Your model's just...lazy. Let's fix that.",
+    "tweet_2": "Underfitting = your model's too simple to learn the actual patterns. It's like using a crayon to draw the Mona Lisa. The tool isn't powerful enough for the job. So it just gives up.",
+    "tweet_3": "ChatGPT with a 100-parameter model instead of billions? It'd understand 'hello' but fail at basic reasoning. Same data, same training. The model's just too weak to capture what matters.",
+    "tweet_4": "Remember: overfitting = memorizing, underfitting = not learning. You want the sweet spot. If your training loss is still huge, your model isn't complex enough. Add more layers.",
+    "tweet_ids": [
+      "2042655845826334917",
+      "2042655848468746442",
+      "2042655849227985154",
+      "2042655850125480248"
+    ],
+    "content_hash": "a2ba9a28ad46b7f12fa6045242221834"
+  }
+]
