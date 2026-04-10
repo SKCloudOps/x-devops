@@ -55,8 +55,29 @@ def get_todays_category() -> str:
     return CATEGORIES[day_of_year % len(CATEGORIES)]
 
 
+MAX_TWEET_LENGTH = 280
+MAX_RETRIES = 3
+
+
+def truncate_to_limit(text: str, limit: int = MAX_TWEET_LENGTH) -> str:
+    """Truncate text to fit within character limit, breaking at last sentence boundary."""
+    if len(text) <= limit:
+        return text
+    # Try to break at the last sentence-ending punctuation within limit
+    truncated = text[:limit]
+    for sep in [". ", "! ", "? "]:
+        last_sep = truncated.rfind(sep)
+        if last_sep > limit // 2:  # Only break if we keep at least half the content
+            return truncated[: last_sep + 1].rstrip()
+    # Fallback: break at last space and add ellipsis
+    last_space = truncated.rfind(" ")
+    if last_space > limit // 2:
+        return truncated[:last_space].rstrip() + "…"
+    return truncated[:limit - 1] + "…"
+
+
 def generate_content(category: str) -> dict:
-    """Use Claude API to generate tweet + reply."""
+    """Use Claude API to generate tweet + reply, with retries for length violations."""
     client = anthropic.Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
 
     # Add some randomness to avoid repetitive patterns
@@ -75,19 +96,48 @@ def generate_content(category: str) -> dict:
 Seed keyword (use this as inspiration, don't force it): {seed_word}
 Date: {datetime.now(timezone.utc).strftime('%A, %B %d, %Y')}
 
-Generate today's tweet and reply. Remember: both must be under 270 characters each."""
+Generate today's tweet and reply. STRICT LIMIT: each must be under 270 characters. Count carefully."""
 
-    message = client.messages.create(
-        model="claude-sonnet-4-20250514",
-        max_tokens=500,
-        system=SYSTEM_PROMPT,
-        messages=[{"role": "user", "content": user_prompt}],
-    )
+    messages = [{"role": "user", "content": user_prompt}]
 
-    response_text = message.content[0].text.strip()
-    # Clean potential markdown fences
-    response_text = response_text.replace("```json", "").replace("```", "").strip()
-    return json.loads(response_text)
+    for attempt in range(1, MAX_RETRIES + 1):
+        message = client.messages.create(
+            model="claude-sonnet-4-20250514",
+            max_tokens=500,
+            system=SYSTEM_PROMPT,
+            messages=messages,
+        )
+
+        response_text = message.content[0].text.strip()
+        # Clean potential markdown fences
+        response_text = response_text.replace("```json", "").replace("```", "").strip()
+        content = json.loads(response_text)
+
+        tweet_len = len(content["tweet"])
+        reply_len = len(content["reply"])
+
+        if tweet_len <= MAX_TWEET_LENGTH and reply_len <= MAX_TWEET_LENGTH:
+            return content
+
+        print(f"Attempt {attempt}/{MAX_RETRIES}: tweet={tweet_len}, reply={reply_len} chars — retrying...")
+
+        # Build retry conversation asking Claude to shorten
+        messages = [
+            {"role": "user", "content": user_prompt},
+            {"role": "assistant", "content": message.content[0].text},
+            {"role": "user", "content": (
+                f"The content exceeds the character limit. "
+                f"Tweet is {tweet_len} chars, reply is {reply_len} chars. "
+                f"Both MUST be under {MAX_TWEET_LENGTH} characters. "
+                f"Shorten them and respond in the same JSON format."
+            )},
+        ]
+
+    # Final fallback: truncate to fit
+    print("Max retries exceeded — truncating content to fit limits.")
+    content["tweet"] = truncate_to_limit(content["tweet"])
+    content["reply"] = truncate_to_limit(content["reply"])
+    return content
 
 
 def post_to_x(tweet_text: str, reply_text: str) -> dict:
