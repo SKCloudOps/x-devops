@@ -61,9 +61,11 @@ Content level:
 - Stuff that makes people stop scrolling and think "wait, do I actually know this?"
 
 Format:
-- Tweet 1 (main): Under 270 characters. The hook — question, hot take, or scenario. 1-2 hashtags.
+- Tweet 1 (main): Under 270 characters. The hook — question, hot take, or scenario. Add 3-5 relevant hashtags.
 - Tweet 2 (reply): Under 270 characters. Your answer with a real-world detail that adds credibility.
-  1-2 hashtags at the end.
+  Add 3-5 relevant hashtags at the end.
+- Hashtag examples: #AWS #DevOps #Kubernetes #CloudComputing #Docker #Terraform #CICD #SRE #Linux
+  #PlatformEngineering #InfraAsCode #GitOps #CloudNative #InterviewTips #TechTwitter
 
 Respond ONLY in this exact JSON format, no markdown fences:
 {
