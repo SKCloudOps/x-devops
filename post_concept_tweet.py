@@ -1,6 +1,6 @@
 """
 Daily DevOps/Cloud Concept Explainer Bot
-Generates a 4-tweet thread explaining a concept like you would in an interview.
+Generates and posts a single tweet explaining a concept like you would in an interview.
 Uses Claude API and X API v2.
 """
 
@@ -40,35 +40,25 @@ CONCEPTS = [
     "logging_and_tracing",
 ]
 
-SYSTEM_PROMPT = """You are a DevOps engineer explaining concepts on X (Twitter) in a thread. 
-Imagine someone in an interview asked you "explain X" — that's the vibe. Clear, confident, 
-practical. You're helping engineers actually understand things, not just memorize definitions.
+SYSTEM_PROMPT = """You are a DevOps engineer explaining concepts on X (Twitter) in a single tweet.
+Imagine someone in an interview asked you "explain X" — give the most clear, memorable one-liner 
+explanation with a practical detail. Pack maximum value into one tweet.
 
-Write a 4-tweet thread:
-- Tweet 1 (hook): Grab attention. Use a bold statement, analogy, or "most people can't explain this 
-  clearly" angle. State what you're explaining. Add 3-5 relevant hashtags.
-- Tweet 2 (what it is): Plain English explanation. No textbook definitions. Explain it like you're 
-  talking to a colleague over coffee. Use an analogy if it helps.
-- Tweet 3 (real world): How it actually works in production. A real scenario, common gotcha, or 
-  "here's what actually matters." This is what separates you in an interview.
-- Tweet 4 (pro tip): One actionable takeaway, a lesser-known fact, or interview tip. End with 
-  3-5 relevant hashtags.
-- Hashtag examples: #DevOps #AWS #Kubernetes #Docker #Terraform #CloudComputing #CICD #SRE
-  #Linux #PlatformEngineering #InfraAsCode #GitOps #CloudNative #InterviewTips #TechTwitter
-
-Voice rules:
+Rules:
+- Write ONE tweet that explains a concept clearly. Use a plain English analogy or a real-world 
+  comparison to make it stick.
+- Include a practical detail, gotcha, or interview tip — not just a definition.
 - Sound like a real person. Use contractions, casual language, short sentences.
 - NO words like "crucial", "essential", "leverage", "comprehensive", "robust", "utilizing"
-- NO "Let's dive in", "Let me explain", "Here's a thread" — just start talking
-- Have opinions. Be direct. Fragment sentences are fine.
-- Each tweet MUST be under 270 characters. This is NON-NEGOTIABLE.
+- NO "Let's dive in", "Let me explain" — just explain it directly.
+- Add 3-5 relevant hashtags at the end.
+- Hashtag examples: #DevOps #AWS #Kubernetes #Docker #Terraform #CloudComputing #CICD #SRE
+  #Linux #PlatformEngineering #InfraAsCode #GitOps #CloudNative #InterviewTips #TechTwitter
+- Tweet MUST be under 270 characters. This is NON-NEGOTIABLE.
 
 Respond ONLY in this exact JSON format, no markdown fences:
 {
-  "tweet_1": "hook tweet",
-  "tweet_2": "explanation tweet",
-  "tweet_3": "real world tweet",
-  "tweet_4": "pro tip tweet",
+  "tweet": "the tweet text",
   "concept": "concept name"
 }"""
 
@@ -105,7 +95,7 @@ def _call_claude_with_retry(client, system_prompt: str, messages: list,
         try:
             return client.messages.create(
                 model="claude-haiku-4-5-20251001",
-                max_tokens=800,
+                max_tokens=500,
                 system=system_prompt,
                 messages=messages,
             )
@@ -123,10 +113,9 @@ def _call_claude_with_retry(client, system_prompt: str, messages: list,
 
 
 def generate_content(concept: str) -> dict:
-    """Use Claude API to generate a 4-tweet concept thread."""
+    """Use Claude API to generate a single concept tweet."""
     client = anthropic.Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
 
-    # Add variety with a sub-topic seed
     seed_keyword = random.choice([
         "EKS", "Lambda", "Terraform", "GitHub Actions", "Helm", "VPC",
         "IAM", "S3", "Aurora", "DynamoDB", "Prometheus", "Grafana",
@@ -140,11 +129,10 @@ def generate_content(concept: str) -> dict:
 Sub-topic inspiration (use as a starting point): {seed_keyword}
 Date: {datetime.now(timezone.utc).strftime('%A, %B %d, %Y')}
 
-Pick ONE specific concept from the area above and explain it in a 4-tweet thread.
-STRICT LIMIT: every tweet must be under 270 characters. Count carefully."""
+Pick ONE specific concept and explain it in a single tweet.
+STRICT LIMIT: must be under 270 characters. Count carefully."""
 
     messages = [{"role": "user", "content": user_prompt}]
-    tweet_keys = ["tweet_1", "tweet_2", "tweet_3", "tweet_4"]
 
     for attempt in range(1, MAX_RETRIES + 1):
         message = _call_claude_with_retry(client, SYSTEM_PROMPT, messages)
@@ -153,34 +141,31 @@ STRICT LIMIT: every tweet must be under 270 characters. Count carefully."""
         response_text = response_text.replace("```json", "").replace("```", "").strip()
         content = json.loads(response_text)
 
-        # Check all tweets are within limit
-        lengths = {k: len(content[k]) for k in tweet_keys}
-        over_limit = {k: v for k, v in lengths.items() if v > MAX_TWEET_LENGTH}
+        tweet_len = len(content["tweet"])
 
-        if not over_limit:
+        if tweet_len <= MAX_TWEET_LENGTH:
             return content
 
-        print(f"Attempt {attempt}/{MAX_RETRIES}: over limit — {over_limit} — retrying...")
+        print(f"Attempt {attempt}/{MAX_RETRIES}: tweet={tweet_len} chars — retrying...")
 
         messages = [
             {"role": "user", "content": user_prompt},
             {"role": "assistant", "content": message.content[0].text},
             {"role": "user", "content": (
-                f"These tweets exceed the limit: {over_limit}. "
-                f"ALL tweets MUST be under {MAX_TWEET_LENGTH} characters. "
-                f"Shorten them and respond in the same JSON format."
+                f"The tweet is {tweet_len} chars. "
+                f"It MUST be under {MAX_TWEET_LENGTH} characters. "
+                f"Shorten it and respond in the same JSON format."
             )},
         ]
 
     # Final fallback: truncate
     print("Max retries exceeded — truncating content to fit limits.")
-    for key in tweet_keys:
-        content[key] = truncate_to_limit(content[key])
+    content["tweet"] = truncate_to_limit(content["tweet"])
     return content
 
 
-def post_thread(tweets: list[str]) -> dict:
-    """Post a thread of tweets using X API v2."""
+def post_to_x(tweet_text: str) -> dict:
+    """Post a single tweet using X API v2."""
     client = tweepy.Client(
         consumer_key=os.environ["X_API_KEY"],
         consumer_secret=os.environ["X_API_SECRET"],
@@ -188,24 +173,11 @@ def post_thread(tweets: list[str]) -> dict:
         access_token_secret=os.environ["X_ACCESS_TOKEN_SECRET"],
     )
 
-    tweet_ids = []
+    tweet = client.create_tweet(text=tweet_text)
+    tweet_id = tweet.data["id"]
+    print(f"Posted tweet: {tweet_id}")
 
-    # Post first tweet
-    first = client.create_tweet(text=tweets[0])
-    first_id = first.data["id"]
-    tweet_ids.append(first_id)
-    print(f"Posted tweet 1/4: {first_id}")
-
-    # Post remaining tweets as replies in the thread
-    previous_id = first_id
-    for i, tweet_text in enumerate(tweets[1:], start=2):
-        reply = client.create_tweet(text=tweet_text, in_reply_to_tweet_id=previous_id)
-        reply_id = reply.data["id"]
-        tweet_ids.append(reply_id)
-        previous_id = reply_id
-        print(f"Posted tweet {i}/4: {reply_id}")
-
-    return {"tweet_ids": tweet_ids}
+    return {"tweet_id": tweet_id}
 
 
 def log_posted_content(content: dict, tweet_ids: dict):
@@ -218,12 +190,9 @@ def log_posted_content(content: dict, tweet_ids: dict):
     entry = {
         "date": datetime.now(timezone.utc).isoformat(),
         "concept": content["concept"],
-        "tweet_1": content["tweet_1"],
-        "tweet_2": content["tweet_2"],
-        "tweet_3": content["tweet_3"],
-        "tweet_4": content["tweet_4"],
-        "tweet_ids": tweet_ids.get("tweet_ids", []),
-        "content_hash": hashlib.md5(content["tweet_1"].encode()).hexdigest(),
+        "tweet": content["tweet"],
+        "tweet_id": tweet_ids.get("tweet_id"),
+        "content_hash": hashlib.md5(content["tweet"].encode()).hexdigest(),
     }
     history.append(entry)
     log_file.write_text(json.dumps(history, indent=2))
@@ -234,26 +203,17 @@ def main():
     concept = get_todays_concept()
     print(f"Today's concept area: {concept}")
 
-    # Generate content
     content = generate_content(concept)
-    tweet_keys = ["tweet_1", "tweet_2", "tweet_3", "tweet_4"]
-    for key in tweet_keys:
-        print(f"{key} ({len(content[key])} chars): {content[key]}")
+    print(f"Generated tweet ({len(content['tweet'])} chars): {content['tweet']}")
 
-    # Validate lengths
-    for key in tweet_keys:
-        assert len(content[key]) <= MAX_TWEET_LENGTH, f"{key} too long: {len(content[key])}"
+    assert len(content["tweet"]) <= MAX_TWEET_LENGTH, f"Tweet too long: {len(content['tweet'])}"
 
-    tweets = [content[key] for key in tweet_keys]
-
-    # Post to X (skip if DRY_RUN is set)
     if os.environ.get("DRY_RUN", "false").lower() == "true":
         print("DRY RUN — skipping post to X")
-        tweet_ids = {"tweet_ids": ["dry_run"] * 4}
+        tweet_ids = {"tweet_id": "dry_run"}
     else:
-        tweet_ids = post_thread(tweets)
+        tweet_ids = post_to_x(content["tweet"])
 
-    # Log
     log_posted_content(content, tweet_ids)
     print("Done!")
 
