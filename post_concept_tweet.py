@@ -189,7 +189,7 @@ def log_posted_content(content: dict, tweet_ids: dict):
 
     entry = {
         "date": datetime.now(timezone.utc).isoformat(),
-        "concept": content["concept"],
+        "concept": content.get("concept", "unknown"),
         "tweet": content["tweet"],
         "tweet_id": tweet_ids.get("tweet_id"),
         "content_hash": hashlib.md5(content["tweet"].encode()).hexdigest(),
