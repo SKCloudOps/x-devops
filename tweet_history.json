@@ -25,5 +25,14 @@
     "main_tweet_id": "2042677673978151066",
     "reply_tweet_id": "2042677674879951299",
     "content_hash": "b379e52b9cb29c270f04fcdc524fe5a5"
+  },
+  {
+    "date": "2026-04-10T23:42:14.234424+00:00",
+    "category": "aws_interview_question",
+    "tweet": "Your CloudFormation stack fails with a rollback. You didn't enable termination protection. Now all your resources are gone. How do you prevent this from happening again?",
+    "reply": "Set DeletionPolicy to Retain on critical resources (databases, S3 buckets). Enable stack termination protection before prod deployments. Also: practice stack updates in staging first \u2014 rollbacks happen fast.",
+    "main_tweet_id": "2042750027853107543",
+    "reply_tweet_id": "2042750029254005126",
+    "content_hash": "9298ed45595cf1d7ac148ca559a89f70"
   }
 ]
