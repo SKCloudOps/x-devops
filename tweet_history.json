@@ -52,5 +52,14 @@
     "main_tweet_id": "2043036913632735716",
     "reply_tweet_id": "2043036914517766155",
     "content_hash": "65a422261d7b5d761ae721eb64205538"
+  },
+  {
+    "date": "2026-04-11T23:41:58.810053+00:00",
+    "category": "kubernetes_interview_question",
+    "tweet": "Your k8s cluster audit logs are sitting in CloudTrail but nobody's actually reading them. How do you know if someone just gave themselves admin access 3 days ago? #Kubernetes #AWS #SecurityAudit #DevOps #CloudTrail",
+    "reply": "Parse CloudTrail for k8s API calls, filter by user/service account, set up alerts on RBAC changes. Most teams skip this until after an incident. That's the mistake. #Kubernetes #AWS #SecurityAudit #DevOps #SRE",
+    "main_tweet_id": "2043112351885398434",
+    "reply_tweet_id": "2043112352623559034",
+    "content_hash": "facd3a9825acf8034bbf15e54aa68025"
   }
 ]
