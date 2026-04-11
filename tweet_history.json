@@ -34,5 +34,14 @@
     "main_tweet_id": "2042750027853107543",
     "reply_tweet_id": "2042750029254005126",
     "content_hash": "9298ed45595cf1d7ac148ca559a89f70"
+  },
+  {
+    "date": "2026-04-11T13:56:58.936495+00:00",
+    "category": "kubernetes_interview_question",
+    "tweet": "Your k8s cluster allows anyone to deploy a container with root. That's not a platform issue\u2014it's a policy issue. Ever heard of OPA? #Kubernetes #DevOps #Security #CloudNative #SRE",
+    "reply": "OPA (Open Policy Agent) lets you enforce rules before anything hits etcd. Block privileged pods, enforce resource limits, audit image registries. It's admission control that actually scales. #Kubernetes #Policy #InfraAsCode",
+    "main_tweet_id": "2042965132058521926",
+    "reply_tweet_id": "2042965132930879796",
+    "content_hash": "1309f5fa66581073223a77908749959e"
   }
 ]
