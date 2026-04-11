@@ -13,5 +13,12 @@
       "2042655850125480248"
     ],
     "content_hash": "a2ba9a28ad46b7f12fa6045242221834"
+  },
+  {
+    "date": "2026-04-11T15:52:58.474600+00:00",
+    "concept": "BERT (Bidirectional Encoder Representations from Transformers)",
+    "tweet": "BERT reads your whole sentence before answering, not word-by-word like old models. It's like reading a book chapter vs skimming one word at a time. That's why it crushes context-heavy tasks. Bidirectional = both directions matter. #AI #NLP #MachineLearning #LLM",
+    "tweet_id": "2042994323491356976",
+    "content_hash": "a4c26c734f45dd648c2ce4bf53ec2813"
   }
 ]
