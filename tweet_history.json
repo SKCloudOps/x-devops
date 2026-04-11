@@ -43,5 +43,14 @@
     "main_tweet_id": "2042965132058521926",
     "reply_tweet_id": "2042965132930879796",
     "content_hash": "1309f5fa66581073223a77908749959e"
+  },
+  {
+    "date": "2026-04-11T18:42:12.992343+00:00",
+    "category": "kubernetes_interview_question",
+    "tweet": "Your k8s cluster runs without admission control? You're basically leaving the front door unlocked. What stops someone from deploying a container as root or mounting the host filesystem?",
+    "reply": "OPA/Gatekeeper lets you enforce policy before anything hits etcd. Deny privileged pods, require resource limits, block certain registries. It's the guardrail between 'it works' and 'it works safely'.",
+    "main_tweet_id": "2043036913632735716",
+    "reply_tweet_id": "2043036914517766155",
+    "content_hash": "65a422261d7b5d761ae721eb64205538"
   }
 ]
