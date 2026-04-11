@@ -5,5 +5,12 @@
     "tweet": "Route53 is AWS's DNS service\u2014think of it like a phone book that directs traffic to your servers. Pro tip: use weighted routing to do A/B testing or gradual deployments without touching code. #AWS #Route53 #DevOps #Networking #CloudComputing",
     "tweet_id": "2042710411443937573",
     "content_hash": "a506bd3b6c5825c9d8e2b134e02fc509"
+  },
+  {
+    "date": "2026-04-11T21:01:06.951574+00:00",
+    "concept": "Kubernetes DNS (kube-dns) and Service Discovery",
+    "tweet": "kube-dns is your Route53. Every pod queries it to find services by name. Pro tip: if your app can't reach another service, check DNS first\u201499% of the time it's a namespace issue or a typo in the service name. #Kubernetes #DevOps #DNS #K8s #InterviewTips",
+    "tweet_id": "2043071869729828983",
+    "content_hash": "eecd09b71da99a416cb199bce9e66e3e"
   }
 ]
