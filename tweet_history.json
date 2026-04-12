@@ -70,5 +70,14 @@
     "main_tweet_id": "2043328313943293986",
     "reply_tweet_id": "2043328314807394669",
     "content_hash": "516e5e97554e58a349a936d7197ded94"
+  },
+  {
+    "date": "2026-04-12T23:42:39.852938+00:00",
+    "category": "cicd_interview_question",
+    "tweet": "Your CI/CD pipeline deploys every commit straight to prod. GuardDuty flags suspicious API calls from your deployment role. Do you even know what happened? #DevOps #CICD #AWS #SecurityFirst #CloudNative",
+    "reply": "This is why you need audit logging on IAM. GuardDuty catches the behavior, but CloudTrail tells you WHO triggered it and WHEN. Your pipeline's service account shouldn't have permissions it doesn't use. #AWS #SRE #InfraAsCode",
+    "main_tweet_id": "2043474911709278310",
+    "reply_tweet_id": "2043474912564871250",
+    "content_hash": "cf82134f2668de7562ebc84b38908839"
   }
 ]
