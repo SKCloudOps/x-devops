@@ -12,5 +12,12 @@
     "tweet": "kube-dns is your Route53. Every pod queries it to find services by name. Pro tip: if your app can't reach another service, check DNS first\u201499% of the time it's a namespace issue or a typo in the service name. #Kubernetes #DevOps #DNS #K8s #InterviewTips",
     "tweet_id": "2043071869729828983",
     "content_hash": "eecd09b71da99a416cb199bce9e66e3e"
+  },
+  {
+    "date": "2026-04-12T21:03:20.753807+00:00",
+    "concept": "Database Migration Testing in CICD Pipelines",
+    "tweet": "RDS backups in your CICD pipeline? Auto snapshots are nice, but they won't restore fast enough if your deploy breaks the schema. Always test migrations against a production-like DB clone first. #DevOps #CICD #AWS #RDS #InterviewTips",
+    "tweet_id": "2043434818818502688",
+    "content_hash": "a97b9f7e74527074e49228dd49afd4ec"
   }
 ]
