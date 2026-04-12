@@ -61,5 +61,14 @@
     "main_tweet_id": "2043112351885398434",
     "reply_tweet_id": "2043112352623559034",
     "content_hash": "facd3a9825acf8034bbf15e54aa68025"
+  },
+  {
+    "date": "2026-04-12T14:00:08.240133+00:00",
+    "category": "cicd_interview_question",
+    "tweet": "Your ECS task keeps crashing on deploy but the CloudWatch logs show nothing. Where do you even look first? #AWS #ECS #DevOps #Troubleshooting #CloudComputing",
+    "reply": "Check the ECS task definition's container logs, but also dig into the agent logs on the EC2 instance itself. Task definition pull failures, IAM role issues, or resource constraints won't always surface in container output. Been there. #AWS #ECS #CICD",
+    "main_tweet_id": "2043328313943293986",
+    "reply_tweet_id": "2043328314807394669",
+    "content_hash": "516e5e97554e58a349a936d7197ded94"
   }
 ]
