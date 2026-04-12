@@ -20,5 +20,12 @@
     "tweet": "BERT reads your whole sentence before answering, not word-by-word like old models. It's like reading a book chapter vs skimming one word at a time. That's why it crushes context-heavy tasks. Bidirectional = both directions matter. #AI #NLP #MachineLearning #LLM",
     "tweet_id": "2042994323491356976",
     "content_hash": "a4c26c734f45dd648c2ce4bf53ec2813"
+  },
+  {
+    "date": "2026-04-12T15:56:27.930618+00:00",
+    "concept": "Retrieval-Augmented Generation (RAG)",
+    "tweet": "RAG pulls real data before answering. Instead of your LLM just hallucinating, it grabs relevant docs first\u2014like checking notes before a test. Fixes bias & outdated info, but only if your source data isn't garbage. #AI #LLM #RAG #MLOps",
+    "tweet_id": "2043357589841346908",
+    "content_hash": "6f2fee4626a7b1286700352923d4aed6"
   }
 ]
