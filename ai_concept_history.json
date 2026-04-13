@@ -27,5 +27,12 @@
     "tweet": "RAG pulls real data before answering. Instead of your LLM just hallucinating, it grabs relevant docs first\u2014like checking notes before a test. Fixes bias & outdated info, but only if your source data isn't garbage. #AI #LLM #RAG #MLOps",
     "tweet_id": "2043357589841346908",
     "content_hash": "6f2fee4626a7b1286700352923d4aed6"
+  },
+  {
+    "date": "2026-04-13T16:41:15.628802+00:00",
+    "concept": "Fine-tuning",
+    "tweet": "Fine-tuning is like adjusting a camera lens. Your pre-trained model is already focused\u2014fine-tuning just tweaks it for YOUR specific subject. Takes way less data than training from scratch. That's why it's cheaper and faster. #AI #MachineLearning #LLM",
+    "tweet_id": "2043731250716840003",
+    "content_hash": "75abcd42dd16a6830b5e7683dd0fe7c7"
   }
 ]
