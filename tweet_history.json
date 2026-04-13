@@ -88,5 +88,14 @@
     "main_tweet_id": "2043703556352405954",
     "reply_tweet_id": "2043703557128401038",
     "content_hash": "177838eceed903c7e25d483c155644ed"
+  },
+  {
+    "date": "2026-04-13T19:13:01.413541+00:00",
+    "category": "platform_engineering_interview_question",
+    "tweet": "If you're managing cloud resources across AWS, GCP, and Azure separately, you're doing it wrong. Crossplane lets you define everything in Kubernetes. Ever actually used it in prod?",
+    "reply": "Real talk: the learning curve is steep. You're thinking in CRDs and composition functions instead of CloudFormation templates. But once it clicks? Multi-cloud deployments become boring. That's the goal.",
+    "main_tweet_id": "2043769442279039273",
+    "reply_tweet_id": "2043769443117895907",
+    "content_hash": "c3918b3d5943dba5193f0b6fd05124e1"
   }
 ]
