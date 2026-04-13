@@ -97,5 +97,14 @@
     "main_tweet_id": "2043769442279039273",
     "reply_tweet_id": "2043769443117895907",
     "content_hash": "c3918b3d5943dba5193f0b6fd05124e1"
+  },
+  {
+    "date": "2026-04-13T23:52:41.831044+00:00",
+    "category": "platform_engineering_interview_question",
+    "tweet": "Your Tekton pipeline runs fine locally. Ships to prod. Suddenly tasks are timing out in CI. What's the first thing you check before blaming the cluster? #DevOps #CICD #Kubernetes #PlatformEngineering #CloudNative",
+    "reply": "Resource requests vs limits. Local = unlimited CPU/memory. Prod = constrained pods getting throttled or OOMkilled. Tekton tasks inherit the namespace defaults. Most people miss this until 2am. #DevOps #Kubernetes #SRE #TechTwitter",
+    "main_tweet_id": "2043839824596238787",
+    "reply_tweet_id": "2043839825368023420",
+    "content_hash": "ec6b426daec30b5999477e6fb50d136f"
   }
 ]
