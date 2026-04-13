@@ -19,5 +19,12 @@
     "tweet": "RDS backups in your CICD pipeline? Auto snapshots are nice, but they won't restore fast enough if your deploy breaks the schema. Always test migrations against a production-like DB clone first. #DevOps #CICD #AWS #RDS #InterviewTips",
     "tweet_id": "2043434818818502688",
     "content_hash": "a97b9f7e74527074e49228dd49afd4ec"
+  },
+  {
+    "date": "2026-04-13T21:25:08.517410+00:00",
+    "concept": "Terraform Modules",
+    "tweet": "Terraform modules = reusable code templates for infra. Instead of copy-pasting 50 lines of config, you call a module once. Pro tip: pin versions in production or you'll inherit someone else's breaking changes. #Terraform #IaC #DevOps #InfraAsCode",
+    "tweet_id": "2043802691730645063",
+    "content_hash": "00a7189744e76c3b6702d12eb208bbcc"
   }
 ]
