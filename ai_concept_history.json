@@ -34,5 +34,12 @@
     "tweet": "Fine-tuning is like adjusting a camera lens. Your pre-trained model is already focused\u2014fine-tuning just tweaks it for YOUR specific subject. Takes way less data than training from scratch. That's why it's cheaper and faster. #AI #MachineLearning #LLM",
     "tweet_id": "2043731250716840003",
     "content_hash": "75abcd42dd16a6830b5e7683dd0fe7c7"
+  },
+  {
+    "date": "2026-04-14T16:38:46.564236+00:00",
+    "concept": "embeddings",
+    "tweet": "Embeddings are just coordinates in space. Convert \"dog\" to [0.2, 0.8, -0.1] and suddenly you can measure similarity, find neighbors, or feed it to your model. Think: GPS for words.",
+    "tweet_id": "2044093013249442209",
+    "content_hash": "3f22aef80c5baa2734dbbf55a1adcb06"
   }
 ]
