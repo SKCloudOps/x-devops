@@ -26,5 +26,12 @@
     "tweet": "Terraform modules = reusable code templates for infra. Instead of copy-pasting 50 lines of config, you call a module once. Pro tip: pin versions in production or you'll inherit someone else's breaking changes. #Terraform #IaC #DevOps #InfraAsCode",
     "tweet_id": "2043802691730645063",
     "content_hash": "00a7189744e76c3b6702d12eb208bbcc"
+  },
+  {
+    "date": "2026-04-14T21:27:04.047742+00:00",
+    "concept": "Jenkins containerization and persistent storage",
+    "tweet": "Jenkins in containers = your CI/CD pipeline lives in a box. Problem: stateful jobs lose data on restart. Pro tip: mount volumes for workspace & config, or you're rebuilding every pipeline run. #DevOps #Jenkins #Docker #CICD #InterviewTips",
+    "tweet_id": "2044165564281594255",
+    "content_hash": "f3914257745dcfaed6de8993d8ad5f46"
   }
 ]
