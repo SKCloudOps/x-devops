@@ -106,5 +106,14 @@
     "main_tweet_id": "2043839824596238787",
     "reply_tweet_id": "2043839825368023420",
     "content_hash": "ec6b426daec30b5999477e6fb50d136f"
+  },
+  {
+    "date": "2026-04-14T14:51:25.113136+00:00",
+    "category": "terraform_iac_interview_question",
+    "tweet": "Your service mesh is adding 50ms latency to every request. Do you rip it out or tune it? Most teams pick wrong because they don't understand what they're actually optimizing for. #Kubernetes #ServiceMesh #DevOps #CloudNative #Terraform",
+    "reply": "The answer: define your SLO first. If you need sub-10ms p99, mesh overhead matters. But if you're chasing observability + security, that latency tax might be worth it. Real talk \u2014 measure before you decide. #SRE #Istio #AWS #InfraAsCode",
+    "main_tweet_id": "2044065994981675277",
+    "reply_tweet_id": "2044065995950596125",
+    "content_hash": "7cd0eee72587d8562ea7b12a6c23b3d8"
   }
 ]
