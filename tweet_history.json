@@ -115,5 +115,14 @@
     "main_tweet_id": "2044065994981675277",
     "reply_tweet_id": "2044065995950596125",
     "content_hash": "7cd0eee72587d8562ea7b12a6c23b3d8"
+  },
+  {
+    "date": "2026-04-14T19:13:46.762717+00:00",
+    "category": "terraform_iac_interview_question",
+    "tweet": "Your terraform runs fine locally. Ships to prod. AWS SecurityHub starts screaming about unencrypted volumes you never set. What happened? #Terraform #AWS #DevOps #IaC #SecurityHub",
+    "reply": "Default values. Your provider or module silently set encryption=false. Always explicitly set sensitive attrs even if they match defaults \u2014 future you (and auditors) will thank you. #Terraform #AWS #InfraAsCode",
+    "main_tweet_id": "2044132020398219603",
+    "reply_tweet_id": "2044132021258080405",
+    "content_hash": "d6a687b65f35879fdc1f8ff9d3ce6b7c"
   }
 ]
