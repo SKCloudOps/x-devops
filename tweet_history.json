@@ -124,5 +124,14 @@
     "main_tweet_id": "2044132020398219603",
     "reply_tweet_id": "2044132021258080405",
     "content_hash": "d6a687b65f35879fdc1f8ff9d3ce6b7c"
+  },
+  {
+    "date": "2026-04-14T23:51:22.499173+00:00",
+    "category": "terraform_iac_interview_question",
+    "tweet": "Your team uses Terraform to provision infrastructure but GitOps for deployments. Now you need to sync state between them. Flux watchers don't magically know about your .tfstate changes. How do you keep them honest? #Terraform #GitOps #Kubernetes #DevOps #InfraAsCode",
+    "reply": "Most miss this: You need a separate reconciliation loop. Terraform outputs \u2192 Git commit \u2192 Flux picks it up. Or use Terraform Cloud/Enterprise webhooks to trigger Flux refreshes. The state file alone isn't enough. #Terraform #Flux #CICD #PlatformEngineering #SRE",
+    "main_tweet_id": "2044201879651991891",
+    "reply_tweet_id": "2044201880448897453",
+    "content_hash": "242469c69de12c3a4fd346681ad2535f"
   }
 ]
