@@ -151,5 +151,12 @@
     "main_tweet_id": "2044494942286893430",
     "reply_tweet_id": "2044494943058587985",
     "content_hash": "864e84ef6bd57cb28a4c6b8a8b490e48"
+  },
+  {
+    "date": "2026-04-15T22:39:06.526079+00:00",
+    "category": "devops_trending_topic",
+    "tweet": "Quick question: what happens when you run a container without specifying a base image? Most people get this wrong \ud83d\udc33 #DevOps #Docker #Containerization #InterviewQuestion #CloudEngineering",
+    "tweet_id": "2044546081875497145",
+    "content_hash": "b8d7739b27924f9292592f17094a9e6e"
   }
 ]
