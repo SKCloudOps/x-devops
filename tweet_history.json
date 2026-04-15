@@ -142,5 +142,14 @@
     "main_tweet_id": "2044427187978186918",
     "reply_tweet_id": "2044427188926026138",
     "content_hash": "cc877965e97c723ebfb7c09daeb072cd"
+  },
+  {
+    "date": "2026-04-15T19:15:54.081226+00:00",
+    "category": "devops_trending_topic",
+    "tweet": "Interviewer: \"What's the difference between CloudFormation and Terraform?\" Me internally: oh god they're actually asking this",
+    "reply": "CF is AWS-only, uses JSON/YAML templates. Terraform is multi-cloud, HCL syntax, way more flexible. Real talk: learn both because you'll definitely use them \ud83e\udd37",
+    "main_tweet_id": "2044494942286893430",
+    "reply_tweet_id": "2044494943058587985",
+    "content_hash": "864e84ef6bd57cb28a4c6b8a8b490e48"
   }
 ]
