@@ -133,5 +133,14 @@
     "main_tweet_id": "2044201879651991891",
     "reply_tweet_id": "2044201880448897453",
     "content_hash": "242469c69de12c3a4fd346681ad2535f"
+  },
+  {
+    "date": "2026-04-15T14:46:40.261541+00:00",
+    "category": "DevOps_Trending_Topic",
+    "tweet": "Interviewer: \"What's the difference between EventBridge and SQS? When would you use one over the other?\" Most people mix these up \u2014 and it costs them the offer. #AWS #DevOps #CloudComputing #InterviewTips #AWSArchitecture",
+    "reply": "EventBridge = event routing/filtering to multiple targets. SQS = message queue for decoupling. Use EventBridge for event-driven workflows (many targets). Use SQS when you need guaranteed delivery & worker pools. Common miss: thinking they're interchangeable. #AWS #CloudNative",
+    "main_tweet_id": "2044427187978186918",
+    "reply_tweet_id": "2044427188926026138",
+    "content_hash": "cc877965e97c723ebfb7c09daeb072cd"
   }
 ]
