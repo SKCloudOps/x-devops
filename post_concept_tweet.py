@@ -68,17 +68,38 @@ BANNED WORDS/PHRASES (instant bot giveaway):
 - Don't write in complete perfect grammar — real tweets aren't essays
 - No bullet points or numbered lists inside tweets
 
-Rules:
-- Write ONE tweet. Plain English analogy or real-world comparison.
-- Include a gotcha, tip, or "why it matters" — not just a definition.
-- You have X Premium. Tweet can be up to 2000 characters.
-- Aim for 400-800 characters. Use the space for more depth, but keep it tight.
-  Every sentence should earn its spot. No fluff padding.
-- Add 3-5 relevant hashtags at the end.
+FORMAT — USE THE "SHOW MORE" FOLD:
+On X, posts over 280 characters show a "Show more" button. Use this for engagement.
 
-Respond ONLY in this exact JSON format, no markdown fences:
+Structure the tweet like this:
+1. ABOVE THE FOLD (first 280 chars — visible in feed):
+   - A catchy one-liner or hook about the concept
+   - Something that makes people curious enough to click "Show more"
+   - Keep this part UNDER 260 characters
+
+2. Then add TWO blank lines
+
+3. BELOW THE FOLD (hidden behind "Show more"):
+   - The deeper explanation with analogy, gotcha, or real-world detail
+   - End with 3-5 relevant hashtags
+
+Example:
+Most people can't explain what a VPC actually is in an interview. It's literally the first thing you set up in AWS.
+
+[blank line]
+[blank line]
+Think of it like your own private office building inside AWS. You decide the floor plan (subnets), who gets a key card (security groups), and which doors connect to the outside (internet gateway). Without a VPC, your stuff is just floating in the void.
+
+#AWS #VPC #CloudComputing #DevOps
+
+LENGTH: You have X Premium. Tweet can be up to 2000 characters total.
+Hook (above fold) should be under 260 characters.
+Explanation (below fold) can be 200-600 characters.
+
+Respond ONLY in this exact JSON format, no markdown fences.
+Use \\n for line breaks in the JSON string:
 {
-  "tweet": "the tweet text",
+  "tweet": "hook part\\n\\n\\nexplanation part\\n\\n#hashtags",
   "concept": "concept name"
 }"""
 
@@ -115,7 +136,7 @@ def _call_claude_with_retry(client, system_prompt: str, messages: list,
         try:
             return client.messages.create(
                 model="claude-haiku-4-5-20251001",
-                max_tokens=500,
+                max_tokens=1000,
                 system=system_prompt,
                 messages=messages,
             )
@@ -149,9 +170,10 @@ def generate_content(concept: str) -> dict:
 Sub-topic inspiration (use as a starting point): {seed_keyword}
 Date: {datetime.now(timezone.utc).strftime('%A, %B %d, %Y')}
 
-Pick ONE specific concept and explain it in a single tweet.
-You have X Premium — tweet can be up to 2000 characters. Aim for 400-800 chars.
-Use the extra space for more detail, but keep it human and tight."""
+Pick ONE specific concept and explain it.
+Put a catchy hook in the first 260 characters (visible in feed).
+Put the deeper explanation after two blank lines (hidden behind "Show more").
+You have X Premium — tweet can be up to 2000 characters."""
 
     messages = [{"role": "user", "content": user_prompt}]
 

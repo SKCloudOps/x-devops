@@ -211,8 +211,62 @@ Use the space for a solid Q&A with real detail."""
     return content
 
 
-def post_to_x(tweet_text: str) -> dict:
-    """Post a single tweet using X API v2 via tweepy."""
+def generate_poll_content(category: str) -> dict:
+    """Use Claude API to generate a poll-style interview question."""
+    client = anthropic.Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
+
+    seed_word = random.choice([
+        "EKS", "Lambda", "Terraform", "ArgoCD", "GitHub Actions", "Helm",
+        "VPC", "IAM", "CloudFront", "DynamoDB", "Prometheus", "Docker",
+        "Kubernetes", "Route53", "S3", "EC2", "Fargate", "ECS",
+        "CloudFormation", "Ansible", "Jenkins", "Vault", "Grafana",
+    ])
+
+    user_prompt = f"""Category: {category}
+Seed keyword (inspiration, don't force it): {seed_word}
+Date: {datetime.now(timezone.utc).strftime('%A, %B %d, %Y')}
+
+Create a multiple-choice poll question for a DevOps/Cloud interview.
+Question text MUST be under 260 characters. Each option MUST be under 25 characters.
+Make it a commonly asked question that most engineers would recognize."""
+
+    messages = [{"role": "user", "content": user_prompt}]
+
+    for attempt in range(1, MAX_RETRIES + 1):
+        message = _call_claude_with_retry(client, POLL_PROMPT, messages)
+
+        response_text = message.content[0].text.strip()
+        response_text = response_text.replace("```json", "").replace("```", "").strip()
+        content = json.loads(response_text)
+
+        tweet_len = len(content["tweet"])
+        options = content.get("options", [])
+        options_valid = (len(options) == 4 and
+                        all(len(opt) <= 25 for opt in options))
+
+        if tweet_len <= MAX_TWEET_LENGTH and options_valid:
+            return content
+
+        print(f"Poll attempt {attempt}/{MAX_RETRIES}: tweet={tweet_len} chars, "
+              f"options_valid={options_valid} -- retrying...")
+
+        messages = [
+            {"role": "user", "content": user_prompt},
+            {"role": "assistant", "content": message.content[0].text},
+            {"role": "user", "content": (
+                f"Issues: tweet is {tweet_len} chars (must be under {MAX_TWEET_LENGTH}). "
+                f"Each poll option must be under 25 characters. "
+                f"Fix and respond in the same JSON format."
+            )},
+        ]
+
+    # Truncate tweet if needed, return as-is for options
+    content["tweet"] = truncate_to_limit(content["tweet"])
+    return content
+
+
+def post_to_x(tweet_text: str, poll_options: list = None) -> dict:
+    """Post a tweet (optionally with a poll) using X API v2 via tweepy."""
     client = tweepy.Client(
         consumer_key=os.environ["X_API_KEY"],
         consumer_secret=os.environ["X_API_SECRET"],
@@ -220,9 +274,15 @@ def post_to_x(tweet_text: str) -> dict:
         access_token_secret=os.environ["X_ACCESS_TOKEN_SECRET"],
     )
 
-    tweet = client.create_tweet(text=tweet_text)
+    kwargs = {"text": tweet_text}
+    if poll_options:
+        kwargs["poll_options"] = poll_options
+        kwargs["poll_duration_minutes"] = 1440  # 24 hours
+
+    tweet = client.create_tweet(**kwargs)
     tweet_id = tweet.data["id"]
-    print(f"Posted tweet: {tweet_id}")
+    post_type = "poll" if poll_options else "tweet"
+    print(f"Posted {post_type}: {tweet_id}")
 
     return {"tweet_id": tweet_id}
 
