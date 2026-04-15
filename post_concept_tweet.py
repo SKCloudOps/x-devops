@@ -71,7 +71,9 @@ BANNED WORDS/PHRASES (instant bot giveaway):
 Rules:
 - Write ONE tweet. Plain English analogy or real-world comparison.
 - Include a gotcha, tip, or "why it matters" — not just a definition.
-- Tweet MUST be under 270 characters. NON-NEGOTIABLE.
+- You have X Premium. Tweet can be up to 2000 characters.
+- Aim for 400-800 characters. Use the space for more depth, but keep it tight.
+  Every sentence should earn its spot. No fluff padding.
 - Add 3-5 relevant hashtags at the end.
 
 Respond ONLY in this exact JSON format, no markdown fences:
@@ -81,7 +83,7 @@ Respond ONLY in this exact JSON format, no markdown fences:
 }"""
 
 
-MAX_TWEET_LENGTH = 280
+MAX_TWEET_LENGTH = 2000  # X Premium allows up to 4000, keeping 2000 for readability
 MAX_RETRIES = 3
 
 
@@ -148,7 +150,8 @@ Sub-topic inspiration (use as a starting point): {seed_keyword}
 Date: {datetime.now(timezone.utc).strftime('%A, %B %d, %Y')}
 
 Pick ONE specific concept and explain it in a single tweet.
-STRICT LIMIT: must be under 270 characters. Count carefully."""
+You have X Premium — tweet can be up to 2000 characters. Aim for 400-800 chars.
+Use the extra space for more detail, but keep it human and tight."""
 
     messages = [{"role": "user", "content": user_prompt}]
 

@@ -75,7 +75,9 @@ CONCEPT STYLE — COMMONLY KNOWN, NOT ADVANCED:
 Rules:
 - Write ONE tweet. Plain English. Relatable analogy.
 - Include why it matters, not just what it is.
-- Tweet MUST be under 270 characters. NON-NEGOTIABLE.
+- You have X Premium. Tweet can be up to 2000 characters.
+- Aim for 400-800 characters. Use the space for more depth, but keep it tight.
+  Every sentence should earn its spot. No fluff padding.
 - Add 3-5 relevant hashtags at the end.
 
 Respond ONLY in this exact JSON format, no markdown fences:
@@ -85,7 +87,7 @@ Respond ONLY in this exact JSON format, no markdown fences:
 }"""
 
 
-MAX_TWEET_LENGTH = 280
+MAX_TWEET_LENGTH = 2000  # X Premium allows up to 4000, keeping 2000 for readability
 MAX_RETRIES = 3
 
 
@@ -156,7 +158,8 @@ Date: {datetime.now(timezone.utc).strftime('%A, %B %d, %Y')}
 
 Pick ONE commonly known AI concept or buzzword and explain it simply.
 This should be something a non-ML developer would Google or hear in meetings.
-STRICT LIMIT: must be under 270 characters. Count carefully."""
+You have X Premium — tweet can be up to 2000 characters. Aim for 400-800 chars.
+Use the extra space for more detail, but keep it human and tight."""
 
     messages = [{"role": "user", "content": user_prompt}]
 

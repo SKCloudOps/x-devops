@@ -1,6 +1,6 @@
 """
 Daily DevOps/Cloud/Platform Engineering Tweet Bot
-Generates and posts a tweet + threaded reply using Claude API and X API v2.
+Generates and posts a single tweet (interview Q&A) using Claude API and X API v2.
 """
 
 import os
@@ -56,22 +56,44 @@ BANNED WORDS/PHRASES (instant bot giveaway):
 - Don't write in complete perfect grammar — real tweets aren't essays
 - No bullet points or numbered lists inside tweets
 
-FORMAT:
-- Tweet 1 (main) MUST start with "Interviewer:" followed by the question in quotes.
-  Then a short casual reaction. Then 3-5 hashtags.
-- Tweet 2 (reply): The answer, written like you're telling a friend. Include a real-world 
-  tip or gotcha. 3-5 hashtags at the end.
+FORMAT — THIS IS CRITICAL FOR ENGAGEMENT:
+On X, posts over 280 characters show a "Show more" button. We want the QUESTION visible 
+and the ANSWER hidden behind the fold so users have to click to see it.
+
+Structure the tweet EXACTLY like this:
+1. ABOVE THE FOLD (first 280 characters — this is what people see in their feed):
+   - "Interviewer:" followed by the question in quotes
+   - A short teaser reaction like "most people get this wrong" or "sounds easy right?"
+   - Keep this part UNDER 260 characters to be safe
+
+2. Then add TWO blank lines (line breaks) to create visual separation
+
+3. BELOW THE FOLD (hidden behind "Show more"):
+   - The answer, written casually like you're telling a friend
+   - Include a real-world tip, gotcha, or common mistake
+   - End with 3-5 relevant hashtags
+
+Example structure:
+Interviewer: "What's the diff between Docker and a VM?" — sounds basic but most people fumble this one
+
+[blank line]
+[blank line]
+Docker shares the host OS kernel so containers are lightweight and start in ms. VMs run a full OS copy = way more overhead. That's why you can run 50 containers where 5 VMs would choke.
+
+#Docker #DevOps #CloudComputing #InterviewTips
 
 QUESTION STYLE — FREQUENTLY ASKED, NOT OBSCURE:
 - Questions asked in 8 out of 10 interviews. The ones people Google the night before.
 - AVOID niche, obscure, or ultra-specific questions
 
-Both tweets MUST be under 270 characters each.
+LENGTH: You have X Premium. Tweet can be up to 2000 characters total.
+The question part (above fold) should be under 260 characters.
+The answer part (below fold) can be 200-600 characters.
 
-Respond ONLY in this exact JSON format, no markdown fences:
+Respond ONLY in this exact JSON format, no markdown fences.
+Use \\n for line breaks in the JSON string:
 {
-  "tweet": "the main tweet text",
-  "reply": "the threaded reply text",
+  "tweet": "question part\\n\\n\\nanswer part\\n\\n#hashtags",
   "category": "category label"
 }"""
 
@@ -82,7 +104,7 @@ def get_todays_category() -> str:
     return CATEGORIES[day_of_year % len(CATEGORIES)]
 
 
-MAX_TWEET_LENGTH = 280
+MAX_TWEET_LENGTH = 2000  # X Premium allows up to 4000, keeping 2000 for readability
 MAX_RETRIES = 3
 
 
@@ -109,7 +131,7 @@ def _call_claude_with_retry(client, system_prompt: str, messages: list,
         try:
             return client.messages.create(
                 model="claude-haiku-4-5-20251001",
-                max_tokens=500,
+                max_tokens=1000,
                 system=system_prompt,
                 messages=messages,
             )
@@ -128,7 +150,7 @@ def _call_claude_with_retry(client, system_prompt: str, messages: list,
 
 
 def generate_content(category: str) -> dict:
-    """Use Claude API to generate tweet + reply, with retries for length violations."""
+    """Use Claude API to generate a single tweet with Q&A, with retries for length violations."""
     client = anthropic.Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
 
     # Add some randomness to avoid repetitive patterns
@@ -148,8 +170,10 @@ Seed keyword (use this as inspiration, don't force it): {seed_word}
 Date: {datetime.now(timezone.utc).strftime('%A, %B %d, %Y')}
 
 Generate a FREQUENTLY ASKED interview question — the kind that shows up in most interviews 
-and engineers prep for the night before. Start with "Interviewer:" then the question in quotes.
-STRICT LIMIT: each tweet must be under 270 characters. Count carefully."""
+and engineers prep for the night before. Start with "Interviewer:" then the question in quotes,
+then include the answer in the SAME tweet.
+You have X Premium — tweet can be up to 2000 characters. Aim for 500-1000 chars.
+Use the space for a solid Q&A with real detail."""
 
     messages = [{"role": "user", "content": user_prompt}]
 
@@ -164,34 +188,31 @@ STRICT LIMIT: each tweet must be under 270 characters. Count carefully."""
         content = json.loads(response_text)
 
         tweet_len = len(content["tweet"])
-        reply_len = len(content["reply"])
 
-        if tweet_len <= MAX_TWEET_LENGTH and reply_len <= MAX_TWEET_LENGTH:
+        if tweet_len <= MAX_TWEET_LENGTH:
             return content
 
-        print(f"Attempt {attempt}/{MAX_RETRIES}: tweet={tweet_len}, reply={reply_len} chars — retrying...")
+        print(f"Attempt {attempt}/{MAX_RETRIES}: tweet={tweet_len} chars — retrying...")
 
         # Build retry conversation asking Claude to shorten
         messages = [
             {"role": "user", "content": user_prompt},
             {"role": "assistant", "content": message.content[0].text},
             {"role": "user", "content": (
-                f"The content exceeds the character limit. "
-                f"Tweet is {tweet_len} chars, reply is {reply_len} chars. "
-                f"Both MUST be under {MAX_TWEET_LENGTH} characters. "
-                f"Shorten them and respond in the same JSON format."
+                f"The tweet is {tweet_len} chars. "
+                f"It MUST be under {MAX_TWEET_LENGTH} characters. "
+                f"Shorten it and respond in the same JSON format."
             )},
         ]
 
     # Final fallback: truncate to fit
     print("Max retries exceeded — truncating content to fit limits.")
     content["tweet"] = truncate_to_limit(content["tweet"])
-    content["reply"] = truncate_to_limit(content["reply"])
     return content
 
 
-def post_to_x(tweet_text: str, reply_text: str) -> dict:
-    """Post tweet and threaded reply using X API v2 via tweepy."""
+def post_to_x(tweet_text: str) -> dict:
+    """Post a single tweet using X API v2 via tweepy."""
     client = tweepy.Client(
         consumer_key=os.environ["X_API_KEY"],
         consumer_secret=os.environ["X_API_SECRET"],
@@ -199,22 +220,11 @@ def post_to_x(tweet_text: str, reply_text: str) -> dict:
         access_token_secret=os.environ["X_ACCESS_TOKEN_SECRET"],
     )
 
-    # Post main tweet
-    main_tweet = client.create_tweet(text=tweet_text)
-    main_tweet_id = main_tweet.data["id"]
-    print(f"Posted main tweet: {main_tweet_id}")
+    tweet = client.create_tweet(text=tweet_text)
+    tweet_id = tweet.data["id"]
+    print(f"Posted tweet: {tweet_id}")
 
-    # Post reply in thread
-    reply_tweet = client.create_tweet(
-        text=reply_text, in_reply_to_tweet_id=main_tweet_id
-    )
-    reply_tweet_id = reply_tweet.data["id"]
-    print(f"Posted reply: {reply_tweet_id}")
-
-    return {
-        "main_tweet_id": main_tweet_id,
-        "reply_tweet_id": reply_tweet_id,
-    }
+    return {"tweet_id": tweet_id}
 
 
 def log_posted_content(content: dict, tweet_ids: dict):
@@ -228,9 +238,7 @@ def log_posted_content(content: dict, tweet_ids: dict):
         "date": datetime.now(timezone.utc).isoformat(),
         "category": content.get("category", "unknown"),
         "tweet": content["tweet"],
-        "reply": content["reply"],
-        "main_tweet_id": tweet_ids.get("main_tweet_id"),
-        "reply_tweet_id": tweet_ids.get("reply_tweet_id"),
+        "tweet_id": tweet_ids.get("tweet_id"),
         "content_hash": hashlib.md5(content["tweet"].encode()).hexdigest(),
     }
     history.append(entry)
@@ -245,18 +253,16 @@ def main():
     # Generate content
     content = generate_content(category)
     print(f"Generated tweet ({len(content['tweet'])} chars): {content['tweet']}")
-    print(f"Generated reply ({len(content['reply'])} chars): {content['reply']}")
 
-    # Validate lengths
-    assert len(content["tweet"]) <= 280, f"Tweet too long: {len(content['tweet'])}"
-    assert len(content["reply"]) <= 280, f"Reply too long: {len(content['reply'])}"
+    # Validate length
+    assert len(content["tweet"]) <= MAX_TWEET_LENGTH, f"Tweet too long: {len(content['tweet'])}"
 
     # Post to X (skip if DRY_RUN is set)
     if os.environ.get("DRY_RUN", "false").lower() == "true":
         print("DRY RUN — skipping post to X")
-        tweet_ids = {"main_tweet_id": "dry_run", "reply_tweet_id": "dry_run"}
+        tweet_ids = {"tweet_id": "dry_run"}
     else:
-        tweet_ids = post_to_x(content["tweet"], content["reply"])
+        tweet_ids = post_to_x(content["tweet"])
 
     # Log
     log_posted_content(content, tweet_ids)
