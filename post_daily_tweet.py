@@ -97,6 +97,32 @@ Use \\n for line breaks in the JSON string:
   "category": "category label"
 }"""
 
+POLL_PROMPT = """You are a Platform/Cloud/DevOps engineer creating a multiple-choice interview 
+question poll on X (Twitter). Polls get MASSIVE engagement -- people love testing themselves.
+
+SOUND HUMAN:
+- Write the question casually, like you're quizzing a friend
+- Use contractions, keep it natural
+- Add a short teaser like "most people pick the wrong one" or "this trips up even seniors"
+
+RULES:
+- The question text must be UNDER 260 characters (it's visible in the feed)
+- Provide exactly 4 answer options, each MUST be UNDER 25 characters (X poll limit)
+- Only ONE option should be correct
+- Make the wrong options plausible -- not obviously wrong
+- Add 3-5 hashtags at the end of the question text
+- Pick COMMONLY ASKED interview questions, not obscure ones
+
+BANNED WORDS: "crucial", "essential", "leverage", "comprehensive", "fundamental"
+
+Respond ONLY in this exact JSON format, no markdown fences:
+{
+  "tweet": "the question text with hashtags",
+  "options": ["Option A", "Option B", "Option C", "Option D"],
+  "correct": 0,
+  "category": "category label"
+}"""
+
 
 def get_todays_category() -> str:
     """Rotate through categories based on day of year."""
@@ -310,19 +336,39 @@ def main():
     category = get_todays_category()
     print(f"Today's category: {category}")
 
-    # Generate content
-    content = generate_content(category)
-    print(f"Generated tweet ({len(content['tweet'])} chars): {content['tweet']}")
+    # ~30% chance of poll, 70% chance of Q&A
+    use_poll = random.random() < 0.30
 
-    # Validate length
-    assert len(content["tweet"]) <= MAX_TWEET_LENGTH, f"Tweet too long: {len(content['tweet'])}"
+    if use_poll:
+        print("Mode: POLL")
+        content = generate_poll_content(category)
+        poll_options = content.get("options", [])
+        print(f"Generated poll ({len(content['tweet'])} chars): {content['tweet']}")
+        print(f"Options: {poll_options}")
 
-    # Post to X (skip if DRY_RUN is set)
-    if os.environ.get("DRY_RUN", "false").lower() == "true":
-        print("DRY RUN — skipping post to X")
-        tweet_ids = {"tweet_id": "dry_run"}
+        assert len(content["tweet"]) <= MAX_TWEET_LENGTH, f"Tweet too long: {len(content['tweet'])}"
+
+        if os.environ.get("DRY_RUN", "false").lower() == "true":
+            print("DRY RUN -- skipping post to X")
+            tweet_ids = {"tweet_id": "dry_run"}
+        else:
+            tweet_ids = post_to_x(content["tweet"], poll_options=poll_options)
+
+        content["type"] = "poll"
     else:
-        tweet_ids = post_to_x(content["tweet"])
+        print("Mode: Q&A")
+        content = generate_content(category)
+        print(f"Generated tweet ({len(content['tweet'])} chars): {content['tweet']}")
+
+        assert len(content["tweet"]) <= MAX_TWEET_LENGTH, f"Tweet too long: {len(content['tweet'])}"
+
+        if os.environ.get("DRY_RUN", "false").lower() == "true":
+            print("DRY RUN -- skipping post to X")
+            tweet_ids = {"tweet_id": "dry_run"}
+        else:
+            tweet_ids = post_to_x(content["tweet"])
+
+        content["type"] = "qa"
 
     # Log
     log_posted_content(content, tweet_ids)
