@@ -2,8 +2,18 @@ name: Daily DevOps Tweet
 
 on:
   schedule:
-    # 8:00 AM CDT -- morning commute
-    - cron: '0 13 * * *'
+    # 7:00 AM CDT -- early birds
+    - cron: '0 12 * * *'
+    # 9:30 AM CDT -- mid-morning
+    - cron: '30 14 * * *'
+    # 12:00 PM CDT -- lunch break
+    - cron: '0 17 * * *'
+    # 2:30 PM CDT -- afternoon
+    - cron: '30 19 * * *'
+    # 5:00 PM CDT -- end of work
+    - cron: '0 22 * * *'
+    # 8:00 PM CDT -- evening scroll
+    - cron: '0 1 * * *'
   workflow_dispatch:
     inputs:
       dry_run:
