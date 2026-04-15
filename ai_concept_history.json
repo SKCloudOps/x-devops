@@ -41,5 +41,12 @@
     "tweet": "Embeddings are just coordinates in space. Convert \"dog\" to [0.2, 0.8, -0.1] and suddenly you can measure similarity, find neighbors, or feed it to your model. Think: GPS for words.",
     "tweet_id": "2044093013249442209",
     "content_hash": "3f22aef80c5baa2734dbbf55a1adcb06"
+  },
+  {
+    "date": "2026-04-15T16:34:32.595945+00:00",
+    "concept": "Transformer Architecture vs LSTM",
+    "tweet": "Transformers ditched LSTM's sequential memory. Instead of reading left-to-right, they see everything at once and use attention to decide what matters. Faster training, better long-range patterns. That's why they run AI now. #AI #LLM #DeepLearning #MachineLearning",
+    "tweet_id": "2044454335992463573",
+    "content_hash": "2d305b6ed7c24384274196634423f2b4"
   }
 ]
