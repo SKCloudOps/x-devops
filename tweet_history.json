@@ -25,5 +25,113 @@
     "main_tweet_id": "2042677673978151066",
     "reply_tweet_id": "2042677674879951299",
     "content_hash": "b379e52b9cb29c270f04fcdc524fe5a5"
+  },
+  {
+    "date": "2026-04-10T23:42:14.234424+00:00",
+    "category": "aws_interview_question",
+    "tweet": "Your CloudFormation stack fails with a rollback. You didn't enable termination protection. Now all your resources are gone. How do you prevent this from happening again?",
+    "reply": "Set DeletionPolicy to Retain on critical resources (databases, S3 buckets). Enable stack termination protection before prod deployments. Also: practice stack updates in staging first \u2014 rollbacks happen fast.",
+    "main_tweet_id": "2042750027853107543",
+    "reply_tweet_id": "2042750029254005126",
+    "content_hash": "9298ed45595cf1d7ac148ca559a89f70"
+  },
+  {
+    "date": "2026-04-11T13:56:58.936495+00:00",
+    "category": "kubernetes_interview_question",
+    "tweet": "Your k8s cluster allows anyone to deploy a container with root. That's not a platform issue\u2014it's a policy issue. Ever heard of OPA? #Kubernetes #DevOps #Security #CloudNative #SRE",
+    "reply": "OPA (Open Policy Agent) lets you enforce rules before anything hits etcd. Block privileged pods, enforce resource limits, audit image registries. It's admission control that actually scales. #Kubernetes #Policy #InfraAsCode",
+    "main_tweet_id": "2042965132058521926",
+    "reply_tweet_id": "2042965132930879796",
+    "content_hash": "1309f5fa66581073223a77908749959e"
+  },
+  {
+    "date": "2026-04-11T18:42:12.992343+00:00",
+    "category": "kubernetes_interview_question",
+    "tweet": "Your k8s cluster runs without admission control? You're basically leaving the front door unlocked. What stops someone from deploying a container as root or mounting the host filesystem?",
+    "reply": "OPA/Gatekeeper lets you enforce policy before anything hits etcd. Deny privileged pods, require resource limits, block certain registries. It's the guardrail between 'it works' and 'it works safely'.",
+    "main_tweet_id": "2043036913632735716",
+    "reply_tweet_id": "2043036914517766155",
+    "content_hash": "65a422261d7b5d761ae721eb64205538"
+  },
+  {
+    "date": "2026-04-11T23:41:58.810053+00:00",
+    "category": "kubernetes_interview_question",
+    "tweet": "Your k8s cluster audit logs are sitting in CloudTrail but nobody's actually reading them. How do you know if someone just gave themselves admin access 3 days ago? #Kubernetes #AWS #SecurityAudit #DevOps #CloudTrail",
+    "reply": "Parse CloudTrail for k8s API calls, filter by user/service account, set up alerts on RBAC changes. Most teams skip this until after an incident. That's the mistake. #Kubernetes #AWS #SecurityAudit #DevOps #SRE",
+    "main_tweet_id": "2043112351885398434",
+    "reply_tweet_id": "2043112352623559034",
+    "content_hash": "facd3a9825acf8034bbf15e54aa68025"
+  },
+  {
+    "date": "2026-04-12T14:00:08.240133+00:00",
+    "category": "cicd_interview_question",
+    "tweet": "Your ECS task keeps crashing on deploy but the CloudWatch logs show nothing. Where do you even look first? #AWS #ECS #DevOps #Troubleshooting #CloudComputing",
+    "reply": "Check the ECS task definition's container logs, but also dig into the agent logs on the EC2 instance itself. Task definition pull failures, IAM role issues, or resource constraints won't always surface in container output. Been there. #AWS #ECS #CICD",
+    "main_tweet_id": "2043328313943293986",
+    "reply_tweet_id": "2043328314807394669",
+    "content_hash": "516e5e97554e58a349a936d7197ded94"
+  },
+  {
+    "date": "2026-04-12T23:42:39.852938+00:00",
+    "category": "cicd_interview_question",
+    "tweet": "Your CI/CD pipeline deploys every commit straight to prod. GuardDuty flags suspicious API calls from your deployment role. Do you even know what happened? #DevOps #CICD #AWS #SecurityFirst #CloudNative",
+    "reply": "This is why you need audit logging on IAM. GuardDuty catches the behavior, but CloudTrail tells you WHO triggered it and WHEN. Your pipeline's service account shouldn't have permissions it doesn't use. #AWS #SRE #InfraAsCode",
+    "main_tweet_id": "2043474911709278310",
+    "reply_tweet_id": "2043474912564871250",
+    "content_hash": "cf82134f2668de7562ebc84b38908839"
+  },
+  {
+    "date": "2026-04-13T14:51:13.031153+00:00",
+    "category": "platform_engineering_interview_question",
+    "tweet": "Your AWS account has 847 findings in SecurityHub. Half are old. How do you decide what actually needs fixing vs what's just noise? #AWS #DevOps #CloudSecurity #SecurityHub #PlatformEngineering",
+    "reply": "Real answer: severity + exploitability. A critical finding in an internal tool nobody uses beats a medium finding in your API gateway. Also automate suppressions\u2014document WHY you're ignoring something. Future you will thank you. #AWS #SRE #SecurityOps",
+    "main_tweet_id": "2043703556352405954",
+    "reply_tweet_id": "2043703557128401038",
+    "content_hash": "177838eceed903c7e25d483c155644ed"
+  },
+  {
+    "date": "2026-04-13T19:13:01.413541+00:00",
+    "category": "platform_engineering_interview_question",
+    "tweet": "If you're managing cloud resources across AWS, GCP, and Azure separately, you're doing it wrong. Crossplane lets you define everything in Kubernetes. Ever actually used it in prod?",
+    "reply": "Real talk: the learning curve is steep. You're thinking in CRDs and composition functions instead of CloudFormation templates. But once it clicks? Multi-cloud deployments become boring. That's the goal.",
+    "main_tweet_id": "2043769442279039273",
+    "reply_tweet_id": "2043769443117895907",
+    "content_hash": "c3918b3d5943dba5193f0b6fd05124e1"
+  },
+  {
+    "date": "2026-04-13T23:52:41.831044+00:00",
+    "category": "platform_engineering_interview_question",
+    "tweet": "Your Tekton pipeline runs fine locally. Ships to prod. Suddenly tasks are timing out in CI. What's the first thing you check before blaming the cluster? #DevOps #CICD #Kubernetes #PlatformEngineering #CloudNative",
+    "reply": "Resource requests vs limits. Local = unlimited CPU/memory. Prod = constrained pods getting throttled or OOMkilled. Tekton tasks inherit the namespace defaults. Most people miss this until 2am. #DevOps #Kubernetes #SRE #TechTwitter",
+    "main_tweet_id": "2043839824596238787",
+    "reply_tweet_id": "2043839825368023420",
+    "content_hash": "ec6b426daec30b5999477e6fb50d136f"
+  },
+  {
+    "date": "2026-04-14T14:51:25.113136+00:00",
+    "category": "terraform_iac_interview_question",
+    "tweet": "Your service mesh is adding 50ms latency to every request. Do you rip it out or tune it? Most teams pick wrong because they don't understand what they're actually optimizing for. #Kubernetes #ServiceMesh #DevOps #CloudNative #Terraform",
+    "reply": "The answer: define your SLO first. If you need sub-10ms p99, mesh overhead matters. But if you're chasing observability + security, that latency tax might be worth it. Real talk \u2014 measure before you decide. #SRE #Istio #AWS #InfraAsCode",
+    "main_tweet_id": "2044065994981675277",
+    "reply_tweet_id": "2044065995950596125",
+    "content_hash": "7cd0eee72587d8562ea7b12a6c23b3d8"
+  },
+  {
+    "date": "2026-04-14T19:13:46.762717+00:00",
+    "category": "terraform_iac_interview_question",
+    "tweet": "Your terraform runs fine locally. Ships to prod. AWS SecurityHub starts screaming about unencrypted volumes you never set. What happened? #Terraform #AWS #DevOps #IaC #SecurityHub",
+    "reply": "Default values. Your provider or module silently set encryption=false. Always explicitly set sensitive attrs even if they match defaults \u2014 future you (and auditors) will thank you. #Terraform #AWS #InfraAsCode",
+    "main_tweet_id": "2044132020398219603",
+    "reply_tweet_id": "2044132021258080405",
+    "content_hash": "d6a687b65f35879fdc1f8ff9d3ce6b7c"
+  },
+  {
+    "date": "2026-04-14T23:51:22.499173+00:00",
+    "category": "terraform_iac_interview_question",
+    "tweet": "Your team uses Terraform to provision infrastructure but GitOps for deployments. Now you need to sync state between them. Flux watchers don't magically know about your .tfstate changes. How do you keep them honest? #Terraform #GitOps #Kubernetes #DevOps #InfraAsCode",
+    "reply": "Most miss this: You need a separate reconciliation loop. Terraform outputs \u2192 Git commit \u2192 Flux picks it up. Or use Terraform Cloud/Enterprise webhooks to trigger Flux refreshes. The state file alone isn't enough. #Terraform #Flux #CICD #PlatformEngineering #SRE",
+    "main_tweet_id": "2044201879651991891",
+    "reply_tweet_id": "2044201880448897453",
+    "content_hash": "242469c69de12c3a4fd346681ad2535f"
   }
 ]
