@@ -179,5 +179,12 @@
     "tweet": "Interviewer: \"How do you handle encryption keys in the cloud? Should you manage them yourself or use a service like KMS?\" \u2014 literally every security round\n\n\nHonestly, manage them yourself and you're asking for trouble. KMS (or similar) handles rotation, access control, and audit logs automatically. You just call it when you need to encrypt/decrypt. Plus if someone gets your app server, they don't have the keys \u2014 they're locked in a separate service. That separation is the whole point. Self-managing keys is fine for learning but in prod? Use the service. It's not worth the risk.\n\n#AWS #CloudSecurity #DevOps #KMS #InterviewTips",
     "tweet_id": "2044809512444367296",
     "content_hash": "d674c0d1474d43fbf8c9b1b84f876089"
+  },
+  {
+    "date": "2026-04-16T18:08:39.463717+00:00",
+    "category": "cloud_architecture_pattern",
+    "tweet": "Interviewer: \"What's the difference between a service mesh and just using Kubernetes services?\" \u2014 honestly this trips people up\n\n\n\nK8s services handle basic routing and load balancing within the cluster. A service mesh like Istio sits on top and gives you way more \u2014 traffic management, circuit breakers, retries, distributed tracing, mTLS encryption between services, canary deployments. It's like K8s services are your basic networking, but Istio is your sophisticated traffic control center. Catch: Istio adds complexity and latency, so don't reach for it unless you actually need those features. Most teams start simple with K8s services first.\n\n#ServiceMesh #Istio #Kubernetes #CloudArchitecture #DevOps",
+    "tweet_id": "2044840408287518931",
+    "content_hash": "ff12205ec388acfe3d87dbf7d62b33c5"
   }
 ]
