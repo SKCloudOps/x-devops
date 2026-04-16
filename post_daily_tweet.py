@@ -13,6 +13,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 import anthropic
+import requests
 import tweepy
 from google import genai
 from google.genai import types
@@ -74,6 +75,20 @@ CATEGORY_IMAGE_PROMPTS = {
         "Futuristic container orchestration with glowing Docker containers being managed by automated systems, dark tech background",
         "Abstract container cluster with pods scaling up and down as holographic elements, modern tech illustration",
     ],
+}
+
+# Unsplash fallback keywords (used when Gemini image generation fails)
+CATEGORY_KEYWORDS = {
+    "aws_interview_question": ["cloud computing", "server room", "data center"],
+    "kubernetes_interview_question": ["container ship", "server cluster", "technology infrastructure"],
+    "cicd_interview_question": ["software development", "coding", "pipeline"],
+    "platform_engineering_interview_question": ["engineering", "cloud infrastructure", "technology"],
+    "terraform_iac_interview_question": ["infrastructure", "cloud architecture", "coding setup"],
+    "devops_trending_topic": ["devops", "technology", "software engineering"],
+    "cloud_architecture_pattern": ["cloud computing", "network architecture", "data center"],
+    "sre_observability_question": ["monitoring", "dashboard", "analytics"],
+    "networking_security_question": ["cybersecurity", "network", "firewall"],
+    "container_orchestration_question": ["containers", "docker", "server rack"],
 }
 
 SYSTEM_PROMPT = """You are a Platform/Cloud/DevOps engineer sharing COMMONLY ASKED interview questions 
@@ -288,11 +303,52 @@ def generate_gemini_image(category: str) -> str | None:
                     print(f"Generated Gemini image to {tmp_file.name} (prompt: '{prompt[:60]}...')")
                     return tmp_file.name
 
-        print("Gemini returned no image data -- skipping")
+        print("Gemini returned no image data")
         return None
 
     except Exception as e:
-        print(f"Failed to generate Gemini image: {e} -- posting without image")
+        print(f"Failed to generate Gemini image: {e}")
+        return None
+
+
+def fetch_unsplash_image(category: str) -> str | None:
+    """Fallback: fetch a stock image from Unsplash. Returns temp file path or None."""
+    access_key = os.environ.get("UNSPLASH_ACCESS_KEY")
+    if not access_key:
+        print("UNSPLASH_ACCESS_KEY not set -- skipping fallback image")
+        return None
+
+    keywords = CATEGORY_KEYWORDS.get(category, ["technology", "cloud computing"])
+    query = random.choice(keywords)
+
+    try:
+        response = requests.get(
+            "https://api.unsplash.com/photos/random",
+            params={
+                "query": query,
+                "orientation": "landscape",
+                "content_filter": "high",
+            },
+            headers={"Authorization": f"Client-ID {access_key}"},
+            timeout=10,
+        )
+        response.raise_for_status()
+        data = response.json()
+
+        image_url = data["urls"]["regular"]
+        print(f"Fallback: Unsplash image {image_url} (query: '{query}')")
+
+        img_response = requests.get(image_url, timeout=15)
+        img_response.raise_for_status()
+
+        tmp_file = tempfile.NamedTemporaryFile(suffix=".jpg", delete=False)
+        tmp_file.write(img_response.content)
+        tmp_file.close()
+        print(f"Downloaded fallback image to {tmp_file.name}")
+        return tmp_file.name
+
+    except Exception as e:
+        print(f"Unsplash fallback also failed: {e} -- posting without image")
         return None
 
 
@@ -370,7 +426,11 @@ def main():
         print("DRY RUN -- skipping post to X")
         tweet_ids = {"tweet_id": "dry_run"}
     else:
+        # Try Gemini first, fall back to Unsplash
         image_path = generate_gemini_image(category)
+        if not image_path:
+            print("Gemini failed -- falling back to Unsplash")
+            image_path = fetch_unsplash_image(category)
         tweet_ids = post_to_x(content["tweet"], image_path=image_path)
 
     content["type"] = "qa"
