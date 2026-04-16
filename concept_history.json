@@ -33,5 +33,12 @@
     "tweet": "Jenkins in containers = your CI/CD pipeline lives in a box. Problem: stateful jobs lose data on restart. Pro tip: mount volumes for workspace & config, or you're rebuilding every pipeline run. #DevOps #Jenkins #Docker #CICD #InterviewTips",
     "tweet_id": "2044165564281594255",
     "content_hash": "f3914257745dcfaed6de8993d8ad5f46"
+  },
+  {
+    "date": "2026-04-16T18:44:37.531565+00:00",
+    "concept": "SQS Queue Depth Monitoring",
+    "tweet": "If you're not monitoring your SQS queue depth, you're basically flying blind. Your app could be drowning and you wouldn't even know it.\n\n\nQueue depth is how many messages are sitting in your SQS queue waiting to be processed. If it keeps climbing, that's your signal that consumers are slower than producers \u2014 meaning jobs are piling up and users are getting delayed responses. Set a CloudWatch alarm on ApproximateNumberOfMessagesVisible and actually look at it. Catch the backlog before it becomes a disaster.\n\n#AWS #SQS #Monitoring #CloudWatch #DevOps",
+    "tweet_id": "2044849460157571106",
+    "content_hash": "77cc96441caf10a5c34eeadb3d1355cf"
   }
 ]
