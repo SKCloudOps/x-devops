@@ -13,8 +13,9 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 import anthropic
-import requests
 import tweepy
+from google import genai
+from google.genai import types
 
 
 # --- Configuration ---
@@ -31,18 +32,48 @@ CATEGORIES = [
     "container_orchestration_question",
 ]
 
-# Map categories to Unsplash search keywords for relevant images
-CATEGORY_KEYWORDS = {
-    "aws_interview_question": ["cloud computing", "server room", "data center"],
-    "kubernetes_interview_question": ["container ship", "server cluster", "technology infrastructure"],
-    "cicd_interview_question": ["software development", "coding", "pipeline"],
-    "platform_engineering_interview_question": ["engineering", "cloud infrastructure", "technology"],
-    "terraform_iac_interview_question": ["infrastructure", "cloud architecture", "coding setup"],
-    "devops_trending_topic": ["devops", "technology", "software engineering"],
-    "cloud_architecture_pattern": ["cloud computing", "network architecture", "data center"],
-    "sre_observability_question": ["monitoring", "dashboard", "analytics"],
-    "networking_security_question": ["cybersecurity", "network", "firewall"],
-    "container_orchestration_question": ["containers", "docker", "server rack"],
+# Map categories to Gemini image generation prompts
+CATEGORY_IMAGE_PROMPTS = {
+    "aws_interview_question": [
+        "A sleek futuristic cloud data center with glowing blue AWS-style server racks, dark background, tech aesthetic",
+        "Abstract cloud computing visualization with interconnected nodes and orange-blue gradient, modern tech art",
+    ],
+    "kubernetes_interview_question": [
+        "A stylized container ship made of glowing blue containers connected by network lines, dark tech background",
+        "Abstract Kubernetes cluster visualization with pods and nodes as glowing hexagons, cyberpunk aesthetic",
+    ],
+    "cicd_interview_question": [
+        "A futuristic CI/CD pipeline visualization with glowing stages flowing left to right, neon blue and green, dark background",
+        "Abstract software deployment pipeline with automated gears and code streams, modern tech illustration",
+    ],
+    "platform_engineering_interview_question": [
+        "A futuristic platform engineering dashboard with holographic infrastructure layers, dark mode tech aesthetic",
+        "Abstract developer platform with interconnected tools and services as glowing nodes, modern tech art",
+    ],
+    "terraform_iac_interview_question": [
+        "Infrastructure as code visualization with glowing terraform-style resource blocks connected by lines, dark tech background",
+        "Abstract cloud infrastructure blueprint with geometric shapes and code overlays, futuristic tech art",
+    ],
+    "devops_trending_topic": [
+        "A futuristic DevOps infinity loop symbol made of glowing circuit lines, dark background, neon blue and purple",
+        "Abstract DevOps workflow with automated processes and collaboration symbols, modern tech illustration",
+    ],
+    "cloud_architecture_pattern": [
+        "A stunning multi-cloud architecture diagram with glowing connections between AWS, Azure, and GCP nodes, dark tech background",
+        "Abstract cloud architecture with layered services as floating holographic panels, futuristic tech art",
+    ],
+    "sre_observability_question": [
+        "A futuristic monitoring dashboard with real-time metrics, graphs, and alerts glowing in green and amber, dark background",
+        "Abstract observability visualization with traces, metrics, and logs as flowing data streams, tech aesthetic",
+    ],
+    "networking_security_question": [
+        "A futuristic cybersecurity shield with network topology and firewall layers, glowing blue and red, dark background",
+        "Abstract network security visualization with encrypted data flows and lock symbols, cyberpunk tech art",
+    ],
+    "container_orchestration_question": [
+        "Futuristic container orchestration with glowing Docker containers being managed by automated systems, dark tech background",
+        "Abstract container cluster with pods scaling up and down as holographic elements, modern tech illustration",
+    ],
 }
 
 SYSTEM_PROMPT = """You are a Platform/Cloud/DevOps engineer sharing COMMONLY ASKED interview questions 
@@ -222,45 +253,42 @@ Use the space for a solid Q&A with real detail."""
 
 
 
-def fetch_unsplash_image(category: str) -> str | None:
-    """Fetch a relevant image from Unsplash based on tweet category. Returns temp file path or None."""
-    access_key = os.environ.get("UNSPLASH_ACCESS_KEY")
-    if not access_key:
-        print("UNSPLASH_ACCESS_KEY not set -- skipping image")
+def generate_gemini_image(category: str) -> str | None:
+    """Generate an AI image using Google Gemini Imagen API. Returns temp file path or None."""
+    api_key = os.environ.get("GEMINI_API_KEY")
+    if not api_key:
+        print("GEMINI_API_KEY not set -- skipping image")
         return None
 
-    keywords = CATEGORY_KEYWORDS.get(category, ["technology", "cloud computing"])
-    query = random.choice(keywords)
+    prompts = CATEGORY_IMAGE_PROMPTS.get(category, [
+        "A futuristic cloud computing visualization with glowing nodes and connections, dark tech background",
+    ])
+    prompt = random.choice(prompts)
 
     try:
-        response = requests.get(
-            "https://api.unsplash.com/photos/random",
-            params={
-                "query": query,
-                "orientation": "landscape",
-                "content_filter": "high",
-            },
-            headers={"Authorization": f"Client-ID {access_key}"},
-            timeout=10,
+        client = genai.Client(api_key=api_key)
+        response = client.models.generate_images(
+            model="imagen-4.0-generate-001",
+            prompt=prompt,
+            config=types.GenerateImagesConfig(
+                number_of_images=1,
+                aspect_ratio="16:9",
+            ),
         )
-        response.raise_for_status()
-        data = response.json()
 
-        image_url = data["urls"]["regular"]  # 1080px wide
-        print(f"Fetched Unsplash image: {image_url} (query: '{query}')")
+        if not response.generated_images:
+            print("Gemini returned no images -- skipping")
+            return None
 
-        # Download the image to a temp file
-        img_response = requests.get(image_url, timeout=15)
-        img_response.raise_for_status()
-
-        tmp_file = tempfile.NamedTemporaryFile(suffix=".jpg", delete=False)
-        tmp_file.write(img_response.content)
+        image_bytes = response.generated_images[0].image.image_bytes
+        tmp_file = tempfile.NamedTemporaryFile(suffix=".png", delete=False)
+        tmp_file.write(image_bytes)
         tmp_file.close()
-        print(f"Downloaded image to {tmp_file.name}")
+        print(f"Generated Gemini image to {tmp_file.name} (prompt: '{prompt[:60]}...')")
         return tmp_file.name
 
     except Exception as e:
-        print(f"Failed to fetch Unsplash image: {e} -- posting without image")
+        print(f"Failed to generate Gemini image: {e} -- posting without image")
         return None
 
 
@@ -338,7 +366,7 @@ def main():
         print("DRY RUN -- skipping post to X")
         tweet_ids = {"tweet_id": "dry_run"}
     else:
-        image_path = fetch_unsplash_image(category)
+        image_path = generate_gemini_image(category)
         tweet_ids = post_to_x(content["tweet"], image_path=image_path)
 
     content["type"] = "qa"
