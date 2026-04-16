@@ -91,9 +91,6 @@ CATEGORY_KEYWORDS = {
     "container_orchestration_question": ["containers", "docker", "server rack"],
 }
 
-SYSTEM_PROMPT = """You are a Platform/Cloud/DevOps engineer sharing COMMONLY ASKED interview questions 
-on X (Twitter). The classics that come up in EVERY interview.
-
 SYSTEM_PROMPT = """You are a DevOps engineer posting interview questions on X (Twitter).
 
 THE MOST IMPORTANT RULE: Write in very simple, plain English.
@@ -149,8 +146,6 @@ Use \\n for line breaks in the JSON string:
   "tweet": "question part\\n\\n\\nanswer part\\n\\n#hashtags",
   "category": "category label"
 }"""
-
-
 
 
 def get_todays_category() -> str:
@@ -240,7 +235,14 @@ Use the space for a solid Q&A with real detail."""
         response_text = message.content[0].text.strip()
         # Clean potential markdown fences
         response_text = response_text.replace("```json", "").replace("```", "").strip()
-        content = json.loads(response_text)
+
+        try:
+            content = json.loads(response_text)
+        except json.JSONDecodeError as e:
+            print(f"Attempt {attempt}/{MAX_RETRIES}: invalid JSON from Claude — {e}")
+            if attempt == MAX_RETRIES:
+                raise
+            continue
 
         tweet_len = len(content["tweet"])
 
@@ -264,8 +266,6 @@ Use the space for a solid Q&A with real detail."""
     print("Max retries exceeded — truncating content to fit limits.")
     content["tweet"] = truncate_to_limit(content["tweet"])
     return content
-
-
 
 
 def generate_gemini_image(category: str) -> str | None:
@@ -362,6 +362,7 @@ def post_to_x(tweet_text: str, image_path: str = None) -> dict:
     )
 
     kwargs = {"text": tweet_text}
+    image_uploaded = False
 
     # Upload image if provided
     if image_path:
@@ -376,6 +377,7 @@ def post_to_x(tweet_text: str, image_path: str = None) -> dict:
             api_v1 = tweepy.API(auth)
             media = api_v1.media_upload(filename=image_path)
             kwargs["media_ids"] = [media.media_id]
+            image_uploaded = True
             print(f"Uploaded image, media_id: {media.media_id}")
         except Exception as e:
             print(f"Image upload failed: {e} -- posting without image")
@@ -388,7 +390,7 @@ def post_to_x(tweet_text: str, image_path: str = None) -> dict:
 
     tweet = client.create_tweet(**kwargs)
     tweet_id = tweet.data["id"]
-    post_type = "tweet+image" if image_path else "tweet"
+    post_type = "tweet+image" if image_uploaded else "tweet"
     print(f"Posted {post_type}: {tweet_id}")
 
     return {"tweet_id": tweet_id}
