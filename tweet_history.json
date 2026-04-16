@@ -200,5 +200,12 @@
     "tweet": "Interviewer: \"What's a buildpack and why would you use one instead of writing a Dockerfile?\"\n\nLol this trips people up. A buildpack is basically a script that detects your app type and builds it for you. No Dockerfile needed.\n\nYou push your code. The buildpack sees \"oh this is Node.js\" and automatically installs dependencies, sets up the runtime, and packages it. Done.\n\nDocker forces you to write every step. Buildpacks just... figure it out.\n\nWhere they shine: platforms like Heroku and Cloud Foundry. You literally just git push and it works. Great for teams that don't want DevOps overhead.\n\nDownside: less control. If you need custom stuff, you might need to write your own buildpack or just use Docker.\n\nReal talk: startups and small teams love buildpacks. Enterprise shops usually stick with Docker because they want total control.\n\n#DevOps #CloudArchitecture #Buildpacks #InterviewPrep #Docker",
     "tweet_id": "2044919421265715471",
     "content_hash": "555d18010688f05f02fdedbcba1056e7"
+  },
+  {
+    "date": "2026-04-16T23:25:55.699041+00:00",
+    "category": "cloud_architecture_pattern",
+    "tweet": "Interviewer: \"What's Infrastructure as Code and why do we use it?\"\n\nGood question. It's writing code that builds your servers and cloud stuff instead of clicking buttons in the AWS console.\n\nInstead of manually creating 50 servers, you write code that says \"make 50 servers with these settings.\" Then you run it. Done. And you can run it again whenever you want. Same result every time.\n\nWhy this matters: You can version control it (Git). You can review changes before applying them. You can copy your setup to a new team or environment super fast. No more \"wait, how did we set this up last time?\"\n\nTools like Pulumi, Terraform, and CloudFormation all do this. They're just different ways to write the recipe for your infrastructure.\n\nReal example: Instead of clicking to create a database, subnet, and firewall rule, you write 10 lines of code. One command deploys all three. Your coworker can read it and understand your setup immediately.\n\n#DevOps #InfrastructureAsCode #AWS #CloudArchitecture",
+    "tweet_id": "2044920252023124371",
+    "content_hash": "e4a83e8301806c08601b5d1c69be344c"
   }
 ]
