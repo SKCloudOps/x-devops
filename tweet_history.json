@@ -172,5 +172,12 @@
     "tweet": "Interviewer: \"What's the difference between Docker and Podman?\" \u2014 loads of people think they're basically the same thing\n\n\nSo Docker uses a daemon (background service running as root) that manages containers. Podman? Daemonless. You run containers directly without needing root privileges, which is a big security win. Both use the same image format so switching isn't painful.\n\nGotcha: Podman's still catching up on some ecosystem stuff. Docker's just more mature and widely used in prod right now. But Podman's definitely gaining traction, especially for rootless deployments.\n\n#Podman #Docker #CloudArchitecture #DevOps #Containerization",
     "tweet_id": "2044762697766515113",
     "content_hash": "db6438eda550629aaf974c8fb765fc86"
+  },
+  {
+    "date": "2026-04-16T16:05:53.416541+00:00",
+    "category": "cloud_architecture_pattern",
+    "tweet": "Interviewer: \"How do you handle encryption keys in the cloud? Should you manage them yourself or use a service like KMS?\" \u2014 literally every security round\n\n\nHonestly, manage them yourself and you're asking for trouble. KMS (or similar) handles rotation, access control, and audit logs automatically. You just call it when you need to encrypt/decrypt. Plus if someone gets your app server, they don't have the keys \u2014 they're locked in a separate service. That separation is the whole point. Self-managing keys is fine for learning but in prod? Use the service. It's not worth the risk.\n\n#AWS #CloudSecurity #DevOps #KMS #InterviewTips",
+    "tweet_id": "2044809512444367296",
+    "content_hash": "d674c0d1474d43fbf8c9b1b84f876089"
   }
 ]
