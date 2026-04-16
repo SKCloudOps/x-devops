@@ -104,31 +104,7 @@ Use \\n for line breaks in the JSON string:
   "category": "category label"
 }"""
 
-POLL_PROMPT = """You are a Platform/Cloud/DevOps engineer creating a multiple-choice interview 
-question poll on X (Twitter). Polls get MASSIVE engagement -- people love testing themselves.
 
-SOUND HUMAN:
-- Write the question casually, like you're quizzing a friend
-- Use contractions, keep it natural
-- Add a short teaser like "most people pick the wrong one" or "this trips up even seniors"
-
-RULES:
-- The question text must be UNDER 260 characters (it's visible in the feed)
-- Provide exactly 4 answer options, each MUST be UNDER 25 characters (X poll limit)
-- Only ONE option should be correct
-- Make the wrong options plausible -- not obviously wrong
-- Add 3-5 hashtags at the end of the question text
-- Pick COMMONLY ASKED interview questions, not obscure ones
-
-BANNED WORDS: "crucial", "essential", "leverage", "comprehensive", "fundamental"
-
-Respond ONLY in this exact JSON format, no markdown fences:
-{
-  "tweet": "the question text with hashtags",
-  "options": ["Option A", "Option B", "Option C", "Option D"],
-  "correct": 0,
-  "category": "category label"
-}"""
 
 
 def get_todays_category() -> str:
@@ -244,58 +220,6 @@ Use the space for a solid Q&A with real detail."""
     return content
 
 
-def generate_poll_content(category: str) -> dict:
-    """Use Claude API to generate a poll-style interview question."""
-    client = anthropic.Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
-
-    seed_word = random.choice([
-        "EKS", "Lambda", "Terraform", "ArgoCD", "GitHub Actions", "Helm",
-        "VPC", "IAM", "CloudFront", "DynamoDB", "Prometheus", "Docker",
-        "Kubernetes", "Route53", "S3", "EC2", "Fargate", "ECS",
-        "CloudFormation", "Ansible", "Jenkins", "Vault", "Grafana",
-    ])
-
-    user_prompt = f"""Category: {category}
-Seed keyword (inspiration, don't force it): {seed_word}
-Date: {datetime.now(timezone.utc).strftime('%A, %B %d, %Y')}
-
-Create a multiple-choice poll question for a DevOps/Cloud interview.
-Question text MUST be under 260 characters. Each option MUST be under 25 characters.
-Make it a commonly asked question that most engineers would recognize."""
-
-    messages = [{"role": "user", "content": user_prompt}]
-
-    for attempt in range(1, MAX_RETRIES + 1):
-        message = _call_claude_with_retry(client, POLL_PROMPT, messages)
-
-        response_text = message.content[0].text.strip()
-        response_text = response_text.replace("```json", "").replace("```", "").strip()
-        content = json.loads(response_text)
-
-        tweet_len = len(content["tweet"])
-        options = content.get("options", [])
-        options_valid = (len(options) == 4 and
-                        all(len(opt) <= 25 for opt in options))
-
-        if tweet_len <= MAX_TWEET_LENGTH and options_valid:
-            return content
-
-        print(f"Poll attempt {attempt}/{MAX_RETRIES}: tweet={tweet_len} chars, "
-              f"options_valid={options_valid} -- retrying...")
-
-        messages = [
-            {"role": "user", "content": user_prompt},
-            {"role": "assistant", "content": message.content[0].text},
-            {"role": "user", "content": (
-                f"Issues: tweet is {tweet_len} chars (must be under {MAX_TWEET_LENGTH}). "
-                f"Each poll option must be under 25 characters. "
-                f"Fix and respond in the same JSON format."
-            )},
-        ]
-
-    # Truncate tweet if needed, return as-is for options
-    content["tweet"] = truncate_to_limit(content["tweet"])
-    return content
 
 
 def fetch_unsplash_image(category: str) -> str | None:
@@ -340,8 +264,8 @@ def fetch_unsplash_image(category: str) -> str | None:
         return None
 
 
-def post_to_x(tweet_text: str, poll_options: list = None, image_path: str = None) -> dict:
-    """Post a tweet (optionally with a poll or image) using X API v2 via tweepy."""
+def post_to_x(tweet_text: str, image_path: str = None) -> dict:
+    """Post a tweet (optionally with an image) using X API v2 via tweepy."""
     client = tweepy.Client(
         consumer_key=os.environ["X_API_KEY"],
         consumer_secret=os.environ["X_API_SECRET"],
@@ -351,8 +275,8 @@ def post_to_x(tweet_text: str, poll_options: list = None, image_path: str = None
 
     kwargs = {"text": tweet_text}
 
-    # Upload image if provided (can't combine image + poll on X)
-    if image_path and not poll_options:
+    # Upload image if provided
+    if image_path:
         try:
             # Media upload requires v1.1 API auth
             auth = tweepy.OAuth1UserHandler(
@@ -374,13 +298,9 @@ def post_to_x(tweet_text: str, poll_options: list = None, image_path: str = None
             except OSError:
                 pass
 
-    if poll_options:
-        kwargs["poll_options"] = poll_options
-        kwargs["poll_duration_minutes"] = 1440  # 24 hours
-
     tweet = client.create_tweet(**kwargs)
     tweet_id = tweet.data["id"]
-    post_type = "poll" if poll_options else ("tweet+image" if image_path else "tweet")
+    post_type = "tweet+image" if image_path else "tweet"
     print(f"Posted {post_type}: {tweet_id}")
 
     return {"tweet_id": tweet_id}
@@ -409,42 +329,19 @@ def main():
     category = get_todays_category()
     print(f"Today's category: {category}")
 
-    # Post a poll once per day at the 12:00 PM CDT slot (17:00 UTC)
-    # All other time slots get regular Q&A
-    current_hour = datetime.now(timezone.utc).hour
-    use_poll = current_hour == 17
+    content = generate_content(category)
+    print(f"Generated tweet ({len(content['tweet'])} chars): {content['tweet']}")
 
-    if use_poll:
-        print("Mode: POLL")
-        content = generate_poll_content(category)
-        poll_options = content.get("options", [])
-        print(f"Generated poll ({len(content['tweet'])} chars): {content['tweet']}")
-        print(f"Options: {poll_options}")
+    assert len(content["tweet"]) <= MAX_TWEET_LENGTH, f"Tweet too long: {len(content['tweet'])}"
 
-        assert len(content["tweet"]) <= MAX_TWEET_LENGTH, f"Tweet too long: {len(content['tweet'])}"
-
-        if os.environ.get("DRY_RUN", "false").lower() == "true":
-            print("DRY RUN -- skipping post to X")
-            tweet_ids = {"tweet_id": "dry_run"}
-        else:
-            tweet_ids = post_to_x(content["tweet"], poll_options=poll_options)
-
-        content["type"] = "poll"
+    if os.environ.get("DRY_RUN", "false").lower() == "true":
+        print("DRY RUN -- skipping post to X")
+        tweet_ids = {"tweet_id": "dry_run"}
     else:
-        print("Mode: Q&A")
-        content = generate_content(category)
-        print(f"Generated tweet ({len(content['tweet'])} chars): {content['tweet']}")
+        image_path = fetch_unsplash_image(category)
+        tweet_ids = post_to_x(content["tweet"], image_path=image_path)
 
-        assert len(content["tweet"]) <= MAX_TWEET_LENGTH, f"Tweet too long: {len(content['tweet'])}"
-
-        if os.environ.get("DRY_RUN", "false").lower() == "true":
-            print("DRY RUN -- skipping post to X")
-            tweet_ids = {"tweet_id": "dry_run"}
-        else:
-            image_path = fetch_unsplash_image(category)
-            tweet_ids = post_to_x(content["tweet"], image_path=image_path)
-
-        content["type"] = "qa"
+    content["type"] = "qa"
 
     # Log
     log_posted_content(content, tweet_ids)
