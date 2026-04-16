@@ -228,9 +228,14 @@ def main():
         print("="*60)
 
         # Check for Gmail credentials
-        sender_email = os.getenv('GMAIL_SENDER_EMAIL')
-        app_password = os.getenv('GMAIL_APP_PASSWORD')
-        recipient_email = os.getenv('GMAIL_RECIPIENT_EMAIL', 'sathishkrcs@gmail.com')
+        sender_email = os.getenv('GMAIL_SENDER_EMAIL', '').strip()
+        app_password = os.getenv('GMAIL_APP_PASSWORD', '').strip()
+        recipient_email = os.getenv('GMAIL_RECIPIENT_EMAIL', 'sathishkrcs@gmail.com').strip()
+
+        # Validate recipient email has a value
+        if not recipient_email:
+            recipient_email = 'sathishkrcs@gmail.com'
+            print(f"⚠️  GMAIL_RECIPIENT_EMAIL not set, using default: {recipient_email}")
 
         if not sender_email or not app_password:
             print("\n⚠️  Gmail credentials not found in environment variables.")
