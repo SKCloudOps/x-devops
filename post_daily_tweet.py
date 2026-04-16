@@ -254,7 +254,7 @@ Use the space for a solid Q&A with real detail."""
 
 
 def generate_gemini_image(category: str) -> str | None:
-    """Generate an AI image using Google Gemini Imagen API. Returns temp file path or None."""
+    """Generate an AI image using Gemini Flash image model (free tier). Returns temp file path or None."""
     api_key = os.environ.get("GEMINI_API_KEY")
     if not api_key:
         print("GEMINI_API_KEY not set -- skipping image")
@@ -267,25 +267,29 @@ def generate_gemini_image(category: str) -> str | None:
 
     try:
         client = genai.Client(api_key=api_key)
-        response = client.models.generate_images(
-            model="imagen-4.0-generate-001",
-            prompt=prompt,
-            config=types.GenerateImagesConfig(
-                number_of_images=1,
-                aspect_ratio="16:9",
+        response = client.models.generate_content(
+            model="gemini-2.5-flash-preview-04-17",
+            contents=prompt,
+            config=types.GenerateContentConfig(
+                response_modalities=["IMAGE"],
+                image_config=types.ImageConfig(
+                    aspect_ratio="16:9",
+                ),
             ),
         )
 
-        if not response.generated_images:
-            print("Gemini returned no images -- skipping")
-            return None
+        # Extract image from multimodal response
+        for candidate in response.candidates:
+            for part in candidate.content.parts:
+                if part.inline_data:
+                    tmp_file = tempfile.NamedTemporaryFile(suffix=".png", delete=False)
+                    tmp_file.write(part.inline_data.data)
+                    tmp_file.close()
+                    print(f"Generated Gemini image to {tmp_file.name} (prompt: '{prompt[:60]}...')")
+                    return tmp_file.name
 
-        image_bytes = response.generated_images[0].image.image_bytes
-        tmp_file = tempfile.NamedTemporaryFile(suffix=".png", delete=False)
-        tmp_file.write(image_bytes)
-        tmp_file.close()
-        print(f"Generated Gemini image to {tmp_file.name} (prompt: '{prompt[:60]}...')")
-        return tmp_file.name
+        print("Gemini returned no image data -- skipping")
+        return None
 
     except Exception as e:
         print(f"Failed to generate Gemini image: {e} -- posting without image")
