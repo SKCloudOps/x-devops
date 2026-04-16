@@ -283,7 +283,7 @@ def generate_gemini_image(category: str) -> str | None:
     try:
         client = genai.Client(api_key=api_key)
         response = client.models.generate_content(
-            model="gemini-2.5-flash-preview-04-17",
+            model="gemini-2.0-flash-exp",
             contents=prompt,
             config=types.GenerateContentConfig(
                 response_modalities=["IMAGE"],
