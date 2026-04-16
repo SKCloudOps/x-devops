@@ -8,10 +8,12 @@ import json
 import random
 import hashlib
 import time
+import tempfile
 from datetime import datetime, timezone
 from pathlib import Path
 
 import anthropic
+import requests
 import tweepy
 
 
@@ -28,6 +30,20 @@ CATEGORIES = [
     "networking_security_question",
     "container_orchestration_question",
 ]
+
+# Map categories to Unsplash search keywords for relevant images
+CATEGORY_KEYWORDS = {
+    "aws_interview_question": ["cloud computing", "server room", "data center"],
+    "kubernetes_interview_question": ["container ship", "server cluster", "technology infrastructure"],
+    "cicd_interview_question": ["software development", "coding", "pipeline"],
+    "platform_engineering_interview_question": ["engineering", "cloud infrastructure", "technology"],
+    "terraform_iac_interview_question": ["infrastructure", "cloud architecture", "coding setup"],
+    "devops_trending_topic": ["devops", "technology", "software engineering"],
+    "cloud_architecture_pattern": ["cloud computing", "network architecture", "data center"],
+    "sre_observability_question": ["monitoring", "dashboard", "analytics"],
+    "networking_security_question": ["cybersecurity", "network", "firewall"],
+    "container_orchestration_question": ["containers", "docker", "server rack"],
+}
 
 SYSTEM_PROMPT = """You are a Platform/Cloud/DevOps engineer sharing COMMONLY ASKED interview questions 
 on X (Twitter). The classics that come up in EVERY interview.
@@ -291,8 +307,50 @@ Make it a commonly asked question that most engineers would recognize."""
     return content
 
 
-def post_to_x(tweet_text: str, poll_options: list = None) -> dict:
-    """Post a tweet (optionally with a poll) using X API v2 via tweepy."""
+def fetch_unsplash_image(category: str) -> str | None:
+    """Fetch a relevant image from Unsplash based on tweet category. Returns temp file path or None."""
+    access_key = os.environ.get("UNSPLASH_ACCESS_KEY")
+    if not access_key:
+        print("UNSPLASH_ACCESS_KEY not set -- skipping image")
+        return None
+
+    keywords = CATEGORY_KEYWORDS.get(category, ["technology", "cloud computing"])
+    query = random.choice(keywords)
+
+    try:
+        response = requests.get(
+            "https://api.unsplash.com/photos/random",
+            params={
+                "query": query,
+                "orientation": "landscape",
+                "content_filter": "high",
+            },
+            headers={"Authorization": f"Client-ID {access_key}"},
+            timeout=10,
+        )
+        response.raise_for_status()
+        data = response.json()
+
+        image_url = data["urls"]["regular"]  # 1080px wide
+        print(f"Fetched Unsplash image: {image_url} (query: '{query}')")
+
+        # Download the image to a temp file
+        img_response = requests.get(image_url, timeout=15)
+        img_response.raise_for_status()
+
+        tmp_file = tempfile.NamedTemporaryFile(suffix=".jpg", delete=False)
+        tmp_file.write(img_response.content)
+        tmp_file.close()
+        print(f"Downloaded image to {tmp_file.name}")
+        return tmp_file.name
+
+    except Exception as e:
+        print(f"Failed to fetch Unsplash image: {e} -- posting without image")
+        return None
+
+
+def post_to_x(tweet_text: str, poll_options: list = None, image_path: str = None) -> dict:
+    """Post a tweet (optionally with a poll or image) using X API v2 via tweepy."""
     client = tweepy.Client(
         consumer_key=os.environ["X_API_KEY"],
         consumer_secret=os.environ["X_API_SECRET"],
@@ -301,13 +359,37 @@ def post_to_x(tweet_text: str, poll_options: list = None) -> dict:
     )
 
     kwargs = {"text": tweet_text}
+
+    # Upload image if provided (can't combine image + poll on X)
+    if image_path and not poll_options:
+        try:
+            # Media upload requires v1.1 API auth
+            auth = tweepy.OAuth1UserHandler(
+                os.environ["X_API_KEY"],
+                os.environ["X_API_SECRET"],
+                os.environ["X_ACCESS_TOKEN"],
+                os.environ["X_ACCESS_TOKEN_SECRET"],
+            )
+            api_v1 = tweepy.API(auth)
+            media = api_v1.media_upload(filename=image_path)
+            kwargs["media_ids"] = [media.media_id]
+            print(f"Uploaded image, media_id: {media.media_id}")
+        except Exception as e:
+            print(f"Image upload failed: {e} -- posting without image")
+        finally:
+            # Clean up temp file
+            try:
+                os.unlink(image_path)
+            except OSError:
+                pass
+
     if poll_options:
         kwargs["poll_options"] = poll_options
         kwargs["poll_duration_minutes"] = 1440  # 24 hours
 
     tweet = client.create_tweet(**kwargs)
     tweet_id = tweet.data["id"]
-    post_type = "poll" if poll_options else "tweet"
+    post_type = "poll" if poll_options else ("tweet+image" if image_path else "tweet")
     print(f"Posted {post_type}: {tweet_id}")
 
     return {"tweet_id": tweet_id}
@@ -368,7 +450,8 @@ def main():
             print("DRY RUN -- skipping post to X")
             tweet_ids = {"tweet_id": "dry_run"}
         else:
-            tweet_ids = post_to_x(content["tweet"])
+            image_path = fetch_unsplash_image(category)
+            tweet_ids = post_to_x(content["tweet"], image_path=image_path)
 
         content["type"] = "qa"
 
