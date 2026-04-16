@@ -336,8 +336,10 @@ def main():
     category = get_todays_category()
     print(f"Today's category: {category}")
 
-    # ~30% chance of poll, 70% chance of Q&A
-    use_poll = random.random() < 0.30
+    # Post a poll once per day at the 12:00 PM CDT slot (17:00 UTC)
+    # All other time slots get regular Q&A
+    current_hour = datetime.now(timezone.utc).hour
+    use_poll = current_hour == 17
 
     if use_poll:
         print("Mode: POLL")
