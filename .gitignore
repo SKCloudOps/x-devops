@@ -3,3 +3,5 @@ __pycache__/
 .env
 venv/
 .venv/
+repo_validation_*.html
+report_data_*.json
