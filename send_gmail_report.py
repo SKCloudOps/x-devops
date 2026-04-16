@@ -151,6 +151,15 @@ def format_html_report(validation_data: Dict) -> str:
 def send_via_gmail(recipient: str, subject: str, html_body: str, sender_email: str, app_password: str) -> bool:
     """Send email via Gmail SMTP."""
     try:
+        # Strip spaces from app password (Gmail generates passwords with spaces)
+        clean_password = app_password.replace(" ", "")
+
+        # Validate email addresses
+        if not sender_email or "@" not in sender_email:
+            raise ValueError(f"Invalid sender email: {sender_email}")
+        if not recipient or "@" not in recipient:
+            raise ValueError(f"Invalid recipient email: {recipient}")
+
         # Create message
         message = MIMEMultipart("alternative")
         message["Subject"] = subject
@@ -163,15 +172,32 @@ def send_via_gmail(recipient: str, subject: str, html_body: str, sender_email: s
 
         # Send via Gmail SMTP
         print(f"📧 Connecting to Gmail SMTP server...")
+        print(f"   Sender: {sender_email}")
+        print(f"   Recipient: {recipient}")
+
         with smtplib.SMTP_SSL("smtp.gmail.com", 465) as server:
-            server.login(sender_email, app_password)
+            server.login(sender_email, clean_password)
             server.sendmail(sender_email, recipient, message.as_string())
 
         print(f"✅ Email sent successfully to {recipient}")
         return True
 
+    except smtplib.SMTPAuthenticationError as e:
+        print(f"❌ Gmail authentication failed!")
+        print(f"   Check that:")
+        print(f"   1. GMAIL_SENDER_EMAIL is correct")
+        print(f"   2. GMAIL_APP_PASSWORD is the 16-char app password (not your regular password)")
+        print(f"   3. 2-factor authentication is enabled on the Google account")
+        print(f"   4. The app password hasn't been revoked")
+        print(f"   Error: {str(e)}")
+        return False
+    except smtplib.SMTPException as e:
+        print(f"❌ SMTP error occurred: {str(e)}")
+        return False
     except Exception as e:
         print(f"❌ Failed to send email: {str(e)}")
+        import traceback
+        traceback.print_exc()
         return False
 
 def main():
@@ -202,9 +228,14 @@ def main():
         print("="*60)
 
         # Check for Gmail credentials
-        sender_email = os.getenv('GMAIL_SENDER_EMAIL')
-        app_password = os.getenv('GMAIL_APP_PASSWORD')
-        recipient_email = os.getenv('GMAIL_RECIPIENT_EMAIL', 'sathishkrcs@gmail.com')
+        sender_email = os.getenv('GMAIL_SENDER_EMAIL', '').strip()
+        app_password = os.getenv('GMAIL_APP_PASSWORD', '').strip()
+        recipient_email = os.getenv('GMAIL_RECIPIENT_EMAIL', 'sathishkrcs@gmail.com').strip()
+
+        # Validate recipient email has a value
+        if not recipient_email:
+            recipient_email = 'sathishkrcs@gmail.com'
+            print(f"⚠️  GMAIL_RECIPIENT_EMAIL not set, using default: {recipient_email}")
 
         if not sender_email or not app_password:
             print("\n⚠️  Gmail credentials not found in environment variables.")
