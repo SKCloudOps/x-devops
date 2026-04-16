@@ -133,5 +133,51 @@
     "main_tweet_id": "2044201879651991891",
     "reply_tweet_id": "2044201880448897453",
     "content_hash": "242469c69de12c3a4fd346681ad2535f"
+  },
+  {
+    "date": "2026-04-15T14:46:40.261541+00:00",
+    "category": "DevOps_Trending_Topic",
+    "tweet": "Interviewer: \"What's the difference between EventBridge and SQS? When would you use one over the other?\" Most people mix these up \u2014 and it costs them the offer. #AWS #DevOps #CloudComputing #InterviewTips #AWSArchitecture",
+    "reply": "EventBridge = event routing/filtering to multiple targets. SQS = message queue for decoupling. Use EventBridge for event-driven workflows (many targets). Use SQS when you need guaranteed delivery & worker pools. Common miss: thinking they're interchangeable. #AWS #CloudNative",
+    "main_tweet_id": "2044427187978186918",
+    "reply_tweet_id": "2044427188926026138",
+    "content_hash": "cc877965e97c723ebfb7c09daeb072cd"
+  },
+  {
+    "date": "2026-04-15T19:15:54.081226+00:00",
+    "category": "devops_trending_topic",
+    "tweet": "Interviewer: \"What's the difference between CloudFormation and Terraform?\" Me internally: oh god they're actually asking this",
+    "reply": "CF is AWS-only, uses JSON/YAML templates. Terraform is multi-cloud, HCL syntax, way more flexible. Real talk: learn both because you'll definitely use them \ud83e\udd37",
+    "main_tweet_id": "2044494942286893430",
+    "reply_tweet_id": "2044494943058587985",
+    "content_hash": "864e84ef6bd57cb28a4c6b8a8b490e48"
+  },
+  {
+    "date": "2026-04-15T22:39:06.526079+00:00",
+    "category": "devops_trending_topic",
+    "tweet": "Quick question: what happens when you run a container without specifying a base image? Most people get this wrong \ud83d\udc33 #DevOps #Docker #Containerization #InterviewQuestion #CloudEngineering",
+    "tweet_id": "2044546081875497145",
+    "content_hash": "b8d7739b27924f9292592f17094a9e6e"
+  },
+  {
+    "date": "2026-04-16T04:10:52.404479+00:00",
+    "category": "cloud_architecture_pattern",
+    "tweet": "Interviewer: \"When would you use DynamoDB vs a relational database?\" \u2014 literally every AWS interview lol\n\n\nDynamoDB's your pick when you need crazy scale, fast reads/writes, and don't mind a schema-less vibe. It's NoSQL so no complex joins. Perfect for stuff like user sessions, IoT data, or anything with unpredictable traffic spikes. RDS is better when you've got complex queries, need ACID transactions, or your data's relational (think ecommerce with orders \u2192 items \u2192 customers). DynamoDB costs more at small scale but destroys RDS at massive throughput. Know your access patterns before picking one.\n\n#AWS #DynamoDB #CloudArchitecture #DevOpsInterview #InterviewTips",
+    "tweet_id": "2044629573233451109",
+    "content_hash": "15ed59ffea7ccd384f48e6b85fd47275"
+  },
+  {
+    "date": "2026-04-16T12:59:51.768169+00:00",
+    "category": "cloud_architecture_pattern",
+    "tweet": "Interviewer: \"What's the difference between Docker and Podman?\" \u2014 loads of people think they're basically the same thing\n\n\nSo Docker uses a daemon (background service running as root) that manages containers. Podman? Daemonless. You run containers directly without needing root privileges, which is a big security win. Both use the same image format so switching isn't painful.\n\nGotcha: Podman's still catching up on some ecosystem stuff. Docker's just more mature and widely used in prod right now. But Podman's definitely gaining traction, especially for rootless deployments.\n\n#Podman #Docker #CloudArchitecture #DevOps #Containerization",
+    "tweet_id": "2044762697766515113",
+    "content_hash": "db6438eda550629aaf974c8fb765fc86"
+  },
+  {
+    "date": "2026-04-16T16:05:53.416541+00:00",
+    "category": "cloud_architecture_pattern",
+    "tweet": "Interviewer: \"How do you handle encryption keys in the cloud? Should you manage them yourself or use a service like KMS?\" \u2014 literally every security round\n\n\nHonestly, manage them yourself and you're asking for trouble. KMS (or similar) handles rotation, access control, and audit logs automatically. You just call it when you need to encrypt/decrypt. Plus if someone gets your app server, they don't have the keys \u2014 they're locked in a separate service. That separation is the whole point. Self-managing keys is fine for learning but in prod? Use the service. It's not worth the risk.\n\n#AWS #CloudSecurity #DevOps #KMS #InterviewTips",
+    "tweet_id": "2044809512444367296",
+    "content_hash": "d674c0d1474d43fbf8c9b1b84f876089"
   }
 ]

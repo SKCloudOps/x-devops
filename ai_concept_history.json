@@ -41,5 +41,19 @@
     "tweet": "Embeddings are just coordinates in space. Convert \"dog\" to [0.2, 0.8, -0.1] and suddenly you can measure similarity, find neighbors, or feed it to your model. Think: GPS for words.",
     "tweet_id": "2044093013249442209",
     "content_hash": "3f22aef80c5baa2734dbbf55a1adcb06"
+  },
+  {
+    "date": "2026-04-15T16:34:32.595945+00:00",
+    "concept": "Transformer Architecture vs LSTM",
+    "tweet": "Transformers ditched LSTM's sequential memory. Instead of reading left-to-right, they see everything at once and use attention to decide what matters. Faster training, better long-range patterns. That's why they run AI now. #AI #LLM #DeepLearning #MachineLearning",
+    "tweet_id": "2044454335992463573",
+    "content_hash": "2d305b6ed7c24384274196634423f2b4"
+  },
+  {
+    "date": "2026-04-15T23:39:22.017711+00:00",
+    "concept": "Transformer Architecture vs LSTMs",
+    "tweet": "Everyone talks about transformers being better than LSTMs but like... what actually changed? Why'd everyone switch?\n\n\nLSTMs were trying to remember long conversations by passing info through a chain. Problem: that chain gets weak over distance, info gets lost.\n\nTransformers said \"forget the chain.\" Instead they look at EVERYTHING at once using attention. It's like instead of whispering a message down a line of people (where it gets garbled), everyone reads the same document and highlights what matters to them.\n\nResult: way faster to train, handles long texts better, actually understands context. That's why ChatGPT uses transformers and not LSTMs.\n\nLSTMs aren't dead tho \u2014 still useful for some stuff. But transformers just scaled better and that's what matters at the end of the day.\n\n#AI #Transformers #MachineLearning #LLM #NeuralNetworks",
+    "tweet_id": "2044561246301925474",
+    "content_hash": "38794f1dc81307705987ad1c7d9505eb"
   }
 ]

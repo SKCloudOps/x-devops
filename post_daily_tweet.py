@@ -1,6 +1,6 @@
 """
 Daily DevOps/Cloud/Platform Engineering Tweet Bot
-Generates and posts a tweet + threaded reply using Claude API and X API v2.
+Generates and posts a single tweet (interview Q&A) using Claude API and X API v2.
 """
 
 import os
@@ -8,10 +8,12 @@ import json
 import random
 import hashlib
 import time
+import tempfile
 from datetime import datetime, timezone
 from pathlib import Path
 
 import anthropic
+import requests
 import tweepy
 
 
@@ -29,55 +31,111 @@ CATEGORIES = [
     "container_orchestration_question",
 ]
 
-SYSTEM_PROMPT = """You are a Platform/Cloud/DevOps engineer sharing the most COMMONLY ASKED interview questions 
-on X (Twitter). These are the questions that come up in EVERY interview — the classics that 
-engineers Google the night before. Your goal is maximum engagement through relatability.
+# Map categories to Unsplash search keywords for relevant images
+CATEGORY_KEYWORDS = {
+    "aws_interview_question": ["cloud computing", "server room", "data center"],
+    "kubernetes_interview_question": ["container ship", "server cluster", "technology infrastructure"],
+    "cicd_interview_question": ["software development", "coding", "pipeline"],
+    "platform_engineering_interview_question": ["engineering", "cloud infrastructure", "technology"],
+    "terraform_iac_interview_question": ["infrastructure", "cloud architecture", "coding setup"],
+    "devops_trending_topic": ["devops", "technology", "software engineering"],
+    "cloud_architecture_pattern": ["cloud computing", "network architecture", "data center"],
+    "sre_observability_question": ["monitoring", "dashboard", "analytics"],
+    "networking_security_question": ["cybersecurity", "network", "firewall"],
+    "container_orchestration_question": ["containers", "docker", "server rack"],
+}
 
-FORMAT RULE — MANDATORY:
-- Tweet 1 (main) MUST start with "Interviewer:" followed by the question in quotes.
-  Example: Interviewer: "What's the difference between a Pod and a Container in Kubernetes?"
-- After the question, add a one-liner reaction like "This one catches 80% of candidates" 
-  or "Sounds simple but most people fumble this"
-- Then add 3-5 relevant hashtags
+SYSTEM_PROMPT = """You are a Platform/Cloud/DevOps engineer sharing COMMONLY ASKED interview questions 
+on X (Twitter). The classics that come up in EVERY interview.
+
+SOUND HUMAN — THIS IS THE #1 RULE:
+- Write like you're typing a quick tweet on your phone during a coffee break
+- Be conversational. Imperfect. Natural. The way real people actually tweet.
+- Use contractions always (don't, can't, it's, won't, wouldn't, shouldn't)
+- Vary sentence length. Mix short fragments with slightly longer ones.
+- It's okay to start sentences with "And", "But", "So", "Like", "Honestly"
+- Add personality — mild sarcasm, humor, or a personal touch
+
+HUMAN writing examples (DO this):
+  "Interviewer: 'What's the diff between a Pod and a Container?' Lol I blanked on this in my first k8s interview ngl"
+  "Interviewer: 'Explain how a load balancer works' — sounds easy till you're actually standing there trying to explain it"
+
+BOT writing examples (NEVER do this):
+  "Interview Question: Can you explain the fundamental differences between Security Groups and NACLs in AWS?"
+  "Here's a commonly asked DevOps interview question about Kubernetes orchestration"
+
+BANNED WORDS/PHRASES (instant bot giveaway):
+- "crucial", "essential", "leverage", "comprehensive", "robust", "utilizing", "fundamental"
+- "ensure", "facilitate", "optimize", "implement", "streamline", "enhance"
+- "In today's", "It's important to", "Here's why", "Let me explain"
+- "This is a great question", "Great question!", "Key takeaway"
+- Don't write in complete perfect grammar — real tweets aren't essays
+- No bullet points or numbered lists inside tweets
+
+FORMAT — THIS IS CRITICAL FOR ENGAGEMENT:
+On X, posts over 280 characters show a "Show more" button. We want the QUESTION visible 
+and the ANSWER hidden behind the fold so users have to click to see it.
+
+Structure the tweet EXACTLY like this:
+1. ABOVE THE FOLD (first 280 characters — this is what people see in their feed):
+   - "Interviewer:" followed by the question in quotes
+   - A short teaser reaction like "most people get this wrong" or "sounds easy right?"
+   - Keep this part UNDER 260 characters to be safe
+
+2. Then add TWO blank lines (line breaks) to create visual separation
+
+3. BELOW THE FOLD (hidden behind "Show more"):
+   - The answer, written casually like you're telling a friend
+   - Include a real-world tip, gotcha, or common mistake
+   - End with 3-5 relevant hashtags
+
+Example structure:
+Interviewer: "What's the diff between Docker and a VM?" — sounds basic but most people fumble this one
+
+[blank line]
+[blank line]
+Docker shares the host OS kernel so containers are lightweight and start in ms. VMs run a full OS copy = way more overhead. That's why you can run 50 containers where 5 VMs would choke.
+
+#Docker #DevOps #CloudComputing #InterviewTips
 
 QUESTION STYLE — FREQUENTLY ASKED, NOT OBSCURE:
-- Pick questions that are asked in 8 out of 10 DevOps/Cloud interviews
-- The kind of questions people search on Google/Reddit before interviews
-- Questions where people THINK they know the answer but often get it wrong
-- Examples of the RIGHT kind of questions:
-  * "What happens when you type kubectl apply?"
-  * "Explain the difference between SG and NACL"
-  * "What's a VPC and why do you need one?"
-  * "How does a load balancer decide where to send traffic?"
-  * "What's the difference between Docker and a VM?"
-  * "Explain blue-green vs canary deployment"
-  * "What is Infrastructure as Code and why does it matter?"
-  * "How do you handle secrets in a CI/CD pipeline?"
-- AVOID niche, obscure, or ultra-specific questions that only 1% of engineers face
+- Questions asked in 8 out of 10 interviews. The ones people Google the night before.
+- AVOID niche, obscure, or ultra-specific questions
 
-Voice & tone:
-- Write like a REAL person. Casual. Use contractions (don't, can't, it's, won't).
-- Short punchy sentences. The reaction after the question should make people go 
-  "oh no, do I actually know this?"
-- Make it relatable — everyone's been in that interview hot seat
+LENGTH: You have X Premium. Tweet can be up to 2000 characters total.
+The question part (above fold) should be under 260 characters.
+The answer part (below fold) can be 200-600 characters.
 
-NEVER do these:
-- Words: "crucial", "essential", "leverage", "comprehensive", "robust", "utilizing"
-- Don't make the question too long or multi-part
-- Don't ask about super niche services or tools nobody uses
-- Generic CTAs: "What do you think?", "Agree or disagree?"
+Respond ONLY in this exact JSON format, no markdown fences.
+Use \\n for line breaks in the JSON string:
+{
+  "tweet": "question part\\n\\n\\nanswer part\\n\\n#hashtags",
+  "category": "category label"
+}"""
 
-Format:
-- Tweet 1 (main): Under 270 characters. Starts with "Interviewer:" + question + brief reaction + hashtags.
-- Tweet 2 (reply): Under 270 characters. A clear, concise answer that actually helps people. 
-  Include a practical tip or common mistake. Add 3-5 relevant hashtags at the end.
-- Hashtag examples: #AWS #DevOps #Kubernetes #CloudComputing #Docker #Terraform #CICD #SRE #Linux
-  #PlatformEngineering #InfraAsCode #GitOps #CloudNative #InterviewTips #TechTwitter
+POLL_PROMPT = """You are a Platform/Cloud/DevOps engineer creating a multiple-choice interview 
+question poll on X (Twitter). Polls get MASSIVE engagement -- people love testing themselves.
+
+SOUND HUMAN:
+- Write the question casually, like you're quizzing a friend
+- Use contractions, keep it natural
+- Add a short teaser like "most people pick the wrong one" or "this trips up even seniors"
+
+RULES:
+- The question text must be UNDER 260 characters (it's visible in the feed)
+- Provide exactly 4 answer options, each MUST be UNDER 25 characters (X poll limit)
+- Only ONE option should be correct
+- Make the wrong options plausible -- not obviously wrong
+- Add 3-5 hashtags at the end of the question text
+- Pick COMMONLY ASKED interview questions, not obscure ones
+
+BANNED WORDS: "crucial", "essential", "leverage", "comprehensive", "fundamental"
 
 Respond ONLY in this exact JSON format, no markdown fences:
 {
-  "tweet": "the main tweet text",
-  "reply": "the threaded reply text",
+  "tweet": "the question text with hashtags",
+  "options": ["Option A", "Option B", "Option C", "Option D"],
+  "correct": 0,
   "category": "category label"
 }"""
 
@@ -88,7 +146,7 @@ def get_todays_category() -> str:
     return CATEGORIES[day_of_year % len(CATEGORIES)]
 
 
-MAX_TWEET_LENGTH = 280
+MAX_TWEET_LENGTH = 2000  # X Premium allows up to 4000, keeping 2000 for readability
 MAX_RETRIES = 3
 
 
@@ -115,7 +173,7 @@ def _call_claude_with_retry(client, system_prompt: str, messages: list,
         try:
             return client.messages.create(
                 model="claude-haiku-4-5-20251001",
-                max_tokens=500,
+                max_tokens=1000,
                 system=system_prompt,
                 messages=messages,
             )
@@ -134,7 +192,7 @@ def _call_claude_with_retry(client, system_prompt: str, messages: list,
 
 
 def generate_content(category: str) -> dict:
-    """Use Claude API to generate tweet + reply, with retries for length violations."""
+    """Use Claude API to generate a single tweet with Q&A, with retries for length violations."""
     client = anthropic.Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
 
     # Add some randomness to avoid repetitive patterns
@@ -154,8 +212,10 @@ Seed keyword (use this as inspiration, don't force it): {seed_word}
 Date: {datetime.now(timezone.utc).strftime('%A, %B %d, %Y')}
 
 Generate a FREQUENTLY ASKED interview question — the kind that shows up in most interviews 
-and engineers prep for the night before. Start with "Interviewer:" then the question in quotes.
-STRICT LIMIT: each tweet must be under 270 characters. Count carefully."""
+and engineers prep for the night before. Start with "Interviewer:" then the question in quotes,
+then include the answer in the SAME tweet.
+You have X Premium — tweet can be up to 2000 characters. Aim for 500-1000 chars.
+Use the space for a solid Q&A with real detail."""
 
     messages = [{"role": "user", "content": user_prompt}]
 
@@ -170,34 +230,127 @@ STRICT LIMIT: each tweet must be under 270 characters. Count carefully."""
         content = json.loads(response_text)
 
         tweet_len = len(content["tweet"])
-        reply_len = len(content["reply"])
 
-        if tweet_len <= MAX_TWEET_LENGTH and reply_len <= MAX_TWEET_LENGTH:
+        if tweet_len <= MAX_TWEET_LENGTH:
             return content
 
-        print(f"Attempt {attempt}/{MAX_RETRIES}: tweet={tweet_len}, reply={reply_len} chars — retrying...")
+        print(f"Attempt {attempt}/{MAX_RETRIES}: tweet={tweet_len} chars — retrying...")
 
         # Build retry conversation asking Claude to shorten
         messages = [
             {"role": "user", "content": user_prompt},
             {"role": "assistant", "content": message.content[0].text},
             {"role": "user", "content": (
-                f"The content exceeds the character limit. "
-                f"Tweet is {tweet_len} chars, reply is {reply_len} chars. "
-                f"Both MUST be under {MAX_TWEET_LENGTH} characters. "
-                f"Shorten them and respond in the same JSON format."
+                f"The tweet is {tweet_len} chars. "
+                f"It MUST be under {MAX_TWEET_LENGTH} characters. "
+                f"Shorten it and respond in the same JSON format."
             )},
         ]
 
     # Final fallback: truncate to fit
     print("Max retries exceeded — truncating content to fit limits.")
     content["tweet"] = truncate_to_limit(content["tweet"])
-    content["reply"] = truncate_to_limit(content["reply"])
     return content
 
 
-def post_to_x(tweet_text: str, reply_text: str) -> dict:
-    """Post tweet and threaded reply using X API v2 via tweepy."""
+def generate_poll_content(category: str) -> dict:
+    """Use Claude API to generate a poll-style interview question."""
+    client = anthropic.Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
+
+    seed_word = random.choice([
+        "EKS", "Lambda", "Terraform", "ArgoCD", "GitHub Actions", "Helm",
+        "VPC", "IAM", "CloudFront", "DynamoDB", "Prometheus", "Docker",
+        "Kubernetes", "Route53", "S3", "EC2", "Fargate", "ECS",
+        "CloudFormation", "Ansible", "Jenkins", "Vault", "Grafana",
+    ])
+
+    user_prompt = f"""Category: {category}
+Seed keyword (inspiration, don't force it): {seed_word}
+Date: {datetime.now(timezone.utc).strftime('%A, %B %d, %Y')}
+
+Create a multiple-choice poll question for a DevOps/Cloud interview.
+Question text MUST be under 260 characters. Each option MUST be under 25 characters.
+Make it a commonly asked question that most engineers would recognize."""
+
+    messages = [{"role": "user", "content": user_prompt}]
+
+    for attempt in range(1, MAX_RETRIES + 1):
+        message = _call_claude_with_retry(client, POLL_PROMPT, messages)
+
+        response_text = message.content[0].text.strip()
+        response_text = response_text.replace("```json", "").replace("```", "").strip()
+        content = json.loads(response_text)
+
+        tweet_len = len(content["tweet"])
+        options = content.get("options", [])
+        options_valid = (len(options) == 4 and
+                        all(len(opt) <= 25 for opt in options))
+
+        if tweet_len <= MAX_TWEET_LENGTH and options_valid:
+            return content
+
+        print(f"Poll attempt {attempt}/{MAX_RETRIES}: tweet={tweet_len} chars, "
+              f"options_valid={options_valid} -- retrying...")
+
+        messages = [
+            {"role": "user", "content": user_prompt},
+            {"role": "assistant", "content": message.content[0].text},
+            {"role": "user", "content": (
+                f"Issues: tweet is {tweet_len} chars (must be under {MAX_TWEET_LENGTH}). "
+                f"Each poll option must be under 25 characters. "
+                f"Fix and respond in the same JSON format."
+            )},
+        ]
+
+    # Truncate tweet if needed, return as-is for options
+    content["tweet"] = truncate_to_limit(content["tweet"])
+    return content
+
+
+def fetch_unsplash_image(category: str) -> str | None:
+    """Fetch a relevant image from Unsplash based on tweet category. Returns temp file path or None."""
+    access_key = os.environ.get("UNSPLASH_ACCESS_KEY")
+    if not access_key:
+        print("UNSPLASH_ACCESS_KEY not set -- skipping image")
+        return None
+
+    keywords = CATEGORY_KEYWORDS.get(category, ["technology", "cloud computing"])
+    query = random.choice(keywords)
+
+    try:
+        response = requests.get(
+            "https://api.unsplash.com/photos/random",
+            params={
+                "query": query,
+                "orientation": "landscape",
+                "content_filter": "high",
+            },
+            headers={"Authorization": f"Client-ID {access_key}"},
+            timeout=10,
+        )
+        response.raise_for_status()
+        data = response.json()
+
+        image_url = data["urls"]["regular"]  # 1080px wide
+        print(f"Fetched Unsplash image: {image_url} (query: '{query}')")
+
+        # Download the image to a temp file
+        img_response = requests.get(image_url, timeout=15)
+        img_response.raise_for_status()
+
+        tmp_file = tempfile.NamedTemporaryFile(suffix=".jpg", delete=False)
+        tmp_file.write(img_response.content)
+        tmp_file.close()
+        print(f"Downloaded image to {tmp_file.name}")
+        return tmp_file.name
+
+    except Exception as e:
+        print(f"Failed to fetch Unsplash image: {e} -- posting without image")
+        return None
+
+
+def post_to_x(tweet_text: str, poll_options: list = None, image_path: str = None) -> dict:
+    """Post a tweet (optionally with a poll or image) using X API v2 via tweepy."""
     client = tweepy.Client(
         consumer_key=os.environ["X_API_KEY"],
         consumer_secret=os.environ["X_API_SECRET"],
@@ -205,22 +358,41 @@ def post_to_x(tweet_text: str, reply_text: str) -> dict:
         access_token_secret=os.environ["X_ACCESS_TOKEN_SECRET"],
     )
 
-    # Post main tweet
-    main_tweet = client.create_tweet(text=tweet_text)
-    main_tweet_id = main_tweet.data["id"]
-    print(f"Posted main tweet: {main_tweet_id}")
+    kwargs = {"text": tweet_text}
 
-    # Post reply in thread
-    reply_tweet = client.create_tweet(
-        text=reply_text, in_reply_to_tweet_id=main_tweet_id
-    )
-    reply_tweet_id = reply_tweet.data["id"]
-    print(f"Posted reply: {reply_tweet_id}")
+    # Upload image if provided (can't combine image + poll on X)
+    if image_path and not poll_options:
+        try:
+            # Media upload requires v1.1 API auth
+            auth = tweepy.OAuth1UserHandler(
+                os.environ["X_API_KEY"],
+                os.environ["X_API_SECRET"],
+                os.environ["X_ACCESS_TOKEN"],
+                os.environ["X_ACCESS_TOKEN_SECRET"],
+            )
+            api_v1 = tweepy.API(auth)
+            media = api_v1.media_upload(filename=image_path)
+            kwargs["media_ids"] = [media.media_id]
+            print(f"Uploaded image, media_id: {media.media_id}")
+        except Exception as e:
+            print(f"Image upload failed: {e} -- posting without image")
+        finally:
+            # Clean up temp file
+            try:
+                os.unlink(image_path)
+            except OSError:
+                pass
 
-    return {
-        "main_tweet_id": main_tweet_id,
-        "reply_tweet_id": reply_tweet_id,
-    }
+    if poll_options:
+        kwargs["poll_options"] = poll_options
+        kwargs["poll_duration_minutes"] = 1440  # 24 hours
+
+    tweet = client.create_tweet(**kwargs)
+    tweet_id = tweet.data["id"]
+    post_type = "poll" if poll_options else ("tweet+image" if image_path else "tweet")
+    print(f"Posted {post_type}: {tweet_id}")
+
+    return {"tweet_id": tweet_id}
 
 
 def log_posted_content(content: dict, tweet_ids: dict):
@@ -234,9 +406,7 @@ def log_posted_content(content: dict, tweet_ids: dict):
         "date": datetime.now(timezone.utc).isoformat(),
         "category": content.get("category", "unknown"),
         "tweet": content["tweet"],
-        "reply": content["reply"],
-        "main_tweet_id": tweet_ids.get("main_tweet_id"),
-        "reply_tweet_id": tweet_ids.get("reply_tweet_id"),
+        "tweet_id": tweet_ids.get("tweet_id"),
         "content_hash": hashlib.md5(content["tweet"].encode()).hexdigest(),
     }
     history.append(entry)
@@ -248,21 +418,42 @@ def main():
     category = get_todays_category()
     print(f"Today's category: {category}")
 
-    # Generate content
-    content = generate_content(category)
-    print(f"Generated tweet ({len(content['tweet'])} chars): {content['tweet']}")
-    print(f"Generated reply ({len(content['reply'])} chars): {content['reply']}")
+    # Post a poll once per day at the 12:00 PM CDT slot (17:00 UTC)
+    # All other time slots get regular Q&A
+    current_hour = datetime.now(timezone.utc).hour
+    use_poll = current_hour == 17
 
-    # Validate lengths
-    assert len(content["tweet"]) <= 280, f"Tweet too long: {len(content['tweet'])}"
-    assert len(content["reply"]) <= 280, f"Reply too long: {len(content['reply'])}"
+    if use_poll:
+        print("Mode: POLL")
+        content = generate_poll_content(category)
+        poll_options = content.get("options", [])
+        print(f"Generated poll ({len(content['tweet'])} chars): {content['tweet']}")
+        print(f"Options: {poll_options}")
 
-    # Post to X (skip if DRY_RUN is set)
-    if os.environ.get("DRY_RUN", "false").lower() == "true":
-        print("DRY RUN — skipping post to X")
-        tweet_ids = {"main_tweet_id": "dry_run", "reply_tweet_id": "dry_run"}
+        assert len(content["tweet"]) <= MAX_TWEET_LENGTH, f"Tweet too long: {len(content['tweet'])}"
+
+        if os.environ.get("DRY_RUN", "false").lower() == "true":
+            print("DRY RUN -- skipping post to X")
+            tweet_ids = {"tweet_id": "dry_run"}
+        else:
+            tweet_ids = post_to_x(content["tweet"], poll_options=poll_options)
+
+        content["type"] = "poll"
     else:
-        tweet_ids = post_to_x(content["tweet"], content["reply"])
+        print("Mode: Q&A")
+        content = generate_content(category)
+        print(f"Generated tweet ({len(content['tweet'])} chars): {content['tweet']}")
+
+        assert len(content["tweet"]) <= MAX_TWEET_LENGTH, f"Tweet too long: {len(content['tweet'])}"
+
+        if os.environ.get("DRY_RUN", "false").lower() == "true":
+            print("DRY RUN -- skipping post to X")
+            tweet_ids = {"tweet_id": "dry_run"}
+        else:
+            image_path = fetch_unsplash_image(category)
+            tweet_ids = post_to_x(content["tweet"], image_path=image_path)
+
+        content["type"] = "qa"
 
     # Log
     log_posted_content(content, tweet_ids)

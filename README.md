@@ -1,4 +1,4 @@
-# Daily DevOps Tweet Bot 🐦
+# Daily DevOps Tweet Bot
 
 Automated daily X (Twitter) posts covering Cloud, DevOps, and Platform Engineering — interview questions, trending topics, and architecture insights.
 
