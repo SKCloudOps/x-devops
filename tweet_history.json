@@ -158,5 +158,12 @@
     "tweet": "Quick question: what happens when you run a container without specifying a base image? Most people get this wrong \ud83d\udc33 #DevOps #Docker #Containerization #InterviewQuestion #CloudEngineering",
     "tweet_id": "2044546081875497145",
     "content_hash": "b8d7739b27924f9292592f17094a9e6e"
+  },
+  {
+    "date": "2026-04-16T04:10:52.404479+00:00",
+    "category": "cloud_architecture_pattern",
+    "tweet": "Interviewer: \"When would you use DynamoDB vs a relational database?\" \u2014 literally every AWS interview lol\n\n\nDynamoDB's your pick when you need crazy scale, fast reads/writes, and don't mind a schema-less vibe. It's NoSQL so no complex joins. Perfect for stuff like user sessions, IoT data, or anything with unpredictable traffic spikes. RDS is better when you've got complex queries, need ACID transactions, or your data's relational (think ecommerce with orders \u2192 items \u2192 customers). DynamoDB costs more at small scale but destroys RDS at massive throughput. Know your access patterns before picking one.\n\n#AWS #DynamoDB #CloudArchitecture #DevOpsInterview #InterviewTips",
+    "tweet_id": "2044629573233451109",
+    "content_hash": "15ed59ffea7ccd384f48e6b85fd47275"
   }
 ]
