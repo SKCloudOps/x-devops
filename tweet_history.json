@@ -242,5 +242,12 @@
     "tweet": "Interviewer: \"You deploy a Lambda function. It runs fine in dev but times out in prod. How do you debug this?\"\n\nLol this one's tricky because you can't just SSH in.\n\n\nFirst: check CloudWatch logs. Look for actual errors or slow queries. Lambda logs everything there.\n\nSecond: check your timeout setting. Maybe it's set too low for prod traffic.\n\nThird: is it a cold start? First run takes longer. Use provisioned concurrency to keep Lambdas warm.\n\nFourth: check what your function actually does. Database queries slow? API calls hanging? Memory too low? All of these slow things down.\n\nPro tip: add CloudWatch metrics to track execution time. You'll see patterns. Like \"it only times out when database is busy.\" That tells you where to look.\n\nReal example: I once had a Lambda that was fine with 128MB memory in dev but needed 512MB in prod because of data volume. Just didn't have enough resources to work fast.\n\n#DevOps #AWS #Lambda #SRE #Observability",
     "tweet_id": "2045233307265515728",
     "content_hash": "cf9359a9acf8248ec005b1a7e644fbf7"
+  },
+  {
+    "date": "2026-04-17T22:36:24.131959+00:00",
+    "category": "sre_observability_question",
+    "tweet": "Interviewer: \"What's the difference between logs, metrics, and traces? Why do you need all three?\"\n\nNgl, this trips people up but it's actually simple.\n\nLogs are messages your app writes. \"User logged in at 3:45pm.\" Raw text.\n\nMetrics are numbers over time. \"5 requests per second.\" \"CPU at 80%.\" You graph these.\n\nTraces follow one request through your whole system. \"Request hit API, then database, took 200ms total.\" Shows you where slowness happens.\n\nWhy all three? Logs tell you WHAT happened. Metrics tell you IF something's wrong. Traces tell you WHERE it broke.\n\nReal example: Your app is slow. Metrics show \"yeah, something's up.\" Logs say \"database connection failed.\" Traces show the request waited 5 seconds at the database step. Now you know exactly what to fix.\n\nBuild observability into your infrastructure from day one. Use Pulumi or Terraform to set up monitoring with your apps. Don't add it later.\n\n#SRE #Observability #DevOps #Monitoring #InterviewPrep",
+    "tweet_id": "2045270176187486716",
+    "content_hash": "7cf0937a72e350ca7a6da872c4387479"
   }
 ]
