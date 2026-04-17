@@ -221,5 +221,12 @@
     "tweet": "Interviewer: \"How do you monitor a Step Function workflow? What would you watch for?\"\n\nThis one trips people up ngl\n\n\nStep Functions run tasks in order. You need to watch:\n\n1. Execution status - is it running, done, or stuck?\n2. How long each step takes - one step getting slow? Investigate.\n3. Failed executions - did a step error out?\n4. CloudWatch Logs - what did your code actually do?\n\nThe key: set alarms. If executions fail too much, alert your team NOW. Don't wait for customers to complain.\n\nReal example: Your Step Function calls a Lambda. Lambda times out. You catch this with CloudWatch Metrics + alarms. Fix it before it breaks production.\n\nAlso watch execution history. Sometimes a workflow fails silently. The logs tell the story.\n\n#SRE #AWS #StepFunctions #Observability #DevOps",
     "tweet_id": "2045123053391130720",
     "content_hash": "05cc295320c9948a54f80df0a5a17c29"
+  },
+  {
+    "date": "2026-04-17T15:36:49.563819+00:00",
+    "category": "sre_observability_question",
+    "tweet": "Interviewer: \"How do you let your app in Kubernetes talk to AWS without storing secret keys in your code?\"\n\nNgl, this trips people up. But it's actually smart.\n\n\nYou use IRSA. That's just a fancy name for: your pod gets a temporary ID from AWS. No keys sitting around.\n\nHere's how it works:\n1. You create an AWS role (like a permission ticket)\n2. You link it to your Kubernetes service account\n3. When your pod starts, AWS gives it temp keys that expire\n4. Your app uses those keys. No hardcoding secrets.\n\nWhy this matters: if someone hacks your pod, they only get temp keys that expire in an hour. Not your main AWS keys forever.\n\nReal example: Your app needs to read from S3. Instead of putting AWS keys in your deployment, IRSA handles it. Your pod just asks AWS \"can I read this bucket?\" AWS checks the role and says yes or no.\n\nIt's basically: \"prove who you are\" instead of \"here's my password.\"\n\n#Kubernetes #AWS #DevOps #SRE #InterviewPrep",
+    "tweet_id": "2045164586047811893",
+    "content_hash": "98516f9980b11866b1c2938ddd947ac7"
   }
 ]
