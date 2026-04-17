@@ -235,5 +235,12 @@
     "tweet": "Interviewer: \"How do you monitor network traffic in your VPC? What would you check if users say the app is slow?\"\n\nNgl, this trips people up because they mix up monitoring with just \"checking logs\"\n\nYou'd look at:\n\n1. VPC Flow Logs - see what packets are moving where. Spot blocked traffic or weird patterns.\n\n2. CloudWatch metrics - CPU, memory, network in/out. If network out is maxed, you found your problem.\n\n3. Check your security groups - maybe you're blocking traffic by accident. Or a route is wrong.\n\n4. Look at NAT gateway/instance - if everyone's going through one box, it becomes a bottleneck.\n\nReal example: User says \"slow\". You check Flow Logs, see traffic hitting a security group deny rule. You're rejecting it! Fix the rule, boom, problem solved.\n\nThe key: start at the network layer first. Don't jump straight to app logs.\n\n#DevOps #AWS #SRE #InterviewTips #Monitoring",
     "tweet_id": "2045197828793020480",
     "content_hash": "09ffb21d4d161deeb75b5ad901598a45"
+  },
+  {
+    "date": "2026-04-17T20:09:53.916555+00:00",
+    "category": "sre_observability_question",
+    "tweet": "Interviewer: \"You deploy a Lambda function. It runs fine in dev but times out in prod. How do you debug this?\"\n\nLol this one's tricky because you can't just SSH in.\n\n\nFirst: check CloudWatch logs. Look for actual errors or slow queries. Lambda logs everything there.\n\nSecond: check your timeout setting. Maybe it's set too low for prod traffic.\n\nThird: is it a cold start? First run takes longer. Use provisioned concurrency to keep Lambdas warm.\n\nFourth: check what your function actually does. Database queries slow? API calls hanging? Memory too low? All of these slow things down.\n\nPro tip: add CloudWatch metrics to track execution time. You'll see patterns. Like \"it only times out when database is busy.\" That tells you where to look.\n\nReal example: I once had a Lambda that was fine with 128MB memory in dev but needed 512MB in prod because of data volume. Just didn't have enough resources to work fast.\n\n#DevOps #AWS #Lambda #SRE #Observability",
+    "tweet_id": "2045233307265515728",
+    "content_hash": "cf9359a9acf8248ec005b1a7e644fbf7"
   }
 ]
