@@ -40,5 +40,12 @@
     "tweet": "If you're not monitoring your SQS queue depth, you're basically flying blind. Your app could be drowning and you wouldn't even know it.\n\n\nQueue depth is how many messages are sitting in your SQS queue waiting to be processed. If it keeps climbing, that's your signal that consumers are slower than producers \u2014 meaning jobs are piling up and users are getting delayed responses. Set a CloudWatch alarm on ApproximateNumberOfMessagesVisible and actually look at it. Catch the backlog before it becomes a disaster.\n\n#AWS #SQS #Monitoring #CloudWatch #DevOps",
     "tweet_id": "2044849460157571106",
     "content_hash": "77cc96441caf10a5c34eeadb3d1355cf"
+  },
+  {
+    "date": "2026-04-17T18:30:14.989338+00:00",
+    "concept": "AWS SQS pricing and when to use it",
+    "tweet": "AWS SQS is basically a mailbox for your serverless apps. Messages wait in line until something picks them up. Problem: you're paying for every message, even the ones sitting there doing nothing.\n\n\nSQS charges you per million requests, not per message stored. So if you queue up 10k messages but only process 100 today, you still pay for all 10k requests that created them.\n\nThis is why people use SQS for async tasks (send emails, process images) but switch to SNS or Kinesis for high-volume stuff. Also pro tip: use SQS FIFO if order matters, but it costs more and is slower.\n\nGotcha nobody talks about: batch your message sends. Instead of 1000 single requests, send 10 batches of 100. Same work, way cheaper.\n\n#AWS #Serverless #SQS #CostOptimization #DevOps",
+    "tweet_id": "2045208230188470780",
+    "content_hash": "c4fb45e6f0212f57ec358e75db7913ff"
   }
 ]
