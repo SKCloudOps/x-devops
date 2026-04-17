@@ -62,5 +62,12 @@
     "tweet": "Everyone talks about \"vision models\" but honestly most people think it's just ChatGPT with eyes\n\n\nNope. Vision models are AIs that can actually *see* and understand images. Like showing a photo to someone and asking \"what's in this?\"\n\nBut way faster and more detailed.\n\nThey work kinda like this:\n\n1. You feed in an image\n2. The AI breaks it down into patterns (edges, shapes, colors)\n3. It compares those patterns to millions of images it learned from\n4. It tells you what it sees\n\nReal world example: You take a blurry photo of a dog. A vision model can tell you it's a golden retriever, probably 3 years old, sitting on grass, sunny day. Humans would need to zoom in and squint lol.\n\nWhy it matters: Companies use these to check product quality (find defects in factories), read documents automatically, help blind people describe what's around them, find objects in satellite photos.\n\nThe catch? They still mess up. Show them a weird angle or bad lighting and they might say a cat is a dog. They're incredible but not perfect.\n\n#AI #VisionModels #MachineLearning #ComputerVision #GenAI",
     "tweet_id": "2044923240410485132",
     "content_hash": "311df7fb308226fa55c25d2ef8a4c20a"
+  },
+  {
+    "date": "2026-04-17T23:36:49.832354+00:00",
+    "concept": "BERT (Bidirectional Encoder Representations from Transformers)",
+    "tweet": "everyone talks about BERT but nobody explains what it actually does\n\n\nBERT is basically a AI teacher that learned to read by predicting missing words in millions of sentences.\n\nSo when you give it text, it already knows how words relate to each other. Way better than old models that just looked at words one at a time.\n\nWhy care? Google uses it to understand what you're searching for. Even if you misspell stuff or use weird phrasing, BERT gets the vibe.\n\nIt's the reason search got so much smarter around 2019. That's the BERT update everyone noticed but most people didn't know the name.\n\n#AI #NLP #BERT #MachineLearning #SearchEngine",
+    "tweet_id": "2045285383814951354",
+    "content_hash": "60858b71de3c6330a95d281b422d1c61"
   }
 ]
