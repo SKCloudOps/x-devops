@@ -214,5 +214,12 @@
     "tweet": "Interviewer: \"What's the difference between monitoring and observability? Why does it matter?\"\n\nNgl, a lot of people mix these up.\n\nMonitoring = checking specific things. You pick what to watch. Metrics, logs, alerts. You're looking for what you expect to break.\n\nObservability = being able to ask ANY question about your system. Why is this slow? Where did that error come from? What happened 5 minutes ago? You don't need to predict it first.\n\nReal example: You monitor CPU and memory. But your app is slow and you don't know why. With observability, you can dig into traces and see exactly which database query is hanging.\n\nIstio (a service mesh) helps with observability. It watches traffic between services automatically. You get timing, errors, and flow without changing your app code.\n\nThe key: monitoring catches what you're looking for. Observability lets you find what you didn't expect to break.\n\n#SRE #Observability #DevOps #Monitoring #Istio",
     "tweet_id": "2044989104916431115",
     "content_hash": "4a12277ab7b162c5697fa4f04aa91812"
+  },
+  {
+    "date": "2026-04-17T12:51:47.345654+00:00",
+    "category": "sre_observability_question",
+    "tweet": "Interviewer: \"How do you monitor a Step Function workflow? What would you watch for?\"\n\nThis one trips people up ngl\n\n\nStep Functions run tasks in order. You need to watch:\n\n1. Execution status - is it running, done, or stuck?\n2. How long each step takes - one step getting slow? Investigate.\n3. Failed executions - did a step error out?\n4. CloudWatch Logs - what did your code actually do?\n\nThe key: set alarms. If executions fail too much, alert your team NOW. Don't wait for customers to complain.\n\nReal example: Your Step Function calls a Lambda. Lambda times out. You catch this with CloudWatch Metrics + alarms. Fix it before it breaks production.\n\nAlso watch execution history. Sometimes a workflow fails silently. The logs tell the story.\n\n#SRE #AWS #StepFunctions #Observability #DevOps",
+    "tweet_id": "2045123053391130720",
+    "content_hash": "05cc295320c9948a54f80df0a5a17c29"
   }
 ]
