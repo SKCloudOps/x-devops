@@ -228,5 +228,12 @@
     "tweet": "Interviewer: \"How do you let your app in Kubernetes talk to AWS without storing secret keys in your code?\"\n\nNgl, this trips people up. But it's actually smart.\n\n\nYou use IRSA. That's just a fancy name for: your pod gets a temporary ID from AWS. No keys sitting around.\n\nHere's how it works:\n1. You create an AWS role (like a permission ticket)\n2. You link it to your Kubernetes service account\n3. When your pod starts, AWS gives it temp keys that expire\n4. Your app uses those keys. No hardcoding secrets.\n\nWhy this matters: if someone hacks your pod, they only get temp keys that expire in an hour. Not your main AWS keys forever.\n\nReal example: Your app needs to read from S3. Instead of putting AWS keys in your deployment, IRSA handles it. Your pod just asks AWS \"can I read this bucket?\" AWS checks the role and says yes or no.\n\nIt's basically: \"prove who you are\" instead of \"here's my password.\"\n\n#Kubernetes #AWS #DevOps #SRE #InterviewPrep",
     "tweet_id": "2045164586047811893",
     "content_hash": "98516f9980b11866b1c2938ddd947ac7"
+  },
+  {
+    "date": "2026-04-17T17:48:55.161313+00:00",
+    "category": "sre_observability_question",
+    "tweet": "Interviewer: \"How do you monitor network traffic in your VPC? What would you check if users say the app is slow?\"\n\nNgl, this trips people up because they mix up monitoring with just \"checking logs\"\n\nYou'd look at:\n\n1. VPC Flow Logs - see what packets are moving where. Spot blocked traffic or weird patterns.\n\n2. CloudWatch metrics - CPU, memory, network in/out. If network out is maxed, you found your problem.\n\n3. Check your security groups - maybe you're blocking traffic by accident. Or a route is wrong.\n\n4. Look at NAT gateway/instance - if everyone's going through one box, it becomes a bottleneck.\n\nReal example: User says \"slow\". You check Flow Logs, see traffic hitting a security group deny rule. You're rejecting it! Fix the rule, boom, problem solved.\n\nThe key: start at the network layer first. Don't jump straight to app logs.\n\n#DevOps #AWS #SRE #InterviewTips #Monitoring",
+    "tweet_id": "2045197828793020480",
+    "content_hash": "09ffb21d4d161deeb75b5ad901598a45"
   }
 ]
