@@ -207,5 +207,12 @@
     "tweet": "Interviewer: \"What's Infrastructure as Code and why do we use it?\"\n\nGood question. It's writing code that builds your servers and cloud stuff instead of clicking buttons in the AWS console.\n\nInstead of manually creating 50 servers, you write code that says \"make 50 servers with these settings.\" Then you run it. Done. And you can run it again whenever you want. Same result every time.\n\nWhy this matters: You can version control it (Git). You can review changes before applying them. You can copy your setup to a new team or environment super fast. No more \"wait, how did we set this up last time?\"\n\nTools like Pulumi, Terraform, and CloudFormation all do this. They're just different ways to write the recipe for your infrastructure.\n\nReal example: Instead of clicking to create a database, subnet, and firewall rule, you write 10 lines of code. One command deploys all three. Your coworker can read it and understand your setup immediately.\n\n#DevOps #InfrastructureAsCode #AWS #CloudArchitecture",
     "tweet_id": "2044920252023124371",
     "content_hash": "e4a83e8301806c08601b5d1c69be344c"
+  },
+  {
+    "date": "2026-04-17T03:59:31.554231+00:00",
+    "category": "SRE_Observability",
+    "tweet": "Interviewer: \"What's the difference between monitoring and observability? Why does it matter?\"\n\nNgl, a lot of people mix these up.\n\nMonitoring = checking specific things. You pick what to watch. Metrics, logs, alerts. You're looking for what you expect to break.\n\nObservability = being able to ask ANY question about your system. Why is this slow? Where did that error come from? What happened 5 minutes ago? You don't need to predict it first.\n\nReal example: You monitor CPU and memory. But your app is slow and you don't know why. With observability, you can dig into traces and see exactly which database query is hanging.\n\nIstio (a service mesh) helps with observability. It watches traffic between services automatically. You get timing, errors, and flow without changing your app code.\n\nThe key: monitoring catches what you're looking for. Observability lets you find what you didn't expect to break.\n\n#SRE #Observability #DevOps #Monitoring #Istio",
+    "tweet_id": "2044989104916431115",
+    "content_hash": "4a12277ab7b162c5697fa4f04aa91812"
   }
 ]
