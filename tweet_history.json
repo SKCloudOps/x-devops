@@ -277,5 +277,12 @@
     "tweet": "Interviewer: \"How do you store secrets like passwords and API keys? Why can't we just put them in code?\"\n\nngl this trips up a lot of people\n\n\nYou never put secrets in your code. Ever. Because:\n\n1. If your code goes on GitHub, hackers find them in 5 seconds\n2. Everyone on your team sees them (bad idea)\n3. You can't change them without redeploying code\n\nInstead, use a secrets manager like HashiCorp Vault or AWS Secrets Manager.\n\nHow it works:\n- Your app asks the vault \"hey, give me the database password\"\n- Vault checks if the app is allowed to have it\n- Vault gives it only when needed\n- You can rotate passwords without touching code\n\nReal example: Your app running on a server needs a DB password. Instead of hardcoding it, the server talks to Vault at startup. Vault says \"ok, here's your password for the next hour.\" After an hour? Vault stops accepting that password. The server asks again. New password. Way safer.\n\n#DevOps #Security #CloudSecurity #Vault #Secrets",
     "tweet_id": "2045556972314128748",
     "content_hash": "472728fda31aa77fb0945785981affce"
+  },
+  {
+    "date": "2026-04-18T20:02:21.599672+00:00",
+    "category": "networking_security",
+    "tweet": "Interviewer: \"Walk me through what happens when you configure a firewall rule. Why does order matter?\"\n\nohh this trips people up\n\n\nA firewall reads rules from top to bottom. It stops at the first match. So order = everything.\n\nExample: You have two rules:\n1. Block port 22 (SSH)\n2. Allow port 22 from 10.0.0.0/8\n\nIf rule 1 is first? SSH gets blocked. Rule 2 never runs. You just locked yourself out.\n\nFlip them? Now SSH works from your network. Good.\n\nPro tip: Put specific rules first (allow from this IP), then general rules (block everyone). Think of it like a bouncer checking a list. Check VIPs first, then run the general rules.\n\nIn AWS security groups or Linux iptables, same deal. Order matters big time.\n\n#DevOps #Networking #SecurityGroups #Firewall",
+    "tweet_id": "2045593798215188797",
+    "content_hash": "8d4866b13276312e369351b12d433321"
   }
 ]
