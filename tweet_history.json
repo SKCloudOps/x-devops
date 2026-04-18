@@ -263,5 +263,12 @@
     "tweet": "Interviewer: \"You're running containers in ECS. How do you keep your app safe from the internet?\"\n\nNgl this trips people up but it's pretty straightforward.\n\nYou use security groups. Think of them like a bouncer at a club. They say: \"Yeah, traffic on port 80 can come in. Port 22? Nah, not today.\"\n\nECS containers run inside a VPC (your private network). By default, nothing from the internet can reach them. You only open the ports you need.\n\nThe setup:\n- Create a security group for your ECS tasks\n- Allow port 80/443 for web traffic (from anywhere)\n- Block everything else\n- Attach it to your load balancer in front\n\nThe load balancer sits in public. Your containers hide behind it and the security group.\n\nPro tip: Don't open port 22 (SSH) to 0.0.0.0. That's asking for trouble. Use AWS Systems Manager Session Manager instead\u2014it's way safer.\n\n#ECS #AWS #DevOps #SecurityGroups #InterviewPrep",
     "tweet_id": "2045481023018881100",
     "content_hash": "a90c7e23e5cb407660577c21d1d6cafa"
+  },
+  {
+    "date": "2026-04-18T15:07:16.852999+00:00",
+    "category": "networking_security_question",
+    "tweet": "Interviewer: \"Why can't my Docker container talk to another container on the same machine?\"\n\nThis trips people up all the time lol\n\n\nBy default, Docker containers can't see each other. Each one gets its own isolated network. They're like roommates in separate boxes.\n\nYou have two options:\n\n1. **Docker networks** \u2014 create a custom network and put both containers on it. They can talk by container name. This is the right way.\n\n2. **Host network** \u2014 the container uses your machine's network directly. Fast but loses isolation. Not great for security.\n\nReal example: if your app container needs to hit a database container, put them both on the same custom network. Then use the database container's name as the hostname. That's it.\n\nMost people forget about custom networks and try to hardcode IP addresses. Don't do that \u2014 IPs change.\n\n#Docker #DevOps #Networking #InterviewTips #Containerization",
+    "tweet_id": "2045519538700030041",
+    "content_hash": "17f048ec8c509eb40eb461901d41bb7d"
   }
 ]
