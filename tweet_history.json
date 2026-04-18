@@ -256,5 +256,12 @@
     "tweet": "Interviewer: \"What's the difference between SNS and SQS? When do you use each one?\"\n\nThis one trips people up ngl\n\n\nSNS is a megaphone. You shout a message once, and everyone listening hears it right away. Good for alerts, notifications, stuff that needs to go to lots of places fast.\n\nSQS is a mailbox. Messages sit there until someone grabs them. Great when you need to queue up work, handle spiky traffic, or make sure nothing gets lost.\n\nKey diff: SNS = push (send and forget). SQS = pull (grab when ready).\n\nExample: Your app crashes. Use SNS to alert your team NOW. But if you need to process 10k orders today, throw them in SQS so workers can grab them one at a time without getting slammed.\n\nBonus: you can actually send SNS messages TO SQS queues. They work great together.\n\n#AWS #DevOps #InterviewPrep #CloudArchitecture",
     "tweet_id": "2045347581228666939",
     "content_hash": "920b85a44c50ca1bb2665d685b7da7a3"
+  },
+  {
+    "date": "2026-04-18T12:34:13.945842+00:00",
+    "category": "networking_security",
+    "tweet": "Interviewer: \"You're running containers in ECS. How do you keep your app safe from the internet?\"\n\nNgl this trips people up but it's pretty straightforward.\n\nYou use security groups. Think of them like a bouncer at a club. They say: \"Yeah, traffic on port 80 can come in. Port 22? Nah, not today.\"\n\nECS containers run inside a VPC (your private network). By default, nothing from the internet can reach them. You only open the ports you need.\n\nThe setup:\n- Create a security group for your ECS tasks\n- Allow port 80/443 for web traffic (from anywhere)\n- Block everything else\n- Attach it to your load balancer in front\n\nThe load balancer sits in public. Your containers hide behind it and the security group.\n\nPro tip: Don't open port 22 (SSH) to 0.0.0.0. That's asking for trouble. Use AWS Systems Manager Session Manager instead\u2014it's way safer.\n\n#ECS #AWS #DevOps #SecurityGroups #InterviewPrep",
+    "tweet_id": "2045481023018881100",
+    "content_hash": "a90c7e23e5cb407660577c21d1d6cafa"
   }
 ]
