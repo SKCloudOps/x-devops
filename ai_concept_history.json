@@ -69,5 +69,12 @@
     "tweet": "everyone talks about BERT but nobody explains what it actually does\n\n\nBERT is basically a AI teacher that learned to read by predicting missing words in millions of sentences.\n\nSo when you give it text, it already knows how words relate to each other. Way better than old models that just looked at words one at a time.\n\nWhy care? Google uses it to understand what you're searching for. Even if you misspell stuff or use weird phrasing, BERT gets the vibe.\n\nIt's the reason search got so much smarter around 2019. That's the BERT update everyone noticed but most people didn't know the name.\n\n#AI #NLP #BERT #MachineLearning #SearchEngine",
     "tweet_id": "2045285383814951354",
     "content_hash": "60858b71de3c6330a95d281b422d1c61"
+  },
+  {
+    "date": "2026-04-18T23:32:04.174394+00:00",
+    "concept": "training_data",
+    "tweet": "Everyone talks about \"training data\" like it's magic. It's not. It's just examples.\n\n\nThink of it like teaching a kid to recognize dogs. You show them 1000 pictures of dogs. After a while, they get it.\n\nAI works the same way. Feed it tons of examples. It learns patterns. That's it.\n\nBad training data = bad AI. Good training data = better AI.\n\nIt's why companies fight over data. It's literally what makes the model work.\n\n#AI #MachineLearning #DataScience #LLM #GenAI",
+    "tweet_id": "2045646573560869241",
+    "content_hash": "5421b78dffbfcf7f8134471bff25edfc"
   }
 ]
