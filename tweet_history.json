@@ -284,5 +284,12 @@
     "tweet": "Interviewer: \"Walk me through what happens when you configure a firewall rule. Why does order matter?\"\n\nohh this trips people up\n\n\nA firewall reads rules from top to bottom. It stops at the first match. So order = everything.\n\nExample: You have two rules:\n1. Block port 22 (SSH)\n2. Allow port 22 from 10.0.0.0/8\n\nIf rule 1 is first? SSH gets blocked. Rule 2 never runs. You just locked yourself out.\n\nFlip them? Now SSH works from your network. Good.\n\nPro tip: Put specific rules first (allow from this IP), then general rules (block everyone). Think of it like a bouncer checking a list. Check VIPs first, then run the general rules.\n\nIn AWS security groups or Linux iptables, same deal. Order matters big time.\n\n#DevOps #Networking #SecurityGroups #Firewall",
     "tweet_id": "2045593798215188797",
     "content_hash": "8d4866b13276312e369351b12d433321"
+  },
+  {
+    "date": "2026-04-18T22:32:09.438046+00:00",
+    "category": "networking_security_question",
+    "tweet": "Interviewer: \"How do you keep secrets safe in GitHub Actions? Like API keys and passwords.\"\n\nOh man, people mess this up all the time.\n\n---\n\nNever put secrets in your code or config files. GitHub has a built-in secrets vault.\n\nYou store them in Settings > Secrets. Then in your workflow file, you use them like:\n\n\nenv:\n  API_KEY: ${{ secrets.MY_API_KEY }}\n\n\nGitHub masks them in logs so they don't show up when your job runs. But here's the thing: only do this in private repos or with protection rules on.\n\nBetter move? Use something like AWS Secrets Manager or HashiCorp Vault. That way your secrets aren't even stored in GitHub. Your Actions job asks the vault \"hey, can I have the key?\" and it gives it for that one run only.\n\nReal tip: rotate your secrets every few months. And if you ever leak one, delete it right away and make a new one.\n\n#DevOps #GitHubActions #Security #CI-CD",
+    "tweet_id": "2045631495642239055",
+    "content_hash": "2d7ab375fd6c03c12383bd67b9e6fe04"
   }
 ]
