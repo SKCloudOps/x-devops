@@ -270,5 +270,12 @@
     "tweet": "Interviewer: \"Why can't my Docker container talk to another container on the same machine?\"\n\nThis trips people up all the time lol\n\n\nBy default, Docker containers can't see each other. Each one gets its own isolated network. They're like roommates in separate boxes.\n\nYou have two options:\n\n1. **Docker networks** \u2014 create a custom network and put both containers on it. They can talk by container name. This is the right way.\n\n2. **Host network** \u2014 the container uses your machine's network directly. Fast but loses isolation. Not great for security.\n\nReal example: if your app container needs to hit a database container, put them both on the same custom network. Then use the database container's name as the hostname. That's it.\n\nMost people forget about custom networks and try to hardcode IP addresses. Don't do that \u2014 IPs change.\n\n#Docker #DevOps #Networking #InterviewTips #Containerization",
     "tweet_id": "2045519538700030041",
     "content_hash": "17f048ec8c509eb40eb461901d41bb7d"
+  },
+  {
+    "date": "2026-04-18T17:36:01.646808+00:00",
+    "category": "networking_security",
+    "tweet": "Interviewer: \"How do you store secrets like passwords and API keys? Why can't we just put them in code?\"\n\nngl this trips up a lot of people\n\n\nYou never put secrets in your code. Ever. Because:\n\n1. If your code goes on GitHub, hackers find them in 5 seconds\n2. Everyone on your team sees them (bad idea)\n3. You can't change them without redeploying code\n\nInstead, use a secrets manager like HashiCorp Vault or AWS Secrets Manager.\n\nHow it works:\n- Your app asks the vault \"hey, give me the database password\"\n- Vault checks if the app is allowed to have it\n- Vault gives it only when needed\n- You can rotate passwords without touching code\n\nReal example: Your app running on a server needs a DB password. Instead of hardcoding it, the server talks to Vault at startup. Vault says \"ok, here's your password for the next hour.\" After an hour? Vault stops accepting that password. The server asks again. New password. Way safer.\n\n#DevOps #Security #CloudSecurity #Vault #Secrets",
+    "tweet_id": "2045556972314128748",
+    "content_hash": "472728fda31aa77fb0945785981affce"
   }
 ]
