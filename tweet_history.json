@@ -249,5 +249,12 @@
     "tweet": "Interviewer: \"What's the difference between logs, metrics, and traces? Why do you need all three?\"\n\nNgl, this trips people up but it's actually simple.\n\nLogs are messages your app writes. \"User logged in at 3:45pm.\" Raw text.\n\nMetrics are numbers over time. \"5 requests per second.\" \"CPU at 80%.\" You graph these.\n\nTraces follow one request through your whole system. \"Request hit API, then database, took 200ms total.\" Shows you where slowness happens.\n\nWhy all three? Logs tell you WHAT happened. Metrics tell you IF something's wrong. Traces tell you WHERE it broke.\n\nReal example: Your app is slow. Metrics show \"yeah, something's up.\" Logs say \"database connection failed.\" Traces show the request waited 5 seconds at the database step. Now you know exactly what to fix.\n\nBuild observability into your infrastructure from day one. Use Pulumi or Terraform to set up monitoring with your apps. Don't add it later.\n\n#SRE #Observability #DevOps #Monitoring #InterviewPrep",
     "tweet_id": "2045270176187486716",
     "content_hash": "7cf0937a72e350ca7a6da872c4387479"
+  },
+  {
+    "date": "2026-04-18T03:43:58.938425+00:00",
+    "category": "networking_security_question",
+    "tweet": "Interviewer: \"What's the difference between SNS and SQS? When do you use each one?\"\n\nThis one trips people up ngl\n\n\nSNS is a megaphone. You shout a message once, and everyone listening hears it right away. Good for alerts, notifications, stuff that needs to go to lots of places fast.\n\nSQS is a mailbox. Messages sit there until someone grabs them. Great when you need to queue up work, handle spiky traffic, or make sure nothing gets lost.\n\nKey diff: SNS = push (send and forget). SQS = pull (grab when ready).\n\nExample: Your app crashes. Use SNS to alert your team NOW. But if you need to process 10k orders today, throw them in SQS so workers can grab them one at a time without getting slammed.\n\nBonus: you can actually send SNS messages TO SQS queues. They work great together.\n\n#AWS #DevOps #InterviewPrep #CloudArchitecture",
+    "tweet_id": "2045347581228666939",
+    "content_hash": "920b85a44c50ca1bb2665d685b7da7a3"
   }
 ]
