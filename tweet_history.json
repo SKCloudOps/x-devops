@@ -305,5 +305,12 @@
     "tweet": "Interviewer: \"How do you stop bad pods from running in your Kubernetes cluster?\"\n\nNah, this isn't about deleting stuff. It's about setting rules before they even start.\n\nYou use something called a policy engine. OPA (Open Policy Agent) is the most common one. It sits between you and Kubernetes and says \"yep, that pod is good\" or \"nope, that breaks the rules.\"\n\nExample: You set a rule that says \"all containers must have resource limits.\" A developer tries to deploy a pod without limits? OPA blocks it. They get an error telling them why. They fix it. Done.\n\nWhy it matters: You catch bad configs before they crash your cluster or cause security issues. It's like a bouncer at the door instead of kicking people out after they're drunk.\n\nReal tip: Start with simple rules. Limit what images you can use, require certain labels, block privileged containers. Don't go crazy with 100 policies on day one.\n\n#Kubernetes #DevOps #OPA #ContainerSecurity #InterviewPrep",
     "tweet_id": "2045881877983096875",
     "content_hash": "4fd00720a6b94f415ef03114ca72ca87"
+  },
+  {
+    "date": "2026-04-19T20:02:26.709322+00:00",
+    "category": "container_orchestration_question",
+    "tweet": "Interviewer: \"How do you monitor a Kubernetes cluster? What tool would you use?\"\n\nNgl this is asked at like every interview lol\n\n\nYou'd use Prometheus. It scrapes metrics from your pods and nodes every few seconds. Then you can see CPU, memory, and stuff.\n\nKubernetes exposes a metrics endpoint. Prometheus pulls data from it. Then you set alerts: \"if CPU > 80%, tell me.\"\n\nPrometheus stores the data as time series. You can graph it in Grafana (makes it pretty) or query it yourself.\n\nReal talk: set up alerts BEFORE your app breaks. Don't wait until production melts down.\n\nExample: alert if a pod restarts more than 5 times in 5 min. That's a sign something's wrong.\n\n#Kubernetes #Prometheus #Monitoring #DevOps #ContainerOrchestration",
+    "tweet_id": "2045956207379390663",
+    "content_hash": "72134277eb3c59d7da4ee4a7a5f0177b"
   }
 ]
