@@ -291,5 +291,12 @@
     "tweet": "Interviewer: \"How do you keep secrets safe in GitHub Actions? Like API keys and passwords.\"\n\nOh man, people mess this up all the time.\n\n---\n\nNever put secrets in your code or config files. GitHub has a built-in secrets vault.\n\nYou store them in Settings > Secrets. Then in your workflow file, you use them like:\n\n\nenv:\n  API_KEY: ${{ secrets.MY_API_KEY }}\n\n\nGitHub masks them in logs so they don't show up when your job runs. But here's the thing: only do this in private repos or with protection rules on.\n\nBetter move? Use something like AWS Secrets Manager or HashiCorp Vault. That way your secrets aren't even stored in GitHub. Your Actions job asks the vault \"hey, can I have the key?\" and it gives it for that one run only.\n\nReal tip: rotate your secrets every few months. And if you ever leak one, delete it right away and make a new one.\n\n#DevOps #GitHubActions #Security #CI-CD",
     "tweet_id": "2045631495642239055",
     "content_hash": "2d7ab375fd6c03c12383bd67b9e6fe04"
+  },
+  {
+    "date": "2026-04-19T04:10:51.407122+00:00",
+    "category": "container_orchestration_question",
+    "tweet": "Interviewer: \"How do you pass config to a container in Kubernetes?\"\n\nThis one's important. You've got 3 main ways:\n\n1. ConfigMap \u2014 for regular stuff like app settings, db host, etc. Just key-value pairs. Not secret.\n\n2. Secret \u2014 same idea but for passwords, api keys, stuff you don't want in plain text.\n\n3. Environment variables \u2014 you point to ConfigMap or Secret and boom, your app reads them.\n\nHere's the catch: if you change a ConfigMap, your pod doesn't auto-restart. You gotta manually restart it or use a tool like Sealed Secrets.\n\nReal example:\napiVersion: v1\nkind: ConfigMap\nmetadata:\n  name: app-config\ndata:\n  DATABASE_HOST: postgres.default\n  LOG_LEVEL: info\n---\nIn your pod, mount it:\nenv:\n  - name: DB_HOST\n    valueFrom:\n      configMapKeyRef:\n        name: app-config\n        key: DATABASE_HOST\n\nThe gotcha: ConfigMaps are NOT encrypted by default. Use Secrets for sensitive stuff.\n\n#Kubernetes #DevOps #ContainerOrchestration #InterviewPrep",
+    "tweet_id": "2045716731931365772",
+    "content_hash": "b5cee80be10541e0e4cb466140b28c78"
   }
 ]
