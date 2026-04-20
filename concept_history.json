@@ -54,5 +54,12 @@
     "tweet": "Your ALB is probably doing work it shouldn't. Most teams don't use sticky sessions right.\n\n\nSticky sessions make sure the same user always hits the same server. Sounds good, right? But here's the thing: if that server dies, your user loses their session anyway.\n\nBetter move? Store sessions in a database or cache like Redis. Then ANY server can handle your user. That's actual reliability.\n\nALB sticky sessions are only useful if you're running old code that needs them. New apps? Skip it. Your load balancer shouldn't be a memory bank.\n\n#DevOps #AWS #LoadBalancer #WebServers",
     "tweet_id": "2045564289990181337",
     "content_hash": "23df21d75f70692a8ab1e707681b68ca"
+  },
+  {
+    "date": "2026-04-20T18:36:39.285714+00:00",
+    "concept": "git_version_control_for_infrastructure_recovery",
+    "tweet": "Your EC2 instance has a git repo but you never commit. Then it crashes. Everything you coded? Gone forever.\n\n\nThis is why you push to GitHub. Your code should live somewhere safe, not just on one machine.\n\nThink of git commits like saving your game. If you don't save, you lose progress. If you only save on your laptop, and your laptop breaks, that game is gone.\n\nWith EC2, same deal. Your code needs to be in a git repo (GitHub, GitLab, whatever). Then if the instance dies, you spin up a new one, clone the repo, and you're back in business.\n\nPro tip: Use git hooks to auto-deploy when you push. Your EC2 pulls the latest code automatically. One command, everything updates.\n\n#Git #EC2 #DevOps #CloudComputing",
+    "tweet_id": "2046297005660450876",
+    "content_hash": "1224e0465e2b9d978032a056a8a2a527"
   }
 ]
