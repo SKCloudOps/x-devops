@@ -319,5 +319,12 @@
     "tweet": "Interviewer: \"When would you use Step Functions instead of just writing code?\"\n\nTbh this is a great question. Step Functions let you build workflows without writing complex logic.\n\nSay you need to:\n1. Upload a file\n2. Check if it's valid\n3. Send an email\n4. Update a database\n\nYou could write all that in one function. But what if step 2 fails? You'd have to restart everything.\n\nWith Step Functions, each step is separate. If step 2 fails, you retry just that step. You can see exactly where things broke. Plus you can add delays, parallel tasks, or loop back easily.\n\nReal example: Processing orders. Step 1 checks payment. Step 2 books inventory. Step 3 ships it. If inventory is out of stock, you can automatically notify someone instead of crashing.\n\nIt's basically a flowchart that actually runs your AWS services. Way cleaner than spaghetti code.\n\n#AWS #StepFunctions #DevOps #CloudArchitecture",
     "tweet_id": "2046212497372324169",
     "content_hash": "d1f4203f8b17c3b60c0c3906686a5101"
+  },
+  {
+    "date": "2026-04-20T15:53:22.970067+00:00",
+    "category": "kubernetes_interview_question",
+    "tweet": "Interviewer: \"What's the difference between Helm and just using kubectl?\"\n\nNgl, this one trips people up.\n\nHelm is a package manager for Kubernetes. Think of it like npm for Node or pip for Python.\n\nWith kubectl alone, you write YAML files by hand. Every. Single. Time. If you want to deploy the same app to 10 different clusters, you copy-paste and change values. Pain.\n\nHelm packages your app. It has templates. You say \"give me 10 copies but change the names and ports\" \u2014 Helm does it. One command.\n\nReal example: Deploy Nginx with kubectl = write 3 YAML files. Deploy with Helm = helm install nginx nginx-repo/nginx. Done.\n\nHelm also handles upgrades. Need version 2.0? helm upgrade. Old version rolls back automatically if something breaks.\n\nTL;DR: kubectl = manual. Helm = automated and repeatable.\n\n#Kubernetes #DevOps #Helm #InterviewPrep",
+    "tweet_id": "2046255916606267819",
+    "content_hash": "a9c2d5b19a8dd3451dcbc4d3e61f395d"
   }
 ]
