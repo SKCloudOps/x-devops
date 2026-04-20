@@ -340,5 +340,12 @@
     "tweet": "Interviewer: \"What's the difference between a service mesh like Istio and just using Kubernetes services?\"\n\nNgl, this one trips people up.\n\n\nKubernetes services just route traffic to your pods. That's it. Basic networking.\n\nIstio sits on top and does way more. It watches your traffic, adds security rules, retries failed calls, and can split traffic between versions.\n\nThink of it this way:\n- Kubernetes service = basic road signs\n- Istio = traffic lights, speed limits, and police directing traffic\n\nYou don't *need* Istio for small stuff. But if you're running a bunch of microservices that talk to each other, Istio helps you control who talks to who, retry things that fail, and see what's happening.\n\nReal tip: Istio adds complexity. Don't use it unless you actually need traffic control, security rules between services, or better monitoring. Start simple.\n\n#DevOps #Kubernetes #Istio #AWS #InterviewPrep",
     "tweet_id": "2046320847816729002",
     "content_hash": "a54c0ebe10435e8d3f3578d74379604a"
+  },
+  {
+    "date": "2026-04-20T22:40:45.422731+00:00",
+    "category": "aws_interview_question",
+    "tweet": "Interviewer: \"What's the difference between EC2 Auto Scaling and Karpenter?\"\n\nNgl, people mix these up all the time.\n\nEC2 Auto Scaling watches your CPU and memory. When it goes up, it spins up more servers. When it goes down, it kills servers. It's reactive and slow. Takes a few minutes.\n\nKarpenter is smarter. It watches your pods waiting to run. The second a pod can't fit, Karpenter launches the right server for it. No waiting around.\n\nBig difference: Auto Scaling manages server groups. Karpenter manages individual pods.\n\nReal example: You deploy 50 new pods. Auto Scaling might take 5 mins to notice and launch servers. Karpenter launches them in seconds because it's watching pod events.\n\nKarpenter also picks cheaper servers that fit your needs. Auto Scaling just uses whatever you told it to use.\n\nTL;DR: Auto Scaling is old school. Karpenter is the new way.\n\n#AWS #Kubernetes #Karpenter #DevOps #InterviewPrep",
+    "tweet_id": "2046358435462066678",
+    "content_hash": "01de5bf7d444da1088630cae42662568"
   }
 ]
