@@ -333,5 +333,12 @@
     "tweet": "Interviewer: \"What's the difference between ECS and Kubernetes? When would you pick one?\"\n\nNgl, this trips people up but it's not hard.\n\nBoth run your containers. That's it. Here's the split:\n\nECS is AWS's thing. Super simple. You tell it \"run this container\" and it does. AWS handles a lot for you. Good if you're all-in on AWS.\n\nKubernetes is open source. Works anywhere. Way more powerful but also way more complex. You gotta know more stuff to use it.\n\nPick ECS if: You're on AWS, want less headache, don't need crazy customization.\n\nPick Kubernetes if: You want to move between clouds, need fine control, or your team already knows it.\n\nReal talk: Most teams starting out? ECS wins. Less to learn, works great. You can always switch later.\n\n#AWS #ECS #DevOps #InterviewPrep #Docker",
     "tweet_id": "2046287172639023429",
     "content_hash": "3589d71e1d9db4f7ab5ae741b3921dd8"
+  },
+  {
+    "date": "2026-04-20T20:11:23.862269+00:00",
+    "category": "kubernetes_service_mesh",
+    "tweet": "Interviewer: \"What's the difference between a service mesh like Istio and just using Kubernetes services?\"\n\nNgl, this one trips people up.\n\n\nKubernetes services just route traffic to your pods. That's it. Basic networking.\n\nIstio sits on top and does way more. It watches your traffic, adds security rules, retries failed calls, and can split traffic between versions.\n\nThink of it this way:\n- Kubernetes service = basic road signs\n- Istio = traffic lights, speed limits, and police directing traffic\n\nYou don't *need* Istio for small stuff. But if you're running a bunch of microservices that talk to each other, Istio helps you control who talks to who, retry things that fail, and see what's happening.\n\nReal tip: Istio adds complexity. Don't use it unless you actually need traffic control, security rules between services, or better monitoring. Start simple.\n\n#DevOps #Kubernetes #Istio #AWS #InterviewPrep",
+    "tweet_id": "2046320847816729002",
+    "content_hash": "a54c0ebe10435e8d3f3578d74379604a"
   }
 ]
