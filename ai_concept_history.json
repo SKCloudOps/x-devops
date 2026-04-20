@@ -76,5 +76,12 @@
     "tweet": "Everyone talks about \"training data\" like it's magic. It's not. It's just examples.\n\n\nThink of it like teaching a kid to recognize dogs. You show them 1000 pictures of dogs. After a while, they get it.\n\nAI works the same way. Feed it tons of examples. It learns patterns. That's it.\n\nBad training data = bad AI. Good training data = better AI.\n\nIt's why companies fight over data. It's literally what makes the model work.\n\n#AI #MachineLearning #DataScience #LLM #GenAI",
     "tweet_id": "2045646573560869241",
     "content_hash": "5421b78dffbfcf7f8134471bff25edfc"
+  },
+  {
+    "date": "2026-04-20T23:39:48.309476+00:00",
+    "concept": "underfitting",
+    "tweet": "Your AI model is \"underfitting\" and you probably don't even know it\n\n\nUnderfitting is when your AI model is too lazy or too simple. It doesn't learn the patterns well enough.\n\nThink of it like studying for a test by only reading the chapter title. You'll fail because you didn't actually learn anything.\n\nWith AI:\n- Model is too simple (not enough layers)\n- Not enough training time\n- Not enough data\n\nResult? It does bad on both training AND real-world stuff.\n\nOpposite problem is overfitting\u2014memorizing instead of learning. That one gets more hype but underfitting is just as annoying.\n\nFix it by:\n- Making your model bigger\n- Training longer\n- Getting more data\n\nIt's the \"Goldilocks\" problem. Not too simple. Not too complex. Just right.\n\n#AI #MachineLearning #DataScience #ComputerVision #TechTips",
+    "tweet_id": "2046373295826579559",
+    "content_hash": "458cf809991b47272268e0babcb67cde"
   }
 ]
