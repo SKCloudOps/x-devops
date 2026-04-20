@@ -312,5 +312,12 @@
     "tweet": "Interviewer: \"How do you monitor a Kubernetes cluster? What tool would you use?\"\n\nNgl this is asked at like every interview lol\n\n\nYou'd use Prometheus. It scrapes metrics from your pods and nodes every few seconds. Then you can see CPU, memory, and stuff.\n\nKubernetes exposes a metrics endpoint. Prometheus pulls data from it. Then you set alerts: \"if CPU > 80%, tell me.\"\n\nPrometheus stores the data as time series. You can graph it in Grafana (makes it pretty) or query it yourself.\n\nReal talk: set up alerts BEFORE your app breaks. Don't wait until production melts down.\n\nExample: alert if a pod restarts more than 5 times in 5 min. That's a sign something's wrong.\n\n#Kubernetes #Prometheus #Monitoring #DevOps #ContainerOrchestration",
     "tweet_id": "2045956207379390663",
     "content_hash": "72134277eb3c59d7da4ee4a7a5f0177b"
+  },
+  {
+    "date": "2026-04-20T13:00:51.085748+00:00",
+    "category": "aws_interview_question",
+    "tweet": "Interviewer: \"When would you use Step Functions instead of just writing code?\"\n\nTbh this is a great question. Step Functions let you build workflows without writing complex logic.\n\nSay you need to:\n1. Upload a file\n2. Check if it's valid\n3. Send an email\n4. Update a database\n\nYou could write all that in one function. But what if step 2 fails? You'd have to restart everything.\n\nWith Step Functions, each step is separate. If step 2 fails, you retry just that step. You can see exactly where things broke. Plus you can add delays, parallel tasks, or loop back easily.\n\nReal example: Processing orders. Step 1 checks payment. Step 2 books inventory. Step 3 ships it. If inventory is out of stock, you can automatically notify someone instead of crashing.\n\nIt's basically a flowchart that actually runs your AWS services. Way cleaner than spaghetti code.\n\n#AWS #StepFunctions #DevOps #CloudArchitecture",
+    "tweet_id": "2046212497372324169",
+    "content_hash": "d1f4203f8b17c3b60c0c3906686a5101"
   }
 ]
