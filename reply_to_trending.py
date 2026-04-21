@@ -22,6 +22,8 @@ import hashlib
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
 
+import sys
+
 import anthropic
 import tweepy
 
@@ -235,11 +237,13 @@ def get_own_user_id(bearer_token: str) -> str:
 def main():
     bearer_token = os.environ.get("X_BEARER_TOKEN")
     if not bearer_token:
-        raise EnvironmentError(
-            "X_BEARER_TOKEN is required for tweet search.\n"
-            "This requires X API Basic tier or higher.\n"
-            "Get it at: https://developer.x.com/en/portal/products/basic"
+        print(
+            "X_BEARER_TOKEN not set — skipping reply bot.\n"
+            "Tweet search requires X API Basic tier ($100/month).\n"
+            "Add X_BEARER_TOKEN to repo secrets once you upgrade:\n"
+            "  developer.x.com → Products → Basic"
         )
+        sys.exit(0)
 
     dry_run = os.environ.get("DRY_RUN", "false").lower() == "true"
 
