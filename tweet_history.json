@@ -370,5 +370,14 @@
     "hook_id": "2046618139388223967",
     "thread_id": "2046618140705218582",
     "content_hash": "eef08ccbffd327be217e83de34630629"
+  },
+  {
+    "date": "2026-04-21T17:59:00.649817+00:00",
+    "category": "kubernetes_interview_question",
+    "hook": "Interviewer: 'How do you handle pod crashes in Kubernetes?' \u2014 Most candidates say 'restart policies' and stop there. Here's what they miss \ud83d\udc47",
+    "thread": "Yeah, restart policies help. But here's the real answer:\n\nWhen a pod crashes, Kubernetes doesn't just restart it randomly. It uses an exponential backoff.\n\nFirst crash? Restart right away.\nSecond crash? Wait 10 seconds, then restart.\nThird? Wait 20 seconds.\nMax wait is 5 minutes.\n\nThis prevents hammering your system if the pod keeps failing.\n\nBUT \u2014 and this is what gets people \u2014 you also need:\n\n1. Liveness probes: Tells Kube 'is this pod actually alive?'\n2. Readiness probes: Tells Kube 'is this pod ready for traffic?'\n3. Resource requests/limits: So a broken pod doesn't eat all your CPU\n\nReal example: Your app crashes every 2 seconds. Without these checks, Kube keeps spinning up new pods. Your cluster melts down.\n\nWith probes? Kube stops sending traffic, waits longer between restarts, and gives you time to fix it.\n\nThis is the answer that separates people who just read the docs from people who've actually debugged this stuff.\n\nWhat's the trickiest pod crash scenario you've dealt with? Drop it below \ud83d\udc47\n\n#Kubernetes #DevOps #KubernetesInterview #ContainerOrchestration",
+    "hook_id": "2046649918610088290",
+    "thread_id": "2046649920128426263",
+    "content_hash": "cf3df6c8c07a4fb8fc3049837a88fd19"
   }
 ]
