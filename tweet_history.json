@@ -354,5 +354,12 @@
     "tweet": "Interviewer: \"What's the difference between managing your own Kubernetes cluster vs using Fargate?\"\n\nOh this one gets a lot of people. Let me break it down.\n\nManaging your own cluster? You're running Kubernetes on EC2 servers. You pick the server size, you patch them, you make sure they have enough space. It's powerful but you're doing a lot of work.\n\nFargate? AWS handles all that for you. You just say \"run this container\" and it runs. You don't think about servers at all. You pay per second for what you use. Way less headache.\n\nThe trade-off: Fargate costs more and you have less control. Own cluster gives you more power but more work.\n\nPick Fargate when you want things simple and fast. Pick your own cluster when you need total control or you're running tons of stuff and want to save money.\n\nReal talk: most teams start with Fargate. It's less to worry about.\n\n#Kubernetes #AWS #Fargate #DevOps #InterviewPrep",
     "tweet_id": "2046438663467528502",
     "content_hash": "e929b06ed83799482f870858ed553206"
+  },
+  {
+    "date": "2026-04-21T12:55:57.406272+00:00",
+    "category": "kubernetes_interview_question",
+    "tweet": "Interviewer: \"What's the difference between ConfigMaps and Secrets in Kubernetes?\"\n\nthis one trips people up ngl\n\n\nBoth store data your app needs. But they're different.\n\nConfigMaps = store regular stuff. Like database host, app settings, config files. Not secret.\n\nSecrets = store sensitive stuff. Like passwords, API keys, tokens. Kubernetes keeps them separate.\n\nHere's the key part: Secrets are stored as base64 by default (that's just encoding, not real encryption). So don't think they're super safe out of the box. Treat them seriously.\n\nUse ConfigMaps for things your teammates can see. Use Secrets for things they shouldn't.\n\nQuick example: your app needs a database. Store the host in ConfigMap. Store the password in Secret. Your pod reads both.\n\n#Kubernetes #DevOps #K8s #InterviewTips #CloudNative",
+    "tweet_id": "2046573653777629399",
+    "content_hash": "7d437f7ca764c536f46e72089f1a2f0a"
   }
 ]
