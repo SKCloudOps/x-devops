@@ -1,13 +1,6 @@
 name: Reply to Trending DevOps Tweets
 
 on:
-  schedule:
-    # 8:30 AM CDT — morning engagement window
-    - cron: '30 13 * * 1-5'
-    # 12:30 PM CDT — lunch engagement window
-    - cron: '30 17 * * 1-5'
-    # 5:30 PM CDT — end-of-day engagement window
-    - cron: '30 22 * * 1-5'
   workflow_dispatch:
     inputs:
       dry_run:
