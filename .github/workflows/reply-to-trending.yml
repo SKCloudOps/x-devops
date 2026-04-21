@@ -63,6 +63,6 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add reply_history.json
+          git add --ignore-unmatch reply_history.json
           git diff --cached --quiet || git commit -m "Reply log $(date -u +%Y-%m-%d)"
           git push
