@@ -61,5 +61,14 @@
     "tweet": "Your EC2 instance has a git repo but you never commit. Then it crashes. Everything you coded? Gone forever.\n\n\nThis is why you push to GitHub. Your code should live somewhere safe, not just on one machine.\n\nThink of git commits like saving your game. If you don't save, you lose progress. If you only save on your laptop, and your laptop breaks, that game is gone.\n\nWith EC2, same deal. Your code needs to be in a git repo (GitHub, GitLab, whatever). Then if the instance dies, you spin up a new one, clone the repo, and you're back in business.\n\nPro tip: Use git hooks to auto-deploy when you push. Your EC2 pulls the latest code automatically. One command, everything updates.\n\n#Git #EC2 #DevOps #CloudComputing",
     "tweet_id": "2046297005660450876",
     "content_hash": "1224e0465e2b9d978032a056a8a2a527"
+  },
+  {
+    "date": "2026-04-21T18:41:13.880545+00:00",
+    "concept": "Aurora read replica scaling limitations",
+    "hook": "Most engineers using Aurora don't know this: your read replicas won't auto-scale with your writes. Here's why \ud83d\udc47",
+    "thread": "Aurora is smart about spreading reads across replicas. But those replicas don't grow in size when your main DB gets hammered.\n\nThink of it like a restaurant. The main kitchen (writer) can expand. But if you add more waiters (read replicas), they're still serving food from the same kitchen.\n\nThe gotcha: Aurora scales OUT (more replicas) but not UP (bigger replicas). Your write capacity is still capped by that one main DB.\n\nSo if your writes are the problem, adding read replicas won't help. You need to scale the main instance itself.\n\nPro tip: Monitor your writer CPU and connections. That's your real bottleneck, not replica count.\n\nWhat's your biggest Aurora scaling headache? Reads or writes? \ud83d\udc47\n\n#Aurora #AWS #Database",
+    "hook_id": "2046660543780356230",
+    "thread_id": "2046660545235792060",
+    "content_hash": "fd4a442486bb63793d690814ea603ee7"
   }
 ]
