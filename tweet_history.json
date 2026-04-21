@@ -361,5 +361,14 @@
     "tweet": "Interviewer: \"What's the difference between ConfigMaps and Secrets in Kubernetes?\"\n\nthis one trips people up ngl\n\n\nBoth store data your app needs. But they're different.\n\nConfigMaps = store regular stuff. Like database host, app settings, config files. Not secret.\n\nSecrets = store sensitive stuff. Like passwords, API keys, tokens. Kubernetes keeps them separate.\n\nHere's the key part: Secrets are stored as base64 by default (that's just encoding, not real encryption). So don't think they're super safe out of the box. Treat them seriously.\n\nUse ConfigMaps for things your teammates can see. Use Secrets for things they shouldn't.\n\nQuick example: your app needs a database. Store the host in ConfigMap. Store the password in Secret. Your pod reads both.\n\n#Kubernetes #DevOps #K8s #InterviewTips #CloudNative",
     "tweet_id": "2046573653777629399",
     "content_hash": "7d437f7ca764c536f46e72089f1a2f0a"
+  },
+  {
+    "date": "2026-04-21T15:52:43.854879+00:00",
+    "category": "kubernetes_interview_question",
+    "hook": "Interviewer: 'What's the difference between Docker and Podman?' \u2014 Most engineers stumble here. Would you? \ud83d\udc47",
+    "thread": "Here's the thing: they're both container tools. They do basically the same job.\n\nDocker = the old popular one. Needs a big service running in the background called a daemon.\n\nPodman = the newer one. Doesn't need that daemon running. You just run commands directly.\n\nWhy does this matter? Podman is simpler and more lightweight. Less stuff running on your machine. Docker's still more common at companies though.\n\nThe real trick: they use almost the same commands. If you know Docker, Podman is easy. Both work with containers and images the same way.\n\nWhat's the tricky container question that almost got you in an interview? Drop it below \ud83d\udc47\n\n#Kubernetes #DevOps #Docker #Podman #InterviewPrep",
+    "hook_id": "2046618139388223967",
+    "thread_id": "2046618140705218582",
+    "content_hash": "eef08ccbffd327be217e83de34630629"
   }
 ]
