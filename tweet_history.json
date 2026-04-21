@@ -388,5 +388,14 @@
     "hook_id": "2046687499645239776",
     "thread_id": "2046687501474030048",
     "content_hash": "9b3f8459fc16dfed6769fb8dd72d2141"
+  },
+  {
+    "date": "2026-04-21T22:36:20.807406+00:00",
+    "category": "kubernetes_interview_question",
+    "hook": "Interviewer: 'How do you manage secrets in Kubernetes?' \u2014 This trips up so many engineers. Here's what they miss \ud83d\udc47",
+    "thread": "Most people say 'use Secrets.' But that's only half the answer.\n\nKubernetes Secrets are just base64 encoded. Not encrypted by default. That's a huge problem if someone gets access to your cluster.\n\nHere's what actually works:\n\n1. Use Secrets for non-sensitive stuff (like config files)\n2. Use a proper secret manager for real secrets (passwords, API keys, tokens)\n\nPopular options:\n- HashiCorp Vault\n- AWS Secrets Manager\n- Azure Key Vault\n- Sealed Secrets\n\nExample: You deploy an app that needs a database password. Don't put it in a Kubernetes Secret. Use Vault. Your pod asks Vault for the password when it starts up.\n\nBonus tip: If you do use Kubernetes Secrets, enable encryption at rest in your cluster config. It's not hard.\n\nDo you encrypt your Secrets at rest? Or does your team use an external secret manager? Tell me how you handle this \ud83d\udc47\n\n#Kubernetes #DevOps #SecurityMatters #K8s #Interview",
+    "hook_id": "2046719712521032178",
+    "thread_id": "2046719713963913363",
+    "content_hash": "e09e6eab2cf8716f36fb256e2e964f37"
   }
 ]
