@@ -83,5 +83,14 @@
     "tweet": "Your AI model is \"underfitting\" and you probably don't even know it\n\n\nUnderfitting is when your AI model is too lazy or too simple. It doesn't learn the patterns well enough.\n\nThink of it like studying for a test by only reading the chapter title. You'll fail because you didn't actually learn anything.\n\nWith AI:\n- Model is too simple (not enough layers)\n- Not enough training time\n- Not enough data\n\nResult? It does bad on both training AND real-world stuff.\n\nOpposite problem is overfitting\u2014memorizing instead of learning. That one gets more hype but underfitting is just as annoying.\n\nFix it by:\n- Making your model bigger\n- Training longer\n- Getting more data\n\nIt's the \"Goldilocks\" problem. Not too simple. Not too complex. Just right.\n\n#AI #MachineLearning #DataScience #ComputerVision #TechTips",
     "tweet_id": "2046373295826579559",
     "content_hash": "458cf809991b47272268e0babcb67cde"
+  },
+  {
+    "date": "2026-04-21T23:32:38.684481+00:00",
+    "concept": "semantic_search",
+    "hook": "Everyone says 'semantic search' but most people think it's just keyword matching with extra steps. Nope. It's way different \ud83d\udc47",
+    "thread": "Semantic search = understanding what words *mean*, not just finding exact matches.\n\nOld way: You search \"best coffee shops.\" The AI finds pages with those exact words.\n\nNew way: The AI knows \"cafe,\" \"brew spot,\" and \"espresso bar\" all mean the same thing. So it finds them too.\n\nReal example: You ask \"where should I go for a good meal?\" Semantic search knows this is asking for restaurants, even though you didn't use that word.\n\nWhy it matters: Your searches actually work now. You don't have to guess the *exact* words the website used. The AI gets what you mean.\n\nThis is why ChatGPT and Google's new search feel smart. They understand meaning, not just letter combinations.\n\nWhat confused you most about how search actually works? Drop it below \ud83d\udc47\n\n#AI #SemanticSearch #GenerativeAI #SearchTech",
+    "hook_id": "2046733880753844257",
+    "thread_id": "2046733881772998922",
+    "content_hash": "aa975b7e2bfe51d16e69752209a1ee53"
   }
 ]
