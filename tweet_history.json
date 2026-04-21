@@ -379,5 +379,14 @@
     "hook_id": "2046649918610088290",
     "thread_id": "2046649920128426263",
     "content_hash": "cf3df6c8c07a4fb8fc3049837a88fd19"
+  },
+  {
+    "date": "2026-04-21T20:28:20.780346+00:00",
+    "category": "kubernetes_interview_question",
+    "hook": "Interviewer: 'What's the difference between a Deployment and a StatefulSet?' \u2014 This one trips up so many engineers. Thread \ud83d\udc47",
+    "thread": "OK so here's the thing:\n\nA Deployment is for apps that don't care about order. Like a web server. You need 3 copies running? Kubernetes spins up 3 identical pods. If one dies, it just makes another. Order doesn't matter.\n\nA StatefulSet is for apps that DO care about order. Think databases or messaging systems. Each pod gets a stable name (like db-0, db-1, db-2) and its own storage. Pods start and stop in order. Pod 1 comes up first, then Pod 2, then Pod 3.\n\nReal example: You're running a database cluster. You need Pod 0 to be the leader first. With StatefulSet, that happens. With Deployment, pods might start randomly \u2014 total chaos.\n\nBonus tip: StatefulSets are harder to manage. Use Deployments when you can. Only reach for StatefulSet when your app actually needs it.\n\nWhat's the trickiest Kubernetes question you've been asked in an interview? Drop it below \ud83d\udc47\n\n#Kubernetes #DevOps #InterviewTips #K8s",
+    "hook_id": "2046687499645239776",
+    "thread_id": "2046687501474030048",
+    "content_hash": "9b3f8459fc16dfed6769fb8dd72d2141"
   }
 ]
