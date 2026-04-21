@@ -221,5 +221,145 @@
     "tweet": "Interviewer: \"How do you monitor a Step Function workflow? What would you watch for?\"\n\nThis one trips people up ngl\n\n\nStep Functions run tasks in order. You need to watch:\n\n1. Execution status - is it running, done, or stuck?\n2. How long each step takes - one step getting slow? Investigate.\n3. Failed executions - did a step error out?\n4. CloudWatch Logs - what did your code actually do?\n\nThe key: set alarms. If executions fail too much, alert your team NOW. Don't wait for customers to complain.\n\nReal example: Your Step Function calls a Lambda. Lambda times out. You catch this with CloudWatch Metrics + alarms. Fix it before it breaks production.\n\nAlso watch execution history. Sometimes a workflow fails silently. The logs tell the story.\n\n#SRE #AWS #StepFunctions #Observability #DevOps",
     "tweet_id": "2045123053391130720",
     "content_hash": "05cc295320c9948a54f80df0a5a17c29"
+  },
+  {
+    "date": "2026-04-17T15:36:49.563819+00:00",
+    "category": "sre_observability_question",
+    "tweet": "Interviewer: \"How do you let your app in Kubernetes talk to AWS without storing secret keys in your code?\"\n\nNgl, this trips people up. But it's actually smart.\n\n\nYou use IRSA. That's just a fancy name for: your pod gets a temporary ID from AWS. No keys sitting around.\n\nHere's how it works:\n1. You create an AWS role (like a permission ticket)\n2. You link it to your Kubernetes service account\n3. When your pod starts, AWS gives it temp keys that expire\n4. Your app uses those keys. No hardcoding secrets.\n\nWhy this matters: if someone hacks your pod, they only get temp keys that expire in an hour. Not your main AWS keys forever.\n\nReal example: Your app needs to read from S3. Instead of putting AWS keys in your deployment, IRSA handles it. Your pod just asks AWS \"can I read this bucket?\" AWS checks the role and says yes or no.\n\nIt's basically: \"prove who you are\" instead of \"here's my password.\"\n\n#Kubernetes #AWS #DevOps #SRE #InterviewPrep",
+    "tweet_id": "2045164586047811893",
+    "content_hash": "98516f9980b11866b1c2938ddd947ac7"
+  },
+  {
+    "date": "2026-04-17T17:48:55.161313+00:00",
+    "category": "sre_observability_question",
+    "tweet": "Interviewer: \"How do you monitor network traffic in your VPC? What would you check if users say the app is slow?\"\n\nNgl, this trips people up because they mix up monitoring with just \"checking logs\"\n\nYou'd look at:\n\n1. VPC Flow Logs - see what packets are moving where. Spot blocked traffic or weird patterns.\n\n2. CloudWatch metrics - CPU, memory, network in/out. If network out is maxed, you found your problem.\n\n3. Check your security groups - maybe you're blocking traffic by accident. Or a route is wrong.\n\n4. Look at NAT gateway/instance - if everyone's going through one box, it becomes a bottleneck.\n\nReal example: User says \"slow\". You check Flow Logs, see traffic hitting a security group deny rule. You're rejecting it! Fix the rule, boom, problem solved.\n\nThe key: start at the network layer first. Don't jump straight to app logs.\n\n#DevOps #AWS #SRE #InterviewTips #Monitoring",
+    "tweet_id": "2045197828793020480",
+    "content_hash": "09ffb21d4d161deeb75b5ad901598a45"
+  },
+  {
+    "date": "2026-04-17T20:09:53.916555+00:00",
+    "category": "sre_observability_question",
+    "tweet": "Interviewer: \"You deploy a Lambda function. It runs fine in dev but times out in prod. How do you debug this?\"\n\nLol this one's tricky because you can't just SSH in.\n\n\nFirst: check CloudWatch logs. Look for actual errors or slow queries. Lambda logs everything there.\n\nSecond: check your timeout setting. Maybe it's set too low for prod traffic.\n\nThird: is it a cold start? First run takes longer. Use provisioned concurrency to keep Lambdas warm.\n\nFourth: check what your function actually does. Database queries slow? API calls hanging? Memory too low? All of these slow things down.\n\nPro tip: add CloudWatch metrics to track execution time. You'll see patterns. Like \"it only times out when database is busy.\" That tells you where to look.\n\nReal example: I once had a Lambda that was fine with 128MB memory in dev but needed 512MB in prod because of data volume. Just didn't have enough resources to work fast.\n\n#DevOps #AWS #Lambda #SRE #Observability",
+    "tweet_id": "2045233307265515728",
+    "content_hash": "cf9359a9acf8248ec005b1a7e644fbf7"
+  },
+  {
+    "date": "2026-04-17T22:36:24.131959+00:00",
+    "category": "sre_observability_question",
+    "tweet": "Interviewer: \"What's the difference between logs, metrics, and traces? Why do you need all three?\"\n\nNgl, this trips people up but it's actually simple.\n\nLogs are messages your app writes. \"User logged in at 3:45pm.\" Raw text.\n\nMetrics are numbers over time. \"5 requests per second.\" \"CPU at 80%.\" You graph these.\n\nTraces follow one request through your whole system. \"Request hit API, then database, took 200ms total.\" Shows you where slowness happens.\n\nWhy all three? Logs tell you WHAT happened. Metrics tell you IF something's wrong. Traces tell you WHERE it broke.\n\nReal example: Your app is slow. Metrics show \"yeah, something's up.\" Logs say \"database connection failed.\" Traces show the request waited 5 seconds at the database step. Now you know exactly what to fix.\n\nBuild observability into your infrastructure from day one. Use Pulumi or Terraform to set up monitoring with your apps. Don't add it later.\n\n#SRE #Observability #DevOps #Monitoring #InterviewPrep",
+    "tweet_id": "2045270176187486716",
+    "content_hash": "7cf0937a72e350ca7a6da872c4387479"
+  },
+  {
+    "date": "2026-04-18T03:43:58.938425+00:00",
+    "category": "networking_security_question",
+    "tweet": "Interviewer: \"What's the difference between SNS and SQS? When do you use each one?\"\n\nThis one trips people up ngl\n\n\nSNS is a megaphone. You shout a message once, and everyone listening hears it right away. Good for alerts, notifications, stuff that needs to go to lots of places fast.\n\nSQS is a mailbox. Messages sit there until someone grabs them. Great when you need to queue up work, handle spiky traffic, or make sure nothing gets lost.\n\nKey diff: SNS = push (send and forget). SQS = pull (grab when ready).\n\nExample: Your app crashes. Use SNS to alert your team NOW. But if you need to process 10k orders today, throw them in SQS so workers can grab them one at a time without getting slammed.\n\nBonus: you can actually send SNS messages TO SQS queues. They work great together.\n\n#AWS #DevOps #InterviewPrep #CloudArchitecture",
+    "tweet_id": "2045347581228666939",
+    "content_hash": "920b85a44c50ca1bb2665d685b7da7a3"
+  },
+  {
+    "date": "2026-04-18T12:34:13.945842+00:00",
+    "category": "networking_security",
+    "tweet": "Interviewer: \"You're running containers in ECS. How do you keep your app safe from the internet?\"\n\nNgl this trips people up but it's pretty straightforward.\n\nYou use security groups. Think of them like a bouncer at a club. They say: \"Yeah, traffic on port 80 can come in. Port 22? Nah, not today.\"\n\nECS containers run inside a VPC (your private network). By default, nothing from the internet can reach them. You only open the ports you need.\n\nThe setup:\n- Create a security group for your ECS tasks\n- Allow port 80/443 for web traffic (from anywhere)\n- Block everything else\n- Attach it to your load balancer in front\n\nThe load balancer sits in public. Your containers hide behind it and the security group.\n\nPro tip: Don't open port 22 (SSH) to 0.0.0.0. That's asking for trouble. Use AWS Systems Manager Session Manager instead\u2014it's way safer.\n\n#ECS #AWS #DevOps #SecurityGroups #InterviewPrep",
+    "tweet_id": "2045481023018881100",
+    "content_hash": "a90c7e23e5cb407660577c21d1d6cafa"
+  },
+  {
+    "date": "2026-04-18T15:07:16.852999+00:00",
+    "category": "networking_security_question",
+    "tweet": "Interviewer: \"Why can't my Docker container talk to another container on the same machine?\"\n\nThis trips people up all the time lol\n\n\nBy default, Docker containers can't see each other. Each one gets its own isolated network. They're like roommates in separate boxes.\n\nYou have two options:\n\n1. **Docker networks** \u2014 create a custom network and put both containers on it. They can talk by container name. This is the right way.\n\n2. **Host network** \u2014 the container uses your machine's network directly. Fast but loses isolation. Not great for security.\n\nReal example: if your app container needs to hit a database container, put them both on the same custom network. Then use the database container's name as the hostname. That's it.\n\nMost people forget about custom networks and try to hardcode IP addresses. Don't do that \u2014 IPs change.\n\n#Docker #DevOps #Networking #InterviewTips #Containerization",
+    "tweet_id": "2045519538700030041",
+    "content_hash": "17f048ec8c509eb40eb461901d41bb7d"
+  },
+  {
+    "date": "2026-04-18T17:36:01.646808+00:00",
+    "category": "networking_security",
+    "tweet": "Interviewer: \"How do you store secrets like passwords and API keys? Why can't we just put them in code?\"\n\nngl this trips up a lot of people\n\n\nYou never put secrets in your code. Ever. Because:\n\n1. If your code goes on GitHub, hackers find them in 5 seconds\n2. Everyone on your team sees them (bad idea)\n3. You can't change them without redeploying code\n\nInstead, use a secrets manager like HashiCorp Vault or AWS Secrets Manager.\n\nHow it works:\n- Your app asks the vault \"hey, give me the database password\"\n- Vault checks if the app is allowed to have it\n- Vault gives it only when needed\n- You can rotate passwords without touching code\n\nReal example: Your app running on a server needs a DB password. Instead of hardcoding it, the server talks to Vault at startup. Vault says \"ok, here's your password for the next hour.\" After an hour? Vault stops accepting that password. The server asks again. New password. Way safer.\n\n#DevOps #Security #CloudSecurity #Vault #Secrets",
+    "tweet_id": "2045556972314128748",
+    "content_hash": "472728fda31aa77fb0945785981affce"
+  },
+  {
+    "date": "2026-04-18T20:02:21.599672+00:00",
+    "category": "networking_security",
+    "tweet": "Interviewer: \"Walk me through what happens when you configure a firewall rule. Why does order matter?\"\n\nohh this trips people up\n\n\nA firewall reads rules from top to bottom. It stops at the first match. So order = everything.\n\nExample: You have two rules:\n1. Block port 22 (SSH)\n2. Allow port 22 from 10.0.0.0/8\n\nIf rule 1 is first? SSH gets blocked. Rule 2 never runs. You just locked yourself out.\n\nFlip them? Now SSH works from your network. Good.\n\nPro tip: Put specific rules first (allow from this IP), then general rules (block everyone). Think of it like a bouncer checking a list. Check VIPs first, then run the general rules.\n\nIn AWS security groups or Linux iptables, same deal. Order matters big time.\n\n#DevOps #Networking #SecurityGroups #Firewall",
+    "tweet_id": "2045593798215188797",
+    "content_hash": "8d4866b13276312e369351b12d433321"
+  },
+  {
+    "date": "2026-04-18T22:32:09.438046+00:00",
+    "category": "networking_security_question",
+    "tweet": "Interviewer: \"How do you keep secrets safe in GitHub Actions? Like API keys and passwords.\"\n\nOh man, people mess this up all the time.\n\n---\n\nNever put secrets in your code or config files. GitHub has a built-in secrets vault.\n\nYou store them in Settings > Secrets. Then in your workflow file, you use them like:\n\n\nenv:\n  API_KEY: ${{ secrets.MY_API_KEY }}\n\n\nGitHub masks them in logs so they don't show up when your job runs. But here's the thing: only do this in private repos or with protection rules on.\n\nBetter move? Use something like AWS Secrets Manager or HashiCorp Vault. That way your secrets aren't even stored in GitHub. Your Actions job asks the vault \"hey, can I have the key?\" and it gives it for that one run only.\n\nReal tip: rotate your secrets every few months. And if you ever leak one, delete it right away and make a new one.\n\n#DevOps #GitHubActions #Security #CI-CD",
+    "tweet_id": "2045631495642239055",
+    "content_hash": "2d7ab375fd6c03c12383bd67b9e6fe04"
+  },
+  {
+    "date": "2026-04-19T04:10:51.407122+00:00",
+    "category": "container_orchestration_question",
+    "tweet": "Interviewer: \"How do you pass config to a container in Kubernetes?\"\n\nThis one's important. You've got 3 main ways:\n\n1. ConfigMap \u2014 for regular stuff like app settings, db host, etc. Just key-value pairs. Not secret.\n\n2. Secret \u2014 same idea but for passwords, api keys, stuff you don't want in plain text.\n\n3. Environment variables \u2014 you point to ConfigMap or Secret and boom, your app reads them.\n\nHere's the catch: if you change a ConfigMap, your pod doesn't auto-restart. You gotta manually restart it or use a tool like Sealed Secrets.\n\nReal example:\napiVersion: v1\nkind: ConfigMap\nmetadata:\n  name: app-config\ndata:\n  DATABASE_HOST: postgres.default\n  LOG_LEVEL: info\n---\nIn your pod, mount it:\nenv:\n  - name: DB_HOST\n    valueFrom:\n      configMapKeyRef:\n        name: app-config\n        key: DATABASE_HOST\n\nThe gotcha: ConfigMaps are NOT encrypted by default. Use Secrets for sensitive stuff.\n\n#Kubernetes #DevOps #ContainerOrchestration #InterviewPrep",
+    "tweet_id": "2045716731931365772",
+    "content_hash": "b5cee80be10541e0e4cb466140b28c78"
+  },
+  {
+    "date": "2026-04-19T15:07:05.299886+00:00",
+    "category": "container_orchestration_question",
+    "tweet": "Interviewer: \"How do you stop bad pods from running in your Kubernetes cluster?\"\n\nNah, this isn't about deleting stuff. It's about setting rules before they even start.\n\nYou use something called a policy engine. OPA (Open Policy Agent) is the most common one. It sits between you and Kubernetes and says \"yep, that pod is good\" or \"nope, that breaks the rules.\"\n\nExample: You set a rule that says \"all containers must have resource limits.\" A developer tries to deploy a pod without limits? OPA blocks it. They get an error telling them why. They fix it. Done.\n\nWhy it matters: You catch bad configs before they crash your cluster or cause security issues. It's like a bouncer at the door instead of kicking people out after they're drunk.\n\nReal tip: Start with simple rules. Limit what images you can use, require certain labels, block privileged containers. Don't go crazy with 100 policies on day one.\n\n#Kubernetes #DevOps #OPA #ContainerSecurity #InterviewPrep",
+    "tweet_id": "2045881877983096875",
+    "content_hash": "4fd00720a6b94f415ef03114ca72ca87"
+  },
+  {
+    "date": "2026-04-19T20:02:26.709322+00:00",
+    "category": "container_orchestration_question",
+    "tweet": "Interviewer: \"How do you monitor a Kubernetes cluster? What tool would you use?\"\n\nNgl this is asked at like every interview lol\n\n\nYou'd use Prometheus. It scrapes metrics from your pods and nodes every few seconds. Then you can see CPU, memory, and stuff.\n\nKubernetes exposes a metrics endpoint. Prometheus pulls data from it. Then you set alerts: \"if CPU > 80%, tell me.\"\n\nPrometheus stores the data as time series. You can graph it in Grafana (makes it pretty) or query it yourself.\n\nReal talk: set up alerts BEFORE your app breaks. Don't wait until production melts down.\n\nExample: alert if a pod restarts more than 5 times in 5 min. That's a sign something's wrong.\n\n#Kubernetes #Prometheus #Monitoring #DevOps #ContainerOrchestration",
+    "tweet_id": "2045956207379390663",
+    "content_hash": "72134277eb3c59d7da4ee4a7a5f0177b"
+  },
+  {
+    "date": "2026-04-20T13:00:51.085748+00:00",
+    "category": "aws_interview_question",
+    "tweet": "Interviewer: \"When would you use Step Functions instead of just writing code?\"\n\nTbh this is a great question. Step Functions let you build workflows without writing complex logic.\n\nSay you need to:\n1. Upload a file\n2. Check if it's valid\n3. Send an email\n4. Update a database\n\nYou could write all that in one function. But what if step 2 fails? You'd have to restart everything.\n\nWith Step Functions, each step is separate. If step 2 fails, you retry just that step. You can see exactly where things broke. Plus you can add delays, parallel tasks, or loop back easily.\n\nReal example: Processing orders. Step 1 checks payment. Step 2 books inventory. Step 3 ships it. If inventory is out of stock, you can automatically notify someone instead of crashing.\n\nIt's basically a flowchart that actually runs your AWS services. Way cleaner than spaghetti code.\n\n#AWS #StepFunctions #DevOps #CloudArchitecture",
+    "tweet_id": "2046212497372324169",
+    "content_hash": "d1f4203f8b17c3b60c0c3906686a5101"
+  },
+  {
+    "date": "2026-04-20T15:53:22.970067+00:00",
+    "category": "kubernetes_interview_question",
+    "tweet": "Interviewer: \"What's the difference between Helm and just using kubectl?\"\n\nNgl, this one trips people up.\n\nHelm is a package manager for Kubernetes. Think of it like npm for Node or pip for Python.\n\nWith kubectl alone, you write YAML files by hand. Every. Single. Time. If you want to deploy the same app to 10 different clusters, you copy-paste and change values. Pain.\n\nHelm packages your app. It has templates. You say \"give me 10 copies but change the names and ports\" \u2014 Helm does it. One command.\n\nReal example: Deploy Nginx with kubectl = write 3 YAML files. Deploy with Helm = helm install nginx nginx-repo/nginx. Done.\n\nHelm also handles upgrades. Need version 2.0? helm upgrade. Old version rolls back automatically if something breaks.\n\nTL;DR: kubectl = manual. Helm = automated and repeatable.\n\n#Kubernetes #DevOps #Helm #InterviewPrep",
+    "tweet_id": "2046255916606267819",
+    "content_hash": "a9c2d5b19a8dd3451dcbc4d3e61f395d"
+  },
+  {
+    "date": "2026-04-20T17:57:35.079181+00:00",
+    "category": "aws_interview_question",
+    "tweet": "Interviewer: \"What's the difference between ECS and Kubernetes? When would you pick one?\"\n\nNgl, this trips people up but it's not hard.\n\nBoth run your containers. That's it. Here's the split:\n\nECS is AWS's thing. Super simple. You tell it \"run this container\" and it does. AWS handles a lot for you. Good if you're all-in on AWS.\n\nKubernetes is open source. Works anywhere. Way more powerful but also way more complex. You gotta know more stuff to use it.\n\nPick ECS if: You're on AWS, want less headache, don't need crazy customization.\n\nPick Kubernetes if: You want to move between clouds, need fine control, or your team already knows it.\n\nReal talk: Most teams starting out? ECS wins. Less to learn, works great. You can always switch later.\n\n#AWS #ECS #DevOps #InterviewPrep #Docker",
+    "tweet_id": "2046287172639023429",
+    "content_hash": "3589d71e1d9db4f7ab5ae741b3921dd8"
+  },
+  {
+    "date": "2026-04-20T20:11:23.862269+00:00",
+    "category": "kubernetes_service_mesh",
+    "tweet": "Interviewer: \"What's the difference between a service mesh like Istio and just using Kubernetes services?\"\n\nNgl, this one trips people up.\n\n\nKubernetes services just route traffic to your pods. That's it. Basic networking.\n\nIstio sits on top and does way more. It watches your traffic, adds security rules, retries failed calls, and can split traffic between versions.\n\nThink of it this way:\n- Kubernetes service = basic road signs\n- Istio = traffic lights, speed limits, and police directing traffic\n\nYou don't *need* Istio for small stuff. But if you're running a bunch of microservices that talk to each other, Istio helps you control who talks to who, retry things that fail, and see what's happening.\n\nReal tip: Istio adds complexity. Don't use it unless you actually need traffic control, security rules between services, or better monitoring. Start simple.\n\n#DevOps #Kubernetes #Istio #AWS #InterviewPrep",
+    "tweet_id": "2046320847816729002",
+    "content_hash": "a54c0ebe10435e8d3f3578d74379604a"
+  },
+  {
+    "date": "2026-04-20T22:40:45.422731+00:00",
+    "category": "aws_interview_question",
+    "tweet": "Interviewer: \"What's the difference between EC2 Auto Scaling and Karpenter?\"\n\nNgl, people mix these up all the time.\n\nEC2 Auto Scaling watches your CPU and memory. When it goes up, it spins up more servers. When it goes down, it kills servers. It's reactive and slow. Takes a few minutes.\n\nKarpenter is smarter. It watches your pods waiting to run. The second a pod can't fit, Karpenter launches the right server for it. No waiting around.\n\nBig difference: Auto Scaling manages server groups. Karpenter manages individual pods.\n\nReal example: You deploy 50 new pods. Auto Scaling might take 5 mins to notice and launch servers. Karpenter launches them in seconds because it's watching pod events.\n\nKarpenter also picks cheaper servers that fit your needs. Auto Scaling just uses whatever you told it to use.\n\nTL;DR: Auto Scaling is old school. Karpenter is the new way.\n\n#AWS #Kubernetes #Karpenter #DevOps #InterviewPrep",
+    "tweet_id": "2046358435462066678",
+    "content_hash": "01de5bf7d444da1088630cae42662568"
+  },
+  {
+    "date": "2026-04-21T03:59:33.211922+00:00",
+    "category": "kubernetes_interview_question",
+    "tweet": "Interviewer: \"What's the difference between managing your own Kubernetes cluster vs using Fargate?\"\n\nOh this one gets a lot of people. Let me break it down.\n\nManaging your own cluster? You're running Kubernetes on EC2 servers. You pick the server size, you patch them, you make sure they have enough space. It's powerful but you're doing a lot of work.\n\nFargate? AWS handles all that for you. You just say \"run this container\" and it runs. You don't think about servers at all. You pay per second for what you use. Way less headache.\n\nThe trade-off: Fargate costs more and you have less control. Own cluster gives you more power but more work.\n\nPick Fargate when you want things simple and fast. Pick your own cluster when you need total control or you're running tons of stuff and want to save money.\n\nReal talk: most teams start with Fargate. It's less to worry about.\n\n#Kubernetes #AWS #Fargate #DevOps #InterviewPrep",
+    "tweet_id": "2046438663467528502",
+    "content_hash": "e929b06ed83799482f870858ed553206"
+  },
+  {
+    "date": "2026-04-21T12:55:57.406272+00:00",
+    "category": "kubernetes_interview_question",
+    "tweet": "Interviewer: \"What's the difference between ConfigMaps and Secrets in Kubernetes?\"\n\nthis one trips people up ngl\n\n\nBoth store data your app needs. But they're different.\n\nConfigMaps = store regular stuff. Like database host, app settings, config files. Not secret.\n\nSecrets = store sensitive stuff. Like passwords, API keys, tokens. Kubernetes keeps them separate.\n\nHere's the key part: Secrets are stored as base64 by default (that's just encoding, not real encryption). So don't think they're super safe out of the box. Treat them seriously.\n\nUse ConfigMaps for things your teammates can see. Use Secrets for things they shouldn't.\n\nQuick example: your app needs a database. Store the host in ConfigMap. Store the password in Secret. Your pod reads both.\n\n#Kubernetes #DevOps #K8s #InterviewTips #CloudNative",
+    "tweet_id": "2046573653777629399",
+    "content_hash": "7d437f7ca764c536f46e72089f1a2f0a"
   }
 ]
