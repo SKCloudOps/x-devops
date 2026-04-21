@@ -1,7 +1,6 @@
 """
 Daily DevOps/Cloud Concept Explainer Bot
-Generates and posts a single tweet explaining a concept like you would in an interview.
-Uses Claude API and X API v2.
+Posts a 2-tweet thread (hook + explanation) using Claude API and X API v2.
 """
 
 import os
@@ -57,55 +56,58 @@ More rules:
 - Use short words. "use" not "utilize". "stop" not "terminate". "check" not "validate"
 - Max 15 words per sentence
 - No jargon without a plain explanation right after
-- Write like you're explaining to someone who just started coding
 - Contractions are fine: don't, can't, it's, won't
 - A little personality is good: "lol", "ngl", "tbh", "honestly"
 
 BANNED WORDS: crucial, essential, leverage, comprehensive, robust, utilizing, fundamental,
 ensure, facilitate, optimize, streamline, enhance, implement, In today's, Key takeaway
 
-FORMAT:
-The tweet has 2 parts separated by 2 blank lines.
+FORMAT: You are writing a 2-tweet THREAD. Two separate tweets.
 
-PART 1 — the hook (under 260 chars, this is what shows in the feed):
-  One punchy line that makes people want to click "Show more".
-  Make them curious or say something slightly surprising.
+TWEET 1 — THE HOOK (HARD LIMIT: under 280 characters including spaces and newlines):
+  Use one of these proven hook patterns:
+  a) "Most engineers using [tech] every day don't know this:"
+  b) "The [tech] thing nobody tells you about 👇"
+  c) "I wish someone told me this about [concept] earlier:"
+  d) "Hot take: most [tech] tutorials skip the most important part"
+  e) "This is why your [tech] is [slower/buggier/less secure] than it should be:"
+  f) "[Surprising/counterintuitive claim]. Here's why 👇"
 
-PART 2 — the explanation (shows after "Show more"):
+  The hook MUST:
+  - Be UNDER 280 characters (hard limit, it's its own tweet)
+  - Spark curiosity or say something slightly surprising
+  - Pull people into tweet 2 (use 👇 or "Thread" or leave them wanting more)
+
+TWEET 2 — THE EXPLANATION (up to 2000 characters):
   Explain in plain simple English. Use a real-world analogy.
-  Add a tip or gotcha that people don't usually know.
-  3-5 hashtags on the last line.
-
-Example of a GOOD tweet:
-Most people using Kubernetes don't actually know what etcd is. And it's literally the most important part.
-
-
-etcd is just a key-value store where Kubernetes saves everything — all cluster state, all config. If etcd dies, your whole cluster is blind. That's why you always back it up.
-
-#Kubernetes #DevOps #CloudComputing #SRE
-
-Pick ONE concept per tweet. Something an engineer would Google or hear in a meeting.
+  Add a tip or gotcha engineers don't usually know.
+  REQUIRED: End with a question CTA before the hashtags, for example:
+  - "What's your biggest [tech] headache right now? 👇"
+  - "Agree? What would you add? Reply below 👇"
+  - "What's a [tech] thing YOU wish someone told you earlier? 👇"
+  - "Bookmark this. What other [topic] tips would help? 👇"
+  Then 3-5 hashtags on the last line.
 
 Respond ONLY in this exact JSON format, no markdown fences.
 Use \\n for line breaks in the JSON string:
 {
-  "tweet": "hook part\\n\\n\\nexplanation part\\n\\n#hashtags",
+  "hook": "tweet 1 text (UNDER 280 chars)",
+  "thread": "tweet 2 text with explanation + CTA + hashtags",
   "concept": "concept name"
 }"""
 
 
-MAX_TWEET_LENGTH = 2000  # X Premium allows up to 4000, keeping 2000 for readability
+MAX_HOOK_LENGTH = 280
+MAX_THREAD_LENGTH = 2000
 MAX_RETRIES = 3
 
 
 def get_todays_concept() -> str:
-    """Rotate through concepts based on day of year."""
     day_of_year = datetime.now(timezone.utc).timetuple().tm_yday
     return CONCEPTS[day_of_year % len(CONCEPTS)]
 
 
-def truncate_to_limit(text: str, limit: int = MAX_TWEET_LENGTH) -> str:
-    """Truncate text to fit within character limit, breaking at last sentence boundary."""
+def truncate_to_limit(text: str, limit: int) -> str:
     if len(text) <= limit:
         return text
     truncated = text[:limit]
@@ -121,12 +123,11 @@ def truncate_to_limit(text: str, limit: int = MAX_TWEET_LENGTH) -> str:
 
 def _call_claude_with_retry(client, system_prompt: str, messages: list,
                             max_api_retries: int = 5, base_delay: float = 2.0):
-    """Call Claude API with exponential backoff for transient errors."""
     for api_attempt in range(1, max_api_retries + 1):
         try:
             return client.messages.create(
                 model="claude-haiku-4-5-20251001",
-                max_tokens=1000,
+                max_tokens=1200,
                 system=system_prompt,
                 messages=messages,
             )
@@ -144,7 +145,6 @@ def _call_claude_with_retry(client, system_prompt: str, messages: list,
 
 
 def generate_content(concept: str) -> dict:
-    """Use Claude API to generate a single concept tweet."""
     client = anthropic.Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
 
     seed_keyword = random.choice([
@@ -157,13 +157,13 @@ def generate_content(concept: str) -> dict:
     ])
 
     user_prompt = f"""Concept area: {concept}
-Sub-topic inspiration (use as a starting point): {seed_keyword}
+Sub-topic inspiration: {seed_keyword}
 Date: {datetime.now(timezone.utc).strftime('%A, %B %d, %Y')}
 
-Pick ONE specific concept and explain it.
-Put a catchy hook in the first 260 characters (visible in feed).
-Put the deeper explanation after two blank lines (hidden behind "Show more").
-You have X Premium — tweet can be up to 2000 characters."""
+Write a 2-tweet thread that explains ONE specific concept an engineer would Google or hear in a meeting.
+
+TWEET 1 (hook): Must be UNDER 280 characters. Use a strong hook from the prompt.
+TWEET 2 (thread reply): Plain English explanation with a real-world analogy + tip/gotcha. End with a question CTA. Aim for 400-900 chars."""
 
     messages = [{"role": "user", "content": user_prompt}]
 
@@ -172,33 +172,46 @@ You have X Premium — tweet can be up to 2000 characters."""
 
         response_text = message.content[0].text.strip()
         response_text = response_text.replace("```json", "").replace("```", "").strip()
-        content = json.loads(response_text)
 
-        tweet_len = len(content["tweet"])
+        try:
+            content = json.loads(response_text)
+        except json.JSONDecodeError as e:
+            print(f"Attempt {attempt}/{MAX_RETRIES}: invalid JSON — {e}")
+            if attempt == MAX_RETRIES:
+                raise
+            continue
 
-        if tweet_len <= MAX_TWEET_LENGTH:
+        hook_len = len(content.get("hook", ""))
+        thread_len = len(content.get("thread", ""))
+
+        if hook_len <= MAX_HOOK_LENGTH and thread_len <= MAX_THREAD_LENGTH:
             return content
 
-        print(f"Attempt {attempt}/{MAX_RETRIES}: tweet={tweet_len} chars — retrying...")
+        print(f"Attempt {attempt}/{MAX_RETRIES}: hook={hook_len} chars, thread={thread_len} chars — retrying...")
+
+        issues = []
+        if hook_len > MAX_HOOK_LENGTH:
+            issues.append(f"hook is {hook_len} chars (must be under {MAX_HOOK_LENGTH})")
+        if thread_len > MAX_THREAD_LENGTH:
+            issues.append(f"thread is {thread_len} chars (must be under {MAX_THREAD_LENGTH})")
 
         messages = [
             {"role": "user", "content": user_prompt},
             {"role": "assistant", "content": message.content[0].text},
             {"role": "user", "content": (
-                f"The tweet is {tweet_len} chars. "
-                f"It MUST be under {MAX_TWEET_LENGTH} characters. "
-                f"Shorten it and respond in the same JSON format."
+                f"Problem: {' and '.join(issues)}. "
+                f"Shorten and respond in the same JSON format."
             )},
         ]
 
-    # Final fallback: truncate
-    print("Max retries exceeded — truncating content to fit limits.")
-    content["tweet"] = truncate_to_limit(content["tweet"])
+    print("Max retries exceeded — truncating to fit limits.")
+    content["hook"] = truncate_to_limit(content.get("hook", ""), MAX_HOOK_LENGTH)
+    content["thread"] = truncate_to_limit(content.get("thread", ""), MAX_THREAD_LENGTH)
     return content
 
 
-def post_to_x(tweet_text: str) -> dict:
-    """Post a single tweet using X API v2."""
+def post_to_x(hook: str, thread: str) -> dict:
+    """Post a 2-tweet thread. Hook is tweet 1; thread reply has the explanation + CTA."""
     client = tweepy.Client(
         consumer_key=os.environ["X_API_KEY"],
         consumer_secret=os.environ["X_API_SECRET"],
@@ -206,15 +219,18 @@ def post_to_x(tweet_text: str) -> dict:
         access_token_secret=os.environ["X_ACCESS_TOKEN_SECRET"],
     )
 
-    tweet = client.create_tweet(text=tweet_text)
-    tweet_id = tweet.data["id"]
-    print(f"Posted tweet: {tweet_id}")
+    hook_tweet = client.create_tweet(text=hook)
+    hook_id = hook_tweet.data["id"]
+    print(f"Posted hook: {hook_id}")
 
-    return {"tweet_id": tweet_id}
+    thread_tweet = client.create_tweet(text=thread, in_reply_to_tweet_id=hook_id)
+    thread_id = thread_tweet.data["id"]
+    print(f"Posted thread reply: {thread_id}")
+
+    return {"hook_id": hook_id, "thread_id": thread_id}
 
 
 def log_posted_content(content: dict, tweet_ids: dict):
-    """Append to history log for dedup and tracking."""
     log_file = Path("concept_history.json")
     history = []
     if log_file.exists():
@@ -223,9 +239,13 @@ def log_posted_content(content: dict, tweet_ids: dict):
     entry = {
         "date": datetime.now(timezone.utc).isoformat(),
         "concept": content.get("concept", "unknown"),
-        "tweet": content["tweet"],
-        "tweet_id": tweet_ids.get("tweet_id"),
-        "content_hash": hashlib.md5(content["tweet"].encode()).hexdigest(),
+        "hook": content.get("hook", ""),
+        "thread": content.get("thread", ""),
+        "hook_id": tweet_ids.get("hook_id"),
+        "thread_id": tweet_ids.get("thread_id"),
+        "content_hash": hashlib.md5(
+            (content.get("hook", "") + content.get("thread", "")).encode()
+        ).hexdigest(),
     }
     history.append(entry)
     log_file.write_text(json.dumps(history, indent=2))
@@ -237,15 +257,19 @@ def main():
     print(f"Today's concept area: {concept}")
 
     content = generate_content(concept)
-    print(f"Generated tweet ({len(content['tweet'])} chars): {content['tweet']}")
+    hook = content["hook"]
+    thread = content["thread"]
+    print(f"Hook ({len(hook)} chars): {hook}")
+    print(f"Thread ({len(thread)} chars): {thread}")
 
-    assert len(content["tweet"]) <= MAX_TWEET_LENGTH, f"Tweet too long: {len(content['tweet'])}"
+    assert len(hook) <= MAX_HOOK_LENGTH, f"Hook too long: {len(hook)}"
+    assert len(thread) <= MAX_THREAD_LENGTH, f"Thread too long: {len(thread)}"
 
     if os.environ.get("DRY_RUN", "false").lower() == "true":
         print("DRY RUN — skipping post to X")
-        tweet_ids = {"tweet_id": "dry_run"}
+        tweet_ids = {"hook_id": "dry_run", "thread_id": "dry_run"}
     else:
-        tweet_ids = post_to_x(content["tweet"])
+        tweet_ids = post_to_x(hook, thread)
 
     log_posted_content(content, tweet_ids)
     print("Done!")

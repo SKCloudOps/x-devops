@@ -1,7 +1,6 @@
 """
 Daily AI Terminology & Concept Explainer Bot
-Generates and posts a single tweet explaining an AI/ML concept clearly.
-Uses Claude API and X API v2.
+Posts a 2-tweet thread (hook + explanation) using Claude API and X API v2.
 """
 
 import os
@@ -51,65 +50,64 @@ TOO COMPLEX (never write like this):
 
 JUST RIGHT (write like this):
   "RAG = you give the AI your documents so it can look things up instead of guessing"
-  "An LLM is just a very good autocomplete that reads billions of sentences to learn"
+  "An LLM is just a very good autocomplete that read billions of sentences to learn"
 
 More rules:
 - Use short words. "use" not "utilize". "build" not "construct". "find" not "retrieve"
 - Max 15 words per sentence
 - No jargon without a plain explanation right after
-- Write like you're explaining to someone who's heard the word but doesn't know what it means
 - Contractions are fine: don't, can't, it's, won't
 - A little personality is good: "lol", "ngl", "tbh", "honestly"
 
 BANNED WORDS: crucial, essential, leverage, comprehensive, robust, utilizing, fundamental,
 ensure, facilitate, optimize, streamline, enhance, delve, fascinating, In today's, Key takeaway
 
-TOPIC STYLE: Pick AI concepts that non-ML people Google or hear in meetings.
-Things like: RAG, hallucination, fine-tuning, context window, temperature, embeddings.
-NOT: backpropagation math, gradient descent, LSTM cells — too academic.
+FORMAT: You are writing a 2-tweet THREAD. Two separate tweets.
 
-FORMAT:
-The tweet has 2 parts separated by 2 blank lines.
+TWEET 1 — THE HOOK (HARD LIMIT: under 280 characters including spaces and newlines):
+  Use one of these proven hook patterns:
+  a) "Everyone in tech says '[buzzword]' but most people can't actually explain it"
+  b) "The AI thing most people get wrong:"
+  c) "I used to think [X]. Turns out I was completely wrong 👇"
+  d) "Nobody explains [AI concept] simply. Let me try 👇"
+  e) "[Surprising/counterintuitive claim about AI]. Here's the simple version 👇"
+  f) "If you work with AI and don't know [concept], read this 👇"
 
-PART 1 — the hook (under 260 chars, this is what shows in the feed):
-  One punchy line that makes people want to click "Show more".
-  Maybe something they've heard but didn't fully understand.
+  The hook MUST:
+  - Be UNDER 280 characters (hard limit, it's its own tweet)
+  - Spark curiosity or challenge a common misconception
+  - Pull people into tweet 2 (use 👇 or leave them wanting more)
 
-PART 2 — the explanation (shows after "Show more"):
-  Explain in plain simple English. Use a real-world analogy.
+TWEET 2 — THE EXPLANATION (up to 2000 characters):
+  Explain ONE AI concept in plain simple English. Use a real-world analogy.
   Say why it matters in practice.
-  3-5 hashtags on the last line.
-
-Example of a GOOD tweet:
-Everyone in tech keeps saying "hallucination" but most people can't explain what it actually means
-
-
-It's when an AI confidently makes something up. Like a student who didn't study but still writes a full answer. Sounds real. Is completely wrong.
-
-That's why you don't use AI for medical or legal stuff without a human double-checking.
-
-#AI #LLM #ChatGPT #MachineLearning #GenAI
+  REQUIRED: End with a question CTA before the hashtags, for example:
+  - "What AI concept confused you the most when you started? 👇"
+  - "Agree? Or am I oversimplifying? Reply below 👇"
+  - "What else about AI would you want explained simply? 👇"
+  - "Bookmark this. What AI term confuses your team? 👇"
+  Then 3-5 hashtags on the last line.
 
 Respond ONLY in this exact JSON format, no markdown fences.
 Use \\n for line breaks in the JSON string:
 {
-  "tweet": "hook part\\n\\n\\nexplanation part\\n\\n#hashtags",
+  "hook": "tweet 1 text (UNDER 280 chars)",
+  "thread": "tweet 2 text with explanation + CTA + hashtags",
   "concept": "concept name"
 }"""
 
 
-MAX_TWEET_LENGTH = 2000  # X Premium allows up to 4000, keeping 2000 for readability
+MAX_HOOK_LENGTH = 280
+MAX_THREAD_LENGTH = 2000
 MAX_RETRIES = 3
 
 
 def get_todays_topic() -> str:
-    """Rotate through AI topics based on day of year."""
     day_of_year = datetime.now(timezone.utc).timetuple().tm_yday
     return AI_TOPICS[day_of_year % len(AI_TOPICS)]
 
 
-def truncate_to_limit(text: str, limit: int = MAX_TWEET_LENGTH) -> str:
-    """Truncate text to fit within character limit, breaking at last sentence boundary."""
+def truncate_to_limit(text: str, limit: int) -> str:
     if len(text) <= limit:
         return text
     truncated = text[:limit]
@@ -125,12 +123,11 @@ def truncate_to_limit(text: str, limit: int = MAX_TWEET_LENGTH) -> str:
 
 def _call_claude_with_retry(client, system_prompt: str, messages: list,
                             max_api_retries: int = 5, base_delay: float = 2.0):
-    """Call Claude API with exponential backoff for transient errors."""
     for api_attempt in range(1, max_api_retries + 1):
         try:
             return client.messages.create(
                 model="claude-haiku-4-5-20251001",
-                max_tokens=1000,
+                max_tokens=1200,
                 system=system_prompt,
                 messages=messages,
             )
@@ -148,7 +145,6 @@ def _call_claude_with_retry(client, system_prompt: str, messages: list,
 
 
 def generate_content(topic: str) -> dict:
-    """Use Claude API to generate a single AI concept tweet."""
     client = anthropic.Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
 
     seed_term = random.choice([
@@ -167,10 +163,11 @@ def generate_content(topic: str) -> dict:
 Seed term (use as inspiration): {seed_term}
 Date: {datetime.now(timezone.utc).strftime('%A, %B %d, %Y')}
 
-Pick ONE commonly known AI concept or buzzword and explain it.
-Put a catchy hook in the first 260 characters (visible in feed).
-Put the deeper explanation after two blank lines (hidden behind "Show more").
-You have X Premium — tweet can be up to 2000 characters."""
+Write a 2-tweet thread explaining ONE commonly known AI concept or buzzword.
+Something non-ML people Google or hear in meetings.
+
+TWEET 1 (hook): Must be UNDER 280 characters. Use a strong hook from the prompt.
+TWEET 2 (thread reply): Simple explanation with a real-world analogy + why it matters. End with a question CTA. Aim for 400-900 chars."""
 
     messages = [{"role": "user", "content": user_prompt}]
 
@@ -179,33 +176,46 @@ You have X Premium — tweet can be up to 2000 characters."""
 
         response_text = message.content[0].text.strip()
         response_text = response_text.replace("```json", "").replace("```", "").strip()
-        content = json.loads(response_text)
 
-        tweet_len = len(content["tweet"])
+        try:
+            content = json.loads(response_text)
+        except json.JSONDecodeError as e:
+            print(f"Attempt {attempt}/{MAX_RETRIES}: invalid JSON — {e}")
+            if attempt == MAX_RETRIES:
+                raise
+            continue
 
-        if tweet_len <= MAX_TWEET_LENGTH:
+        hook_len = len(content.get("hook", ""))
+        thread_len = len(content.get("thread", ""))
+
+        if hook_len <= MAX_HOOK_LENGTH and thread_len <= MAX_THREAD_LENGTH:
             return content
 
-        print(f"Attempt {attempt}/{MAX_RETRIES}: tweet={tweet_len} chars — retrying...")
+        print(f"Attempt {attempt}/{MAX_RETRIES}: hook={hook_len} chars, thread={thread_len} chars — retrying...")
+
+        issues = []
+        if hook_len > MAX_HOOK_LENGTH:
+            issues.append(f"hook is {hook_len} chars (must be under {MAX_HOOK_LENGTH})")
+        if thread_len > MAX_THREAD_LENGTH:
+            issues.append(f"thread is {thread_len} chars (must be under {MAX_THREAD_LENGTH})")
 
         messages = [
             {"role": "user", "content": user_prompt},
             {"role": "assistant", "content": message.content[0].text},
             {"role": "user", "content": (
-                f"The tweet is {tweet_len} chars. "
-                f"It MUST be under {MAX_TWEET_LENGTH} characters. "
-                f"Shorten it and respond in the same JSON format."
+                f"Problem: {' and '.join(issues)}. "
+                f"Shorten and respond in the same JSON format."
             )},
         ]
 
-    # Final fallback: truncate
-    print("Max retries exceeded — truncating content to fit limits.")
-    content["tweet"] = truncate_to_limit(content["tweet"])
+    print("Max retries exceeded — truncating to fit limits.")
+    content["hook"] = truncate_to_limit(content.get("hook", ""), MAX_HOOK_LENGTH)
+    content["thread"] = truncate_to_limit(content.get("thread", ""), MAX_THREAD_LENGTH)
     return content
 
 
-def post_to_x(tweet_text: str) -> dict:
-    """Post a single tweet using X API v2."""
+def post_to_x(hook: str, thread: str) -> dict:
+    """Post a 2-tweet thread. Hook is tweet 1; thread reply has the explanation + CTA."""
     client = tweepy.Client(
         consumer_key=os.environ["X_API_KEY"],
         consumer_secret=os.environ["X_API_SECRET"],
@@ -213,15 +223,18 @@ def post_to_x(tweet_text: str) -> dict:
         access_token_secret=os.environ["X_ACCESS_TOKEN_SECRET"],
     )
 
-    tweet = client.create_tweet(text=tweet_text)
-    tweet_id = tweet.data["id"]
-    print(f"Posted tweet: {tweet_id}")
+    hook_tweet = client.create_tweet(text=hook)
+    hook_id = hook_tweet.data["id"]
+    print(f"Posted hook: {hook_id}")
 
-    return {"tweet_id": tweet_id}
+    thread_tweet = client.create_tweet(text=thread, in_reply_to_tweet_id=hook_id)
+    thread_id = thread_tweet.data["id"]
+    print(f"Posted thread reply: {thread_id}")
+
+    return {"hook_id": hook_id, "thread_id": thread_id}
 
 
 def log_posted_content(content: dict, tweet_ids: dict):
-    """Append to history log for dedup and tracking."""
     log_file = Path("ai_concept_history.json")
     history = []
     if log_file.exists():
@@ -230,9 +243,13 @@ def log_posted_content(content: dict, tweet_ids: dict):
     entry = {
         "date": datetime.now(timezone.utc).isoformat(),
         "concept": content.get("concept", "unknown"),
-        "tweet": content["tweet"],
-        "tweet_id": tweet_ids.get("tweet_id"),
-        "content_hash": hashlib.md5(content["tweet"].encode()).hexdigest(),
+        "hook": content.get("hook", ""),
+        "thread": content.get("thread", ""),
+        "hook_id": tweet_ids.get("hook_id"),
+        "thread_id": tweet_ids.get("thread_id"),
+        "content_hash": hashlib.md5(
+            (content.get("hook", "") + content.get("thread", "")).encode()
+        ).hexdigest(),
     }
     history.append(entry)
     log_file.write_text(json.dumps(history, indent=2))
@@ -244,15 +261,19 @@ def main():
     print(f"Today's AI topic area: {topic}")
 
     content = generate_content(topic)
-    print(f"Generated tweet ({len(content['tweet'])} chars): {content['tweet']}")
+    hook = content["hook"]
+    thread = content["thread"]
+    print(f"Hook ({len(hook)} chars): {hook}")
+    print(f"Thread ({len(thread)} chars): {thread}")
 
-    assert len(content["tweet"]) <= MAX_TWEET_LENGTH, f"Tweet too long: {len(content['tweet'])}"
+    assert len(hook) <= MAX_HOOK_LENGTH, f"Hook too long: {len(hook)}"
+    assert len(thread) <= MAX_THREAD_LENGTH, f"Thread too long: {len(thread)}"
 
     if os.environ.get("DRY_RUN", "false").lower() == "true":
         print("DRY RUN — skipping post to X")
-        tweet_ids = {"tweet_id": "dry_run"}
+        tweet_ids = {"hook_id": "dry_run", "thread_id": "dry_run"}
     else:
-        tweet_ids = post_to_x(content["tweet"])
+        tweet_ids = post_to_x(hook, thread)
 
     log_posted_content(content, tweet_ids)
     print("Done!")

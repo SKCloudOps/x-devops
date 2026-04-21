@@ -1,0 +1,68 @@
+name: Reply to Trending DevOps Tweets
+
+on:
+  schedule:
+    # 8:30 AM CDT — morning engagement window
+    - cron: '30 13 * * 1-5'
+    # 12:30 PM CDT — lunch engagement window
+    - cron: '30 17 * * 1-5'
+    # 5:30 PM CDT — end-of-day engagement window
+    - cron: '30 22 * * 1-5'
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Dry run (generate replies but do not post)'
+        required: false
+        default: 'true'
+        type: choice
+        options:
+          - 'true'
+          - 'false'
+      max_replies:
+        description: 'Max replies per run (default: 8)'
+        required: false
+        default: '8'
+
+# IMPORTANT: This workflow requires X API Basic tier ($100/month).
+# The free tier does not support tweet search (read access).
+# Add X_BEARER_TOKEN to your repo secrets after upgrading:
+# Settings → Secrets and variables → Actions → New repository secret
+
+permissions:
+  contents: write
+
+jobs:
+  reply-to-trending:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Reply to trending tweets
+        env:
+          X_BEARER_TOKEN: ${{ secrets.X_BEARER_TOKEN }}
+          X_API_KEY: ${{ secrets.X_API_KEY }}
+          X_API_SECRET: ${{ secrets.X_API_SECRET }}
+          X_ACCESS_TOKEN: ${{ secrets.X_ACCESS_TOKEN }}
+          X_ACCESS_TOKEN_SECRET: ${{ secrets.X_ACCESS_TOKEN_SECRET }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          DRY_RUN: ${{ github.event.inputs.dry_run || 'false' }}
+          MAX_REPLIES: ${{ github.event.inputs.max_replies || '8' }}
+        run: python reply_to_trending.py
+
+      - name: Commit reply history
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add reply_history.json
+          git diff --cached --quiet || git commit -m "Reply log $(date -u +%Y-%m-%d)"
+          git push
