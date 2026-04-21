@@ -347,5 +347,12 @@
     "tweet": "Interviewer: \"What's the difference between EC2 Auto Scaling and Karpenter?\"\n\nNgl, people mix these up all the time.\n\nEC2 Auto Scaling watches your CPU and memory. When it goes up, it spins up more servers. When it goes down, it kills servers. It's reactive and slow. Takes a few minutes.\n\nKarpenter is smarter. It watches your pods waiting to run. The second a pod can't fit, Karpenter launches the right server for it. No waiting around.\n\nBig difference: Auto Scaling manages server groups. Karpenter manages individual pods.\n\nReal example: You deploy 50 new pods. Auto Scaling might take 5 mins to notice and launch servers. Karpenter launches them in seconds because it's watching pod events.\n\nKarpenter also picks cheaper servers that fit your needs. Auto Scaling just uses whatever you told it to use.\n\nTL;DR: Auto Scaling is old school. Karpenter is the new way.\n\n#AWS #Kubernetes #Karpenter #DevOps #InterviewPrep",
     "tweet_id": "2046358435462066678",
     "content_hash": "01de5bf7d444da1088630cae42662568"
+  },
+  {
+    "date": "2026-04-21T03:59:33.211922+00:00",
+    "category": "kubernetes_interview_question",
+    "tweet": "Interviewer: \"What's the difference between managing your own Kubernetes cluster vs using Fargate?\"\n\nOh this one gets a lot of people. Let me break it down.\n\nManaging your own cluster? You're running Kubernetes on EC2 servers. You pick the server size, you patch them, you make sure they have enough space. It's powerful but you're doing a lot of work.\n\nFargate? AWS handles all that for you. You just say \"run this container\" and it runs. You don't think about servers at all. You pay per second for what you use. Way less headache.\n\nThe trade-off: Fargate costs more and you have less control. Own cluster gives you more power but more work.\n\nPick Fargate when you want things simple and fast. Pick your own cluster when you need total control or you're running tons of stuff and want to save money.\n\nReal talk: most teams start with Fargate. It's less to worry about.\n\n#Kubernetes #AWS #Fargate #DevOps #InterviewPrep",
+    "tweet_id": "2046438663467528502",
+    "content_hash": "e929b06ed83799482f870858ed553206"
   }
 ]
