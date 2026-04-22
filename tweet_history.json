@@ -424,5 +424,14 @@
     "hook_id": "2046980203952345390",
     "thread_id": "2046980205575557477",
     "content_hash": "680126abfcc19829f6bc19286c6a5b3f"
+  },
+  {
+    "date": "2026-04-22T18:00:30.395605+00:00",
+    "category": "cicd_interview_question",
+    "hook": "Interviewer: 'How would you use CloudFront in your CI/CD pipeline?' \u2014 Most engineers miss the real answer. \ud83d\udc47",
+    "thread": "CloudFront is a CDN. It caches and delivers your static content fast from servers near your users.\n\nBut here's what most people miss in interviews:\n\nCloudFront doesn't run your pipeline. It sits AFTER your pipeline.\n\nHere's the real flow:\n\n1. Your CI/CD pipeline builds your app\n2. It uploads static files (images, CSS, JS) to S3\n3. CloudFront sits in front of S3\n4. Users download from CloudFront, not S3 directly\n5. CloudFront caches everything\n6. Next user? Lightning fast. No S3 hit.\n\nWhy this matters:\n- Faster load times for users\n- Less load on your servers\n- Cheaper (S3 costs less when CloudFront shields it)\n- Lower latency globally\n\nOne pro tip: Set cache invalidation in your pipeline. After you deploy new files, tell CloudFront to clear old cached versions. Otherwise users see old code.\n\nThat's the connection people forget about.\n\nHow would YOU explain this to your interviewer? Drop your answer below \ud83d\udc47\n\n#CICD #DevOps #CloudFront #AWS #InterviewPrep",
+    "hook_id": "2047012682520318399",
+    "thread_id": "2047012684378337686",
+    "content_hash": "12d0129b7e1db66e70872c2cff988c5f"
   }
 ]
