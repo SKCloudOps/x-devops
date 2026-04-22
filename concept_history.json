@@ -70,5 +70,14 @@
     "hook_id": "2046660543780356230",
     "thread_id": "2046660545235792060",
     "content_hash": "fd4a442486bb63793d690814ea603ee7"
+  },
+  {
+    "date": "2026-04-22T18:41:41.185412+00:00",
+    "concept": "SNS as broadcast vs queue storage",
+    "hook": "Most engineers use SNS wrong and don't realize it. Here's what nobody tells you \ud83d\udc47",
+    "thread": "SNS is NOT a queue. It's a megaphone.\n\nYou publish a message once. SNS shouts it to everyone listening at the same time. Then it's gone.\n\nCompare that to SQS (a real queue). Messages sit there waiting. Workers grab one. Process it. Delete it.\n\nSNS = broadcast\nSQS = line at the store\n\nGotcha: If nobody's listening when SNS broadcasts, the message vanishes. No replay. This trips people up hard.\n\nUse SNS when you want multiple systems to react to something NOW. Use SQS when work needs to wait in line.\n\nSo here's the real question: Are you using SNS for things that actually need a queue? What would you change? \ud83d\udc47\n\n#DevOps #AWS #SNS #DatabaseFundamentals",
+    "hook_id": "2047023046612127970",
+    "thread_id": "2047023047602024885",
+    "content_hash": "9b7b904cd3035a58d466d69d0a17f337"
   }
 ]
