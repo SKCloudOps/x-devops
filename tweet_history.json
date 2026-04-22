@@ -406,5 +406,14 @@
     "hook_id": "2046800085183553875",
     "thread_id": "2046800086420914550",
     "content_hash": "6c07cfe27d55894c5383171871df5a5f"
+  },
+  {
+    "date": "2026-04-22T12:56:05.115751+00:00",
+    "category": "cicd_interview_question",
+    "hook": "Interviewer: 'How do you handle secrets in GitHub Actions?' \u2014 Most candidates mess this up. Would you? \ud83d\udc47",
+    "thread": "Here's what NOT to do: hardcode your API keys or passwords in your workflow file. Anyone with repo access can see them. Bad idea.\n\nThe RIGHT way:\n\n1. Go to your repo settings \u2192 Secrets\n2. Add your secret (like API_KEY)\n3. In your workflow, use it like this:\n\nenv:\n  API_KEY: ${{ secrets.API_KEY }}\n\nGitHub masks the secret in logs. Even if your build fails and shows output, the actual key stays hidden.\n\nBonus tip: Use environment secrets (Settings \u2192 Environments) if you only need them in certain deploy stages. Way cleaner than repo-level secrets everywhere.\n\nWhat's the trickiest secrets question you've been asked? Drop it below \ud83d\udc47\n\n#GitHubActions #CICD #DevOps #InterviewPrep",
+    "hook_id": "2046936072899211697",
+    "thread_id": "2046936074270703935",
+    "content_hash": "df96aacb58f56bb56df980bd1458934b"
   }
 ]
