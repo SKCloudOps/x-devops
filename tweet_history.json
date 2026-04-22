@@ -397,5 +397,14 @@
     "hook_id": "2046719712521032178",
     "thread_id": "2046719713963913363",
     "content_hash": "e09e6eab2cf8716f36fb256e2e964f37"
+  },
+  {
+    "date": "2026-04-22T03:55:43.100728+00:00",
+    "category": "cicd_interview_question",
+    "hook": "Interviewer: 'How do you handle secrets in GitHub Actions?' \u2014 Most devs mess this up. Would you? \ud83d\udc47",
+    "thread": "Here's the right way:\n\nDON'T put secrets in your code or config files. Anyone who reads your repo sees them.\n\nDO use GitHub Secrets. It's built in.\n\nHow it works:\n1. Go to your repo settings\n2. Click 'Secrets and variables'\n3. Add your secret (API key, password, etc)\n4. Use it in your workflow like this:\n\nenv:\n  API_KEY: ${{ secrets.MY_API_KEY }}\n\nGitHub masks it in logs. Even if your workflow runs in public, nobody sees the real value.\n\nBonus tip: Use environment-level secrets too. If you have staging and production, keep them separate. Staging secret leaks are bad. Production leaks are worse.\n\nOne more thing \u2014 rotate your secrets sometimes. Not paranoid. Just smart.\n\nWhat's the toughest secret management situation you've dealt with? Drop it below \ud83d\udc47\n\n#GitHubActions #DevOps #CI/CD #Security #Automation",
+    "hook_id": "2046800085183553875",
+    "thread_id": "2046800086420914550",
+    "content_hash": "6c07cfe27d55894c5383171871df5a5f"
   }
 ]
