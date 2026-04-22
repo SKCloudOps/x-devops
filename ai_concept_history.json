@@ -92,5 +92,14 @@
     "hook_id": "2046733880753844257",
     "thread_id": "2046733881772998922",
     "content_hash": "aa975b7e2bfe51d16e69752209a1ee53"
+  },
+  {
+    "date": "2026-04-22T23:43:00.068149+00:00",
+    "concept": "model_evaluation_metrics",
+    "hook": "Everyone says 'accuracy' matters for AI models. But accuracy is actually a terrible way to measure if your AI works. Here's why \ud83d\udc47",
+    "thread": "Imagine you build an AI to spot spam emails. It gets 99% accuracy.\n\nSounds great right? Nope. Here's the twist:\n\nWhat if 99% of all emails are actually NOT spam? Your AI could just say \"everything is not spam\" and hit 99% accuracy while missing all the real spam.\n\nThat's why we need OTHER numbers:\n\n\u2022 Precision: Of the emails you flagged as spam, how many were actually spam?\n\u2022 Recall: Of all the real spam out there, how many did you catch?\n\u2022 F1 Score: A balance between both\n\nDifferent problems need different metrics. Want to catch disease early? You care more about recall (don't miss cases). Want to avoid false alarms? Focus on precision.\n\nThe lesson: Don't just look at one number. Dig deeper.\n\nWhat metric have you seen teams obsess over when they should check something else? \ud83d\udc47\n\n#AI #MachineLearning #DataScience #ModelEvaluation",
+    "hook_id": "2047098875023167764",
+    "thread_id": "2047098875962650731",
+    "content_hash": "3e6e5c3b2912bf791c83265351d15511"
   }
 ]
