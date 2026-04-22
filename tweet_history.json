@@ -433,5 +433,14 @@
     "hook_id": "2047012682520318399",
     "thread_id": "2047012684378337686",
     "content_hash": "12d0129b7e1db66e70872c2cff988c5f"
+  },
+  {
+    "date": "2026-04-22T20:31:36.415611+00:00",
+    "category": "cicd_interview_question",
+    "hook": "Interviewer: 'What's the difference between Flux and Helm?' \u2014 Most candidates mix these up. Here's the truth \ud83d\udc47",
+    "thread": "Flux and Helm do different jobs. Don't confuse them.\n\nHelm is a package manager. It bundles your app config into a chart. You run `helm install` and it deploys your stuff once. Done.\n\nFlux is a GitOps tool. It watches your git repo and auto-syncs what's there to your cluster. If you push a change, Flux sees it and applies it. No manual deploy needed.\n\nReal example:\n\u2022 Helm = You manually ship a box to someone's house\n\u2022 Flux = You set up a system where any change to your delivery address auto-updates where boxes go\n\nYou can actually use them together. Helm creates the chart, Flux watches the repo and deploys it automatically.\n\nThe key: Helm is one-time. Flux is continuous.\n\nHave you used Flux in production? What tripped you up? Drop your take below \ud83d\udc47\n\n#DevOps #Kubernetes #GitOps #CICD #Flux",
+    "hook_id": "2047050708835311836",
+    "thread_id": "2047050710085251396",
+    "content_hash": "486af41072abdc8eb057eb4f48ae97d4"
   }
 ]
