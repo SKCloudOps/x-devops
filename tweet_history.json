@@ -442,5 +442,14 @@
     "hook_id": "2047050708835311836",
     "thread_id": "2047050710085251396",
     "content_hash": "486af41072abdc8eb057eb4f48ae97d4"
+  },
+  {
+    "date": "2026-04-22T22:44:38.582365+00:00",
+    "category": "cicd_interview_question",
+    "hook": "Interviewer: 'When would you use Lambda instead of containers?' \u2014 Most candidates get this wrong. Here's what they miss \ud83d\udc47",
+    "thread": "Lambda is for quick jobs that don't run all the time. Containers are for apps that need to keep running.\n\nLambda example: A webhook fires \u2192 your code runs for 2 seconds \u2192 processes data \u2192 stops. You pay only for those 2 seconds.\n\nContainer example: A web app needs to handle requests 24/7. You keep it running in Kubernetes or ECS.\n\nThe real answer interviewers want:\n- Use Lambda for events (file uploads, API calls, scheduled tasks)\n- Use containers for long-running services\n- Lambda has a 15-minute timeout limit. If your job takes longer, containers win\n- Lambda costs less if you don't run much. Containers cost the same whether you get 1 request or 1,000\n\nHonest take: Most teams use both. Lambda for glue code. Containers for the core app.\n\nWhen would YOU pick one over the other? Reply below \ud83d\udc47\n\n#DevOps #AWS #CICD #Serverless #ContainerLife",
+    "hook_id": "2047084188134703505",
+    "thread_id": "2047084189703446748",
+    "content_hash": "db8ed04c4cd9b38cb52a97a01b40d51d"
   }
 ]
