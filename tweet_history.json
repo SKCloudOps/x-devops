@@ -478,5 +478,14 @@
     "hook_id": "2047349157070045394",
     "thread_id": "2047349185578729764",
     "content_hash": "34bc8e864163343d4152e64624af0f01"
+  },
+  {
+    "date": "2026-04-23T18:05:54.332753+00:00",
+    "category": "platform_engineering_interview_question",
+    "hook": "Interviewer: 'How would you scale pods based on something OTHER than CPU?' \u2014 Most candidates get stuck here. Would you? \ud83d\udc47",
+    "thread": "This is where KEDA comes in. KEDA = Kubernetes Event Driven Autoscaling.\n\nNormally Kubernetes only scales on CPU or memory. But what if you want to scale based on:\n\n\u2022 Message queue depth (RabbitMQ, Kafka)\n\u2022 HTTP requests per second\n\u2022 Database connections\n\u2022 Custom metrics\n\nKEDA lets you do that.\n\nHere's the idea:\nKEDA watches an external metric (like your message queue). When the queue gets big, KEDA tells Kubernetes \"hey, spin up more pods.\" When it clears, it scales down.\n\nReal example: Your app processes orders from a queue. You get a spike and 10k messages pile up. KEDA sees it and spins up 20 pods instead of just 2. When the queue clears, it scales back down.\n\nThis saves money AND keeps customers happy.\n\nTip for the interview: Don't just say \"KEDA exists.\" Explain the problem it solves first. Tell them why CPU scaling alone isn't enough. Then show you get how it works.\n\nWhat autoscaling scenario have you tackled in real work? Drop it below \ud83d\udc47\n\n#DevOps #Kubernetes #KEDA #PlatformEngineering",
+    "hook_id": "2047376429277450251",
+    "thread_id": "2047376430934200768",
+    "content_hash": "d93c49c87982e6564372b079d30767d7"
   }
 ]
