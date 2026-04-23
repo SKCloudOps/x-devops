@@ -79,5 +79,14 @@
     "hook_id": "2047023046612127970",
     "thread_id": "2047023047602024885",
     "content_hash": "9b7b904cd3035a58d466d69d0a17f337"
+  },
+  {
+    "date": "2026-04-23T18:43:19.058261+00:00",
+    "concept": "DNS Resolution Performance in Prometheus Scraping",
+    "hook": "Most engineers using Prometheus don't know this: your DNS queries are probably tanking your scrape times \ud83d\udc47",
+    "thread": "Here's the thing. Prometheus scrapes targets by hostname. Every single scrape, it does a DNS lookup. If your DNS is slow, your metrics are late.\n\nThink of it like this: you're ordering food at a restaurant. But every time you order, the waiter has to ask \"where is that restaurant again?\" instead of just knowing.\n\nThe gotcha? Prometheus caches DNS results at the OS level, but not super aggressively. If your DNS server is slow or flaky, you'll see scraped metrics lag or fail silently.\n\nFix: Use static IPs when you can. Or spin up a local DNS cache (like dnsmasq) on your Prometheus box. Cuts DNS lookups to under 1ms.\n\nHow many of your scrape failures are actually DNS issues hiding in plain sight? Reply below \ud83d\udc47\n\n#Prometheus #DevOps #Monitoring",
+    "hook_id": "2047385844852433110",
+    "thread_id": "2047385845875749282",
+    "content_hash": "cb1a1874c2011bc44ece78046fab39da"
   }
 ]
