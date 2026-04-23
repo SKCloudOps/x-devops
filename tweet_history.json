@@ -451,5 +451,14 @@
     "hook_id": "2047084188134703505",
     "thread_id": "2047084189703446748",
     "content_hash": "db8ed04c4cd9b38cb52a97a01b40d51d"
+  },
+  {
+    "date": "2026-04-23T04:00:34.581964+00:00",
+    "category": "platform_engineering_interview_question",
+    "hook": "Interviewer: 'How do you know if your app is actually working?' \u2014 Most say 'check the logs.' That's not enough. Here's why \ud83d\udc47",
+    "thread": "You need metrics. Real numbers. That's where Prometheus comes in.\n\nPrometheus is a tool that watches your app and saves numbers about what it's doing. CPU use. Memory. How many requests came in. How many failed.\n\nHere's the thing most candidates miss:\n\nLogging tells you WHAT went wrong. Metrics tell you WHEN and HOW OFTEN.\n\nExample: Your app crashes at 3am. Logs show an error. But metrics would've shown you the CPU was at 100% for 10 minutes before the crash. You could've fixed it before it broke.\n\nPrometheus stores these metrics as time-series data (just fancy for 'numbers over time'). You set up scrape jobs to pull data from your app every 15 seconds or whatever.\n\nThen you can create alerts: 'If CPU stays above 80% for 5 minutes, wake me up.'\n\nThat's the job. Collect metrics. Store them. Alert when bad things happen.\n\nMost engineers know Prometheus exists. But the ones who get hired know HOW to use it \u2014 they can explain the difference between a gauge (like temperature) and a counter (like total clicks).\n\nWhat's the hardest metric you've had to set up? Drop it below \ud83d\udc47\n\n#DevOps #Prometheus #Monitoring #SRE #PlatformEngineering",
+    "hook_id": "2047163695239680127",
+    "thread_id": "2047163696925774110",
+    "content_hash": "3ade838da43bf5f77db8d4770bc99b6a"
   }
 ]
