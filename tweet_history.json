@@ -460,5 +460,14 @@
     "hook_id": "2047163695239680127",
     "thread_id": "2047163696925774110",
     "content_hash": "3ade838da43bf5f77db8d4770bc99b6a"
+  },
+  {
+    "date": "2026-04-23T12:55:41.644181+00:00",
+    "category": "platform_engineering_interview_question",
+    "hook": "Interviewer: 'Why would you pick DynamoDB over a regular database?' \u2014 Most engineers stumble here. Would you? \ud83d\udc47",
+    "thread": "Here's the real answer:\n\nDynamoDB is a no-SQL database. You don't manage servers. AWS handles it for you.\n\nWhen to use it:\n\u2022 Your app needs to scale fast. Traffic spikes? DynamoDB grows with you.\n\u2022 You don't want to manage databases. No patching. No backups. AWS does it.\n\u2022 Your data is simple. Key-value pairs or basic documents.\n\nWhen NOT to use it:\n\u2022 Complex joins. If you need data from 5 tables at once, use PostgreSQL instead.\n\u2022 You need SQL queries. DynamoDB uses a different query language.\n\nReal example: A gaming leaderboard. Player ID \u2192 Score. DynamoDB is perfect. Millions of updates per second? No problem.\n\nOne tip: Cost. DynamoDB charges per request. If you have a huge database with light traffic, regular SQL might be cheaper.\n\nWhat's the hardest database question you've faced in an interview? Drop it below \ud83d\udc47\n\n#DevOps #AWS #DynamoDB #PlatformEngineering #InterviewPrep",
+    "hook_id": "2047298362039492720",
+    "thread_id": "2047298363662745647",
+    "content_hash": "53852d6cded96579a62c3eecd432a5a7"
   }
 ]
