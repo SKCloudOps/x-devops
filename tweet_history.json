@@ -469,5 +469,14 @@
     "hook_id": "2047298362039492720",
     "thread_id": "2047298363662745647",
     "content_hash": "53852d6cded96579a62c3eecd432a5a7"
+  },
+  {
+    "date": "2026-04-23T16:17:39.171517+00:00",
+    "category": "platform_engineering_interview_question",
+    "hook": "Interviewer: 'How would you detect a breach in your AWS account?' \u2014 Most engineers fumble here. Here's what they're looking for \ud83d\udc47",
+    "thread": "They want to hear about GuardDuty. It's AWS's threat detection service. Think of it as a security guard for your account.\n\nWhat it does:\n- Watches your AWS activity 24/7\n- Spots weird stuff (like someone logging in from 5 countries in an hour)\n- Checks for malware\n- Finds exposed credentials\n\nHow it works in an interview:\n\"I'd turn on GuardDuty first. It runs in the background and scans CloudTrail logs, VPC Flow Logs, and DNS logs. When it finds something sketchy, it sends an alert.\n\nI'd also set up alerts in EventBridge so our team gets notified right away. Then we investigate and respond fast.\"\n\nBonus tip: Tell them you'd also use Security Hub to see all your findings in one place. That shows you think about the bigger picture.\n\nHonestly, this question is testing whether you know AWS has built-in security tools. Most junior engineers don't.\n\nWhat's the hardest security question you've been asked in an interview? Drop it below \ud83d\udc47\n\n#DevOps #AWS #SecurityEngineering #CloudSecurity #InterviewPrep",
+    "hook_id": "2047349157070045394",
+    "thread_id": "2047349185578729764",
+    "content_hash": "34bc8e864163343d4152e64624af0f01"
   }
 ]
