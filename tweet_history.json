@@ -496,5 +496,14 @@
     "hook_id": "2047413561354318231",
     "thread_id": "2047413562801353091",
     "content_hash": "469f173ed13aeeaae0187e5362cf8af3"
+  },
+  {
+    "date": "2026-04-23T22:41:49.620192+00:00",
+    "category": "platform_engineering_interview_question",
+    "hook": "Interviewer: 'What's Backstage and why would we use it?' \u2014 This trips up a lot of candidates. Would you nail it? \ud83d\udc47",
+    "thread": "Backstage is basically a tool that helps your whole team find and use all your stuff without asking 10 people.\n\nThink of it like a single dashboard where devs can:\n\u2022 Find what databases you have\n\u2022 See who owns each service\n\u2022 Get templates to spin up new projects fast\n\u2022 Check who has access to what\n\nWhy it matters: Without it, new engineers spend days asking \"where's that service?\" or \"how do I deploy this?\"\n\nWith Backstage, you write it once, everyone sees it.\n\nReal example: A dev needs a new microservice. They go to Backstage, click a template, fill in a form, and boom\u2014their repo is created with CI/CD already wired up. No waiting for DevOps.\n\nIt's not required for every company, but it saves tons of time once you've got 10+ services.\n\nWhat's YOUR take\u2014worth the setup cost or overkill for small teams? Reply below \ud83d\udc47\n\n#Backstage #PlatformEngineering #DevOpsInterview #SoftwareEngineering",
+    "hook_id": "2047445867339083786",
+    "thread_id": "2047445868903608612",
+    "content_hash": "879b3fcd27418034c11ce47a2e1603b4"
   }
 ]
