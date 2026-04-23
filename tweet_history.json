@@ -487,5 +487,14 @@
     "hook_id": "2047376429277450251",
     "thread_id": "2047376430934200768",
     "content_hash": "d93c49c87982e6564372b079d30767d7"
+  },
+  {
+    "date": "2026-04-23T20:33:27.255589+00:00",
+    "category": "platform_engineering_interview_question",
+    "hook": "Interviewer: 'What's Backstage and why would we use it?' \u2014 Most candidates say 'It's a portal' and stop. Here's what they miss \ud83d\udc47",
+    "thread": "Backstage is a tool that makes it easy for teams to create new projects and services without starting from scratch every time.\n\nThink of it like a self-service menu. A developer goes to Backstage, picks a template (like 'Node.js API' or 'Python microservice'), fills in a few details, and boom \u2014 their new project is ready to go. No waiting for someone else to set it up.\n\nWhy this matters:\n\u2022 Faster onboarding. New devs ship code way faster.\n\u2022 Consistency. Everyone uses the same templates. No random setups.\n\u2022 Less toil. Platform teams don't get bugged for repetitive tasks.\n\nReal example: Your company has 50 microservices. Without Backstage, each team invents their own folder structure, CI/CD setup, and monitoring. Chaos. With Backstage, every service follows the same pattern.\n\nIt's basically a 'create new thing' wizard for your whole engineering org.\n\nWhat part of Backstage confuses you most? The templates? The plugin system? Reply below \ud83d\udc47\n\n#Backstage #PlatformEngineering #DevOpsInterview #SoftwareEngineering",
+    "hook_id": "2047413561354318231",
+    "thread_id": "2047413562801353091",
+    "content_hash": "469f173ed13aeeaae0187e5362cf8af3"
   }
 ]
