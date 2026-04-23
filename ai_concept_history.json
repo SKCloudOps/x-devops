@@ -101,5 +101,14 @@
     "hook_id": "2047098875023167764",
     "thread_id": "2047098875962650731",
     "content_hash": "3e6e5c3b2912bf791c83265351d15511"
+  },
+  {
+    "date": "2026-04-23T23:42:11.508183+00:00",
+    "concept": "AI Bias and Overfitting",
+    "hook": "Everyone says AI has a 'bias problem' but most people don't get what that actually means. It's not what you think \ud83d\udc47",
+    "thread": "Here's the thing: AI bias usually isn't someone being mean. It's more like overfitting.\n\nImagine you teach a kid math using only examples with apples. Then you ask them to solve a problem with oranges. They freeze. They learned \"math\" but really just learned \"apples.\"\n\nAI does this too. You train it on data. If that data is skewed (like 90% male faces or mostly white names), the AI learns those patterns as normal. Then it fails or acts weird with data it didn't see much during training.\n\nThe danger? A hiring AI trained mostly on past hires might reject great candidates because they don't look like \"typical\" employees. A loan approval AI might deny people from certain neighborhoods because of historical lending patterns in the training data.\n\nIt's not intentional. It's just the AI learned from incomplete or biased examples and now treats them as truth.\n\nFix: Better training data. Diverse examples. Testing on groups the AI hasn't \"seen\" much before.\n\nWhat's an AI decision in your life that seems unfair? Could be bias. \ud83d\udc47\n\n#AIEthics #ResponsibleAI #AIBias #TechTruth",
+    "hook_id": "2047461059162726900",
+    "thread_id": "2047461060181913994",
+    "content_hash": "f82d1c62b9e8516780cfbb447ccc2e35"
   }
 ]
