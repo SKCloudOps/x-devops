@@ -532,5 +532,14 @@
     "hook_id": "2047734898434171298",
     "thread_id": "2047734900111908979",
     "content_hash": "95a02380a1c9ddeb94eae805ca9cf014"
+  },
+  {
+    "date": "2026-04-24T22:36:49.559947+00:00",
+    "category": "terraform_iac_interview_question",
+    "hook": "Interviewer: 'How do you manage EKS infrastructure with Terraform?' \u2014 Most people fumble this. Would you? \ud83d\udc47",
+    "thread": "Here's what they want to hear:\n\nYou use the aws_eks_cluster and aws_eks_node_group resources. Simple.\n\nBUT \u2014 the trick is state management. Your EKS cluster is expensive and takes 10 mins to build. You can't just destroy it by accident.\n\nHere's the real answer:\n\n1. Keep your Terraform state in S3 with versioning ON. If you mess up, you roll back.\n\n2. Use aws_eks_cluster with role_arn pointing to a service role. Never hardcode values.\n\n3. For node groups, use aws_eks_node_group and let it manage the Auto Scaling Group. Don't fight it.\n\n4. Add lifecycle rules. Especially ignore_changes on version during upgrades so Terraform doesn't freak out.\n\nExample:\nresource \"aws_eks_cluster\" \"main\" {\n  name = \"my-cluster\"\n  role_arn = aws_iam_role.eks.arn\n  vpc_config {\n    subnet_ids = var.subnet_ids\n  }\n}\n\nThat's it. Keep it simple. Most candidates overcomplicate it with modules.\n\nWhat's the trickiest Terraform + EKS question you've been asked? Drop it below \ud83d\udc47\n\n#Terraform #EKS #DevOps #IaC #AWS",
+    "hook_id": "2047806996712227200",
+    "thread_id": "2047806998238937314",
+    "content_hash": "a740939800d1ed53576d179f24724b81"
   }
 ]
