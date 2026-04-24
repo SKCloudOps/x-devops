@@ -505,5 +505,14 @@
     "hook_id": "2047445867339083786",
     "thread_id": "2047445868903608612",
     "content_hash": "879b3fcd27418034c11ce47a2e1603b4"
+  },
+  {
+    "date": "2026-04-24T04:13:47.213761+00:00",
+    "category": "terraform_iac_interview_question",
+    "hook": "Interviewer: 'What's the difference between Terraform and Flux?' \u2014 Most candidates mix these up. Would you nail this? \ud83d\udc47",
+    "thread": "Here's the clean breakdown:\n\n**Terraform** = Infrastructure as Code tool. You write code that creates cloud resources (servers, databases, networks). You run it once, resources get built.\n\n**Flux** = GitOps tool for Kubernetes. You push changes to Git, Flux watches that repo and automatically updates what's running in your cluster.\n\nThink of it this way:\n- Terraform builds your house (infrastructure)\n- Flux keeps your house updated with changes you make (continuous deployment)\n\nRough example:\n- Use Terraform to create an AWS VPC and Kubernetes cluster\n- Use Flux to deploy apps INTO that cluster whenever you push code changes to Git\n\nThey solve different problems. Terraform = \"how do I create infrastructure?\" Flux = \"how do I automatically sync my apps to what I declared in Git?\"\n\nNgl, a lot of people think they compete. They don't. They work together.\n\nHave you used both in a real project? How would you explain the difference? Drop your answer below \ud83d\udc47\n\n#Terraform #Flux #GitOps #IaC #DevOps #Kubernetes",
+    "hook_id": "2047529407753932866",
+    "thread_id": "2047529409356116358",
+    "content_hash": "d0e3ac94cb28a2df03f6a37a8bcebafd"
   }
 ]
