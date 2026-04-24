@@ -88,5 +88,14 @@
     "hook_id": "2047385844852433110",
     "thread_id": "2047385845875749282",
     "content_hash": "cb1a1874c2011bc44ece78046fab39da"
+  },
+  {
+    "date": "2026-04-24T18:07:36.606370+00:00",
+    "concept": "CloudWatch_Secrets_Leakage",
+    "hook": "Most engineers log secrets to CloudWatch every day without knowing it. Here's the problem \ud83d\udc47",
+    "thread": "You deploy your app. It crashes. You check CloudWatch logs to debug.\n\nBut wait\u2014did your error message just print your API key? Your database password? Yeah. It's there. Forever. In plain text.\n\nCloudWatch logs are not a secret vault. They're more like a bulletin board in your office. Anyone with log access can read them.\n\nReal talk: I've seen teams accidentally leak creds this way. Then spend hours rotating keys and hoping nobody found them first.\n\nThe fix:\n1. Never log sensitive data (duh, but people do it)\n2. Use secrets manager (AWS Secrets Manager, HashiCorp Vault, whatever)\n3. Log only the fact that something failed. Not the details.\n4. Redact logs before they hit CloudWatch if you can't avoid it\n\nThink of it like this: CloudWatch is great for \"request took 2.5 seconds\" or \"database connection failed.\" It's terrible for storing passwords.\n\nWhat's your biggest secrets leak risk right now? Do you audit your logs? \ud83d\udc47\n\n#DevOps #AWS #Security #SecretsManagement #CloudWatch",
+    "hook_id": "2047739246765560073",
+    "thread_id": "2047739247784816939",
+    "content_hash": "c2b483acfe1a8674e95f6b97d4ed34b9"
   }
 ]
