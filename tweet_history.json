@@ -523,5 +523,14 @@
     "hook_id": "2047704087802818832",
     "thread_id": "2047704089384071553",
     "content_hash": "268651bffd8c1325b7ed80dce6a465e8"
+  },
+  {
+    "date": "2026-04-24T17:50:20.065094+00:00",
+    "category": "terraform_iac_interview_question",
+    "hook": "Interviewer: 'How do you manage Terraform state?' \u2014 This trips up 90% of candidates. Would you nail it? \ud83d\udc47",
+    "thread": "State is how Terraform knows what's real vs what you wrote.\n\nThink of it like a receipt. You buy stuff, you get a receipt. That receipt is proof of what you own. Terraform's state file = the receipt.\n\nWithout it, Terraform doesn't know:\n- What you already created\n- What changed\n- What to delete\n\nHERE'S THE KEY: Never store state locally in a team. Use remote state.\n\nWhy? Because:\n1. Your laptop crashes = state gone = broke infrastructure\n2. Your teammate doesn't see your changes\n3. Two people run terraform at once = conflicts\n\nUSE THESE: S3 + DynamoDB (AWS), or Terraform Cloud.\n\nS3 stores the file. DynamoDB locks it so only one person can change it at a time. No collisions.\n\nOne pro tip: Add state locking to your backend config. It prevents two devs from breaking things together.\n\nWhat's your go-to remote backend? Reply below \ud83d\udc47\n\n#Terraform #IaC #DevOps #Interview #AWS",
+    "hook_id": "2047734898434171298",
+    "thread_id": "2047734900111908979",
+    "content_hash": "95a02380a1c9ddeb94eae805ca9cf014"
   }
 ]
