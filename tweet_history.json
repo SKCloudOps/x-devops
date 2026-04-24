@@ -514,5 +514,14 @@
     "hook_id": "2047529407753932866",
     "thread_id": "2047529409356116358",
     "content_hash": "d0e3ac94cb28a2df03f6a37a8bcebafd"
+  },
+  {
+    "date": "2026-04-24T15:47:54.207252+00:00",
+    "category": "terraform_iac_interview_question",
+    "hook": "Interviewer: 'Why use Helm instead of plain Kubernetes YAML?' \u2014 Most candidates stumble here. Would you? \ud83d\udc47",
+    "thread": "Here's the thing: Helm is just a package manager for Kubernetes. Think of it like npm for Node.js.\n\nPlain YAML works fine for one app. But when you have:\n- Multiple environments (dev, staging, prod)\n- The same app deployed 50 times\n- Values that change each time\n\n...you're copy-pasting YAML everywhere. That's a mess.\n\nHelm solves this:\n1. Templates \u2014 write YAML once, fill in values later\n2. Charts \u2014 pre-built packages you can reuse\n3. Releases \u2014 track versions of what you deployed\n\nReal example: Instead of writing 10 different YAML files for dev/prod, you write one Helm chart. Then run:\n\nhelm install my-app ./chart --values prod-values.yaml\n\nBoom. Same app, different config, no copy-paste.\n\nThat said \u2014 Helm adds complexity. For a simple app? Plain YAML is fine. Use Helm when you need flexibility across many deploys.\n\nHow would you answer this one? Or have a different take? \ud83d\udc47\n\n#Kubernetes #Helm #Terraform #DevOps #IaC",
+    "hook_id": "2047704087802818832",
+    "thread_id": "2047704089384071553",
+    "content_hash": "268651bffd8c1325b7ed80dce6a465e8"
   }
 ]
