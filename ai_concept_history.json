@@ -110,5 +110,14 @@
     "hook_id": "2047461059162726900",
     "thread_id": "2047461060181913994",
     "content_hash": "f82d1c62b9e8516780cfbb447ccc2e35"
+  },
+  {
+    "date": "2026-04-24T23:36:54.168243+00:00",
+    "concept": "Model Deployment & MLOps",
+    "hook": "Everyone says 'we need to deploy our model' but most teams have no idea what that actually means \ud83d\udc47",
+    "thread": "Deploying an AI model = taking it from your laptop and putting it on a server that real people can use.\n\nThink of it like this:\n- You bake a perfect cake in your home kitchen (training)\n- Deployment = opening a bakery so strangers can buy it\n\nBUT here's what trips teams up: your model might work great on your computer. Then you deploy it and suddenly it's slow, crashes, or gives weird answers.\n\nWhy? Your real data is messy. Users hit it at weird times. Server hardware is different.\n\nThat's why MLOps exists. It's basically project management for AI models after you build them. You need:\n- Ways to monitor if it's still working\n- Ways to update it without breaking everything\n- Ways to roll back if something goes wrong\n\nMost teams skip this and wonder why their AI project fails in production.\n\nHonestly? MLOps is boring. But it's the difference between a cool demo and a system that actually works.\n\nWhat's your biggest challenge getting models live? \ud83d\udc47\n\n#MLOps #AI #MachineLearning #Deployment",
+    "hook_id": "2047822116079182073",
+    "thread_id": "2047822117056532626",
+    "content_hash": "8aa530dfb8e004db47ba0c96db31ea79"
   }
 ]
