@@ -541,5 +541,14 @@
     "hook_id": "2047806996712227200",
     "thread_id": "2047806998238937314",
     "content_hash": "a740939800d1ed53576d179f24724b81"
+  },
+  {
+    "date": "2026-04-25T03:48:05.421932+00:00",
+    "category": "devops_trending_topic",
+    "hook": "Interviewer: 'How do you manage config across dev, staging, and prod?' \u2014 This trips up SO many DevOps engineers. Would you nail it? \ud83d\udc47",
+    "thread": "Okay, the wrong answer: \"I just change the files manually in each environment.\" Nope. That's how you break prod at 2am.\n\nHere's what actually works:\n\n1. **Store config in ONE place** \u2014 Use a tool like ConfigMap (Kubernetes), environment variables, or a config repo. Same source of truth everywhere.\n\n2. **Use templates** \u2014 Your app config should be the same everywhere. Just swap out values. Think: database URL, API keys, log levels. Use tools like Helm or kustomize to inject the right values per environment.\n\n3 **Version control it** \u2014 Everything goes in git. You can see who changed what, when, and roll back if needed.\n\n4. **Secrets stay secret** \u2014 Never, ever put passwords or API keys in your config files. Use a secrets manager like Vault or your cloud provider's tool (AWS Secrets Manager, etc).\n\nReal example: Your app reads DB_HOST from an env var. In dev, it's localhost. In prod, it's your prod database. Same code, different config. That's the move.\n\nWhat's your go-to tool for config management? I want to hear what's working for you \ud83d\udc47\n\n#DevOps #Kubernetes #Interview #ConfigManagement #SRE",
+    "hook_id": "2047885328610893958",
+    "thread_id": "2047885330477453520",
+    "content_hash": "99dc45ce393909324c73b8fdfb1aa274"
   }
 ]
