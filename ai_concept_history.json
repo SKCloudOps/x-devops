@@ -119,5 +119,14 @@
     "hook_id": "2047822116079182073",
     "thread_id": "2047822117056532626",
     "content_hash": "8aa530dfb8e004db47ba0c96db31ea79"
+  },
+  {
+    "date": "2026-04-25T23:35:01.669437+00:00",
+    "concept": "context_window_and_tokens",
+    "hook": "Everyone says 'context window' but most people have no idea what it actually means. Here's the simple version \ud83d\udc47",
+    "thread": "Your AI has a memory limit. It's like a person who can only remember the last 30 seconds of a conversation.\n\nTokens are just tiny chunks of text. One token \u2248 4 letters. So if an AI has a 4k token context window, it can only \"see\" about 16,000 characters at once.\n\nWhy does this matter? If you paste a 50-page document into ChatGPT, it can't actually read all of it. The AI forgets the beginning by the time it reaches the end.\n\nThis is why longer conversations get weird. The AI loses track of what you said 10 messages ago.\n\nNew models are getting bigger context windows (100k+ tokens now). More memory = the AI can handle longer documents and longer chats without losing the plot.\n\nThink of it like this: Would you rather talk to someone who remembers only your last sentence, or someone who remembers your whole story?\n\nWhat's the longest conversation you've had with an AI before it got confused? \ud83d\udc47\n\n#AI #LLMs #TokensExplained #ContextWindow",
+    "hook_id": "2048184032115003680",
+    "thread_id": "2048184033083859034",
+    "content_hash": "1549f930e4f61d6adcbf46c385336356"
   }
 ]
