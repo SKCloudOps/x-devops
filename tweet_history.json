@@ -559,5 +559,14 @@
     "hook_id": "2048018055301656615",
     "thread_id": "2048018057038078311",
     "content_hash": "9a6d726471bdf726983d80bd7caede5b"
+  },
+  {
+    "date": "2026-04-25T15:09:14.945078+00:00",
+    "category": "devops_trending_topic",
+    "hook": "Interviewer: 'What's the difference between Karpenter and Cluster Autoscaler?' \u2014 Most engineers mix these up. Would you? \ud83d\udc47",
+    "thread": "Here's the quick version:\n\n**Cluster Autoscaler**: Old school. Adds nodes when pods can't fit. Slow. Waits for Kubernetes to say \"hey, we need space.\"\n\n**Karpenter**: New hotness. Watches pods BEFORE they fail. Launches the RIGHT node type, RIGHT now. No weird delays.\n\nReal example:\n\nYou need a GPU node. With Cluster Autoscaler, your pod sits waiting. Then it times out. Then the scaler notices. Then it adds a node. Pain.\n\nWith Karpenter? The pod shows up. Karpenter sees it. Boom. GPU node spins up in seconds. Way smarter.\n\nKarpenter also handles \"consolidation\" \u2014 it notices you have half-empty nodes and packs things better. Saves money.\n\nBonus: Karpenter works with EC2 spot instances easy. Gets you cheap compute.\n\nTL;DR: Cluster Autoscaler = reactive, slow. Karpenter = proactive, fast, cheaper.\n\nWhich one's running in your cluster right now? Or would you choose Karpenter for a new setup?\n\n#DevOps #Kubernetes #Karpenter #CloudEngineering",
+    "hook_id": "2048056747839910082",
+    "thread_id": "2048056749437948101",
+    "content_hash": "86deaa17d290df5c944c0512c6deb0f7"
   }
 ]
