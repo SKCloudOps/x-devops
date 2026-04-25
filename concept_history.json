@@ -97,5 +97,14 @@
     "hook_id": "2047739246765560073",
     "thread_id": "2047739247784816939",
     "content_hash": "c2b483acfe1a8674e95f6b97d4ed34b9"
+  },
+  {
+    "date": "2026-04-25T18:06:39.549716+00:00",
+    "concept": "service_mesh_iam_enforcement",
+    "hook": "Most engineers using service mesh don't know this: your IAM rules might not even be checked inside the mesh \ud83d\udc47",
+    "thread": "Here's the thing. A service mesh (like Istio) sits between your services. It watches traffic. But if you ONLY use Kubernetes RBAC or AWS IAM, the mesh doesn't know about it.\n\nThink of it like this: You have a security guard at the front door (IAM). But once inside, people can walk anywhere. The service mesh is supposed to be an internal security guard too. It needs its OWN permission rules.\n\nThis is why you need mTLS (encrypted service-to-service traffic) + service mesh policies. Not just IAM.\n\nGotcha: If your mesh isn't enforcing its own rules, a hacked pod can talk to ANY other pod. IAM won't stop it.\n\nHow are you handling service-to-service auth right now? Just IAM or using mesh policies too? \ud83d\udc47\n\n#ServiceMesh #Kubernetes #DevOps #SecurityFirst",
+    "hook_id": "2048101395354575110",
+    "thread_id": "2048101396323455132",
+    "content_hash": "ffdde6a64e6c888540543dd0f5caf077"
   }
 ]
