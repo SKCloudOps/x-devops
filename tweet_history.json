@@ -550,5 +550,14 @@
     "hook_id": "2047885328610893958",
     "thread_id": "2047885330477453520",
     "content_hash": "99dc45ce393909324c73b8fdfb1aa274"
+  },
+  {
+    "date": "2026-04-25T12:35:29.926459+00:00",
+    "category": "devops_trending_topic",
+    "hook": "Interviewer: 'How does Route53 handle failover?' \u2014 Most engineers get this wrong. Would you? \ud83d\udc47",
+    "thread": "Route53 is AWS's DNS service. Think of it like a phone book for the internet.\n\nFailover means: if your main server dies, Route53 automatically points traffic to a backup server instead.\n\nHere's the real answer:\n\n1. You set up health checks. Route53 pings your servers every 30 seconds.\n\n2. If a server stops responding, it's marked as \"unhealthy.\"\n\n3. Route53 stops sending traffic there and sends it to your backup instead.\n\n4. When the main server wakes up, traffic goes back.\n\nCommon mistake: Thinking Route53 fixes the broken server. Nope. It just redirects traffic around it.\n\nReal example:\nYou have a website on Server A (main) and Server B (backup). Route53 checks Server A every 30 seconds. It dies. Route53 sees no response. Boom \u2014 all new visitors go to Server B. Your site stays up.\n\nThat's it. Not magic. Just smart routing.\n\nWhat's your approach to setting up failover in an interview? Drop it below \ud83d\udc47\n\n#DevOps #AWS #Route53 #InterviewPrep",
+    "hook_id": "2048018055301656615",
+    "thread_id": "2048018057038078311",
+    "content_hash": "9a6d726471bdf726983d80bd7caede5b"
   }
 ]
