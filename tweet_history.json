@@ -577,5 +577,14 @@
     "hook_id": "2048093964859813918",
     "thread_id": "2048093966612979982",
     "content_hash": "183e2d6a41e38e0b2793903ac08e1a1c"
+  },
+  {
+    "date": "2026-04-25T20:03:23.659829+00:00",
+    "category": "devops_trending_topic",
+    "hook": "Interviewer: 'How would you detect suspicious activity in AWS?' \u2014 Most engineers freeze here. Would you know what to say? \ud83d\udc47",
+    "thread": "Here's the answer they're looking for:\n\nYou'd use GuardDuty. It's AWS's threat detection service. Think of it as a security guard for your AWS account.\n\nWhat it does:\n- Watches your logs and finds weird stuff\n- Spots unauthorized access attempts\n- Flags unusual API calls\n- Finds malware or compromised instances\n\nReal example: GuardDuty notices someone trying to brute force your RDS database from an IP that's never accessed it before. It alerts you immediately.\n\nWhy they ask this: They want to know you think about security, not just deployments.\n\nQuick tip: GuardDuty runs automatically. You don't build it yourself. You just enable it and it starts finding threats. That's the key thing to mention.\n\nHow would you answer this differently? Or what security tools do you use most? Drop your take below \ud83d\udc47\n\n#AWS #GuardDuty #DevOps #CloudSecurity #InterviewPrep",
+    "hook_id": "2048130772352270740",
+    "thread_id": "2048130773673459996",
+    "content_hash": "7794f914f8e93ff97e6852874ac7e5bf"
   }
 ]
