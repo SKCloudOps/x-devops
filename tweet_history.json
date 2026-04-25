@@ -586,5 +586,14 @@
     "hook_id": "2048130772352270740",
     "thread_id": "2048130773673459996",
     "content_hash": "7794f914f8e93ff97e6852874ac7e5bf"
+  },
+  {
+    "date": "2026-04-25T22:34:44.722024+00:00",
+    "category": "devops_trending_topic",
+    "hook": "Interviewer: 'When would you use CloudFront instead of just serving from your origin server?' \u2014 Most candidates get this wrong. \ud83d\udc47",
+    "thread": "CloudFront is a CDN. That means it copies your content to servers all over the world.\n\nWhy? Speed. If someone in Tokyo needs your file, they get it from a server close to them. Not from your origin server thousands of miles away.\n\nWhen to use it:\n- Static files (images, CSS, JS)\n- Videos\n- Large downloads\n- Anything users ask for a lot\n\nWhen you probably don't need it:\n- Your site gets almost no traffic\n- You only serve one country\n- Your content changes every second\n\nReal tip: CloudFront also protects your origin. DDoS attacks hit the CDN, not your server. And you can cache aggressively without touching your origin.\n\nBut here's the thing \u2014 it adds cost. You pay per GB served. So don't use it if traffic is tiny.\n\nHave you had to decide between CloudFront and a simpler setup? What did you choose? \ud83d\udc47\n\n#DevOps #AWS #CloudFront #SystemsDesign",
+    "hook_id": "2048168861279912021",
+    "thread_id": "2048168862487855592",
+    "content_hash": "70dde3b0d5dd8094893ecd44ce203843"
   }
 ]
