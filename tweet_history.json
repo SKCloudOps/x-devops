@@ -640,5 +640,14 @@
     "hook_id": "2048493349909225968",
     "thread_id": "2048493352035766325",
     "content_hash": "4308f336aa06fb3f15fdef92ae5eab07"
+  },
+  {
+    "date": "2026-04-26T22:35:46.533808+00:00",
+    "category": "cloud_architecture_pattern",
+    "hook": "Interviewer: 'When would you use Lambda over containers?' \u2014 Most candidates get this wrong. Here's what they miss \ud83d\udc47",
+    "thread": "Lambda is for SHORT tasks. Containers are for LONG-RUNNING apps. Big difference.\n\nLambda:\n- You write code, AWS runs it\n- Pays only when it runs (milliseconds)\n- Great for: processing files, handling webhooks, scheduled jobs\n- Bad for: 24/7 apps, complex networking\n\nContainers (ECS/EKS):\n- You control the whole thing\n- Pays even when idle\n- Great for: APIs running all day, databases, anything needing persistent state\n- Bad for: occasional tasks (too expensive)\n\nReal example: Got a file upload? Lambda processes it in 2 seconds, costs pennies. Got a web app running 24/7? Use containers or EC2.\n\nThe trick: Lambda feels cheap until you have HIGH VOLUME tasks. Then you're paying per invocation and it adds up fast.\n\nWhat's your go-to rule for deciding between them? Reply below \ud83d\udc47\n\n#DevOps #AWS #CloudArchitecture #Interview #SystemsDesign",
+    "hook_id": "2048531508189704659",
+    "thread_id": "2048531509586403780",
+    "content_hash": "af81227c98ed88169850e92806bca165"
   }
 ]
