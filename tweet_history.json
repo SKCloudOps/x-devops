@@ -595,5 +595,14 @@
     "hook_id": "2048168861279912021",
     "thread_id": "2048168862487855592",
     "content_hash": "70dde3b0d5dd8094893ecd44ce203843"
+  },
+  {
+    "date": "2026-04-26T04:18:59.324242+00:00",
+    "category": "cloud_architecture_pattern",
+    "hook": "Interviewer: 'Why would you put CloudFront in front of your app?' \u2014 Most engineers fumble this. Would you? \ud83d\udc47",
+    "thread": "Here's the thing: CloudFront is a CDN. It caches your stuff at servers around the world.\n\nSo when a user in Tokyo asks for a file, they don't have to wait for it to come from your server in New York. They get it from a server near them. Way faster.\n\nReal example:\n\nWithout CloudFront: User waits 500ms for a file from across the world\n\nWith CloudFront: User gets it in 50ms from a nearby edge location\n\nBonus: Your server gets less traffic. CloudFront handles it. So you save money and your app runs smoother.\n\nWhen to use it: Static files (images, videos, PDFs). Dynamic stuff needs careful setup.\n\nWhen NOT to use it: If your app needs real-time data every single time, it might not help much.\n\nThe real answer they want: \"It speeds up users and reduces load on my servers.\"\n\nHave you had to explain CDNs in an interview? How'd it go? \ud83d\udc47\n\n#DevOps #AWS #CloudFront #SystemDesign #InterviewTips",
+    "hook_id": "2048255492586123279",
+    "thread_id": "2048255494163165669",
+    "content_hash": "355406de684df9e135a8229949d512c2"
   }
 ]
