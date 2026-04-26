@@ -631,5 +631,14 @@
     "hook_id": "2048456633181765716",
     "thread_id": "2048456634821685414",
     "content_hash": "0da7d357e7149a85439bbd04d6349cbf"
+  },
+  {
+    "date": "2026-04-26T20:04:09.246708+00:00",
+    "category": "cloud_architecture_pattern",
+    "hook": "Interviewer: 'How would you build an internal developer portal?' \u2014 Most candidates overthink this. Here's what they miss \ud83d\udc47",
+    "thread": "They jump straight to tools. Wrong move.\n\nStart with the PROBLEM: Your devs waste time finding docs, running setup, waiting for access. That's what a portal fixes.\n\nA portal is just one place where devs find:\n\u2022 How to deploy stuff\n\u2022 What services exist\n\u2022 Who owns what\n\u2022 How to get access\n\nYou could build it simple: a wiki + a form for access requests. Or use a tool like Backstage that connects to your GitHub, Jira, and deployment systems.\n\nThe KEY insight: Don't pick a tool first. Pick what problems your team has. Then pick the tool that solves them.\n\nMost engineers fail this question because they say 'Backstage' and stop. Real answer is: understand your team first, then build what they need.\n\nHow would YOU approach it? What's the biggest pain point devs face at your company? \ud83d\udc47\n\n#DevOps #CloudArchitecture #DeveloperPortal #Backstage #InterviewTips",
+    "hook_id": "2048493349909225968",
+    "thread_id": "2048493352035766325",
+    "content_hash": "4308f336aa06fb3f15fdef92ae5eab07"
   }
 ]
