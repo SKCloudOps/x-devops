@@ -622,5 +622,14 @@
     "hook_id": "2048419108409225487",
     "thread_id": "2048419110300881143",
     "content_hash": "a7b6b9383b12afc26d45952ef37fc19f"
+  },
+  {
+    "date": "2026-04-26T17:38:14.994880+00:00",
+    "category": "cloud_architecture_pattern",
+    "hook": "Interviewer: 'How is ArgoCD different from regular CI/CD?' \u2014 Most engineers mix these up. Do you know? \ud83d\udc47",
+    "thread": "ArgoCD isn't about building or testing your code. That's what CI/CD does.\n\nArgoCD is about DEPLOYING it. It watches your git repo and says: 'Hey, what's in git should match what's running.' If it doesn't match, ArgoCD fixes it.\n\nExample: You push a new app version to git. ArgoCD sees it and auto-deploys to Kubernetes. No manual steps. No scripts.\n\nCI/CD pipeline = build & test code\nArgoCD = keep deployed stuff in sync with git\n\nThey work together, not instead of each other. Your CI/CD builds the image. ArgoCD deploys it.\n\nThe magic part? If someone manually changes production (bad idea btw), ArgoCD sees the drift and pulls everything back to what git says. It's like version control for your actual running apps.\n\nHow would you explain the difference in your own words? Drop it below \ud83d\udc47\n\n#ArgoCD #DevOps #Kubernetes #GitOps #CloudArchitecture",
+    "hook_id": "2048456633181765716",
+    "thread_id": "2048456634821685414",
+    "content_hash": "0da7d357e7149a85439bbd04d6349cbf"
   }
 ]
