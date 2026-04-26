@@ -613,5 +613,14 @@
     "hook_id": "2048380916251119952",
     "thread_id": "2048380917534605612",
     "content_hash": "bffb259080105c8ccf33ebbecfd18d84"
+  },
+  {
+    "date": "2026-04-26T15:09:08.461021+00:00",
+    "category": "cloud_architecture_pattern",
+    "hook": "Interviewer: 'Walk me through your IAM strategy.' \u2014 Most engineers panic here. Would you? \ud83d\udc47",
+    "thread": "Here's the thing: IAM isn't just about passwords. It's about giving people the LEAST access they need to do their job.\n\nLet's say you have 3 teams:\n\n\u2022 Frontend devs \u2014 need to push to your container registry\n\u2022 Backend devs \u2014 need database access too\n\u2022 DevOps team \u2014 needs everything\n\nDon't give frontend devs database access. Don't give backend devs power to delete databases. Give each team a role with only what they need.\n\nIn AWS or GCP, this means:\n- Create roles (frontend-dev, backend-dev, devops-admin)\n- Add specific permissions to each role\n- Assign people to roles, not permissions directly\n\nIt's called \"least privilege.\" It's the golden rule.\n\nBonus tip: Rotate your keys every 90 days. Old keys sitting around = risk.\n\nWhat IAM mistake have you seen hurt a team? Drop it below \ud83d\udc47\n\n#DevOps #CloudArchitecture #IAM #Interviews",
+    "hook_id": "2048419108409225487",
+    "thread_id": "2048419110300881143",
+    "content_hash": "a7b6b9383b12afc26d45952ef37fc19f"
   }
 ]
