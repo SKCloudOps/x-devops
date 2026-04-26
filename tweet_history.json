@@ -604,5 +604,14 @@
     "hook_id": "2048255492586123279",
     "thread_id": "2048255494163165669",
     "content_hash": "355406de684df9e135a8229949d512c2"
+  },
+  {
+    "date": "2026-04-26T12:37:22.585770+00:00",
+    "category": "cloud_architecture_pattern",
+    "hook": "Interviewer: 'When would you use DynamoDB instead of RDS?' \u2014 Most engineers mess this up. Here's what they miss \ud83d\udc47",
+    "thread": "Here's the real answer:\n\nRDS is for data with relationships. Like a bank app where accounts link to transactions. You query across tables a lot.\n\nDynamoDB is for fast, simple lookups. Like storing user profiles by ID. One key in, one item out. Super fast at scale.\n\nThe trick most people miss: DynamoDB gets expensive if you query wrong. If you're always scanning tables or joining data, you should've picked RDS.\n\nReal example: Netflix uses DynamoDB for user preferences (\"gimme user 12345's watch list\"). But your ecommerce orders? That's relational data. RDS wins.\n\nQuick rule:\n\u2022 DynamoDB = know your access pattern upfront\n\u2022 RDS = flexible queries, relationships matter\n\nWhich would you pick for a real-time game leaderboard? Drop your answer \ud83d\udc47\n\n#AWS #DynamoDB #DevOpsInterview #CloudArchitecture #SystemsDesign",
+    "hook_id": "2048380916251119952",
+    "thread_id": "2048380917534605612",
+    "content_hash": "bffb259080105c8ccf33ebbecfd18d84"
   }
 ]
