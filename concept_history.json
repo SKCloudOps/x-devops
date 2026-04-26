@@ -106,5 +106,14 @@
     "hook_id": "2048101395354575110",
     "thread_id": "2048101396323455132",
     "content_hash": "ffdde6a64e6c888540543dd0f5caf077"
+  },
+  {
+    "date": "2026-04-26T18:07:36.746913+00:00",
+    "concept": "S3 Configuration Management as Code",
+    "hook": "Most engineers using S3 every day don't know this: your bucket config can break your whole deploy without touching your code \ud83d\udc47",
+    "thread": "Here's the thing. S3 buckets have settings that control who can read/write files. These live separate from your app code.\n\nThink of it like a house. Your app is the person inside. S3 config is the lock on the door. You can write perfect code, but if the door is locked wrong, nobody gets in.\n\nCommon gotcha: You deploy code that writes to S3. But your bucket policy says \"block all public access\" or your IAM role doesn't have write permission. Your app crashes. You spend 2 hours debugging code that's actually fine.\n\nThe fix: Keep your S3 config in code too. Use Terraform or CloudFormation to define bucket policies, permissions, versioning, encryption\u2014everything. Store it in Git next to your app.\n\nThis way when something breaks, you check your infra code, not just your app code.\n\nWhat's the most annoying S3 config mistake you've hit? \ud83d\udc47\n\n#AWS #S3 #DevOps #IaC",
+    "hook_id": "2048464022161244187",
+    "thread_id": "2048464024119935402",
+    "content_hash": "4959e4ff0b786c489bb4ecf10b0d51fb"
   }
 ]
