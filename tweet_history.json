@@ -685,5 +685,14 @@
     "hook_id": "2048825535761981910",
     "thread_id": "2048825537737506908",
     "content_hash": "4623b41085b44731f613bbacca91b511"
+  },
+  {
+    "date": "2026-04-27T20:40:39.700226+00:00",
+    "category": "sre_observability_question",
+    "hook": "Interviewer: 'How do you monitor infrastructure defined in Terraform?' \u2014 Most candidates miss the real answer. \ud83d\udc47",
+    "thread": "Here's the thing: Terraform creates your infrastructure, but it doesn't watch it.\n\nYou need observability OUTSIDE of Terraform. Here's what works:\n\n1. **Prometheus** - scrapes metrics from your servers and apps every 15 seconds. You see CPU, memory, disk.\n\n2. **CloudWatch** (AWS) or **Stackdriver** (GCP) - these watch the actual cloud resources Terraform built. They track if your database is slow or your load balancer fails.\n\n3. **Logs** - use something like Loki or ELK Stack. Your apps write logs. You read them to find problems.\n\nThe trick? Use Terraform to BUILD the monitoring too. Write Terraform code that sets up Prometheus scrape configs. Set up CloudWatch alarms WITH Terraform. That way, when you deploy new apps, monitoring deploys automatically.\n\nExample: Your Terraform creates an EC2 instance. It also creates a CloudWatch alarm that alerts you if that instance's CPU stays above 80% for 5 minutes. Both happen at once.\n\nWhat monitoring tool has saved YOU the most headaches? Drop it below \ud83d\udc47\n\n#DevOps #SRE #Terraform #Observability #Monitoring",
+    "hook_id": "2048864926958289078",
+    "thread_id": "2048864928153620797",
+    "content_hash": "919f3acf97acb6e563b55c40b4d1d6e8"
   }
 ]
