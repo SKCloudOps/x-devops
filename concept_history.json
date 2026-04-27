@@ -115,5 +115,14 @@
     "hook_id": "2048464022161244187",
     "thread_id": "2048464024119935402",
     "content_hash": "4959e4ff0b786c489bb4ecf10b0d51fb"
+  },
+  {
+    "date": "2026-04-27T18:51:03.962371+00:00",
+    "concept": "Fargate disaster recovery and health checks",
+    "hook": "Most engineers using Fargate don't know this about disaster recovery \ud83d\udc47",
+    "thread": "Fargate tasks are great. But if your task dies and you're not ready? Your app goes down.\n\nHere's the thing: Fargate doesn't auto-heal bad deployments. It just restarts the container.\n\nThink of it like this. Your car breaks down. A tow truck brings you a new car. But if the new car has the same broken engine, you're still stuck.\n\nThat's Fargate without a solid disaster recovery plan.\n\nWhat you actually need:\n\n1. Health checks that REALLY work. Not just \"is the port open.\" Check that your app actually responds.\n\n2. Multiple tasks across different zones. If one goes down, others handle traffic.\n\n3. A way to roll back fast. If a bad deploy hits Fargate, you need to flip back to the old version in seconds.\n\n4. Monitoring that screams when things break. CloudWatch alarms should page you before users notice.\n\nGotcha: Fargate will restart a broken task over and over. Meanwhile your app is down. You need AUTO ROLLBACK set up. Most teams skip this and wonder why they had an outage.\n\nWhat's your biggest Fargate headache right now? \ud83d\udc47\n\n#Fargate #DisasterRecovery #AWS #DevOps #ContainerDeployment",
+    "hook_id": "2048837346447998983",
+    "thread_id": "2048837347450433877",
+    "content_hash": "3576167221fab28b79990ec587e1c743"
   }
 ]
