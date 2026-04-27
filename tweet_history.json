@@ -676,5 +676,14 @@
     "hook_id": "2048796487656628515",
     "thread_id": "2048796489661423951",
     "content_hash": "7e606c5f2638b70de91542e8e76e9b7f"
+  },
+  {
+    "date": "2026-04-27T18:04:08.315793+00:00",
+    "category": "sre_observability_question",
+    "hook": "Interviewer: 'How do you track which services are down?' \u2014 Most candidates miss the obvious answer. Here's what they should say \ud83d\udc47",
+    "thread": "The answer: You need a way to SEE your services. That's monitoring + alerting.\n\nHere's the real flow:\n\n1. Your app sends metrics (CPU, memory, errors)\n2. A tool stores them (Prometheus, Datadog, etc)\n3. You set alerts (\"if errors > 10%, page me\")\n4. When it hits, you get notified\n\nTools like Backstage help here. It's a dashboard. Shows ALL your services in one place. One tab tells you which ones are broken.\n\nWhy this matters: You can't fix what you can't see. Without monitoring, you're blind.\n\nExample: Your payment service crashes at 2am. With monitoring, an alert wakes you up in 30 seconds. Without it? Your customers find out first. Bad.\n\nBonus tip: Don't just monitor uptime. Watch these too:\n- Response time (is it slow?)\n- Error rate (is it broken?)\n- Database queries (are they piling up?)\n\nHow would YOU explain monitoring in an interview? Reply below \ud83d\udc47\n\n#SRE #DevOps #Observability #Monitoring",
+    "hook_id": "2048825535761981910",
+    "thread_id": "2048825537737506908",
+    "content_hash": "4623b41085b44731f613bbacca91b511"
   }
 ]
