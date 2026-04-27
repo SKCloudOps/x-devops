@@ -658,5 +658,14 @@
     "hook_id": "2048619569065923054",
     "thread_id": "2048619570592641041",
     "content_hash": "c6a274e6ea295a2b2ae3a06a8975f8eb"
+  },
+  {
+    "date": "2026-04-27T13:13:41.737280+00:00",
+    "category": "sre_observability_question",
+    "hook": "Interviewer: 'What's the difference between monitoring and observability?' \u2014 Most candidates mix these up. Would you? \ud83d\udc47",
+    "thread": "Monitoring = checking if your app is up. Like pinging a server: 'Hey, are you alive?' Yes or no.\n\nObservability = understanding WHY something broke. You dig into logs, metrics, traces. You ask questions and find answers.\n\nHere's the real difference:\n\nMonitoring watches known things. You set alerts: 'CPU > 80%, page load > 2 seconds.' You already know what to look for.\n\nObservability helps you find unknown problems. Your app crashes and you're lost. But with good logs and traces, you can ask: 'What did this request do? What calls failed? Where did it break?' You figure it out.\n\nExample: Monitoring says 'database is slow.' Observability tells you 'database is slow because this specific query is doing a full table scan on 500k rows.'\n\nOne watches the dashboard. One lets you investigate and learn.\n\nCrossplane and other infra tools? Same idea. Monitor your resources. But observe what's actually happening under the hood.\n\nHow do you explain this in interviews? Start simple, give an example, then connect it to the job.\n\nWhich one do you think is harder to set up? Drop your answer below \ud83d\udc47\n\n#SRE #Observability #DevOpsInterview #Monitoring",
+    "hook_id": "2048752443857776996",
+    "thread_id": "2048752445468364985",
+    "content_hash": "9b21e3ba6a402c0f107e5c949b107840"
   }
 ]
