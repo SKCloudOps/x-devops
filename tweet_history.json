@@ -649,5 +649,14 @@
     "hook_id": "2048531508189704659",
     "thread_id": "2048531509586403780",
     "content_hash": "af81227c98ed88169850e92806bca165"
+  },
+  {
+    "date": "2026-04-27T04:25:41.909232+00:00",
+    "category": "sre_observability_question",
+    "hook": "Interviewer: 'How do you monitor your CI/CD pipeline?' \u2014 Most candidates talk about logs. That's not the full picture. \ud83d\udc47",
+    "thread": "Here's what they're really asking:\n\nThey want to know if you can see WHEN things break in your pipeline, not just IF they break.\n\nLet's say you use Tekton to run your builds. You need to watch:\n\n\u2022 How long each step takes\n\u2022 How many builds fail and why\n\u2022 Which step fails most\n\u2022 How long it takes to fix and retry\n\nThat's observability. Not just \"did it work or not.\"\n\nA solid answer: \"I set up dashboards to track pipeline duration, success rates, and failure points. When a build fails, I can see exactly which step broke and how long it's been stuck. I also get alerts if something's slow or broken.\"\n\nBonus: Mention you check both metrics (numbers) and logs (details). Metrics tell you WHAT happened. Logs tell you WHY.\n\nThat separates a good SRE from someone who just watches things.\n\nWhat's the trickiest monitoring question you've gotten in an interview? Drop it below \ud83d\udc47\n\n#DevOps #SRE #CI #Observability #Tekton",
+    "hook_id": "2048619569065923054",
+    "thread_id": "2048619570592641041",
+    "content_hash": "c6a274e6ea295a2b2ae3a06a8975f8eb"
   }
 ]
