@@ -667,5 +667,14 @@
     "hook_id": "2048752443857776996",
     "thread_id": "2048752445468364985",
     "content_hash": "9b21e3ba6a402c0f107e5c949b107840"
+  },
+  {
+    "date": "2026-04-27T16:08:42.696783+00:00",
+    "category": "sre_observability_question",
+    "hook": "Interviewer: 'How would you prevent bad deployments?' \u2014 Most candidates miss the actual answer. Thread \ud83d\udc47",
+    "thread": "They'll say 'use linting' or 'add tests.' Right, but they're asking about POLICY enforcement.\n\nThat's where OPA (Open Policy Agent) comes in.\n\nOPA lets you write rules that block deployments BEFORE they happen. Think of it like a bouncer at the door.\n\nReal example:\n- Dev tries to deploy a container with no resource limits\n- OPA rule checks: 'Does this have CPU + memory set?'\n- If no? Deployment gets blocked. Done.\n\nNo resource limits = your pod eats all the server. Bad.\n\nOPA rules are written in a language called Rego. Looks weird at first, but it's just: \"if this condition is true, deny the request.\"\n\nYou can use OPA with Kubernetes (via admission controllers), Terraform, or even CI/CD pipelines.\n\nKey wins:\n- Catch bad config EARLY (before it reaches prod)\n- Same rules everywhere (Kubernetes, Terraform, etc.)\n- Teams can't bypass it (it's enforced at the platform level)\n\nCommon OPA policies:\n- Must have resource requests/limits\n- Only certain image registries allowed\n- Containers must run as non-root\n- Storage must be encrypted\n\nIf they ask this in your interview, mention OPA + one specific policy example. You'll stand out.\n\nWhat's the toughest policy enforcement question you've faced? Drop it below \ud83d\udc47\n\n#SRE #Kubernetes #OPA #DevOps #ObservabilityInterview",
+    "hook_id": "2048796487656628515",
+    "thread_id": "2048796489661423951",
+    "content_hash": "7e606c5f2638b70de91542e8e76e9b7f"
   }
 ]
