@@ -137,5 +137,14 @@
     "hook_id": "2048546753100632529",
     "thread_id": "2048546754304393702",
     "content_hash": "bb55d61d673a003145ad75ef26c2e640"
+  },
+  {
+    "date": "2026-04-27T23:51:28.982039+00:00",
+    "concept": "Diffusion Models",
+    "hook": "Everyone says 'diffusion models' like it's magic. But it's actually just teaching AI to remove noise. Here's what that means \ud83d\udc47",
+    "thread": "Think of it like this: You take a clear picture and gradually add static/noise to it until it's just white fuzz.\n\nDiffusion models learn to REVERSE that process. Start with fuzz \u2192 slowly clean it up \u2192 end with a real image.\n\nWhy? Because it's easier to teach AI to remove noise than to generate from scratch. It's like a sculptor who learns by chiseling away instead of building up from clay.\n\nIn practice: This is how DALL-E and Midjourney make images. You describe something \u2192 AI starts with random noise \u2192 it removes noise step-by-step, guided by your description \u2192 boom, you get an image.\n\nThe clever part? You can guide which direction to remove noise (your prompt). Without it, AI just makes random junk.\n\nThat's why these models are so good at following instructions. They're literally denoising toward your idea.\n\nWhat confuses you most about how AI generates images? Drop it below \ud83d\udc47\n\n#AI #DiffusionModels #MachineLearning #GenerativeAI",
+    "hook_id": "2048912948895076763",
+    "thread_id": "2048912949855608958",
+    "content_hash": "bbdde2ce463ecaccf49b81651a5bb249"
   }
 ]
