@@ -748,5 +748,14 @@
     "hook_id": "2049229427360600556",
     "thread_id": "2049229428606292001",
     "content_hash": "448d1359b91c37f527889f7657339671"
+  },
+  {
+    "date": "2026-04-28T22:55:36.115238+00:00",
+    "category": "networking_security_question",
+    "hook": "Interviewer: 'How does Karpenter differ from the Kubernetes Cluster Autoscaler?' \u2014 Most candidates confuse these. Would you get it right? \ud83d\udc47",
+    "thread": "Okay, so both scale your cluster. But here's the key difference:\n\n**Cluster Autoscaler**: Checks if pods are waiting. Then slowly adds nodes. Takes time. Kind of reactive.\n\n**Karpenter**: Watches pods BEFORE they fail. Adds nodes faster. Way more responsive.\n\nReal example:\nYou deploy 10 new pods. \n\nWith Cluster Autoscaler: Pods wait, they're \"Pending\". Then it adds a node. Delay happens.\n\nWith Karpenter: Sees the pods coming. Adds a node first. Pods run right away. No waiting.\n\nAlso \u2014 Karpenter bin-packs better. It doesn't care about node groups. It just picks the cheapest option that works. Saves money.\n\nThat's the real interview answer. Speed + cost.\n\nHave you used Karpenter before? What was your experience? \ud83d\udc47\n\n#DevOps #Kubernetes #Karpenter #CloudEngineering",
+    "hook_id": "2049261273691623526",
+    "thread_id": "2049261274807361719",
+    "content_hash": "7f885a62dfb9a2e04344f3c2e748d843"
   }
 ]
