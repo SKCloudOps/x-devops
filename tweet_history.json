@@ -721,5 +721,14 @@
     "hook_id": "2049117365288181869",
     "thread_id": "2049117367083426100",
     "content_hash": "e07ce09361b8f4d838525a9ea6b48710"
+  },
+  {
+    "date": "2026-04-28T16:22:58.396658+00:00",
+    "category": "networking_security_question",
+    "hook": "Interviewer: 'What's the difference between SNS and SQS?' \u2014 This one trips up SO many engineers. Would you nail it? \ud83d\udc47",
+    "thread": "Here's the easy way to remember it:\n\nSNS = a megaphone. You shout once, everyone listening hears it. It's a broadcast.\n\nSQS = a mailbox. Messages sit there. One person reads one message at a time.\n\nReal example:\n\nSNS: Alert goes out \"Server is down!\" All teams get it right away.\n\nSQS: Order comes in. It waits in the queue. One worker picks it up, processes it, then moves on.\n\nKey difference?\n- SNS = one-to-many, real-time, doesn't wait\n- SQS = one-to-one (or batches), queued up, decoupled\n\nBonus tip: You can use them together. SNS sends a message, SQS catches it and stores it. Best of both worlds.\n\nHave you gotten this question before? How'd you explain it? \ud83d\udc47\n\n#DevOps #AWS #Interview #SNS #SQS",
+    "hook_id": "2049162464890097857",
+    "thread_id": "2049162466525921665",
+    "content_hash": "53440bd21394cd238dc0ada8f6eb6011"
   }
 ]
