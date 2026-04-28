@@ -146,5 +146,14 @@
     "hook_id": "2048912948895076763",
     "thread_id": "2048912949855608958",
     "content_hash": "bbdde2ce463ecaccf49b81651a5bb249"
+  },
+  {
+    "date": "2026-04-28T23:53:36.634185+00:00",
+    "concept": "Reinforcement Learning",
+    "hook": "Everyone says 'reinforcement learning' but most people don't know it's just training AI like you'd train a dog. Here's what it actually is \ud83d\udc47",
+    "thread": "Reinforcement learning = you give AI a goal, let it try stuff, and reward it when it does well.\n\nThink about training a dog:\n- You want it to sit\n- It tries random things\n- When it sits, you give a treat\n- It learns: sitting = reward\n\nAI works the same way.\n\nYou set up:\n1. A goal (win the game, make money, drive safely)\n2. A reward system (points for good moves, penalties for bad ones)\n3. Let the AI play and learn\n\nOver time it figures out: \"Oh, THIS action gets me rewards.\"\n\nWhy it matters: This is how AI learned to beat humans at chess and Go. It's how self-driving cars learn to drive. It's how robots learn to do factory work.\n\nThe wild part? You don't tell the AI HOW to reach the goal. Just tell it WHAT the goal is and let it experiment.\n\nIt's more like raising a kid than writing instructions.\n\nWhat AI concept confused you the most when you first heard it? \ud83d\udc47\n\n#ReinforcementLearning #AI #MachineLearning #TechExplained",
+    "hook_id": "2049275872004407658",
+    "thread_id": "2049275873145372856",
+    "content_hash": "554a1c3dee52dedd405b7ff4f874d3b3"
   }
 ]
