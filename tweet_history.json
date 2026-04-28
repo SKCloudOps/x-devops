@@ -712,5 +712,14 @@
     "hook_id": "2048982990517158112",
     "thread_id": "2048982992006033837",
     "content_hash": "3d4c7833ac590fe8b253c3f9c53d52ba"
+  },
+  {
+    "date": "2026-04-28T13:23:45.863014+00:00",
+    "category": "networking_security_question",
+    "hook": "Interviewer: 'How do buildpacks fit into your CI/CD pipeline?' \u2014 Most candidates mix this up with Docker. Would you nail it? \ud83d\udc47",
+    "thread": "Here's the thing: buildpacks are just smart shortcuts.\n\nInstead of writing a Dockerfile yourself, a buildpack looks at your code and says \"oh, this is a Node app\" \u2014 then it builds everything automatically.\n\nReal example:\nYou push code to Heroku or Cloud Foundry. The platform runs a buildpack. It detects your language, installs deps, bundles your app into a container. Done.\n\nWhy it matters:\n- Faster. You skip writing Dockerfiles\n- Safer. Less mistakes because the buildpack knows best practices\n- Portable. Same buildpack works on different platforms\n\nDocker vs Buildpacks:\nDocker = you control everything (good if you want that)\nBuildpacks = convention over config (good if you just want it working)\n\nThey're not enemies. Modern buildpacks actually CREATE Docker images behind the scenes.\n\nIn an interview, just say: \"Buildpacks automate container builds by detecting your app type and applying best practices. We use them to speed up our CI/CD without maintaining Dockerfiles.\"\n\nHave you used buildpacks in a real project? Or would you pick Docker instead? Tell me below \ud83d\udc47\n\n#DevOps #CI/CD #Buildpacks #Docker #InterviewPrep",
+    "hook_id": "2049117365288181869",
+    "thread_id": "2049117367083426100",
+    "content_hash": "e07ce09361b8f4d838525a9ea6b48710"
   }
 ]
