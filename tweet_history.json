@@ -739,5 +739,14 @@
     "hook_id": "2049191320569217403",
     "thread_id": "2049191322297291255",
     "content_hash": "9053d544fcc3aae8f195fe74ab823337"
+  },
+  {
+    "date": "2026-04-28T20:49:03.390026+00:00",
+    "category": "networking_security_question",
+    "hook": "Interviewer: 'How do you keep secrets safe in GitHub Actions?' \u2014 Most candidates mess this up. Would you? \ud83d\udc47",
+    "thread": "Here's what trips people up:\n\nWrong way: Hardcode your API key in the workflow file. Bad. Everyone sees it.\n\nRight way: Use GitHub Secrets.\n\n1. Go to repo Settings \u2192 Secrets\n2. Add your key (like DB_PASSWORD)\n3. Use it in your workflow: ${{ secrets.DB_PASSWORD }}\n\nGitHub hides it. Never shows it in logs. Even if someone reads your file, they can't see the actual value.\n\nBonus tip: Rotate your secrets often. And use fine-grained tokens, not your main password.\n\nThat's it. Simple but so many people skip this step.\n\nWhat's the worst secret leak you've seen? Reply below \ud83d\udc47\n\n#DevOps #GitHub #Security #CI-CD",
+    "hook_id": "2049229427360600556",
+    "thread_id": "2049229428606292001",
+    "content_hash": "448d1359b91c37f527889f7657339671"
   }
 ]
