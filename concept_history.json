@@ -124,5 +124,14 @@
     "hook_id": "2048837346447998983",
     "thread_id": "2048837347450433877",
     "content_hash": "3576167221fab28b79990ec587e1c743"
+  },
+  {
+    "date": "2026-04-28T19:10:15.842108+00:00",
+    "concept": "CloudFront caching misconceptions with APIs",
+    "hook": "Most engineers put CloudFront in front of their API Gateway and wonder why it doesn't help. Here's the thing \ud83d\udc47",
+    "thread": "CloudFront is amazing for static stuff. Images, videos, HTML files. It caches at the edge and speeds things up.\n\nBut APIs? They're different. Most API responses change based on headers, query params, or who's asking. CloudFront doesn't know that.\n\nThink of it like this: A restaurant can prep 100 sandwiches ahead of time (CloudFront for static content). But custom orders with no onions, extra mayo? You need to make those fresh every time (APIs need to hit your origin).\n\nThe gotcha: If you put CloudFront in front of an API, you need to tell it \"don't cache this\" or \"cache based on these specific things.\" Otherwise you'll serve stale data to users and pull your hair out.\n\nWhen CloudFront DOES help APIs: caching specific endpoints that rarely change, compressing responses, DDoS protection. Just don't expect magic.\n\nAre you using CloudFront with APIs? What problems did you run into? \ud83d\udc47\n\n#AWS #CloudFront #APIGateway #DevOps #WebPerformance",
+    "hook_id": "2049204565799813235",
+    "thread_id": "2049204566659563630",
+    "content_hash": "24dcefcb7bc6df84769adeae6c3e17de"
   }
 ]
