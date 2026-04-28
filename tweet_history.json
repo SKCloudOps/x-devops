@@ -703,5 +703,14 @@
     "hook_id": "2048897595016159611",
     "thread_id": "2048897596651946328",
     "content_hash": "2154b1f25be158f2f76e84296176ef79"
+  },
+  {
+    "date": "2026-04-28T04:29:48.331922+00:00",
+    "category": "networking_security_question",
+    "hook": "Interviewer: 'Why would you put an API Gateway in front of your microservices?' \u2014 Most candidates miss the real reason. \ud83d\udc47",
+    "thread": "Here's what people usually say: 'It routes requests.' True, but boring.\n\nThe REAL reason: An API Gateway is your traffic cop. It sits between your users and your services. It can:\n\n\u2022 Stop bad requests before they hit your servers\n\u2022 Rate limit (stop someone from hammering your API)\n\u2022 Add auth checks (verify they should be here)\n\u2022 Log everything that comes in\n\u2022 Route to different versions of your service\n\nExample: Without a gateway, each microservice has to do its own security. With one? You do it once, in one place. Way simpler.\n\nThink of it like airport security. You don't want security at every gate. One checkpoint handles it all.\n\nBonus tip: Popular ones are Kong, AWS API Gateway, NGINX. Know at least one by name in your interview.\n\nWhat's your take \u2014 have you built one? Drop your experience below \ud83d\udc47\n\n#DevOps #Microservices #APISecurity #InterviewPrep",
+    "hook_id": "2048982990517158112",
+    "thread_id": "2048982992006033837",
+    "content_hash": "3d4c7833ac590fe8b253c3f9c53d52ba"
   }
 ]
