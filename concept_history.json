@@ -133,5 +133,14 @@
     "hook_id": "2049204565799813235",
     "thread_id": "2049204566659563630",
     "content_hash": "24dcefcb7bc6df84769adeae6c3e17de"
+  },
+  {
+    "date": "2026-04-29T18:56:39.592441+00:00",
+    "concept": "Jenkins Log Aggregation and Centralized Logging",
+    "hook": "Most Jenkins users never check their build logs in the right way. Here's why that hurts \ud83d\udc47",
+    "thread": "Jenkins stores logs everywhere. Build output, system logs, agent logs. But most people just look at the console output in the UI.\n\nThat's like only checking the front door when your whole house is a mess.\n\nThe real logs live in Jenkins home folder: $JENKINS_HOME/logs/ and inside each job's workspace.\n\nWhen a build fails mysteriously, the console might say \"Error\" but the actual reason is buried in jenkins.log or agent logs.\n\nGotcha: If you're using multiple agents, logs scatter across different machines. You need centralized logging (ELK, Splunk, CloudWatch) to actually see what's breaking.\n\nTip: Pipe your Jenkins logs to a logging tool early. Future you will be grateful at 3am when debugging.\n\nHow do you currently handle Jenkins logs? Are you hunting through the UI or using a centralized tool? \ud83d\udc47\n\n#Jenkins #DevOps #Logging #CI/CD #BuildPipeline",
+    "hook_id": "2049563527556329479",
+    "thread_id": "2049563530802626987",
+    "content_hash": "0ae3c6e5898fba4ed3d25237dbc68213"
   }
 ]
