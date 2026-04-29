@@ -802,5 +802,14 @@
     "hook_id": "2049589880083132516",
     "thread_id": "2049589882041893127",
     "content_hash": "7fb93caf4dd5c6b69e32d223be7f2761"
+  },
+  {
+    "date": "2026-04-29T22:55:00.917740+00:00",
+    "category": "container_orchestration_question",
+    "hook": "Interviewer: 'When would you use Lambda instead of Kubernetes?' \u2014 Most candidates get this wrong. \ud83d\udc47",
+    "thread": "Here's the real answer:\n\nLambda = You don't manage servers at all. Write code, upload it, AWS runs it when needed. No containers. No clusters. You pay only when it runs.\n\nKubernetes = You manage a bunch of containers running 24/7. Good for apps that need to be always on.\n\nUse Lambda for:\n\u2022 One-off tasks (processing a file upload)\n\u2022 Scheduled jobs (clean up data every night)\n\u2022 Quick responses to events (resize an image)\n\nUse Kubernetes for:\n\u2022 Your main app running all day\n\u2022 Microservices talking to each other\n\u2022 Apps that need more control\n\nThat's it. If you need it running constantly, pick K8s. If it's short bursts of work, pick Lambda. The interviewer just wants to see you think about cost and what tool fits the job.\n\nWhich would you pick for a daily backup job? Drop your answer below \ud83d\udc47\n\n#DevOps #Kubernetes #AWS #CloudInterviews #ContainerOrchestration",
+    "hook_id": "2049623513884156238",
+    "thread_id": "2049623515067027520",
+    "content_hash": "c328f728e28b706fe29883e0bae7cd4c"
   }
 ]
