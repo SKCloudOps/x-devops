@@ -155,5 +155,14 @@
     "hook_id": "2049275872004407658",
     "thread_id": "2049275873145372856",
     "content_hash": "554a1c3dee52dedd405b7ff4f874d3b3"
+  },
+  {
+    "date": "2026-04-29T23:52:54.510670+00:00",
+    "concept": "LSTM (Long Short-Term Memory)",
+    "hook": "Everyone says LSTMs are important for AI but can't explain what they actually do. Here's the simple version \ud83d\udc47",
+    "thread": "An LSTM is just a smarter type of memory for AI models.\n\nThink of it like this: Regular AI reads one word at a time and forgets what came before. An LSTM remembers important stuff from earlier in the sentence.\n\nExample:\n\"The bank robber ran into the ___\"\n\nA basic AI might guess \"running shoes\" because it forgot about \"robber.\"\n\nAn LSTM remembers the key word \"robber\" from earlier. So it guesses \"bank\" correctly.\n\nWhy it matters:\nLSTMs are used for:\n- Chatbots that remember context\n- Predicting stock prices\n- Auto-complete on your phone\n- Translating sentences\n\nThey were a huge deal before transformers came along. Transformers are newer and faster, but LSTMs are still used in a lot of real products.\n\nThe key insight: AI needs memory to understand language. LSTMs are just one way to give it that memory.\n\nWhat AI concept confused you most when you first heard about it? \ud83d\udc47\n\n#AI #MachineLearning #LSTMs #AIBasics",
+    "hook_id": "2049638083306656010",
+    "thread_id": "2049638084275532245",
+    "content_hash": "a74f5af9d3cbeb013f8db4e910793e6d"
   }
 ]
