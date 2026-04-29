@@ -793,5 +793,14 @@
     "hook_id": "2049552056403259418",
     "thread_id": "2049552058261348825",
     "content_hash": "ee95b26f2bf397bc30ee699a60078a73"
+  },
+  {
+    "date": "2026-04-29T20:41:22.174376+00:00",
+    "category": "container_orchestration_question",
+    "hook": "Interviewer: 'What's the difference between a Deployment and a StatefulSet?' \u2014 Most people fumble this one. Would you? \ud83d\udc47",
+    "thread": "Here's the easy way to remember:\n\nA Deployment is for stateless apps. Like a web server. Pods are all the same. Restart one, no problem. You get a new identical pod.\n\nA StatefulSet is for apps that need to remember stuff. Like a database. Each pod gets its own name and storage. Pod \"mysql-0\" always comes back as \"mysql-0\".\n\nReal example: You're running a load balancer (Deployment) and a database cluster (StatefulSet). The load balancer pods? They're swap-outs. But your database pods? They need consistent names and persistent volumes so they don't lose data.\n\nBonus: StatefulSets also control the order pods start and stop. Databases care about that. Web servers? Nope.\n\nWhich one would you use for a cache layer? Drop your answer \ud83d\udc47\n\n#DevOps #Kubernetes #ContainerOrchestration #InterviewPrep",
+    "hook_id": "2049589880083132516",
+    "thread_id": "2049589882041893127",
+    "content_hash": "7fb93caf4dd5c6b69e32d223be7f2761"
   }
 ]
