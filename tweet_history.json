@@ -775,5 +775,14 @@
     "hook_id": "2049478247507784085",
     "thread_id": "2049478249390997746",
     "content_hash": "15a1e08102795a786de43c03ff815ad8"
+  },
+  {
+    "date": "2026-04-29T16:14:19.423801+00:00",
+    "category": "container_orchestration_question",
+    "hook": "Interviewer: 'How do you handle traffic spikes in Kubernetes?' \u2014 Most candidates miss the obvious answer. \ud83d\udc47",
+    "thread": "Here's what they're really asking: How do you make sure your app doesn't crash when lots of people use it at once?\n\nThe answer? Two things:\n\n1) HORIZONTAL SCALING\nKubernetes watches your CPU and memory. When load goes up, it spins up more copies of your pod. Boom. More capacity.\n\n2) LOAD BALANCING\nTraffic gets split across all those pods. No single pod gets hammered.\n\nREAL EXAMPLE:\nYou're running a web app with 2 pods. Traffic doubles. Kubernetes sees high CPU \u2192 automatically creates 4 more pods. Now 6 pods share the load.\n\nTHE TRICK:\nYou gotta set resource limits first. Tell Kubernetes: 'This pod needs 256MB RAM and 100m CPU.' Otherwise it can't measure load properly.\n\nAlso mention HPA (Horizontal Pod Autoscaler) in your answer. That's the thing that actually does the auto-scaling work.\n\nWhat's your go-to answer for handling spikes? Drop it below \ud83d\udc47\n\n#Kubernetes #DevOps #ContainerOrchestration #InterviewTips",
+    "hook_id": "2049522676117463475",
+    "thread_id": "2049522677711298637",
+    "content_hash": "188d8b4460f45d1cabf3c86f7339f1c3"
   }
 ]
