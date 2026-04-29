@@ -766,5 +766,14 @@
     "hook_id": "2049344167373918476",
     "thread_id": "2049344168967680487",
     "content_hash": "158f37816704462f9885ce6dcdf7163b"
+  },
+  {
+    "date": "2026-04-29T13:17:46.886599+00:00",
+    "category": "container_orchestration_question",
+    "hook": "Interviewer: 'How do you route traffic to your Kubernetes services?' \u2014 Most candidates miss the best answer. \ud83d\udc47",
+    "thread": "Here's the thing: you've got a few ways to do this.\n\nBasic answer? Use a LoadBalancer service. Cloud gives you an IP, traffic flows in.\n\nBetter answer? Use an Ingress.\n\nInstead of one LoadBalancer per service (costly), one Ingress sits in front of many services. It's like a traffic cop.\n\nExample: Your app has:\n- API service\n- Web service\n- Admin service\n\nOne Ingress rule says:\n\"If request goes to /api \u2192 send to API service\"\n\"If request goes to /admin \u2192 send to Admin service\"\n\"Everything else \u2192 send to Web service\"\n\nCost way less. One LoadBalancer. One IP. All your traffic through it.\n\nBonus tip: Add a CDN (like CloudFront) in front for caching. Now your static stuff doesn't even hit your cluster.\n\nInterviewers love this because it shows you think about cost AND performance.\n\nHave you used Ingress in an actual job? Or mostly just LoadBalancers? Tell me \ud83d\udc47\n\n#Kubernetes #DevOps #ContainerOrchestration #Ingress",
+    "hook_id": "2049478247507784085",
+    "thread_id": "2049478249390997746",
+    "content_hash": "15a1e08102795a786de43c03ff815ad8"
   }
 ]
