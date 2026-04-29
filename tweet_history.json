@@ -784,5 +784,14 @@
     "hook_id": "2049522676117463475",
     "thread_id": "2049522677711298637",
     "content_hash": "188d8b4460f45d1cabf3c86f7339f1c3"
+  },
+  {
+    "date": "2026-04-29T18:11:04.346446+00:00",
+    "category": "container_orchestration_question",
+    "hook": "Interviewer: 'How do you scan containers for security issues?' \u2014 Most candidates say Docker scan and stop there. Here's what they miss \ud83d\udc47",
+    "thread": "Real answer: You need MULTIPLE scans at different stages.\n\n1. BUILD TIME: Scan images before you push them. Tools like Trivy check for known bugs in your code and dependencies. Catches 80% of issues early.\n\n2. REGISTRY: Use something like AWS SecurityHub or Snyk to scan images sitting in your container registry. New CVEs pop up every day \u2014 old images get riskier over time.\n\n3. RUNTIME: Even scanned images can have problems. Monitor what's actually running with tools like Falco. Is your container doing something weird? Falco catches it.\n\nThe trick most engineers miss: Scanning once isn't enough. Scan early, scan often, scan running containers too.\n\nExample workflow:\n- Developer runs Trivy locally (catches bugs)\n- Pipeline scans again before push (safety net)\n- Registry keeps scanning weekly (finds new CVEs)\n- SecurityHub alerts if something's risky (second opinion)\n\nOne tool is never enough. Security's a process, not a checkbox.\n\nWhat's your go-to container scanning tool? And do you scan at runtime or just at build? Drop your answer \ud83d\udc47\n\n#DevOps #Kubernetes #ContainerSecurity #InterviewPrep #CloudSecurity",
+    "hook_id": "2049552056403259418",
+    "thread_id": "2049552058261348825",
+    "content_hash": "ee95b26f2bf397bc30ee699a60078a73"
   }
 ]
