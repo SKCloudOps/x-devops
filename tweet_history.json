@@ -820,5 +820,14 @@
     "hook_id": "2049707226718261479",
     "thread_id": "2049707228072940019",
     "content_hash": "d4e5945495bd2a03f8bdc1d2866f2d09"
+  },
+  {
+    "date": "2026-04-30T13:16:22.162013+00:00",
+    "category": "aws_interview_question",
+    "hook": "Interviewer: 'What's the difference between Flux and Helm?' \u2014 Most candidates mix them up. Would you? \ud83d\udc47",
+    "thread": "Here's the simple version:\n\nHelm is a package manager. You write a template once. Then you deploy it anywhere. Think: install a recipe.\n\nFlux is a GitOps tool. It watches your Git repo. When you push changes, Flux pulls them and applies them to your cluster. Think: auto-sync.\n\nReal example:\n\nWith Helm: You run `helm install` and watch it deploy. Then later, someone manually changes something in the cluster. Your config file is now out of sync with what's actually running.\n\nWith Flux: You push your app config to Git. Flux sees it. Flux applies it automatically. Someone tries to change something manually? Flux sees the mismatch and fixes it back. Everything stays in sync with Git.\n\nThey actually work TOGETHER. Many teams use Helm to package apps, then use Flux to manage them in Git.\n\nThe key difference: Helm is \"push\" (you control). Flux is \"pull\" (it auto-syncs).\n\nHave you used either one in a real project? What tripped you up? \ud83d\udc47\n\n#AWS #DevOps #Kubernetes #Flux #Helm",
+    "hook_id": "2049840280665215301",
+    "thread_id": "2049840281881653704",
+    "content_hash": "2931ae1710b6c522fd6a924f393b3426"
   }
 ]
