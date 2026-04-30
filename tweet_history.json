@@ -829,5 +829,14 @@
     "hook_id": "2049840280665215301",
     "thread_id": "2049840281881653704",
     "content_hash": "2931ae1710b6c522fd6a924f393b3426"
+  },
+  {
+    "date": "2026-04-30T16:01:04.754325+00:00",
+    "category": "aws_interview_question",
+    "hook": "Interviewer: 'How do you deploy to AWS from GitHub Actions?' \u2014 Most people wing this. Here's what they miss \ud83d\udc47",
+    "thread": "The mistake: People think it's just adding a workflow file. Nope.\n\nHere's what actually matters:\n\n1. IAM Role Setup\nYou need an AWS IAM role with the right permissions. GitHub Actions uses OIDC (fancy word for \"trusted connection\") to talk to AWS without storing secret keys in your repo.\n\nBad: Hardcoding AWS access keys in GitHub secrets\nGood: Using OIDC to assume a role temporarily\n\n2. The Workflow File\nYour GitHub Actions workflow runs a job that says: \"Hey AWS, it's me (GitHub), can I borrow a temp key?\"\n\nThen it deploys. EC2, S3, Lambda, whatever.\n\n3. Real Example\n\nname: Deploy to AWS\non: [push]\njobs:\n  deploy:\n    runs-on: ubuntu-latest\n    permissions:\n      id-token: write\n    steps:\n      - uses: actions/checkout@v3\n      - uses: aws-actions/configure-aws-credentials@v2\n        with:\n          role-to-assume: arn:aws:iam::123456789:role/github-role\n          aws-region: us-east-1\n      - run: aws s3 cp app.zip s3://my-bucket/\n\n\nThe key part: `role-to-assume`. That's the trust.\n\nMost fail this because they don't explain the IAM role piece. They just copy-paste workflow code.\n\nWhat's the trickiest part you hit when setting this up? Reply below \ud83d\udc47\n\n#AWS #GitHubActions #DevOps #CICD #AWSInterview",
+    "hook_id": "2049881731139076475",
+    "thread_id": "2049881732456001561",
+    "content_hash": "98804d5eafcf8de28c7e18752ccbcf4e"
   }
 ]
