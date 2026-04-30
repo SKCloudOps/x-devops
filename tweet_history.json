@@ -856,5 +856,14 @@
     "hook_id": "2049952241214234873",
     "thread_id": "2049952243453964393",
     "content_hash": "5cb3dc7448800590494466db6b673106"
+  },
+  {
+    "date": "2026-04-30T22:52:12.054152+00:00",
+    "category": "aws_interview_question",
+    "hook": "Interviewer: 'How do you deploy to AWS using GitHub Actions?' \u2014 Most engineers overthink this. Here's what they actually want to hear \ud83d\udc47",
+    "thread": "They're not looking for a PhD answer. They want to know you understand the basic flow.\n\nHere's the simple version:\n\n1. You push code to GitHub\n2. GitHub Actions runs a workflow (just a YAML file)\n3. That workflow builds your app & pushes it to AWS (like ECR or S3)\n4. AWS picks up the new code and deploys it\n\nReal example:\nYour workflow file says:\n- Run tests\n- Build a Docker image\n- Push to AWS ECR (container registry)\n- Trigger a Lambda or ECS update\n\nThe key thing? You need AWS credentials in GitHub Secrets. Never hardcode them. That's the gotcha they test for.\n\nTbh, if you can explain that flow + mention secrets, you've already beaten half the candidates.\n\nWhat's the AWS + GitHub Actions question that tripped you up? Reply below \ud83d\udc47\n\n#AWS #GitHubActions #DevOps #CI/CD #Interview",
+    "hook_id": "2049985193189023898",
+    "thread_id": "2049985194615037959",
+    "content_hash": "c29e1ece8e4e4ab11fab97b0ea668a48"
   }
 ]
