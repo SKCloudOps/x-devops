@@ -811,5 +811,14 @@
     "hook_id": "2049623513884156238",
     "thread_id": "2049623515067027520",
     "content_hash": "c328f728e28b706fe29883e0bae7cd4c"
+  },
+  {
+    "date": "2026-04-30T04:27:39.668759+00:00",
+    "category": "aws_interview_question",
+    "hook": "Interviewer: 'How do you throttle requests in API Gateway?' \u2014 Most candidates overthink this. Here's what they miss \ud83d\udc47",
+    "thread": "API Gateway throttling is just rate limiting. You set a max number of requests per second. Done.\n\nTwo main settings:\n\n1. BURST LIMIT \u2014 how many requests at once (like a traffic spike)\n2. RATE LIMIT \u2014 requests per second over time\n\nReal example: You set burst=5000, rate=2000. Someone sends 6000 requests at once? The first 5000 go through. Rest get throttled.\n\nWhy care? Protects your backend from getting crushed. Stops one bad client from ruining it for everyone.\n\nThe trick: Don't just say \"rate limiting.\" Explain WHY. Say something like: \"If my database can only handle 2000 requests/sec, I set the rate limit to 2000. Anything over that gets a 429 error. Protects my backend.\"\n\nHow would you explain this in an interview? Drop your answer below \ud83d\udc47\n\n#AWS #APIGateway #DevOpsInterview #CloudEngineering",
+    "hook_id": "2049707226718261479",
+    "thread_id": "2049707228072940019",
+    "content_hash": "d4e5945495bd2a03f8bdc1d2866f2d09"
   }
 ]
