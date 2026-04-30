@@ -142,5 +142,14 @@
     "hook_id": "2049563527556329479",
     "thread_id": "2049563530802626987",
     "content_hash": "0ae3c6e5898fba4ed3d25237dbc68213"
+  },
+  {
+    "date": "2026-04-30T18:54:12.991906+00:00",
+    "concept": "SNS Fire-and-Forget Behavior",
+    "hook": "Most engineers setting up SNS don't realize this one mistake: \ud83d\udc47",
+    "thread": "You create an SNS topic. You add a subscriber. You hit publish.\n\nNothing happens. Why?\n\nBecause SNS doesn't care who reads your message. It just sends it out. If nobody's listening yet, it's gone forever.\n\nThink of it like shouting in an empty room. The sound waves still happen\u2014but there's no one there to hear them.\n\nGOTCHA: SNS doesn't store messages. It's fire-and-forget. If you need messages to wait around for slow subscribers, you need SQS instead. SNS \u2192 SQS \u2192 your app is the real pattern most people use.\n\nAnother thing: SNS topics are free to create. You pay when you publish or when people subscribe. So don't be shy about making lots of them for different events.\n\nWhat SNS or event messaging mistake cost you time before? Drop it below \ud83d\udc47\n\n#AWS #SNS #DevOps #CloudArchitecture",
+    "hook_id": "2049925302789218675",
+    "thread_id": "2049925303942644008",
+    "content_hash": "cbef44b6675b8b3046c51be90b13b2c7"
   }
 ]
