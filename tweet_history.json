@@ -838,5 +838,14 @@
     "hook_id": "2049881731139076475",
     "thread_id": "2049881732456001561",
     "content_hash": "98804d5eafcf8de28c7e18752ccbcf4e"
+  },
+  {
+    "date": "2026-04-30T18:09:23.837690+00:00",
+    "category": "aws_interview_question",
+    "hook": "Interviewer: 'What's the difference between a WAF and a security group?' \u2014 Most people mix these up. Would you get it right? \ud83d\udc47",
+    "thread": "Here's the thing:\n\nA security group is like a bouncer at a door. It checks: \"Are you on the list? What port? What IP?\"\n\nA WAF (Web Application Firewall) is smarter. It looks at what you're actually asking for. It blocks bad stuff hiding in requests.\n\nReal example:\n\nSecurity group: Blocks all traffic on port 443 except from 1.2.3.4\n\nWAF: Lets port 443 traffic through, but blocks requests trying to do SQL injection attacks or looking for hidden files.\n\nThink of it this way:\n- Security group = \"Do you belong here?\"\n- WAF = \"Is what you're asking safe?\"\n\nBoth protect you. They just work at different levels. Security group is the first wall. WAF checks the actual requests.\n\nWhen you're asked this in an interview, mention both. Say they work together. Then give that simple bouncer example.\n\nWhat's the trickiest AWS security question you've gotten asked? Drop it below \ud83d\udc47\n\n#AWS #DevOps #InterviewPrep #CloudSecurity",
+    "hook_id": "2049914023391683060",
+    "thread_id": "2049914024742232263",
+    "content_hash": "328c6d576f7c39995bdc3a18176b100d"
   }
 ]
