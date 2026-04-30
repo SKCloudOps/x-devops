@@ -847,5 +847,14 @@
     "hook_id": "2049914023391683060",
     "thread_id": "2049914024742232263",
     "content_hash": "328c6d576f7c39995bdc3a18176b100d"
+  },
+  {
+    "date": "2026-04-30T20:41:15.902455+00:00",
+    "category": "aws_interview_question",
+    "hook": "Interviewer: 'What's the difference between ECS and Kubernetes?' \u2014 Most candidates mix these up. Would you? \ud83d\udc47",
+    "thread": "ECS is AWS's thing. Kubernetes is open source and works everywhere.\n\nECS:\n- Only on AWS\n- Simpler to learn\n- AWS handles a lot for you\n- Good for teams already all-in on AWS\n\nKubernetes:\n- Works on any cloud (AWS, Google, Azure)\n- More control, more complexity\n- Bigger learning curve\n- Better if you switch clouds later\n\nReal talk: ECS is easier to start with. Kubernetes is more powerful long term.\n\nHonest answer in an interview? \"ECS if we're AWS-only. Kubernetes if we need flexibility.\"\n\nWhich one do you use at work? Or would you pick for a new project? Drop it below \ud83d\udc47\n\n#AWS #ECS #Kubernetes #DevOps #InterviewPrep",
+    "hook_id": "2049952241214234873",
+    "thread_id": "2049952243453964393",
+    "content_hash": "5cb3dc7448800590494466db6b673106"
   }
 ]
