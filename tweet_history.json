@@ -865,5 +865,14 @@
     "hook_id": "2049985193189023898",
     "thread_id": "2049985194615037959",
     "content_hash": "c29e1ece8e4e4ab11fab97b0ea668a48"
+  },
+  {
+    "date": "2026-05-01T04:43:31.476479+00:00",
+    "category": "kubernetes_interview_question",
+    "hook": "Interviewer: 'How do you monitor a Kubernetes cluster?' \u2014 Most say Prometheus. But do you know WHY? \ud83d\udc47",
+    "thread": "Here's the thing: Prometheus is just a tool that collects numbers about your cluster.\n\nIt scrapes metrics (CPU, memory, pod crashes) from your nodes and pods. Then it stores them so you can look back and see what went wrong.\n\nWhy Prometheus specifically?\n\n1. It's built for containers. Kubernetes pods expose metrics on a port. Prometheus finds them and grabs the data.\n\n2. It's pull-based. Your monitoring tool pulls data from apps. Way simpler than apps pushing data everywhere.\n\n3. It's the standard. Most companies use it. So when you get hired, you're not learning something weird.\n\nReal example: Your pod is using too much memory. Prometheus saw it happening in real time. You check the graph, see when it spiked, and debug.\n\nThat's why they ask. They want to know you get monitoring isn't magic \u2014 it's just collecting data and looking at it.\n\nWhat metrics do YOU check first when debugging a cluster problem? Drop your answer \ud83d\udc47\n\n#Kubernetes #DevOps #Prometheus #K8s",
+    "hook_id": "2050073606831358436",
+    "thread_id": "2050073608135799229",
+    "content_hash": "49e5998e846e9f4ba7a41805684fe4a2"
   }
 ]
