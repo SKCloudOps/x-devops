@@ -874,5 +874,14 @@
     "hook_id": "2050073606831358436",
     "thread_id": "2050073608135799229",
     "content_hash": "49e5998e846e9f4ba7a41805684fe4a2"
+  },
+  {
+    "date": "2026-05-01T12:50:43.270835+00:00",
+    "category": "kubernetes_interview_question",
+    "hook": "Interviewer: 'What's a Kubernetes StatefulSet and when would you use it instead of a Deployment?' \u2014 This trips up way more people than it should \ud83d\udc47",
+    "thread": "StatefulSet vs Deployment. Here's the deal:\n\nA Deployment is for apps that don't care about identity. Like a web server. You can spin up 5 copies and they're all the same. If one dies, a new one pops up. Order doesn't matter.\n\nA StatefulSet is for apps that DO care about identity. Think databases, message queues, caches. Each pod gets a sticky name (like \"db-0\", \"db-1\", \"db-2\"). They stay the same even if a pod restarts. Plus they get ordered startup and shutdown.\n\nExample: You're running a database. You can't just spin up a random copy and pretend it's the same as the one that crashed. The new pod needs to sync data, catch up with the others. StatefulSet handles that.\n\nAlso: StatefulSets use PersistentVolumes. Each pod gets its own storage that sticks around. A Deployment's storage is temporary.\n\nQuick rule: If your app has state, data, or cares about pod names \u2014 StatefulSet. If it's stateless and replaceable \u2014 Deployment.\n\nWould you handle this differently? Or hit a StatefulSet gotcha in an interview? Drop it below \ud83d\udc47\n\n#Kubernetes #DevOps #InterviewPrep #K8s",
+    "hook_id": "2050196212662374659",
+    "thread_id": "2050196215095017681",
+    "content_hash": "592ef9362e04a202da8515994ede440d"
   }
 ]
