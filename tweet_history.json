@@ -892,5 +892,14 @@
     "hook_id": "2050237053128872287",
     "thread_id": "2050237054689136665",
     "content_hash": "16db91fbe4df9f55a6c1708dc54bc9b5"
+  },
+  {
+    "date": "2026-05-01T17:58:36.459209+00:00",
+    "category": "kubernetes_interview_question",
+    "hook": "Interviewer: 'How do you expose a Kubernetes service outside the cluster?' \u2014 Most candidates only know one way. Would you nail this? \ud83d\udc47",
+    "thread": "There are actually three main ways. Here's what most people miss:\n\n1. CLUSTERIP (default)\nOnly works inside the cluster. Your pods talk to each other. Not for outside traffic.\n\n2. NODEPORT\nGives you a port on every node (like 30000+). Traffic comes to that port, hits your pods. Quick and dirty. But not great for prod.\n\n3. LOADBALANCER\nYour cloud provider (AWS, GCP, Azure) spins up a real load balancer. Gets you a public IP. This is what you want for real traffic.\n\nBonus: INGRESS\nThis is the fancy one. It's a controller that sits on top of services. You can route traffic by hostname, path, TLS stuff. Way more powerful than a simple LoadBalancer.\n\nReal example: You're running a web app. Use LoadBalancer service (or Ingress). That routes outside traffic to your pods. Done.\n\nMost candidates skip Ingress. That's the gap right there.\n\nWhich one do you use most? Or got asked about something else? Drop your answer \ud83d\udc47\n\n#Kubernetes #DevOps #K8s #Interview #CloudNative",
+    "hook_id": "2050273695826878467",
+    "thread_id": "2050273697324208295",
+    "content_hash": "e120cf7b0f8fdbe44ba883fc87fcb1f1"
   }
 ]
