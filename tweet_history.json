@@ -883,5 +883,14 @@
     "hook_id": "2050196212662374659",
     "thread_id": "2050196215095017681",
     "content_hash": "592ef9362e04a202da8515994ede440d"
+  },
+  {
+    "date": "2026-05-01T15:33:00.167194+00:00",
+    "category": "kubernetes_interview_question",
+    "hook": "Interviewer: 'How do you manage Kubernetes configs across dev, staging, and prod?' \u2014 This trips up so many engineers. Here's what they miss \ud83d\udc47",
+    "thread": "Most people say 'I use different YAML files' and stop there. That's... not wrong, but it's weak.\n\nHere's the real answer:\n\nYou need a tool that handles DIFFERENCES between environments without duplicating code. That's where Terraform or Kustomize shine.\n\nExample: Your app needs 2 replicas in dev but 5 in prod. Same image, same config, just different numbers.\n\nWith Terraform, you write one module and pass in variables:\n- var.replicas = 2 (dev)\n- var.replicas = 5 (prod)\n\nOne source of truth. Easy to update. No copy-paste mistakes.\n\nAlternative: Kustomize lets you 'patch' your base YAML for each environment. Also solid.\n\nWhy this matters: Interviewers want to know you think about config drift. They want to know you won't accidentally deploy dev settings to production.\n\nThe vibe: Don't just list tools. Show you understand the problem: managing scale and differences without chaos.\n\nWhat's your approach \u2014 do you use Terraform, Kustomize, or something else? Drop it below \ud83d\udc47\n\n#Kubernetes #Terraform #DevOps #Infrastructure",
+    "hook_id": "2050237053128872287",
+    "thread_id": "2050237054689136665",
+    "content_hash": "16db91fbe4df9f55a6c1708dc54bc9b5"
   }
 ]
