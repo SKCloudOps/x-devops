@@ -910,5 +910,14 @@
     "hook_id": "2050311496878698526",
     "thread_id": "2050311498006929765",
     "content_hash": "fc9b76f53efa9905b5179dcbc2c988cb"
+  },
+  {
+    "date": "2026-05-01T22:47:31.808665+00:00",
+    "category": "kubernetes_interview_question",
+    "hook": "Interviewer: 'Why would you use a service mesh?' \u2014 Most candidates don't have a real answer. Would you? \ud83d\udc47",
+    "thread": "Here's the honest answer:\n\nA service mesh is a tool that sits between your services and handles the talking between them. Think of it like a traffic cop for your containers.\n\nWhy add it?\n\n1. You get retries for free \u2014 if one call fails, it tries again automatically.\n\n2. You see what's happening \u2014 built-in monitoring. You know which services talk to which, and how fast.\n\n3. You can split traffic \u2014 send 10% of users to a new version, 90% to the old one. Roll it out safely.\n\n4. Encryption works automatically \u2014 services talk securely without your app knowing about it.\n\nReal example: You deploy a new service version. The mesh lets you send only 5% of traffic there first. If it works, bump to 20%, then 100%. If it breaks? Roll back in seconds.\n\nThe catch? It's one more thing to learn and manage. Most small teams don't need it. But big companies with lots of services? Game changer.\n\nHonest take: Don't say 'it's essential' in an interview. Instead say: 'It solves X problem. We'd use it when we hit Y scale.'\n\nWhat's the trickiest service mesh question you've been asked? Drop it below \ud83d\udc47\n\n#Kubernetes #DevOps #ServiceMesh #InterviewTips",
+    "hook_id": "2050346405760582103",
+    "thread_id": "2050346407023022181",
+    "content_hash": "70c6d47ff0f47d45c92de16598ed0899"
   }
 ]
