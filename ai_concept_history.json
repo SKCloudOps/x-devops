@@ -173,5 +173,14 @@
     "hook_id": "2049999977053872319",
     "thread_id": "2049999978110779854",
     "content_hash": "fdc53d09e3b5d5e72b457b377b253b48"
+  },
+  {
+    "date": "2026-05-01T23:49:11.500237+00:00",
+    "concept": "Few-shot prompting",
+    "hook": "Everyone says \"few-shot prompting\" but most people have no idea what it actually means. Let me explain \ud83d\udc47",
+    "thread": "Few-shot prompting is just showing the AI examples before asking it to do something.\n\nThink of it like this: If you want to teach someone how to write a funny tweet, you don't just say \"write a funny tweet.\" You show them 2-3 funny tweets first. Then they get the vibe.\n\nSame with AI.\n\nInstead of:\n\"Summarize this text in one sentence\"\n\nYou do:\n\"Here's an example:\nText: The sky is blue. The grass is green. The sun is hot.\nSummary: Nature has colors and weather.\n\nNow summarize this: [your text]\"\n\nThe AI learns the style and format from your examples. It's way better than just asking blindly.\n\nWhy does this matter? Your AI outputs get better. Faster. More consistent. No fancy fine-tuning needed.\n\nPro tip: Even 2-3 examples make a huge difference.\n\nWhat's the trickiest part of working with AI prompts? Tell me below \ud83d\udc47\n\n#AI #PromptEngineering #LLM #FewShot",
+    "hook_id": "2050361923691004045",
+    "thread_id": "2050361924664099303",
+    "content_hash": "8ae82ab076fd8473d4ebbcaa671aeb41"
   }
 ]
