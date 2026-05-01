@@ -901,5 +901,14 @@
     "hook_id": "2050273695826878467",
     "thread_id": "2050273697324208295",
     "content_hash": "e120cf7b0f8fdbe44ba883fc87fcb1f1"
+  },
+  {
+    "date": "2026-05-01T20:28:48.826310+00:00",
+    "category": "kubernetes_interview_question",
+    "hook": "Interviewer: 'How do you manage Kubernetes YAML at scale?' \u2014 Most say 'Helm' and stop there. Here's what they miss \ud83d\udc47",
+    "thread": "The real answer? You need a way to code your infrastructure instead of writing YAML by hand.\n\nTools like Pulumi let you write your Kubernetes setup in Python, Go, or TypeScript. Same language you already know.\n\nWhy it matters:\n- Less YAML = fewer typos\n- Reuse code like normal functions\n- Add logic (if statements, loops) to your deployments\n- Version control your infrastructure like code\n\nQuick example:\nInstead of a 50-line YAML file, you write:\n\napp = kubernetes.apps.v1.Deployment('my-app',\n  spec=...,\n  opts=pulumi.ResourceOptions()\n)\n\n\nThen you can loop it, version it, test it. Way cleaner.\n\nHelm is still useful for templates, but Pulumi (or Terraform) is the pro answer when they ask about scale.\n\nWhat's YOUR go-to tool for managing K8s infrastructure? Drop it below \ud83d\udc47\n\n#Kubernetes #DevOps #Pulumi #Infrastructure #InterviewPrep",
+    "hook_id": "2050311496878698526",
+    "thread_id": "2050311498006929765",
+    "content_hash": "fc9b76f53efa9905b5179dcbc2c988cb"
   }
 ]
