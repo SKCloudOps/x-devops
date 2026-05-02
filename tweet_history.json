@@ -937,5 +937,14 @@
     "hook_id": "2050556201931325612",
     "thread_id": "2050556203277668506",
     "content_hash": "30fd8fa2c0c1d9445b4ce95641b8d5ec"
+  },
+  {
+    "date": "2026-05-02T15:12:01.561306+00:00",
+    "category": "cicd_interview_question",
+    "hook": "Interviewer: 'Why would you put your CI/CD pipeline in a VPC?' \u2014 Most candidates say security and blank after that. Here's what they miss \ud83d\udc47",
+    "thread": "Real talk: Yes, a VPC gives you security. But here's the deeper reason.\n\nWhen your CI/CD runs in a VPC, it can talk to your private databases, caches, and internal services WITHOUT going over the internet. No firewall holes. No exposure.\n\nExample: Your pipeline needs to run tests against a Postgres database. That database lives in your private VPC. If your CI/CD runner is ALSO in the VPC, it's a direct connection. Safe. Fast.\n\nIf your runner is outside the VPC? You'd have to:\n- Open ports on your database\n- Use VPN tunnels\n- Add extra security layers\n\nAll extra work.\n\nThe VPC part also matters for compliance. Some jobs require you to prove your code never left the internal network before deployment. A VPC pipeline does that.\n\nBonus: You can use VPC endpoints so your runner talks to AWS services (S3, ECR, etc.) without leaving AWS's network either.\n\nWhat's your CI/CD setup? Does it live in a VPC or outside? Reply below \ud83d\udc47\n\n#CICD #AWS #DevOpsInterview #VPC #DevOps",
+    "hook_id": "2050594161791844577",
+    "thread_id": "2050594163570205121",
+    "content_hash": "096107905d885f839113ba23485e08fb"
   }
 ]
