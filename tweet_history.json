@@ -964,5 +964,14 @@
     "hook_id": "2050668141240606923",
     "thread_id": "2050668142431723998",
     "content_hash": "6f13cacfeed45665ee4214613e605756"
+  },
+  {
+    "date": "2026-05-02T22:38:13.649519+00:00",
+    "category": "cicd_interview_question",
+    "hook": "Interviewer: 'How do you catch security issues in your CI/CD pipeline?' \u2014 Most candidates miss the obvious answer. \ud83d\udc47",
+    "thread": "Here's what they're really asking: How do you stop bad code from hitting production?\n\nThe answer? Add security checks INSIDE your pipeline. Don't wait until it's deployed.\n\nReal example:\n\n1. Code gets pushed\n2. Pipeline runs tests (normal stuff)\n3. Pipeline scans for secrets, vulnerabilities, suspicious activity\n4. Only if it passes \u2014 it deploys\n\nTools you could mention:\n- SonarQube or Snyk (finds code flaws)\n- AWS GuardDuty (watches for threats)\n- git-secrets (blocks passwords in commits)\n- Container scanning (checks Docker images)\n\nThe key move? Talk about \"shift left\" \u2014 find problems early, not late. Early = cheaper. Late = fires.\n\nTbh, most engineers just say \"we use a tool\" without saying WHY. That's where you win the room.\n\nWhat security tool would YOU add first to your pipeline? Drop it below \ud83d\udc47\n\n#DevOps #CICD #SecurityEngineering #Interview",
+    "hook_id": "2050706452789235977",
+    "thread_id": "2050706453879816361",
+    "content_hash": "3326227ba2b9890466598b2b4902cdc6"
   }
 ]
