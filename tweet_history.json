@@ -928,5 +928,14 @@
     "hook_id": "2050428795426078849",
     "thread_id": "2050428796734779662",
     "content_hash": "3b47e3585f96353956819fbbbe101b4d"
+  },
+  {
+    "date": "2026-05-02T12:41:11.126324+00:00",
+    "category": "cicd_interview_question",
+    "hook": "Interviewer: 'When would you use Step Functions instead of Lambda?' \u2014 Most candidates say 'uh... for long workflows?' Thread \ud83d\udc47",
+    "thread": "Here's the real answer:\n\nLambda = single task that finishes fast (usually under 15 mins)\n\nStep Functions = a series of tasks that need to talk to each other\n\nReal example: You're deploying an app.\n\n1. Run tests (Lambda)\n2. Wait for approval (Step Functions pauses here)\n3. Deploy to prod (Lambda)\n4. Send Slack message (Lambda)\n\nLambda can't pause and wait for a human to approve. Step Functions can.\n\nOther reasons to use Step Functions:\n- Your workflow is long (hours, days)\n- You need to retry if something fails\n- You need to run tasks in order\n- Multiple services need to work together\n\nThink of it like this:\nLambda = one task\nStep Functions = orchestrating many tasks\n\nNgl, a lot of candidates mix these up. Step Functions feels like extra complexity if you haven't seen a real workflow that needs it.\n\nWhat's a workflow you've built? Did you use Step Functions or find another way? Drop it below \ud83d\udc47\n\n#CICD #AWS #DevOpsInterviews #StepFunctions #Lambda",
+    "hook_id": "2050556201931325612",
+    "thread_id": "2050556203277668506",
+    "content_hash": "30fd8fa2c0c1d9445b4ce95641b8d5ec"
   }
 ]
