@@ -160,5 +160,14 @@
     "hook_id": "2050284445324788040",
     "thread_id": "2050284446213898371",
     "content_hash": "2fc399ad8b5a689c4b319a985b5cde50"
+  },
+  {
+    "date": "2026-05-02T18:30:09.782235+00:00",
+    "concept": "Redis caching anti-patterns in CI/CD pipelines",
+    "hook": "Most engineers using Redis in CI/CD don't know this: your cache is probably making deploys slower, not faster \ud83d\udc47",
+    "thread": "Here's the thing. Redis is amazing for caching. But in pipelines, people often cache build artifacts or dependencies wrong.\n\nThink of it like this: you're trying to speed up your commute by stopping at a store 5 minutes away to pick something up. Sounds fast, right? But if the store is closed half the time or the item keeps changing, you waste more time than if you just went straight to work.\n\nSame with Redis in CI/CD. If:\n- Your cache hits are low (the data isn't there)\n- Your cached data expires too fast\n- Network latency to Redis is high\n\n...you're actually SLOWER than just rebuilding from scratch.\n\nThe gotcha: most teams cache the wrong things. Don't cache build outputs that change every deploy. DO cache package downloads, compiled binaries that rarely change, or test fixtures.\n\nAlso, keep Redis close to your pipeline runners (same region/network). Network roundtrips kill you.\n\nWhat's your biggest Redis cache miss problem in pipelines? \ud83d\udc47\n\n#DevOps #CICD #Redis #Caching",
+    "hook_id": "2050644025334497501",
+    "thread_id": "2050644026349535720",
+    "content_hash": "9ccd36d060f97c2347dc614d1dd74671"
   }
 ]
