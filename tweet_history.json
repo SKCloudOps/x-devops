@@ -946,5 +946,14 @@
     "hook_id": "2050594161791844577",
     "thread_id": "2050594163570205121",
     "content_hash": "096107905d885f839113ba23485e08fb"
+  },
+  {
+    "date": "2026-05-02T17:42:52.240111+00:00",
+    "category": "cicd_interview_question",
+    "hook": "Interviewer: 'What's the difference between a network policy and a service mesh?' \u2014 Most candidates mix these up. Would you? \ud83d\udc47",
+    "thread": "Great question. They're NOT the same thing, and here's why:\n\nNETWORK POLICY = Basic firewall rules for pods. You say 'only pod A can talk to pod B' and that's it. Done. Simple.\n\nSERVICE MESH (like Cilium) = Way more powerful. It watches ALL traffic between your apps. It can do retries, timeouts, load balancing, security policies, AND observability. It's like upgrading from a lock to a security guard.\n\nReal example:\nNetwork Policy: 'Block all traffic except port 8080'\nService Mesh: 'Only let traffic through on port 8080, retry if it fails, log every request, and encrypt everything'\n\nOne is a gate. The other is a smart security system.\n\nBoth have their place. Network policies are lighter. Service meshes are heavier but way smarter.\n\nWhat's the trickiest networking question you've been asked in an interview? Drop it below \ud83d\udc47\n\n#DevOps #Kubernetes #CICD #Cilium #InterviewPrep",
+    "hook_id": "2050632123434893352",
+    "thread_id": "2050632124819014057",
+    "content_hash": "707e455256a937c1c1b918c445ee68dd"
   }
 ]
