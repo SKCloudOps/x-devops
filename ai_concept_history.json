@@ -182,5 +182,14 @@
     "hook_id": "2050361923691004045",
     "thread_id": "2050361924664099303",
     "content_hash": "8ae82ab076fd8473d4ebbcaa671aeb41"
+  },
+  {
+    "date": "2026-05-02T23:39:38.599405+00:00",
+    "concept": "RAG (Retrieval-Augmented Generation)",
+    "hook": "Everyone says 'RAG' in AI meetings but most can't explain it. It's actually super simple \ud83d\udc47",
+    "thread": "RAG = giving your AI a cheat sheet.\n\nNormally, an AI just guesses based on stuff it learned years ago. RAG lets you hand it your own documents first.\n\nThink of it like this: You're taking a test. Without RAG, you rely only on what you memorized. With RAG, you get to bring your textbook.\n\nHere's the magic part:\n1. You feed it your docs\n2. The AI turns them into \"embeddings\" (just a math way to say \"I understand this text\")\n3. When you ask a question, it finds the most relevant doc\n4. It reads that doc + answers your question\n\nWhy this matters: Your AI won't make stuff up. It can't lie about what's in your documents. Works great for customer support, legal docs, training materials.\n\nWithout RAG, your AI talks from memory. With it, your AI talks from facts.\n\nWhat confuses you most about how AI actually works? \ud83d\udc47\n\n#AI #RAG #MachineLearning #Tech",
+    "hook_id": "2050721907893305682",
+    "thread_id": "2050721909680091512",
+    "content_hash": "81cca33f728bcbe98a4a4760ce37f48b"
   }
 ]
