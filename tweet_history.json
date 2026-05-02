@@ -955,5 +955,14 @@
     "hook_id": "2050632123434893352",
     "thread_id": "2050632124819014057",
     "content_hash": "707e455256a937c1c1b918c445ee68dd"
+  },
+  {
+    "date": "2026-05-02T20:05:59.516161+00:00",
+    "category": "cicd_interview_question",
+    "hook": "Interviewer: 'What's Crossplane and why would we use it?' \u2014 Most DevOps engineers blank here. Would you? \ud83d\udc47",
+    "thread": "Crossplane lets you manage cloud stuff from Kubernetes. Like, instead of clicking AWS buttons, you write YAML in your cluster.\n\nNormal way: You need Terraform files, AWS CLI tools, separate workflows.\n\nCrossplane way: Everything is Kubernetes resources. Your cluster becomes the control center.\n\nReal example: Want a database? Just write a YAML file that says \"make me a Postgres instance on AWS\" and Crossplane does it. No Terraform. No separate tool.\n\nWhy it's cool: Everything's in one place. Your CI/CD already knows Kubernetes. Git becomes your source of truth for ALL your infrastructure.\n\nWhen to use it: If you're already deep in Kubernetes and want to manage AWS, GCP, Azure stuff the same way. Less tools. Less context switching.\n\nHonest take: It's powerful but adds complexity. Only pick it if your team actually wants to live in Kubernetes 24/7.\n\nWhat's your take \u2014 have you used it or would you? Drop your thoughts below \ud83d\udc47\n\n#DevOps #Kubernetes #Infrastructure #CICD #CloudNative",
+    "hook_id": "2050668141240606923",
+    "thread_id": "2050668142431723998",
+    "content_hash": "6f13cacfeed45665ee4214613e605756"
   }
 ]
