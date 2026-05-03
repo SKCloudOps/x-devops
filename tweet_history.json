@@ -973,5 +973,14 @@
     "hook_id": "2050706452789235977",
     "thread_id": "2050706453879816361",
     "content_hash": "3326227ba2b9890466598b2b4902cdc6"
+  },
+  {
+    "date": "2026-05-03T04:36:07.581824+00:00",
+    "category": "platform_engineering_interview_question",
+    "hook": "Interviewer: 'How would you use Route53 for failover?' \u2014 Most people just say 'health checks' and freeze. Here's the real answer \ud83d\udc47",
+    "thread": "Route53 is AWS's DNS service. It points your domain to servers. The failover part is the tricky bit.\n\nHere's what actually happens:\n\n1. You set up a PRIMARY server (main one)\n2. You set up a SECONDARY server (backup)\n3. Route53 does health checks on the primary every 30 seconds\n4. If primary is DOWN, Route53 flips traffic to secondary\n5. When primary comes back up, traffic goes back\n\nThe key thing most people miss: you need to tell Route53 HOW to check if a server is healthy. Don't just assume it knows.\n\nExample: Your app lives on server A. You tell Route53 \"check if server A responds to a health check request every 30 seconds.\" If it doesn't answer 3 times in a row, Route53 sends all traffic to server B instead.\n\nThat's it. It's not magic\u2014it's just automated DNS switching based on health status.\n\nWould you handle this differently? Or what's the trickiest Route53 question you've been asked? Drop it below \ud83d\udc47\n\n#DevOps #AWS #InterviewPrep #Route53 #CloudEngineering",
+    "hook_id": "2050796520300048446",
+    "thread_id": "2050796522061680999",
+    "content_hash": "03a43b3826cce33d6a5d1149bae75b5d"
   }
 ]
