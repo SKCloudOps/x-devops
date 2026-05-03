@@ -991,5 +991,14 @@
     "hook_id": "2050918473631518970",
     "thread_id": "2050918475149746649",
     "content_hash": "e49c59e8cf4f9199fbdef166ff9315a3"
+  },
+  {
+    "date": "2026-05-03T15:10:53.502308+00:00",
+    "category": "platform_engineering_interview_question",
+    "hook": "Interviewer: 'How do you give an app in Kubernetes access to AWS without storing secret keys?' \u2014 Most engineers panic here \ud83d\udc47",
+    "thread": "This is where IRSA (IAM Roles for Service Accounts) comes in. Here's the simple version:\n\nNormally you'd put AWS keys in a secret. Bad idea \u2014 keys can leak.\n\nWith IRSA, you skip the keys entirely. Instead:\n\n1. Create an IAM role in AWS\n2. Link it to a Kubernetes service account\n3. Your pod assumes that role automatically\n\nNo keys stored anywhere. AWS checks the pod's identity directly.\n\nReal example: Your app needs to write logs to S3. You create an IAM role with S3 permissions. Attach it to your service account. Done. The pod gets temp credentials that rotate automatically.\n\nThe magic part? OIDC (OpenID Connect). Kubernetes proves to AWS \"yep, this pod is real.\" AWS gives temp creds. No human involved.\n\nWhy it matters: Security. Simplicity. No key management headaches.\n\nHave you set up IRSA before? Or is this new to you? Drop your experience below \ud83d\udc47\n\n#DevOps #Kubernetes #AWS #IRSA #PlatformEngineering",
+    "hook_id": "2050956264641868183",
+    "thread_id": "2050956265996587473",
+    "content_hash": "b5cc734b3a21919f39d94f39370e23a8"
   }
 ]
