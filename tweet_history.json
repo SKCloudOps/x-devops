@@ -1009,5 +1009,14 @@
     "hook_id": "2050995390187487296",
     "thread_id": "2050995391898776048",
     "content_hash": "5e3db313428d70063604acf2efd72a07"
+  },
+  {
+    "date": "2026-05-03T20:07:31.702997+00:00",
+    "category": "platform_engineering_interview_question",
+    "hook": "Interviewer: 'What's the difference between EC2 and Fargate?' \u2014 Most candidates get this wrong. Would you? \ud83d\udc47",
+    "thread": "Here's the simple version:\n\nEC2 = You rent a computer from AWS. You manage everything on it. OS patches, security, all that stuff. You pay for the whole machine whether you use it or not.\n\nFargate = You just say 'run my container' and AWS handles the computer part. You don't pick a server or manage anything below your app. You only pay for what you actually use.\n\nReal example: If you need a container running 24/7, EC2 might be cheaper. But if your app runs randomly for 5 mins at a time? Fargate wins because you don't pay for idle time.\n\nThe trick: Fargate sounds easier (it is!) but it costs more for constant traffic. Know your use case.\n\nWhat's your go-to choice for new projects? EC2 or Fargate? Tell me below \ud83d\udc47\n\n#DevOps #AWS #Fargate #Kubernetes #InterviewPrep",
+    "hook_id": "2051030914776367246",
+    "thread_id": "2051030916974141534",
+    "content_hash": "88c9e265a9d73e753022a9446a94a363"
   }
 ]
