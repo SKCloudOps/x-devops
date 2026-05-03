@@ -169,5 +169,14 @@
     "hook_id": "2050644025334497501",
     "thread_id": "2050644026349535720",
     "content_hash": "9ccd36d060f97c2347dc614d1dd74671"
+  },
+  {
+    "date": "2026-05-03T18:30:34.912105+00:00",
+    "concept": "Terraform prevent_destroy limitations with S3",
+    "hook": "Most engineers using Terraform for S3 don't know this: your bucket can be deleted even with \"prevent_destroy\" on. Here's why \ud83d\udc47",
+    "thread": "When you set prevent_destroy = true on an S3 bucket, Terraform won't let you destroy it via terraform destroy. Cool, right?\n\nWrong. Terraform only controls what Terraform does. If someone manually deletes the bucket in the AWS console (or via CLI), it's gone. Terraform can't stop that.\n\nIt's like locking your car door but leaving the windows down. The lock helps, but it's not a real security blanket.\n\nThe real move? Combine prevent_destroy with:\n- versioning enabled (keeps old versions)\n- bucket policies that block DeleteBucket actions\n- maybe even object lock if you need it\n\nTerraform is a tool for managing YOUR infrastructure code. It's not a security guard. You need actual AWS permissions and settings to truly protect stuff.\n\nWhat's bitten you hardest with S3 state management? \ud83d\udc47\n\n#Terraform #AWS #IaC #S3 #DevOps",
+    "hook_id": "2051006518846501093",
+    "thread_id": "2051006519685366132",
+    "content_hash": "f32d70a6c8d469559001d48ae493c6a9"
   }
 ]
