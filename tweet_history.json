@@ -982,5 +982,14 @@
     "hook_id": "2050796520300048446",
     "thread_id": "2050796522061680999",
     "content_hash": "03a43b3826cce33d6a5d1149bae75b5d"
+  },
+  {
+    "date": "2026-05-03T12:40:43.461903+00:00",
+    "category": "platform_engineering_interview_question",
+    "hook": "Interviewer: 'What's the difference between Flux and ArgoCD?' \u2014 Most candidates mix them up. Would you nail this? \ud83d\udc47",
+    "thread": "Both are GitOps tools. They watch your Git repo. But here's the key difference:\n\nFlux is simpler. It syncs what's in Git to your cluster. You push code, Flux pulls it and applies it. Done.\n\nArgoCD has a dashboard. You can click buttons to deploy. It's got a UI that shows your apps.\n\nFlux is more hands-off. ArgoCD gives you more control in a web interface.\n\nReal example: You're using Flux. You update a file in Git. Flux notices it in 2 minutes and rolls it out to production. No clicking, no UI. Just Git + automation.\n\nWith ArgoCD? Same thing happens, but you can see it happening in a dashboard. You can also manually sync if you want.\n\nInterview answer: \"Flux is GitOps done simple. ArgoCD is GitOps with extra bells on top.\"\n\nWhich one have you used? Or would you pick for your team? Drop your take below \ud83d\udc47\n\n#DevOps #GitOps #Kubernetes #PlatformEngineering #InterviewPrep",
+    "hook_id": "2050918473631518970",
+    "thread_id": "2050918475149746649",
+    "content_hash": "e49c59e8cf4f9199fbdef166ff9315a3"
   }
 ]
