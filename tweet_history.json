@@ -1018,5 +1018,14 @@
     "hook_id": "2051030914776367246",
     "thread_id": "2051030916974141534",
     "content_hash": "88c9e265a9d73e753022a9446a94a363"
+  },
+  {
+    "date": "2026-05-03T22:38:25.827513+00:00",
+    "category": "platform_engineering_interview_question",
+    "hook": "Interviewer: 'How do you manage secrets in production?' \u2014 Most engineers fumble here. Would you know what to say? \ud83d\udc47",
+    "thread": "Here's the thing: never hardcode secrets in your code or config files. Bad idea.\n\nBetter approach? Use a secrets manager like AWS KMS or HashiCorp Vault.\n\nHow it works:\n1. Store your passwords, API keys, database creds in KMS\n2. Your app asks KMS for the secret when it starts\n3. KMS checks: \"Are you allowed?\" (via IAM roles)\n4. If yes, it sends the secret. Done.\n\nReal example: Your app needs a database password. You don't write it in the code. Instead:\n- Your EC2 instance has an IAM role\n- That role has permission to read from KMS\n- App starts \u2192 asks KMS for the password\n- KMS verifies the IAM role \u2192 sends password\n- App uses it\n\nThe win? If someone gets your code, they still can't get the secrets. The password only lives in KMS.\n\nBonus: You can rotate secrets without changing your code. Just update it in KMS.\n\nWhat's your go-to secrets manager? Or would you answer this differently? Drop it below \ud83d\udc47\n\n#DevOps #AWS #Security #PlatformEngineering #Interview",
+    "hook_id": "2051068891342725427",
+    "thread_id": "2051068892722676190",
+    "content_hash": "14469687f573fec3b8ea36c2789bd3eb"
   }
 ]
