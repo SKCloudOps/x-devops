@@ -1000,5 +1000,14 @@
     "hook_id": "2050956264641868183",
     "thread_id": "2050956265996587473",
     "content_hash": "b5cc734b3a21919f39d94f39370e23a8"
+  },
+  {
+    "date": "2026-05-03T17:46:21.858349+00:00",
+    "category": "platform_engineering_interview_question",
+    "hook": "Interviewer: 'What's the difference between Terraform and Pulumi?' \u2014 Most engineers stumble here. Would you? \ud83d\udc47",
+    "thread": "Here's the real talk:\n\nTerraform: You write in HCL (a special language made just for it). It's like following a recipe card.\n\nPulumi: You write in real code. Python, Go, TypeScript, whatever you already know. Same power, but you use your actual coding skills.\n\nWhy it matters in an interview:\n\nTerraform is everywhere. Safe answer. But Pulumi lets you do loops, functions, and logic way easier because it's just... code.\n\nReal example:\nWith Terraform, making 10 servers is annoying (you copy-paste or use 'count'). With Pulumi, you literally write a for loop. Done.\n\nPulumi also lets you read your cloud state while you're coding. Terraform can't do that as easily.\n\nBoth work. Pick the job's stack. But understanding WHY they're different shows you actually know your stuff.\n\nWhich one have you used? Or would you pick for your next project? Drop your take below \ud83d\udc47\n\n#Pulumi #Terraform #DevOps #IaC #PlatformEngineering",
+    "hook_id": "2050995390187487296",
+    "thread_id": "2050995391898776048",
+    "content_hash": "5e3db313428d70063604acf2efd72a07"
   }
 ]
