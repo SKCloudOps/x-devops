@@ -191,5 +191,14 @@
     "hook_id": "2050721907893305682",
     "thread_id": "2050721909680091512",
     "content_hash": "81cca33f728bcbe98a4a4760ce37f48b"
+  },
+  {
+    "date": "2026-05-03T23:41:17.233575+00:00",
+    "concept": "fine_tuning",
+    "hook": "Everyone says 'fine-tune your AI model' but most people don't actually know what that means. Here's the real deal \ud83d\udc47",
+    "thread": "Fine-tuning is basically: take a smart AI that already knows a lot, then teach it your specific stuff.\n\nThink of it like this:\n\nA new employee joins your company. They already know how to work (that's the base AI). But they don't know YOUR company's rules, YOUR customers, YOUR way of doing things.\n\nSo you spend a week training them on YOUR specific job. That's fine-tuning.\n\nWHY IT MATTERS:\n- It's way cheaper than training from scratch\n- Takes days or weeks, not months\n- The AI learns YOUR patterns, YOUR data\n- Way better results for your exact problem\n\nReal example: ChatGPT knows general stuff. But if you fine-tune it on your customer support tickets, it suddenly sounds like YOUR company. Answers your way. Knows your products.\n\nThat's the magic.\n\nWhat AI skill would you want your team to actually understand? \ud83d\udc47\n\n#AI #MachineLearning #FineTuning #AITraining #TechSimplified",
+    "hook_id": "2051084710038667468",
+    "thread_id": "2051084711112450478",
+    "content_hash": "729579063996277255ad9bac1d1a5fb1"
   }
 ]
