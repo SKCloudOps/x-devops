@@ -1054,5 +1054,14 @@
     "hook_id": "2051335556982788366",
     "thread_id": "2051335558618599909",
     "content_hash": "754c2fa340abfbdb09c3767f0a9ab1bf"
+  },
+  {
+    "date": "2026-05-04T18:14:15.108415+00:00",
+    "category": "terraform_iac_interview_question",
+    "hook": "Interviewer: 'How do you manage Terraform state in CI/CD?' \u2014 Most engineers stumble here. Would you? \ud83d\udc47",
+    "thread": "Here's the thing: your Terraform state file is like a map of everything you own in the cloud. Lose it, and you're in trouble.\n\nIn GitHub Actions, you DON'T want state sitting in your repo. Bad idea.\n\nBetter approach:\n\n1. **Use remote state** \u2014 Store it in S3, Azure Blob, or Terraform Cloud. Not your laptop.\n\n2. **Lock it** \u2014 When two people run Terraform at the same time, things break. DynamoDB + S3, or Terraform Cloud handles this for you.\n\n3. **Protect secrets** \u2014 Your GitHub Actions needs AWS keys or Azure creds to read/write state. Use GitHub Secrets, not plaintext.\n\nReal example:\n\nterraform {\n  backend \"s3\" {\n    bucket = \"my-state\"\n    key    = \"prod/terraform.tfstate\"\n    dynamodb_table = \"tf-lock\"\n  }\n}\n\n\nThen in GitHub Actions, your workflow pulls from S3 before running `terraform apply`. State stays safe. No accidents.\n\nHow do YOU handle Terraform state in your pipelines? Drop your setup below \ud83d\udc47\n\n#Terraform #DevOps #IaC #GitHubActions #CloudInfra",
+    "hook_id": "2051364796457509064",
+    "thread_id": "2051364797841625421",
+    "content_hash": "d3f40a3860fcb853a075ad90038ece64"
   }
 ]
