@@ -1063,5 +1063,14 @@
     "hook_id": "2051364796457509064",
     "thread_id": "2051364797841625421",
     "content_hash": "d3f40a3860fcb853a075ad90038ece64"
+  },
+  {
+    "date": "2026-05-04T20:49:04.451003+00:00",
+    "category": "terraform_iac_interview_question",
+    "hook": "Interviewer: 'How do you manage IAM in Terraform?' \u2014 This trips up so many candidates. Here's what they miss \ud83d\udc47",
+    "thread": "Most people say 'just write aws_iam_role and aws_iam_policy.' That's only half right.\n\nThe real answer? You need to think about:\n\n1. SEPARATION \u2014 Keep IAM code separate from your app code. Different files, easier to audit.\n\n2. LEAST PRIVILEGE \u2014 Only give permissions that are actually needed. Don't just throw admin access at everything.\n\n3. REUSE WITH MODULES \u2014 Write a module for common roles. Then use it across your team. Saves time. Fewer mistakes.\n\nHere's a quick example:\n\n\nmodule \"app_role\" {\n  source = \"./modules/iam_role\"\n  name = \"my-app\"\n  policy = \"s3:GetObject\"\n}\n\n\nThen your devs use that module instead of writing IAM from scratch every time.\n\n4. USE data sources \u2014 Reference existing roles instead of hardcoding ARNs.\n\n5. ADD TAGS \u2014 Tag everything. Makes tracking and audits way easier.\n\nOne more thing: test your policies before you deploy. Use aws_iam_policy_document to write it in HCL, then validate it with a tool.\n\nHow do YOU handle IAM in Terraform? Do you use modules or keep it simple? Drop your approach below \ud83d\udc47\n\n#Terraform #IAM #DevOps #IaC #AWS",
+    "hook_id": "2051403757791949296",
+    "thread_id": "2051403760170098770",
+    "content_hash": "01be176785f157bd68976f3bc7138b7b"
   }
 ]
