@@ -178,5 +178,14 @@
     "hook_id": "2051006518846501093",
     "thread_id": "2051006519685366132",
     "content_hash": "f32d70a6c8d469559001d48ae493c6a9"
+  },
+  {
+    "date": "2026-05-04T19:05:36.884758+00:00",
+    "concept": "Docker layer caching and image size optimization",
+    "hook": "Most engineers using Docker every day don't know this: your images are way bigger than they need to be \ud83d\udc47",
+    "thread": "Here's the thing: every layer in your Dockerfile gets saved. Even if you delete files later, they're still taking up space.\n\nThink of it like a moving truck. You pack stuff, then throw some out, but the truck is still as full because the trash is still inside.\n\nExample:\n\nFROM ubuntu\nRUN apt-get update && apt-get install stuff && apt-get clean\n\n\nThat 'apt-get clean' deletes files but doesn't shrink the layer. Your image stays huge.\n\nFix it by doing everything in ONE RUN command:\n\nRUN apt-get update && apt-get install stuff && apt-get clean\n\n\nNow the deletion happens in the same layer. Image size drops by 50%+ sometimes.\n\nOther gotchas: don't copy everything with COPY . . Use a .dockerignore file. Multi-stage builds are your friend too.\n\nWhat's the biggest Docker image you've had to debug? Reply below \ud83d\udc47\n\n#Docker #DevOps #Containers #BuildOptimization",
+    "hook_id": "2051377722182472099",
+    "thread_id": "2051377723772121115",
+    "content_hash": "22365be1d3ef1cf6a6304e5d9d1821c9"
   }
 ]
