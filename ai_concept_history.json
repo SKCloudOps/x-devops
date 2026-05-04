@@ -200,5 +200,14 @@
     "hook_id": "2051084710038667468",
     "thread_id": "2051084711112450478",
     "content_hash": "729579063996277255ad9bac1d1a5fb1"
+  },
+  {
+    "date": "2026-05-04T23:52:30.729207+00:00",
+    "concept": "Embeddings and Vectors",
+    "hook": "Everyone says 'embeddings' like it's magic. But it's just... numbers that mean something. Here's what that actually means \ud83d\udc47",
+    "thread": "An embedding is just a way to turn words or ideas into lists of numbers that the AI can work with.\n\nThink of it like a map. Every word gets a spot on that map based on what it means. Words with similar meanings sit close together. \"King\" and \"Queen\" are neighbors. \"Car\" and \"bicycle\" are neighbors. \"Pizza\" and \"quantum physics\" are far apart.\n\nWhy? Because the AI needs numbers to do math. It can't think about words directly\u2014it thinks in numbers.\n\nWhy this matters in real work:\n- When your AI searches your documents, it's comparing number-maps, not just keyword-matching\n- It finds stuff you didn't ask for directly, because similar ideas have similar number patterns\n- It's why AI can understand that \"king - man + woman \u2248 queen\" (actual math)\n\nSo when someone says \"we vectorized your data,\" they just mean \"we turned your stuff into number-maps so AI can understand it.\"\n\nWhat AI buzzword confuses you most at work? Drop it below \ud83d\udc47\n\n#AI #Embeddings #MachineLearning #AIBasics",
+    "hook_id": "2051449922923155778",
+    "thread_id": "2051449923925581869",
+    "content_hash": "2fbb80544e30ed57c72c5fe27643daf7"
   }
 ]
