@@ -1036,5 +1036,14 @@
     "hook_id": "2051158858295382234",
     "thread_id": "2051158859872387171",
     "content_hash": "dcc50ea634d172c02f70ee64d3e8cdfc"
+  },
+  {
+    "date": "2026-05-04T13:17:58.636942+00:00",
+    "category": "terraform_iac_interview_question",
+    "hook": "Interviewer: 'How do you manage Terraform state in a team?' \u2014 Most engineers get this wrong. Here's what they miss \ud83d\udc47",
+    "thread": "State is basically a map of your real infrastructure. Without it, Terraform doesn't know what you already built.\n\nThe mistake: Storing state locally on your laptop. Then your coworker runs Terraform and \u2014 boom \u2014 conflicts.\n\nThe fix: Use remote state.\n\nStore it in S3, Azure Blob, or Terraform Cloud. Everyone pulls the same source of truth.\n\nEven better? Lock it. Remote backends auto-lock while someone's running apply. Stops two people from changing things at once and breaking stuff.\n\nReal example:\n- Store state in S3\n- Add a DynamoDB table for locks\n- Both in your backend config\n- Now your whole team stays in sync\n\nOne more thing: Never commit .tfstate files to Git. It has passwords. Add it to .gitignore.\n\nWhat's tripped you up with state management? Drop your story below \ud83d\udc47\n\n#Terraform #DevOps #Infrastructure #IaC #AWS",
+    "hook_id": "2051290236483932635",
+    "thread_id": "2051290237805138251",
+    "content_hash": "953feb942422d54d74f6060c1eeaf038"
   }
 ]
