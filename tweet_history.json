@@ -1027,5 +1027,14 @@
     "hook_id": "2051068891342725427",
     "thread_id": "2051068892722676190",
     "content_hash": "14469687f573fec3b8ea36c2789bd3eb"
+  },
+  {
+    "date": "2026-05-04T04:35:55.651066+00:00",
+    "category": "terraform_iac_interview_question",
+    "hook": "Interviewer: 'Why would you pick Pulumi over Terraform?' \u2014 Most candidates stumble here. What's your answer? \ud83d\udc47",
+    "thread": "OK so both tools let you write code to build cloud stuff. Here's the real difference:\n\n**Terraform**: You write HCL (its own language). It's declarative. You say \"I want this thing\" and Terraform makes it happen.\n\n**Pulumi**: You write Python, Go, or JavaScript. Same idea, but it's code you already know.\n\nWhy pick one over the other?\n\nTerraform wins if:\n- Your team doesn't code much\n- You want a simpler, proven tool\n- You need massive community support\n\nPulumi wins if:\n- You're already a Python or JS shop\n- You want loops, functions, and real programming logic\n- You hate learning new syntax\n\nReal example: With Terraform, creating 10 servers means repeating config. With Pulumi, you just write a for loop.\n\nTbh, most teams use Terraform because it's boring and reliable. But Pulumi's getting popular fast.\n\nWhich one would YOU use for your next project? Drop your take below \ud83d\udc47\n\n#Terraform #Pulumi #IaC #DevOps #CloudEngineering",
+    "hook_id": "2051158858295382234",
+    "thread_id": "2051158859872387171",
+    "content_hash": "dcc50ea634d172c02f70ee64d3e8cdfc"
   }
 ]
