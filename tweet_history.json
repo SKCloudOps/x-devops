@@ -1045,5 +1045,14 @@
     "hook_id": "2051290236483932635",
     "thread_id": "2051290237805138251",
     "content_hash": "953feb942422d54d74f6060c1eeaf038"
+  },
+  {
+    "date": "2026-05-04T16:18:04.114287+00:00",
+    "category": "terraform_iac_interview_question",
+    "hook": "Interviewer: 'How's Karpenter different from the Cluster Autoscaler?' \u2014 Most candidates mix them up. Would you? \ud83d\udc47",
+    "thread": "Here's the quick version:\n\nCluster Autoscaler = slow. It watches pods. If a pod can't fit, it adds a node. Takes minutes. Then it checks if nodes are empty and removes them.\n\nKarpenter = fast. It watches CONSTANTLY. The second a pod needs space, it spins up the right node type. Seconds, not minutes.\n\nBig difference: Karpenter is PROACTIVE. Cluster Autoscaler is reactive.\n\nReal example:\n- You deploy 50 pods that need GPU nodes\n- Cluster Autoscaler: waits for pods to fail \u2192 then adds nodes (slow)\n- Karpenter: sees the request \u2192 launches GPU nodes before pods even try to start (fast)\n\nAlso: Karpenter can replace nodes without draining them slowly. It's way smarter.\n\nTip for your interview: mention consolidation. Karpenter removes unused nodes faster. That's what you wanna say.\n\nWhich one do you use at your job? Or would you pick Karpenter? Drop your take below \ud83d\udc47\n\n#Terraform #Karpenter #Kubernetes #DevOpsInterview #AWS",
+    "hook_id": "2051335556982788366",
+    "thread_id": "2051335558618599909",
+    "content_hash": "754c2fa340abfbdb09c3767f0a9ab1bf"
   }
 ]
