@@ -1072,5 +1072,14 @@
     "hook_id": "2051403757791949296",
     "thread_id": "2051403760170098770",
     "content_hash": "01be176785f157bd68976f3bc7138b7b"
+  },
+  {
+    "date": "2026-05-04T22:56:01.192571+00:00",
+    "category": "terraform_iac_interview_question",
+    "hook": "Interviewer: 'How do you manage Istio config with Terraform?' \u2014 Most candidates panic here. Would you know what to say? \ud83d\udc47",
+    "thread": "Here's the thing: Istio is a service mesh. It manages traffic between your apps. Terraform is for infrastructure code.\n\nSo you use Terraform to CREATE the Istio stuff:\n\n1. Install Istio on your Kubernetes cluster\n2. Create VirtualServices (routes traffic)\n3. Create DestinationRules (tells traffic where to go)\n4. Create Gateways (entry point for traffic)\n\nExample:\nresource \"helm_release\" \"istio\" {\n  name = \"istio\"\n  repo = \"https://istio-release.storage.googleapis.com/charts\"\n}\n\nThen:\nresource \"kubernetes_manifest\" \"virtual_service\" {\n  manifest = yamldecode(file(\"istio-vs.yaml\"))\n}\n\nThe trick? Don't try to do EVERYTHING with Terraform. Use it to install Istio and set up the main pieces. Use Kubernetes manifests (YAML files) for the detailed config.\n\nIt's easier. It's cleaner. It works better.\n\nHow would you approach this in an interview? Would you split it the same way, or handle it differently? \ud83d\udc47\n\n#Terraform #Istio #DevOps #Kubernetes #IaC",
+    "hook_id": "2051435705553871251",
+    "thread_id": "2051435707072168298",
+    "content_hash": "0ce43508799eadf2524e4c2b77bedef3"
   }
 ]
