@@ -1081,5 +1081,14 @@
     "hook_id": "2051435705553871251",
     "thread_id": "2051435707072168298",
     "content_hash": "0ce43508799eadf2524e4c2b77bedef3"
+  },
+  {
+    "date": "2026-05-05T04:12:09.806440+00:00",
+    "category": "devops_trending_topic",
+    "hook": "Interviewer: 'Why would you use a service mesh?' \u2014 Most candidates say 'traffic management' and stop there. Here's what they miss \ud83d\udc47",
+    "thread": "A service mesh sounds fancy but it's really just a tool that sits between your services and handles the boring stuff you'd normally code.\n\nHere's what it actually does:\n\n\u2022 Moves traffic rules OUT of your app code\n\u2022 Watches how services talk to each other\n\u2022 Retries failed calls automatically\n\u2022 Adds security rules between services\n\nThe REAL answer most engineers miss:\n\nYou don't NEED a service mesh. Seriously. Most teams add one too early and regret it. They're complex. They add latency. They're hard to debug.\n\nUse a service mesh when:\n- You have 20+ services talking to each other\n- You need security policies between services\n- Your ops team can support it\n- You're tired of coding retry logic in every service\n\nExample: Instead of every microservice having its own retry logic, your mesh handles it. One place. Easier.\n\nBut if you've got 5 services? Skip it. You don't need the headache.\n\nWhat's your take \u2014 have you used one? Was it worth it? \ud83d\udc47\n\n#ServiceMesh #DevOps #Kubernetes #Microservices",
+    "hook_id": "2051515265599340864",
+    "thread_id": "2051515267096707580",
+    "content_hash": "5e6da87dc8164e1868d319d7e2f55e5e"
   }
 ]
