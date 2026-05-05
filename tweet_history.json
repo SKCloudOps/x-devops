@@ -1108,5 +1108,14 @@
     "hook_id": "2051696243554808129",
     "thread_id": "2051696245178015894",
     "content_hash": "c823166d4ad9e00962496d7ff9becfb7"
+  },
+  {
+    "date": "2026-05-05T18:10:13.343144+00:00",
+    "category": "devops_trending_topic",
+    "hook": "Interviewer: 'How do you find security issues across all your AWS accounts?' \u2014 Most candidates freeze here. Would you know what to say? \ud83d\udc47",
+    "thread": "Here's the real answer:\n\nSecurityHub is AWS's security dashboard. It scans all your accounts and finds problems automatically.\n\nThink of it like a security guard walking through your building every day and reporting what's broken.\n\nWHAT IT DOES:\n\u2022 Checks for bad configs\n\u2022 Finds open security groups\n\u2022 Spots unused access keys\n\u2022 Runs compliance checks\n\nTHE TRICK:\nMost people don't mention that SecurityHub COMBINES findings from multiple AWS tools. It pulls data from GuardDuty, Inspector, IAM Access Analyzer, and more into one place.\n\nSo in an interview, say this:\n'SecurityHub is a central security hub that pulls findings from all your AWS services. You turn it on, it auto-scans your accounts, and you get a dashboard showing what needs fixing.'\n\nBONUS TIP:\nSet it up with a rule that sends critical findings to your Slack. Your team sees problems in real time.\n\nWhat's the trickiest AWS security question you've been asked in an interview? Drop it below \ud83d\udc47\n\n#DevOps #AWS #SecurityHub #InterviewTips",
+    "hook_id": "2051726169947394373",
+    "thread_id": "2051726171654500469",
+    "content_hash": "6219510b264e48bbe5957572ff21efd2"
   }
 ]
