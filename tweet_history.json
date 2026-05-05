@@ -1126,5 +1126,14 @@
     "hook_id": "2051764421345615990",
     "thread_id": "2051764423778259247",
     "content_hash": "ebe107c43c68953323ab8f089e5f44a2"
+  },
+  {
+    "date": "2026-05-05T22:53:25.050577+00:00",
+    "category": "devops_trending_topic",
+    "hook": "Interviewer: 'What's the difference between a WAF and a security group?' \u2014 Most DevOps candidates mix these up. Would you get it right? \ud83d\udc47",
+    "thread": "Great question because they sound similar but do totally different things.\n\nA SECURITY GROUP is like a bouncer at the door. It checks: Is this IP allowed? What port? TCP or UDP? That's it. Very basic stuff.\n\nA WAF (Web Application Firewall) is smarter. It looks INSIDE your traffic. It stops bad stuff like:\n\n\u2014 SQL injection attacks\n\u2014 Cross-site scripting (XSS)\n\u2014 Bot spam\n\u2014 Malformed requests\n\nREAL EXAMPLE:\nSecurity group says: \"Port 80 is open to everyone.\"\nWAF says: \"OK but I'm blocking requests with 'DROP TABLE' in them.\"\n\nSecurity group = network level (Layer 3/4)\nWAF = app level (Layer 7)\n\nYou usually use BOTH. Security group first for basic filtering. WAF second for smart protection.\n\nWhat's the trickiest security question you've been asked? Drop it below \ud83d\udc47\n\n#DevOpsInterview #CloudSecurity #AWS #WAF #NetworkSecurity",
+    "hook_id": "2051797438214615280",
+    "thread_id": "2051797440076959996",
+    "content_hash": "37d70729168e5c5169a61e92efe5e219"
   }
 ]
