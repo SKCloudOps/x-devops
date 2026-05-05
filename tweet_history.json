@@ -1099,5 +1099,14 @@
     "hook_id": "2051649413878329693",
     "thread_id": "2051649415522501052",
     "content_hash": "4c43c2fd4db35ca3b77e384270fd533f"
+  },
+  {
+    "date": "2026-05-05T16:11:18.316639+00:00",
+    "category": "devops_trending_topic",
+    "hook": "Interviewer: 'How do you manage config across dev, staging, and prod?' \u2014 Most engineers stumble here. Would you? \ud83d\udc47",
+    "thread": "Here's the thing: hardcoding values in your code is a nightmare. You'd have to rebuild and redeploy just to change a password or API endpoint. Bad idea.\n\nBetter approach? Use environment variables or a config management tool.\n\nExample: Instead of this in your code:\n\ndb_password = \"prod123\"\n\n\nDo this:\n\ndb_password = os.getenv(\"DB_PASSWORD\")\n\n\nThen set DB_PASSWORD differently in each environment. Dev gets one value. Prod gets another. Same code, different configs.\n\nTools that help: Docker, Kubernetes ConfigMaps, HashiCorp Vault, Terraform. Pick one.\n\nThe key: Keep secrets and configs OUT of git. Use a secret manager for sensitive stuff. Use env vars or config files for the rest.\n\nHow do YOU handle config across environments right now? Any horror stories? Drop them below \ud83d\udc47\n\n#DevOps #Kubernetes #Infrastructure #Interview",
+    "hook_id": "2051696243554808129",
+    "thread_id": "2051696245178015894",
+    "content_hash": "c823166d4ad9e00962496d7ff9becfb7"
   }
 ]
