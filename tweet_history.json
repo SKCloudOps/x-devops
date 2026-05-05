@@ -1117,5 +1117,14 @@
     "hook_id": "2051726169947394373",
     "thread_id": "2051726171654500469",
     "content_hash": "6219510b264e48bbe5957572ff21efd2"
+  },
+  {
+    "date": "2026-05-05T20:42:13.353300+00:00",
+    "category": "devops_trending_topic",
+    "hook": "Interviewer: 'How do you find security issues across AWS accounts?' \u2014 Most candidates freeze. Here's what they miss \ud83d\udc47",
+    "thread": "SecurityHub is AWS's built-in security scanner. It runs checks across all your accounts and finds problems automatically.\n\nHere's the real answer:\n\n1. SecurityHub collects findings from other AWS tools (GuardDuty, Config, IAM Access Analyzer)\n\n2. You set it up once in your main account\n\n3. It shows you everything in one dashboard \u2014 misconfigs, bad permissions, exposed data\n\n4. You can automate responses. Found a bad security group? Fix it without waiting.\n\nCommon mistake: Thinking you have to manually check each account. Nope. SecurityHub does it for you.\n\nExample: You enable it. Five minutes later it finds 20 unencrypted S3 buckets you forgot about. Problem solved.\n\nTip for interviews: Mention that you'd use it to scan on a schedule, not just once. That shows you think long-term.\n\nWhat security tool do you use most in your day job? Drop it below \ud83d\udc47\n\n#AWS #SecurityHub #DevOps #CloudSecurity #DevOpsInterview",
+    "hook_id": "2051764421345615990",
+    "thread_id": "2051764423778259247",
+    "content_hash": "ebe107c43c68953323ab8f089e5f44a2"
   }
 ]
