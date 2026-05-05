@@ -1090,5 +1090,14 @@
     "hook_id": "2051515265599340864",
     "thread_id": "2051515267096707580",
     "content_hash": "5e6da87dc8164e1868d319d7e2f55e5e"
+  },
+  {
+    "date": "2026-05-05T13:05:13.317709+00:00",
+    "category": "devops_trending_topic",
+    "hook": "Interviewer: 'What's Backstage and why would we use it?' \u2014 Most DevOps folks get stuck here. Would you? \ud83d\udc47",
+    "thread": "Backstage is a tool that helps your team find and use all the stuff they need. Think of it like an app store for your company.\n\nInstead of asking Slack \"Hey, where's the docs?\" or \"How do I deploy this?\" \u2014 devs go to Backstage and find everything in one place.\n\nHere's what it does:\n\n\u2022 Shows all your services (who owns them, where they run, health status)\n\u2022 Links to docs, runbooks, dashboards\n\u2022 Can create new projects from templates\n\u2022 Tracks who's responsible for what\n\nWhy hire someone to use it? It cuts chaos. New people get up to speed faster. Teams stop duplicating work.\n\nReal example: A backend team member needs to check on service X. Instead of hunting through 5 different tools, they open Backstage, find service X, click \"view logs\", \"see runbook\", \"alert on-call\". Done in 30 seconds.\n\nThe interview answer is this: \"Backstage is a central hub that connects all your DevOps tools and makes them easy to find. It helps teams move faster and reduces confusion.\"\n\nHave you used Backstage at work? What's your honest take on it? \ud83d\udc47\n\n#DevOps #Kubernetes #SRE #BackstageIO #InterviewPrep",
+    "hook_id": "2051649413878329693",
+    "thread_id": "2051649415522501052",
+    "content_hash": "4c43c2fd4db35ca3b77e384270fd533f"
   }
 ]
