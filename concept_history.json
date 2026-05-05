@@ -187,5 +187,14 @@
     "hook_id": "2051377722182472099",
     "thread_id": "2051377723772121115",
     "content_hash": "22365be1d3ef1cf6a6304e5d9d1821c9"
+  },
+  {
+    "date": "2026-05-05T18:55:11.874498+00:00",
+    "concept": "VPC_security_best_practices",
+    "hook": "Most engineers setting up a VPC just pick the default settings. Here's why that's risky \ud83d\udc47",
+    "thread": "A VPC is basically your own private neighborhood in AWS. You control who gets in, who gets out, and how they move around.\n\nBut here's the thing: if you don't set up your security groups and network ACLs right, it's like leaving your front door unlocked.\n\nDefault VPC? It allows too much traffic. Bad idea.\n\nWhat you should do:\n\u2192 Make VPCs small. One per project is better than one giant VPC\n\u2192 Use security groups like bouncers. Be picky about what you let through\n\u2192 Block outbound traffic by default. Only open what you actually need\n\u2192 Never put all your stuff in one subnet\n\nReal talk: Most breaches happen because someone opened a port \"just for testing\" and forgot to close it. Then it sits there for months.\n\nProto tip: Use a tool like AWS Config to catch open ports automatically. Don't rely on yourself to remember.\n\nWhat's your biggest VPC headache right now? Reply below \ud83d\udc47\n\n#AWS #CloudSecurity #VPC #DevOps",
+    "hook_id": "2051737489040101836",
+    "thread_id": "2051737490134806834",
+    "content_hash": "566c8d435afabf02ebfae043ff7eb8a5"
   }
 ]
