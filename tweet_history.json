@@ -1144,5 +1144,14 @@
     "hook_id": "2051882089361068393",
     "thread_id": "2051882090623648170",
     "content_hash": "2df3790a7420295d6a2382f00ddb1723"
+  },
+  {
+    "date": "2026-05-06T13:24:40.940387+00:00",
+    "category": "cloud_architecture_pattern",
+    "hook": "Interviewer: 'How would you route traffic across regions?' \u2014 Most candidates miss the simple answer. \ud83d\udc47",
+    "thread": "Route53 is AWS's DNS service. Think of it like a traffic cop for your users.\n\nHere's the deal:\nWhen a user visits your site, Route53 looks at where they're coming from. Then it sends them to the closest server.\n\nReal example:\n- User in London? Send them to your EU servers\n- User in Tokyo? Send them to your Asia servers\n\nWhy this matters:\nFaster speeds = happy users. Less latency = better experience.\n\nThe setup:\n1. Create health checks (is my server alive?)\n2. Set routing policy (latency-based, geolocation, failover, etc.)\n3. Point your domain to Route53\n\nCommon gotcha:\nNewbies think Route53 only does DNS. Nope. It's smart routing too.\n\nNailed this in your last interview? Or would you answer differently? Drop your approach below \ud83d\udc47\n\n#AWS #CloudArchitecture #DevOpsInterview #Route53 #SystemDesign",
+    "hook_id": "2052016699646333028",
+    "thread_id": "2052016700917153859",
+    "content_hash": "4521929527f857d29b61d504d1b69e5d"
   }
 ]
