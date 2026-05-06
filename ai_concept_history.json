@@ -218,5 +218,14 @@
     "hook_id": "2051810253260677288",
     "thread_id": "2051810254284095562",
     "content_hash": "83849bb7f8b95f1581c4daf8d3c02941"
+  },
+  {
+    "date": "2026-05-06T23:46:59.628244+00:00",
+    "concept": "AI Agents and Tool Use",
+    "hook": "Everyone says 'AI agents' but most people have no idea what that means. It's way simpler than you think \ud83d\udc47",
+    "thread": "An AI agent is just an AI that can use tools to get things done.\n\nThink of it like this: A regular chatbot answers questions. An agent answers questions AND can take action.\n\nNormal AI: \"Here's the weather forecast.\"\nAgent AI: \"Here's the weather AND I just booked your flight because it's getting cold.\"\n\nThe agent can:\n- Check the calendar\n- Book flights\n- Send emails\n- Look up data\n- Run code\n\nIt decides which tool to use and when. You tell it a goal. It figures out the steps.\n\nWhy it matters: Instead of you doing 10 clicks across 5 apps, you just tell the agent what you need. It does the work.\n\nRight now companies are building agents for:\n- Customer support (answers + solves problems)\n- Data analysis (finds info + makes reports)\n- HR tasks (schedules interviews, processes requests)\n\nThe key difference from regular AI: It doesn't just talk. It acts.\n\nWhat's the main thing you'd want an AI agent to handle at your job? \ud83d\udc47\n\n#AIAgents #AI #Tools #Automation #TechSimplified",
+    "hook_id": "2052173309924532311",
+    "thread_id": "2052173310885056998",
+    "content_hash": "68d6f86d9635a237cd0be24cfe08d295"
   }
 ]
