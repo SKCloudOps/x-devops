@@ -1135,5 +1135,14 @@
     "hook_id": "2051797438214615280",
     "thread_id": "2051797440076959996",
     "content_hash": "37d70729168e5c5169a61e92efe5e219"
+  },
+  {
+    "date": "2026-05-06T04:29:47.316493+00:00",
+    "category": "cloud_architecture_pattern",
+    "hook": "Interviewer: 'How do you track who changed what in your AWS account?' \u2014 Most candidates miss the obvious answer. \ud83d\udc47",
+    "thread": "CloudTrail. That's it. That's the answer.\n\nCloudTrail logs every API call made in your AWS account. Who did it, when, and what changed. It's your audit trail.\n\nExample: Someone deletes an S3 bucket. You check CloudTrail and see exactly which user, IP address, and time. Game over.\n\nWhy this matters in interviews:\n- Shows you care about security\n- Proves you think about 'who broke what'\n- Managers love this answer\n\nBonus tip: CloudTrail logs go to S3 by default. But if you don't set it up, you get nothing. So mention you'd enable it day one.\n\nThat's the full answer. Simple, right?\n\nWhat's the hardest AWS security question you've been asked? Drop it below \ud83d\udc47\n\n#AWS #DevOps #CloudTrail #AWSInterview #CloudSecurity",
+    "hook_id": "2051882089361068393",
+    "thread_id": "2051882090623648170",
+    "content_hash": "2df3790a7420295d6a2382f00ddb1723"
   }
 ]
