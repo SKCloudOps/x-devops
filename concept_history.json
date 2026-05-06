@@ -196,5 +196,14 @@
     "hook_id": "2051737489040101836",
     "thread_id": "2051737490134806834",
     "content_hash": "566c8d435afabf02ebfae043ff7eb8a5"
+  },
+  {
+    "date": "2026-05-06T19:11:30.946801+00:00",
+    "concept": "Docker container logs and log persistence",
+    "hook": "Most engineers running Docker containers have no idea what's actually inside them. Here's the problem \ud83d\udc47",
+    "thread": "When you run a Docker container, you get logs. But where do they actually go?\n\nThey just sit in a file on your host machine. If your container crashes or gets deleted, poof\u2014logs are gone. No history. No trace.\n\nThink of it like writing a journal in invisible ink. Once you flip the page, it's lost forever.\n\nHere's the gotcha: Docker doesn't magically keep logs around. They pile up on disk and can eat gigabytes of space. And if your container dies at 3am when you're sleeping? You've got nothing to debug with.\n\nThe fix? Send logs somewhere else. Use a logging driver (Splunk, ELK, Datadog, whatever). Ship them out BEFORE your container dies.\n\nOne tip: set log rotation in your Docker config. Prevents logs from exploding your disk.\n\nWhat's your biggest logging headache with Docker right now? \ud83d\udc47\n\n#Docker #Monitoring #DevOps #Logging",
+    "hook_id": "2052103983590781008",
+    "thread_id": "2052103984567951467",
+    "content_hash": "7e94d781c81ca666bf914a3210ff123d"
   }
 ]
