@@ -1153,5 +1153,14 @@
     "hook_id": "2052016699646333028",
     "thread_id": "2052016700917153859",
     "content_hash": "4521929527f857d29b61d504d1b69e5d"
+  },
+  {
+    "date": "2026-05-06T16:14:22.425193+00:00",
+    "category": "cloud_architecture_pattern",
+    "hook": "Interviewer: 'Why use Aurora over regular RDS?' \u2014 Most candidates get this wrong. Here's what they miss \ud83d\udc47",
+    "thread": "Aurora isn't just a faster version of MySQL. Here's the real difference:\n\nRegular RDS = You pick one database size. You pay for it all the time. If it crashes, you wait for a failover.\n\nAurora = It scales automatically. Copies your data across 3 zones automatically. If one zone dies, it switches in seconds.\n\nReal example: Your app gets a traffic spike. With regular RDS, you hit your limits and slow down. With Aurora, it adds more replicas on its own.\n\nThe trick most miss? Aurora charges per data stored + per request. Regular RDS charges per instance size. So if you barely use your database, regular RDS is cheaper. But if you get surprise traffic spikes, Aurora saves you from disaster.\n\nAlso ngl \u2014 Aurora reads scale way better. You can add read replicas in seconds, not minutes.\n\nWhat's your go-to question when someone says 'we should use Aurora'? Drop it below \ud83d\udc47\n\n#CloudArchitecture #AWS #DevOpsInterviews #DatabaseDesign",
+    "hook_id": "2052059403655025119",
+    "thread_id": "2052059405370478938",
+    "content_hash": "b1ef12c89f9377cebf0ac5dc56858082"
   }
 ]
