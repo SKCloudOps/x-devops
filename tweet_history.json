@@ -1162,5 +1162,14 @@
     "hook_id": "2052059403655025119",
     "thread_id": "2052059405370478938",
     "content_hash": "b1ef12c89f9377cebf0ac5dc56858082"
+  },
+  {
+    "date": "2026-05-06T18:16:00.958475+00:00",
+    "category": "cloud_architecture_pattern",
+    "hook": "Interviewer: 'How do you scale Kubernetes nodes automatically?' \u2014 Most candidates mention Cluster Autoscaler. But there's a better way. \ud83d\udc47",
+    "thread": "Here's the thing: Cluster Autoscaler works, but it's slow. It waits for pods to fail before it adds nodes. That's reactive.\n\nKarpenter is proactive. It watches for pods that can't be scheduled RIGHT NOW and spins up nodes before they fail.\n\nReal example:\n- You deploy 50 new pods\n- Cluster Autoscaler: waits for them to sit \"pending\" for 10 minutes, then adds nodes\n- Karpenter: sees 50 pending pods in seconds, launches nodes immediately\n\nBonus: Karpenter also removes nodes faster when demand drops. Less wasted money.\n\nThe catch? Karpenter needs more setup than Cluster Autoscaler. But if you care about speed and cost, it's worth it.\n\nHave you used Karpenter? Or still sticking with Cluster Autoscaler? Drop your take below \ud83d\udc47\n\n#Kubernetes #DevOps #Karpenter #CloudNative #ContainerOrchestration",
+    "hook_id": "2052090016411873715",
+    "thread_id": "2052090017665949923",
+    "content_hash": "0fa98897da78d99b804fcac0a1c75b4a"
   }
 ]
