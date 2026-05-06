@@ -1171,5 +1171,14 @@
     "hook_id": "2052090016411873715",
     "thread_id": "2052090017665949923",
     "content_hash": "0fa98897da78d99b804fcac0a1c75b4a"
+  },
+  {
+    "date": "2026-05-06T20:53:25.574363+00:00",
+    "category": "cloud_architecture_pattern",
+    "hook": "Interviewer: 'Why would you use Fargate instead of managing EC2 instances?' \u2014 Most candidates get this wrong. \ud83d\udc47",
+    "thread": "Here's the real deal:\n\nFargate = You just run containers. AWS handles the servers for you.\n\nEC2 = You manage the servers AND run containers on them.\n\nWhen to pick Fargate:\n\u2022 You don't want to patch servers\n\u2022 Your app doesn't need custom hardware\n\u2022 You want simple scaling\n\u2022 You're running small to medium workloads\n\nWhen to pick EC2:\n\u2022 You need total control\n\u2022 You're running huge, complex apps\n\u2022 You have weird hardware needs\n\u2022 Cost matters more than convenience\n\nReal example: A startup running a web app? Fargate wins. A game company needing GPU power? EC2 wins.\n\nThe trick most candidates miss: Fargate isn't always cheaper. It's about trading money for less headache.\n\nWould you pick Fargate or EC2 for a small API service? Tell me why \ud83d\udc47\n\n#Fargate #AWS #DevOps #CloudArchitecture #InterviewPrep",
+    "hook_id": "2052129629104644301",
+    "thread_id": "2052129631189291301",
+    "content_hash": "a519881ea7014db0f005d5c7dbd7be80"
   }
 ]
