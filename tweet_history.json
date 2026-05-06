@@ -1180,5 +1180,14 @@
     "hook_id": "2052129629104644301",
     "thread_id": "2052129631189291301",
     "content_hash": "a519881ea7014db0f005d5c7dbd7be80"
+  },
+  {
+    "date": "2026-05-06T22:51:39.881495+00:00",
+    "category": "cloud_architecture_pattern",
+    "hook": "Interviewer: 'What's the difference between GitOps and regular CI/CD?' \u2014 Most engineers mix them up. Would you? \ud83d\udc47",
+    "thread": "Good question. Here's the key difference:\n\nRegular CI/CD: You push code \u2192 pipeline runs tests \u2192 deploys to servers. You control it.\n\nGitOps: Your git repo is the source of truth. A tool like Flux watches your repo. When you change something in git, Flux automatically syncs it to your cluster.\n\nReal example:\nWith CI/CD, you might manually run: kubectl apply -f deployment.yaml\n\nWith GitOps (Flux), you just commit your yaml to git. Done. Flux sees the change and applies it for you.\n\nWhy it's better: Git has all the history. You can see who changed what. You can rollback easy. And your infra code and app code live in the same place.\n\nOne tip: GitOps isn't just about tools like Flux or ArgoCD. It's a philosophy \u2014 git is your single source of truth for everything.\n\nHave you used GitOps in an interview before? How'd you explain it? \ud83d\udc47\n\n#GitOps #Kubernetes #DevOps #CloudArchitecture #FluxCD",
+    "hook_id": "2052159384780751015",
+    "thread_id": "2052159386802421996",
+    "content_hash": "a115559c96fd2e580714223c6d66a549"
   }
 ]
