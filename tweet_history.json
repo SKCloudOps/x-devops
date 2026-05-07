@@ -1234,5 +1234,14 @@
     "hook_id": "2052490909288456299",
     "thread_id": "2052490910597083361",
     "content_hash": "431531fca0c443af8a5c87e124be114c"
+  },
+  {
+    "date": "2026-05-07T22:59:20.745208+00:00",
+    "category": "sre_observability_question",
+    "hook": "Interviewer: 'How do you let your pods access AWS without storing keys?' \u2014 Most candidates freeze here. Would you know? \ud83d\udc47",
+    "thread": "This is where IRSA comes in. IRSA = IAM Roles for Service Accounts.\n\nHere's the deal:\n\nNormally, you'd put AWS keys in a secret. Bad idea. Keys get leaked, stolen, rotated constantly.\n\nWith IRSA, your pod gets a temporary token instead. No keys needed.\n\nHow it works:\n1. You create an IAM role in AWS\n2. You link it to a Kubernetes service account\n3. Your pod uses that service account\n4. Pod gets temp creds automatically\n5. Creds expire fast and refresh on their own\n\nReal example: Your app needs to read data from S3. Instead of:\n- aws_access_key_id in a secret (yikes)\n\nYou do:\n- Pod runs with service account \"my-app\"\n- Service account is linked to IAM role \"s3-reader\"\n- Pod automatically gets S3 access\n- No keys sitting around\n\nWhy this matters:\n- Simpler to manage\n- Way more secure\n- Keys never touch your cluster\n- Works great with EKS (AWS's Kubernetes)\n\nPro tip: Combine this with least privilege. Give the IAM role ONLY the permissions it needs. Nothing extra.\n\nWhat's your go-to method for managing AWS creds in Kubernetes? Drop it below \ud83d\udc47\n\n#DevOps #Kubernetes #AWS #SRE #IRSA",
+    "hook_id": "2052523706287571380",
+    "thread_id": "2052523707759747410",
+    "content_hash": "cb4d0a2b062ea88366185e89a099051b"
   }
 ]
