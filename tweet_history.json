@@ -1216,5 +1216,14 @@
     "hook_id": "2052423947317019070",
     "thread_id": "2052423948818592096",
     "content_hash": "b0d54377ab0b21d75af11beec63362fa"
+  },
+  {
+    "date": "2026-05-07T18:23:28.845905+00:00",
+    "category": "sre_observability_question",
+    "hook": "Interviewer: 'How do you shield your system from bad monitoring data?' \u2014 Most candidates miss the real answer. \ud83d\udc47",
+    "thread": "Here's what they're really asking: How do you stop garbage metrics from breaking your alerts and dashboards?\n\nThe answer: Data validation + filtering.\n\nExample: Say your app sends CPU usage. One server sends \"999%\" instead of a real number. That's noise. It messes up your alerts and charts.\n\nWhat to do:\n1. Validate data BEFORE it hits your system\n2. Drop or fix bad values\n3. Set bounds (CPU can't be over 100%)\n4. Use timeouts (if a metric stops coming, flag it)\n5. Alert on the alert \u2014 if too many metrics fail, something's wrong\n\nReal tip: Use prometheus relabeling or your collector to scrub data early. Don't let trash into your database.\n\nTbh, most teams learn this the hard way when a bad metric tanks their dashboard for an hour.\n\nWhat's the messiest monitoring issue you've debugged? Drop it below \ud83d\udc47\n\n#SRE #Observability #DevOps #Monitoring",
+    "hook_id": "2052454282633388513",
+    "thread_id": "2052454283946156101",
+    "content_hash": "178e1e0a1fd126ece897e18fb27ecf35"
   }
 ]
