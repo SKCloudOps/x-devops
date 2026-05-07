@@ -227,5 +227,14 @@
     "hook_id": "2052173309924532311",
     "thread_id": "2052173310885056998",
     "content_hash": "68d6f86d9635a237cd0be24cfe08d295"
+  },
+  {
+    "date": "2026-05-07T23:51:06.748968+00:00",
+    "concept": "Vision Model",
+    "hook": "Everyone says 'vision model' but most people think it's just fancy image recognition. Nah, it's way cooler than that \ud83d\udc47",
+    "thread": "A vision model is an AI that can actually *understand* what's in a picture. Not just label it.\n\nThink of it like this: Old tech could say \"there's a dog.\" A vision model can say \"golden retriever sitting on a blue couch, looking left, sunny day.\"\n\nIt learned by seeing millions of images. Now it can describe what's happening, count things, spot problems, even read text in photos.\n\nWhy it matters: This powers everything from self-driving cars (seeing the road) to doctors spotting tumors in X-rays to your phone organizing photos by content. It's not magic\u2014just pattern matching on steroids.\n\nThe catch? They need tons of training data and can still mess up in weird ways.\n\nWhat confuses you most about how AI sees images? \ud83d\udc47\n\n#AI #MachineLearning #VisionAI #Tech",
+    "hook_id": "2052536734278181123",
+    "thread_id": "2052536735221928421",
+    "content_hash": "264409b28a66df1518bdaaeefa617553"
   }
 ]
