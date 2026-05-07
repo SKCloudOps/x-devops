@@ -205,5 +205,14 @@
     "hook_id": "2052103983590781008",
     "thread_id": "2052103984567951467",
     "content_hash": "7e94d781c81ca666bf914a3210ff123d"
+  },
+  {
+    "date": "2026-05-07T19:16:24.436523+00:00",
+    "concept": "Aurora Serverless scaling lag and capacity planning",
+    "hook": "Most engineers using Aurora Serverless have no idea why their DB suddenly gets slow \ud83d\udc47",
+    "thread": "Aurora Serverless auto-scales your database. Sounds great, right? But here's the thing:\n\nScaling takes TIME. When traffic spikes, it can take 30+ seconds for your DB to spin up new capacity. Your app times out before it even starts.\n\nIt's like having a restaurant with one waiter. When the lunch rush hits, you gotta hire more staff. But hiring takes 30 seconds. Customers leave angry.\n\nThe gotcha: You need to set your MIN capacity high enough to handle normal traffic. Don't just set it to 0.5 ACUs thinking you'll save money. You'll get crushed.\n\nPro tip: Use Connection Pooling (like RDS Proxy) in front of Aurora Serverless. It handles spikes way better than raw connections.\n\nWhat's your biggest Aurora headache been? Bad scaling, connection limits, or something else? Drop it below \ud83d\udc47\n\n#Aurora #ServerlessDB #AWS #DevOps #RDS",
+    "hook_id": "2052467602425892990",
+    "thread_id": "2052467603390521376",
+    "content_hash": "29423ea88b2c919b3622974dbd895199"
   }
 ]
