@@ -1198,5 +1198,14 @@
     "hook_id": "2052244566489681997",
     "thread_id": "2052244568075079944",
     "content_hash": "1be6b463785f0cd06b3c3f09afa3be50"
+  },
+  {
+    "date": "2026-05-07T13:24:05.815207+00:00",
+    "category": "sre_observability_question",
+    "hook": "Interviewer: 'How do you monitor a Docker container that's using too much memory?' \u2014 Most candidates freeze here \ud83d\udc47",
+    "thread": "Here's what they want to hear:\n\nFirst, use Docker stats. It shows CPU, memory, and network in real time.\n\n\ndocker stats container_name\n\n\nYou'll see memory usage live. But that's just step one.\n\nFor real monitoring, you need something that stores data. Docker stats only shows now. You can't see what happened yesterday.\n\nThat's where Prometheus + Grafana comes in. You scrape metrics from your containers and save them. Then you build dashboards and set alerts.\n\nExample: If a container hits 500MB, an alert fires. You get notified before it crashes.\n\nThe key insight: Don't just watch. Collect data. Set thresholds. Alert when things go wrong.\n\nThat's SRE thinking. That's what they're testing.\n\nWhat tools do you use to monitor your containers? Reply below \ud83d\udc47\n\n#DevOps #Docker #SRE #Monitoring #Kubernetes",
+    "hook_id": "2052378940489244703",
+    "thread_id": "2052378941638533432",
+    "content_hash": "e92a1bf4b12ec482cf6cc2e3180a14d2"
   }
 ]
