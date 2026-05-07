@@ -1225,5 +1225,14 @@
     "hook_id": "2052454282633388513",
     "thread_id": "2052454283946156101",
     "content_hash": "178e1e0a1fd126ece897e18fb27ecf35"
+  },
+  {
+    "date": "2026-05-07T20:49:01.312884+00:00",
+    "category": "sre_observability_question",
+    "hook": "Interviewer: 'How do you monitor GitHub Actions workflows?' \u2014 Most candidates only talk about logs. Here's what they miss \ud83d\udc47",
+    "thread": "GitHub Actions logs are just the start. Here's what actually matters for SRE observability:\n\n1. METRICS\nTrack how long jobs run. Count failures. Watch queue times. These tell you if your CI is getting slower.\n\nExample: Set up a metric that fires every time a workflow fails. Then alert on spike.\n\n2. TRACES\nFollow a single workflow from start to end. See which step is slow. GitHub gives you run duration data \u2014 use it.\n\n3. CONTEXT\nDon't just log \"job failed.\" Log why. Was it a timeout? Resource limit? Bad code? Add tags and labels.\n\n4. REAL EXAMPLE\nSet up a webhook to push workflow events to your monitoring tool (Datadog, New Relic, etc). You'll see patterns other teams miss.\n\nMost engineers say \"I check the logs\" and stop there. SREs go deeper \u2014 we ask why and measure it.\n\nWhat's your go-to tool for CI/CD monitoring? Drop it below \ud83d\udc47\n\n#SRE #DevOps #GitHub #Observability #CI/CD",
+    "hook_id": "2052490909288456299",
+    "thread_id": "2052490910597083361",
+    "content_hash": "431531fca0c443af8a5c87e124be114c"
   }
 ]
