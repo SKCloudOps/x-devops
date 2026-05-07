@@ -1189,5 +1189,14 @@
     "hook_id": "2052159384780751015",
     "thread_id": "2052159386802421996",
     "content_hash": "a115559c96fd2e580714223c6d66a549"
+  },
+  {
+    "date": "2026-05-07T04:30:08.690730+00:00",
+    "category": "sre_observability_question",
+    "hook": "Interviewer: 'How do you scale apps based on custom metrics?' \u2014 Most candidates only mention CPU/memory. Here's what they miss \ud83d\udc47",
+    "thread": "KEDA is your answer. It's an open source tool that scales your apps based on literally anything.\n\nNot just CPU or memory \u2014 you can scale on:\n\u2022 Message queue depth (RabbitMQ, AWS SQS)\n\u2022 HTTP requests per second\n\u2022 Custom metrics from your app\n\u2022 Database connections\n\u2022 Anything via webhooks\n\nHere's the simple version:\n\nWithout KEDA: Your app waits for CPU to spike, then Kubernetes scales up. Slow. Bad.\n\nWith KEDA: You tell it \"if my queue has 100+ messages, add 5 more pods.\" It watches the queue, not just resources. Scales faster. Smarter.\n\nReal example:\nYou run a background job processor. During peak hours, your SQS queue fills up. You want more workers NOW, not after CPU hits 80%.\n\nWith KEDA, you say: \"scale 1 pod per 10 messages in queue.\" Done. It watches SQS, scales up when needed, scales down when queue empties.\n\nThe trick? KEDA sits between your metrics (anything) and Kubernetes scaling. It's the translator.\n\nHave you used KEDA in interviews? Or been asked about custom scaling? Drop your experience below \ud83d\udc47\n\n#Kubernetes #KEDA #DevOps #SRE #Scaling",
+    "hook_id": "2052244566489681997",
+    "thread_id": "2052244568075079944",
+    "content_hash": "1be6b463785f0cd06b3c3f09afa3be50"
   }
 ]
