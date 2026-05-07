@@ -1207,5 +1207,14 @@
     "hook_id": "2052378940489244703",
     "thread_id": "2052378941638533432",
     "content_hash": "e92a1bf4b12ec482cf6cc2e3180a14d2"
+  },
+  {
+    "date": "2026-05-07T16:22:56.382391+00:00",
+    "category": "sre_observability_question",
+    "hook": "Interviewer: 'How do you know if your DynamoDB is actually healthy?' \u2014 Most people just check if it's running. That's not enough. \ud83d\udc47",
+    "thread": "Here's what you actually need to monitor:\n\n1. Throttling \u2014 Are writes getting blocked? Check CloudWatch for ProvisionedWriteCapacityUnits hitting limits. If it spikes, your app slows down hard.\n\n2. Latency \u2014 P99 latency matters more than average. Your users see the slow requests, not the average.\n\n3. Read/Write Capacity \u2014 Plot your actual usage. If you're at 80%+ consistently, you're one spike away from throttling.\n\n4. System Errors \u2014 DynamoDB returns 500s sometimes. Set up alarms for them.\n\nReal example: I once had a table \"healthy\" by disk space but throttling every evening. Nobody noticed until we looked at actual write capacity. One CloudWatch dashboard later, problem solved.\n\nSet up alerts for P99 latency going above your SLA. That's your canary.\n\nWhat metric have you missed before that bit you later? Drop it below \ud83d\udc47\n\n#SRE #DynamoDB #Observability #AWS #DevOps",
+    "hook_id": "2052423947317019070",
+    "thread_id": "2052423948818592096",
+    "content_hash": "b0d54377ab0b21d75af11beec63362fa"
   }
 ]
