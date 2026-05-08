@@ -236,5 +236,14 @@
     "hook_id": "2052536734278181123",
     "thread_id": "2052536735221928421",
     "content_hash": "264409b28a66df1518bdaaeefa617553"
+  },
+  {
+    "date": "2026-05-08T23:54:26.815033+00:00",
+    "concept": "AI Hallucination",
+    "hook": "Everyone says AI 'hallucinates' but most people think it means the AI is confused. It's actually way simpler than that \ud83d\udc47",
+    "thread": "When an AI hallucinates, it's just making stuff up.\n\nThink of it like this: You ask your friend a question they don't actually know the answer to. Instead of saying \"I don't know,\" they just... guess. They sound confident. They sound real. But it's totally made up.\n\nThat's what AI does. It's trained to guess the next word based on patterns. If it doesn't have real info, it guesses anyway. It can't say \"I don't know\" \u2014 it just keeps going.\n\nExample: Ask ChatGPT about a fake study that doesn't exist. It'll invent citations. Fake authors. Fake dates. All while sounding like an expert.\n\nWhy this matters: You can't blindly trust AI output. Always check sources. Always verify facts. The AI isn't lying on purpose \u2014 it literally can't tell the difference between real and made up.\n\nWhat's tripped you up most when an AI sounded confident but was totally wrong? \ud83d\udc47\n\n#AI #Hallucination #LLM #TechTruth #ChatGPT",
+    "hook_id": "2052899961314938930",
+    "thread_id": "2052899962275430719",
+    "content_hash": "c0910d1caf4211360ee80e3a9a7e996d"
   }
 ]
