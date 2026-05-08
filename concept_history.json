@@ -214,5 +214,14 @@
     "hook_id": "2052467602425892990",
     "thread_id": "2052467603390521376",
     "content_hash": "29423ea88b2c919b3622974dbd895199"
+  },
+  {
+    "date": "2026-05-08T18:53:30.974512+00:00",
+    "concept": "Fargate Pricing and Task Lifecycle Costs",
+    "hook": "Most engineers using Fargate don't know this: you're still paying for CPU and memory even when your container isn't running. Here's the catch \ud83d\udc47",
+    "thread": "Fargate feels like \"serverless\" but it's not quite. You pick a CPU/memory combo upfront. AWS charges you for that combo the entire time the task exists. It doesn't matter if your app is idle.\n\nThink of it like renting a car. You pay per hour whether you're driving or parked.\n\nThe gotcha: if you deploy a task that runs for just 5 minutes a day, you still pay for 24 hours of compute. This kills costs fast.\n\nBetter move: use task autoscaling. Scale down to zero when you don't need it. Or switch to Lambda if the task is short-lived.\n\nHow are you currently handling Fargate costs? Do you scale down unused tasks? \ud83d\udc47\n\n#Fargate #AWS #DevOps #CostOptimization #CloudNative",
+    "hook_id": "2052824229662323096",
+    "thread_id": "2052824230635380790",
+    "content_hash": "d9ee43823458e515ac4fa61a16a1249f"
   }
 ]
