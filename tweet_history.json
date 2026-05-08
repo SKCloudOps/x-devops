@@ -1243,5 +1243,14 @@
     "hook_id": "2052523706287571380",
     "thread_id": "2052523707759747410",
     "content_hash": "cb4d0a2b062ea88366185e89a099051b"
+  },
+  {
+    "date": "2026-05-08T04:12:27.424459+00:00",
+    "category": "networking_security_question",
+    "hook": "Interviewer: 'What's a WAF and why do we need one?' \u2014 Most engineers mix this up with a firewall. Would you get it right? \ud83d\udc47",
+    "thread": "A WAF is a Web Application Firewall. Here's the key difference:\n\nA regular firewall blocks traffic based on IP addresses and ports. It's like a bouncer checking if you're on the list.\n\nA WAF looks INSIDE the traffic. It checks what you're actually trying to do.\n\nExample: Someone sends a request like: /search?query=<script>alert('hacked')</script>\n\nA regular firewall? Let's it through. The IP looks normal.\n\nA WAF? Sees that script tag and blocks it. It stops the SQL injection or XSS attack.\n\nSo a WAF protects your app layer. A regular firewall protects your network layer.\n\nYou need both.\n\nTip for the interview: Say it defends against attacks INSIDE valid requests. That's the whole point.\n\nHave you been asked about WAF vs firewall before? What tripped you up? \ud83d\udc47\n\n#DevOpsInterviews #NetworkSecurity #WAF #CyberSecurity",
+    "hook_id": "2052602503418499189",
+    "thread_id": "2052602504756503039",
+    "content_hash": "f686700fafb04d5c995086c233b0ceab"
   }
 ]
