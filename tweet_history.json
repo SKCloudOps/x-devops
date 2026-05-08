@@ -1279,5 +1279,14 @@
     "hook_id": "2052813176811516305",
     "thread_id": "2052813178195644449",
     "content_hash": "14bc7a728c9d67bbd01e5a39d2cbf434"
+  },
+  {
+    "date": "2026-05-08T20:35:18.071377+00:00",
+    "category": "networking_security_question",
+    "hook": "Interviewer: 'How would you detect suspicious AWS activity?' \u2014 Most candidates miss the obvious answer. \ud83d\udc47",
+    "thread": "They're looking for GuardDuty. It's AWS's threat detection service. Think of it as a security guard watching your account 24/7.\n\nHere's what it does:\n- Finds weird login attempts\n- Spots unusual data access\n- Catches malware\n- Alerts you to threats\n\nWhy this matters: You can't watch everything yourself. GuardDuty runs in the background and flags sketchy stuff.\n\nReal example: Someone tries to access 1000 S3 buckets in 5 minutes. GuardDuty catches it. You get an alert. Crisis averted.\n\nBonus tip: Pair it with CloudWatch for full visibility. GuardDuty finds threats. CloudWatch logs everything. Together? Chef's kiss.\n\nHow would you set up the alerts after GuardDuty finds a threat? Reply below \ud83d\udc47\n\n#AWS #DevOps #CloudSecurity #InterviewTip #GuardDuty",
+    "hook_id": "2052849844360974788",
+    "thread_id": "2052849845573226968",
+    "content_hash": "3bd8abbf1b5adb9556ade9cb0e261942"
   }
 ]
