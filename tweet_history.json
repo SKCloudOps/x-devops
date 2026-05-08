@@ -1288,5 +1288,14 @@
     "hook_id": "2052849844360974788",
     "thread_id": "2052849845573226968",
     "content_hash": "3bd8abbf1b5adb9556ade9cb0e261942"
+  },
+  {
+    "date": "2026-05-08T22:54:00.375616+00:00",
+    "category": "networking_security_question",
+    "hook": "Interviewer: 'How does Karpenter differ from the Kubernetes cluster autoscaler?' \u2014 Most candidates mix these up. Would you? \ud83d\udc47",
+    "thread": "Here's the real difference:\n\nCluster autoscaler: Watches for pods that can't fit. Then adds more nodes. But it's slow and clunky.\n\nKarpenter: Smarter. It looks at what pods need BEFORE they fail. Spins up the right node type fast. Way faster startup.\n\nReal example:\n\nYou deploy 100 pods that need GPU. Cluster autoscaler waits for them to fail, then adds nodes. Takes minutes.\n\nKarpenter sees it coming. Launches GPU nodes right away. Pods run almost instantly.\n\nBonus: Karpenter also bins pods better. Packs them tighter. Saves money on unused node space.\n\nOne catch: Karpenter needs more setup. Not built into K8s like autoscaler. You install it separately.\n\nSo in an interview:\n- Autoscaler = reactive (slow)\n- Karpenter = proactive (fast)\n\nHave you used Karpenter in production? What was your biggest win or headache? \ud83d\udc47\n\n#Karpenter #Kubernetes #DevOps #CloudEngineer",
+    "hook_id": "2052884750457557024",
+    "thread_id": "2052884751879385331",
+    "content_hash": "5a8c13c1ab0f8869544980a9cfe6ffe2"
   }
 ]
