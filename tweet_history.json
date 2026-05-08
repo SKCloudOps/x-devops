@@ -1252,5 +1252,14 @@
     "hook_id": "2052602503418499189",
     "thread_id": "2052602504756503039",
     "content_hash": "f686700fafb04d5c995086c233b0ceab"
+  },
+  {
+    "date": "2026-05-08T13:04:25.305628+00:00",
+    "category": "networking_security_question",
+    "hook": "Interviewer: 'How do you let a pod access AWS without storing secret keys?' \u2014 Most candidates panic here. Here's the real answer \ud83d\udc47",
+    "thread": "This is IRSA (IAM Roles for Service Accounts). It's actually genius once you get it.\n\nInstead of putting AWS keys in your pod, you:\n\n1. Create an IAM role in AWS\n2. Link it to a Kubernetes service account\n3. The pod assumes that role automatically\n\nNo secrets to rotate. No keys in your code. Clean.\n\nREAL EXAMPLE:\nYou have a pod that needs to read from S3. Instead of:\n\u274c kubectl create secret with AWS_ACCESS_KEY_ID\n\nYou do:\n\u2705 Create an IAM role \u2192 Attach S3 read policy \u2192 Link to your service account\n\nThe pod gets temporary credentials automatically. They expire and refresh on their own.\n\nWhy this matters in interviews:\n- Shows you understand AWS + Kubernetes\n- Proves you think about security (no hardcoded secrets)\n- Real companies use this in production\n\nQuick tip: IRSA uses OpenID Connect (OIDC). Don't memorize it. Just know the idea: Kubernetes talks to AWS, proves the pod is legit, and gets temporary keys back.\n\nWhat's your go-to answer for this one? Or would you explain it differently? Drop it below \ud83d\udc47\n\n#DevOps #Kubernetes #AWS #IRSA #InterviewPrep #CloudSecurity",
+    "hook_id": "2052736376370507913",
+    "thread_id": "2052736378023133304",
+    "content_hash": "ea7bcc39c8e5e198f446477ee0036e84"
   }
 ]
