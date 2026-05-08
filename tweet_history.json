@@ -1261,5 +1261,14 @@
     "hook_id": "2052736376370507913",
     "thread_id": "2052736378023133304",
     "content_hash": "ea7bcc39c8e5e198f446477ee0036e84"
+  },
+  {
+    "date": "2026-05-08T15:59:00.668849+00:00",
+    "category": "networking_security_question",
+    "hook": "Interviewer: 'How do you manage infrastructure across multiple clouds?' \u2014 Most engineers panic here. Here's the real answer \ud83d\udc47",
+    "thread": "This is where Crossplane comes in. It's a tool that lets you write your infrastructure like code \u2014 but it works across AWS, Azure, GCP, all of them.\n\nHere's the simple version:\n\nNormally you learn each cloud's tools. AWS has CloudFormation. Azure has ARM templates. It's a mess.\n\nCrossplane says: 'Write once, run anywhere.' You define your resources (databases, networks, storage) in a standard way. Crossplane handles the cloud-specific details behind the scenes.\n\nReal example:\nYou need a database. Instead of learning AWS RDS commands AND Azure SQL commands, you write one definition. Crossplane sees it and says 'oh, you're on AWS? I'll use RDS. You're on Azure? I'll use SQL Database.'\n\nWhy this matters in interviews:\n- Shows you think beyond one cloud\n- Proves you care about automation\n- Means less vendor lock-in\n\nThe trick? You don't need to be an expert. Just know it exists and what problem it solves.\n\nWhat's the hardest multi-cloud question you've faced? Drop it below \ud83d\udc47\n\n#DevOps #Kubernetes #Crossplane #CloudNative #Infrastructure",
+    "hook_id": "2052780313261007116",
+    "thread_id": "2052780314896765066",
+    "content_hash": "b778944edbb17a128d22a1508b6efee5"
   }
 ]
