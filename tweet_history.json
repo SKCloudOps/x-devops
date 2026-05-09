@@ -1306,5 +1306,14 @@
     "hook_id": "2052966427397927213",
     "thread_id": "2052966428815606018",
     "content_hash": "db5cbc9ffd2ca4264f1fc6c4c133ee8f"
+  },
+  {
+    "date": "2026-05-09T12:47:43.638030+00:00",
+    "category": "container_orchestration_question",
+    "hook": "Interviewer: 'How do you handle pod crashes in Kubernetes?' \u2014 Most candidates miss the real answer. What would you say? \ud83d\udc47",
+    "thread": "Here's what they're actually asking: When a pod dies, what happens next?\n\nWrong answer: \"It just... stops?\"\n\nRight answer: \"Kubernetes notices the pod is dead. It checks the restart policy. Then it spins up a new one automatically.\"\n\nThe key detail most miss: You need to tell Kubernetes HOW to restart things.\n\nExample:\n- RestartPolicy: Always (default) = start it again, even if it crashed\n- RestartPolicy: OnFailure = only restart if it failed, not if you stopped it\n- RestartPolicy: Never = don't restart\n\nBonus tip: If a pod keeps crashing, Kubernetes adds a delay between restarts. First restart is quick. Second takes longer. This is called exponential backoff \u2014 it stops your app from hammering a broken resource.\n\nThink of it like a circuit breaker. Pod crashes \u2192 wait a sec \u2192 try again \u2192 crashes again \u2192 wait longer \u2192 try again.\n\nOne more thing: This is different from SQS or message queues. Those handle app-level retries. Kubernetes handles container-level crashes. Both matter.\n\nWhat's the trickiest Kubernetes restart question you've been asked? Drop it below \ud83d\udc47\n\n#Kubernetes #DevOps #InterviewTips #Containers",
+    "hook_id": "2053094563066106002",
+    "thread_id": "2053094564424978518",
+    "content_hash": "1956620b0ccb83dadb4b5a3ba16bc372"
   }
 ]
