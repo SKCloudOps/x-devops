@@ -1342,5 +1342,14 @@
     "hook_id": "2053205851117076866",
     "thread_id": "2053205852522193226",
     "content_hash": "670003c7b9cf7c028094b440630c4147"
+  },
+  {
+    "date": "2026-05-09T22:40:20.752439+00:00",
+    "category": "container_orchestration_question",
+    "hook": "Interviewer: 'How do you deploy containers to Kubernetes without writing YAML by hand?' \u2014 Most candidates don't know the answer. \ud83d\udc47",
+    "thread": "This is where Infrastructure as Code tools shine. CDK (Cloud Development Kit) lets you write deployments in regular code \u2014 Python, TypeScript, whatever.\n\nInstead of hand-writing YAML files, you do:\n\n\nconst deployment = new Deployment(this, 'MyApp', {\n  image: 'my-app:latest',\n  replicas: 3,\n  port: 8080\n});\n\n\nThe tool generates all the YAML for you. It's faster, less error-prone, and way cleaner.\n\nWhy this matters:\n\u2022 One source of truth (your code)\n\u2022 Easy to version control\n\u2022 Catch mistakes before deployment\n\u2022 Share logic across projects\n\nPro tip: Use CDK when you're deploying to EKS (AWS's Kubernetes). If you're on vanilla Kubernetes, look at Helm charts instead.\n\nHave you used CDK or another IaC tool? Which one's your go-to? \ud83d\udc47\n\n#Kubernetes #DevOps #Infrastructure #ContainerOrchestration #AWS",
+    "hook_id": "2053243700839645198",
+    "thread_id": "2053243702022377902",
+    "content_hash": "6616378954f5283bf2270184c205e5a1"
   }
 ]
