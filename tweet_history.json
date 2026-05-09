@@ -1297,5 +1297,14 @@
     "hook_id": "2052884750457557024",
     "thread_id": "2052884751879385331",
     "content_hash": "5a8c13c1ab0f8869544980a9cfe6ffe2"
+  },
+  {
+    "date": "2026-05-09T04:18:33.681680+00:00",
+    "category": "container_orchestration_question",
+    "hook": "Interviewer: 'How do you control who can access your Kubernetes cluster?' \u2014 Most engineers freeze. Here's what they should say \ud83d\udc47",
+    "thread": "RBAC. That's Role-Based Access Control. It's how you say \"this person can do this, that person can't.\"\n\nThink of it like a gym:\n- Manager = can add members, lock doors, everything\n- Trainer = can only use equipment, teach classes\n- Member = can only use equipment\n\nIn Kubernetes, you create Roles (the rules) and bind them to users or service accounts (the people).\n\nExample: A junior dev needs to deploy to staging but NOT production. You give them a Role that says \"can create pods in staging namespace only.\" They can't touch production because their Role doesn't include that permission.\n\nBonus tip: Service accounts are how YOUR APPS talk to Kubernetes. You give each app only the permissions it actually needs. Your web app doesn't need to delete nodes. So don't give it that power.\n\nThat's IAM for Kubernetes. Not rocket science\u2014just principle of least privilege.\n\nWhat's the trickiest RBAC question you've gotten asked? Drop it below \ud83d\udc47\n\n#Kubernetes #DevOps #Interview #RBAC #ContainerOrchestration",
+    "hook_id": "2052966427397927213",
+    "thread_id": "2052966428815606018",
+    "content_hash": "db5cbc9ffd2ca4264f1fc6c4c133ee8f"
   }
 ]
