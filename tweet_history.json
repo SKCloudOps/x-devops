@@ -1315,5 +1315,14 @@
     "hook_id": "2053094563066106002",
     "thread_id": "2053094564424978518",
     "content_hash": "1956620b0ccb83dadb4b5a3ba16bc372"
+  },
+  {
+    "date": "2026-05-09T15:30:03.288151+00:00",
+    "category": "container_orchestration_question",
+    "hook": "Interviewer: 'How do you manage 50 microservices across 3 clusters?' \u2014 Most candidates fumble this. Would you know what to say? \ud83d\udc47",
+    "thread": "Here's the real answer they want to hear:\n\nYou need a tool that sits on top of your clusters. Kubernetes alone doesn't cut it.\n\nThis is where orchestration comes in. You need something that:\n\n1. Keeps track of all your services\n2. Deploys them the same way everywhere\n3. Watches if they crash and restarts them\n4. Lets your team see what's running\n\nTools like Kubernetes, combined with something like Argo CD or Flux, let you declare \"this is what I want running\" in a git repo. The tool watches that repo and makes it happen automatically.\n\nReal example: Your team pushes a new version to git. Argo CD sees it. Automatically deploys it to all 3 clusters. If it breaks, you roll back by reverting the git commit. Simple.\n\nWhy this matters: Without this, you're manually updating each cluster. That's slow, error-prone, and doesn't scale.\n\nWhat's your current setup? How do you handle multiple clusters? \ud83d\udc47\n\n#DevOps #Kubernetes #ContainerOrchestration #Interview",
+    "hook_id": "2053135414249054533",
+    "thread_id": "2053135415687643226",
+    "content_hash": "ea870fec9b2f4b5705b01c47c426701e"
   }
 ]
