@@ -223,5 +223,14 @@
     "hook_id": "2052824229662323096",
     "thread_id": "2052824230635380790",
     "content_hash": "d9ee43823458e515ac4fa61a16a1249f"
+  },
+  {
+    "date": "2026-05-09T18:33:06.995346+00:00",
+    "concept": "CloudWatch_log_ingestion_costs",
+    "hook": "Most engineers using CloudWatch logs don't realize this one thing costs them money every single day \ud83d\udc47",
+    "thread": "CloudWatch charges you for every byte of logs you send. Not just storage\u2014sending the logs in the first place.\n\nThink of it like a water bill. You pay for water coming into your house AND for water going down the drain. Same with logs.\n\nHere's the gotcha: A single app sending debug logs every second can rack up $200+/month without you noticing. Because the logs are \"just debug output\", right? Wrong.\n\nPro tip: Set log retention on your log groups. Delete old logs automatically. And ngl, filter what you're actually sending. Don't log everything.\n\nAlso check your CloudWatch costs in your AWS bill. Most people don't. They see the bill spike and don't know why.\n\nWhat's your biggest CloudWatch cost surprise? Have you gotten hit with a surprise bill? Reply below \ud83d\udc47\n\n#DevOps #AWS #CloudWatch #Linux",
+    "hook_id": "2053181483964408242",
+    "thread_id": "2053181484727668819",
+    "content_hash": "e7a00df929eb299ba86c7871aa30509a"
   }
 ]
