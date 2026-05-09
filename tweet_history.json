@@ -1333,5 +1333,14 @@
     "hook_id": "2053170923822252053",
     "thread_id": "2053170925277700102",
     "content_hash": "abdd3d4dcdcf4a0aae650aa7dddb6cda"
+  },
+  {
+    "date": "2026-05-09T20:09:56.741345+00:00",
+    "category": "container_orchestration_question",
+    "hook": "Interviewer: 'How does traffic get routed to your containers?' \u2014 Most say 'load balancer' and stop there. Here's what they miss \ud83d\udc47",
+    "thread": "Traffic flow in Kubernetes is actually 3 layers, not 1.\n\n1) INGRESS: Your API Gateway (or Ingress controller) sits outside the cluster. It's the front door. Routes HTTP/HTTPS requests.\n\n2) SERVICE: Inside the cluster, a Service is like a virtual IP. It finds all your Pods running the same app. Spreads traffic across them.\n\n3) ENDPOINTS: The Service watches Pods. When a Pod dies, the Service stops sending traffic there. New Pod? It gets traffic automatically.\n\nREAL EXAMPLE:\nYou deploy 3 Pods of your API. Service gives them ONE virtual IP. Client hits that IP once. Service picks a random Pod. Client hits it again. Service picks a different Pod. Boom \u2014 load balanced.\n\nThe tricky part? Engineers forget the Ingress layer. They think Service alone routes external traffic. Wrong. Service is only for internal cluster traffic.\n\nFor external traffic, you need an Ingress controller (like NGINX). It watches your Ingress resources and actually creates load balancers.\n\nWhat's the trickiest networking question you've been asked in a Kubernetes interview? Drop it below \ud83d\udc47\n\n#Kubernetes #DevOps #ContainerOrchestration #Networking",
+    "hook_id": "2053205851117076866",
+    "thread_id": "2053205852522193226",
+    "content_hash": "670003c7b9cf7c028094b440630c4147"
   }
 ]
