@@ -1324,5 +1324,14 @@
     "hook_id": "2053135414249054533",
     "thread_id": "2053135415687643226",
     "content_hash": "ea870fec9b2f4b5705b01c47c426701e"
+  },
+  {
+    "date": "2026-05-09T17:51:09.472209+00:00",
+    "category": "container_orchestration_question",
+    "hook": "Interviewer: 'How do you protect your Kubernetes traffic without a WAF?' \u2014 Most candidates miss the obvious answer here \ud83d\udc47",
+    "thread": "Real talk: You don't need a separate WAF for basic Kubernetes security. Here's what actually works:\n\nNetwork policies are your first line of defense. They're like a bouncer for your pods \u2014 only traffic you approve gets in.\n\nExample: You have a web app (frontend) and a database (backend). Without a network policy, anything can talk to anything. Bad news if someone breaks into your frontend.\n\nWith a network policy, you say: \"Only frontend pods can talk to database pods.\" Done. Attacker gets blocked.\n\nThen add an ingress controller (like Nginx). It sits at the edge and can do basic filtering \u2014 block bad requests, validate headers, stuff like that.\n\nFor heavy-duty protection? That's where a real WAF comes in. But 80% of the time, network policies + ingress rules solve your problem.\n\nKey tip: Start simple. Network policies first. Layer on more later if you need it.\n\nWhat's your go-to security setup in Kubernetes? Do you use a WAF or just policies? \ud83d\udc47\n\n#Kubernetes #DevOps #ContainerSecurity #InterviewPrep",
+    "hook_id": "2053170923822252053",
+    "thread_id": "2053170925277700102",
+    "content_hash": "abdd3d4dcdcf4a0aae650aa7dddb6cda"
   }
 ]
