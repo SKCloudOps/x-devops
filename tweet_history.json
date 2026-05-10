@@ -1369,5 +1369,14 @@
     "hook_id": "2053457164459810830",
     "thread_id": "2053457165709713534",
     "content_hash": "aa1e01308575502c73f04e23361ddf0b"
+  },
+  {
+    "date": "2026-05-10T15:31:16.703040+00:00",
+    "category": "aws_interview_question",
+    "hook": "Interviewer: 'How would you set up a developer portal?' \u2014 Most candidates talk about Backstage but miss the real point. Here's what they should say \ud83d\udc47",
+    "thread": "A developer portal isn't just a tool. It's a way to give your team self-service powers.\n\nBackstage is ONE option. But here's what matters:\n\n1. Show you understand the PROBLEM first\n\"Engineers waste time asking questions. They can't find docs. They don't know how to deploy.\"\n\n2. Then talk about the SOLUTION\n\"A portal centralizes everything. Docs, deployment tools, templates. All in one place.\"\n\n3. Give a real example\n\"My team used Backstage to let devs create services with one click. Before: 2 hours. After: 2 minutes.\"\n\nThe interviewer doesn't care if it's Backstage, a custom dashboard, or something else. They care that you understand:\n- Why portals matter (speed + less mistakes)\n- How to pick the right tool\n- What problems it actually solves\n\nTbh, most candidates just say \"Backstage is great\" and stop. Big miss.\n\nWhat developer tools have saved YOUR team the most time? Drop your answer below \ud83d\udc47\n\n#AWS #DevOps #SoftwareEngineering #InterviewPrep",
+    "hook_id": "2053498109708415073",
+    "thread_id": "2053498111444816049",
+    "content_hash": "307bb9ff007ef23c1d7d9aded3b3689c"
   }
 ]
