@@ -232,5 +232,14 @@
     "hook_id": "2053181483964408242",
     "thread_id": "2053181484727668819",
     "content_hash": "e7a00df929eb299ba86c7871aa30509a"
+  },
+  {
+    "date": "2026-05-10T18:33:34.628850+00:00",
+    "concept": "Terraform module versioning strategy",
+    "hook": "The Terraform module thing nobody tells you about \ud83d\udc47\n\nMost engineers use them wrong. Here's the gotcha that costs you hours.",
+    "thread": "When you write a Terraform module, you're basically making a reusable blueprint. Like a cookie cutter\u2014one shape, bake it a hundred times.\n\nBut here's the trap: engineers version their modules the SAME way they version their app code. Bad idea.\n\nWhy? Your module version should track changes to HOW it works. Your app version tracks changes to WHAT it does. Different things.\n\nReal example:\n- You update a module to add a new security group rule\n- You tag it v2.0.0\n- Now every app using that module gets the new rule automatically\n- Sometimes that breaks stuff you didn't expect\n\nBetter move: Pin your modules in your code. Lock it down. Say \"use module v1.5.3, not latest.\"\n\nThen when you're ready to test the new stuff, you bump it yourself. In a dev environment first.\n\nGotcha: If you don't pin versions, deploys become a guessing game. \"Why did my infra change?\" you'll ask. Because your module auto-updated. Nightmare.\n\nHow do you handle module versions right now? Do you lock them or let them float? \ud83d\udc47\n\n#Terraform #DevOps #Infrastructure",
+    "hook_id": "2053543987516936441",
+    "thread_id": "2053543988519403969",
+    "content_hash": "d6d7cae4f1b4b82f200d9922733e246e"
   }
 ]
