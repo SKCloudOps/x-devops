@@ -1360,5 +1360,14 @@
     "hook_id": "2053333998269874183",
     "thread_id": "2053333999385497819",
     "content_hash": "c9e04dfb3b541632434c0b40105fc511"
+  },
+  {
+    "date": "2026-05-10T12:48:34.478530+00:00",
+    "category": "aws_interview_question",
+    "hook": "Interviewer: 'How does Route53 route traffic?' \u2014 Most people say 'DNS' and stop. That's not the full answer \ud83d\udc47",
+    "thread": "Route53 is AWS's DNS service. But here's what trips people up:\n\nIt doesn't just answer 'what's the IP?'\n\nIt also DECIDES which IP to give you based on rules you set.\n\nExample: You have 3 servers in 3 regions. A user in London hits Route53. Route53 can:\n\n\u2022 Send them to the closest server (latency routing)\n\u2022 Send them to a random server (weighted routing)\n\u2022 Check if a server is healthy first, skip dead ones (health checks)\n\u2022 Use geolocation \u2014 send EU users to EU servers\n\nSo Route53 = smart DNS. It doesn't just translate names to IPs. It picks the BEST IP based on your rules.\n\nCommon follow-up: \"What if your chosen server goes down?\"\n\nThat's where health checks come in. Route53 pings your servers. If one fails, it stops sending traffic there. Automatic failover.\n\nHow would you explain Route53 to someone who's never used it? Drop your answer below \ud83d\udc47\n\n#AWS #DevOps #Interview #Route53 #CloudArchitecture",
+    "hook_id": "2053457164459810830",
+    "thread_id": "2053457165709713534",
+    "content_hash": "aa1e01308575502c73f04e23361ddf0b"
   }
 ]
