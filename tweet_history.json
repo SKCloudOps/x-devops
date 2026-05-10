@@ -1351,5 +1351,14 @@
     "hook_id": "2053243700839645198",
     "thread_id": "2053243702022377902",
     "content_hash": "6616378954f5283bf2270184c205e5a1"
+  },
+  {
+    "date": "2026-05-10T04:39:09.316100+00:00",
+    "category": "aws_interview_question",
+    "hook": "Interviewer: 'How do you rate limit in API Gateway?' \u2014 Most candidates get this wrong. Here's what they miss \ud83d\udc47",
+    "thread": "Rate limiting stops one client from hammering your API and crashing it for everyone else.\n\nAPI Gateway has two ways to do it:\n\n1. THROTTLING \u2014 Built-in limits\nSet max requests per second. If someone goes over, their request gets blocked with a 429 error.\n\n2. USAGE PLANS \u2014 Per-client limits\nYou give different API keys different rate limits. Maybe free tier gets 100 requests/day. Pro tier gets 10,000.\n\nHere's the trick most miss: Throttling protects your backend. Usage plans protect your business model.\n\nReal example: You're selling an API. Free users get 1,000 calls/day. Premium users get 100,000. You use usage plans for that. But you ALSO set throttling at 5,000 req/sec to stop any single client from breaking everything.\n\nThey work together, not instead of each other.\n\nWhat's your go-to approach when designing rate limits? Let me know \ud83d\udc47\n\n#AWS #APIGateway #DevOpsInterview #CloudEngineering #Scaling",
+    "hook_id": "2053333998269874183",
+    "thread_id": "2053333999385497819",
+    "content_hash": "c9e04dfb3b541632434c0b40105fc511"
   }
 ]
