@@ -1396,5 +1396,14 @@
     "hook_id": "2053568509796352388",
     "thread_id": "2053568511314727250",
     "content_hash": "756ffb7c981a435df416e687a839c134"
+  },
+  {
+    "date": "2026-05-10T22:43:50.934042+00:00",
+    "category": "aws_interview_question",
+    "hook": "Interviewer: 'What's the difference between CDK and CloudFormation?' \u2014 Most engineers mix these up. Would you nail this? \ud83d\udc47",
+    "thread": "Here's the thing: CloudFormation is the tool AWS uses under the hood. CDK is the easier wrapper on top.\n\nThink of it like this:\n\nCloudFormation = Writing JSON/YAML templates by hand. Works, but messy and repetitive.\n\nCDK = Writing code (Python, Node, etc) that builds those templates FOR you.\n\nSo when you write CDK code, it compiles down to CloudFormation templates. You just don't see it unless you ask.\n\nWhy pick CDK? Less copy-paste. More reusable code. Way easier to test.\n\nWhy use CloudFormation? Sometimes you need the raw template. Some teams are all-in on YAML. Sometimes you need fine-grained control.\n\nReal example: With CDK you write:\n`const bucket = new s3.Bucket(this, 'MyBucket')`\n\nWith CloudFormation you'd write 20+ lines of YAML just to make the same bucket.\n\nHonestly? If you're building new stuff on AWS, CDK is the move. Way faster.\n\nHave you used CDK in a real project, or is this your first time seeing it? Drop your experience below \ud83d\udc47\n\n#AWS #CDK #CloudFormation #DevOps #AWSInterview",
+    "hook_id": "2053606970049859932",
+    "thread_id": "2053606971408822749",
+    "content_hash": "a49ddd04f6debc1e55c2ad7d264e734b"
   }
 ]
