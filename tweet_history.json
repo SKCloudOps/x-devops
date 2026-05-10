@@ -1378,5 +1378,14 @@
     "hook_id": "2053498109708415073",
     "thread_id": "2053498111444816049",
     "content_hash": "307bb9ff007ef23c1d7d9aded3b3689c"
+  },
+  {
+    "date": "2026-05-10T17:52:41.813017+00:00",
+    "category": "aws_interview_question",
+    "hook": "Interviewer: 'What's the difference between ECS and Fargate?' \u2014 Most candidates mix these up. Would you nail it? \ud83d\udc47",
+    "thread": "Here's the simple version:\n\nECS = You manage the servers. You pick the machines. You handle updates. More work, more control.\n\nFargate = AWS manages the servers for you. You just say 'run my container.' Less work, less control.\n\nReal example:\n\nWith ECS on EC2: You spin up 3 servers, tell ECS to run your app on them, patch those servers, pay for idle time.\n\nWith Fargate: You just say 'run this container,' Fargate picks the hardware, handles it all. You only pay for what you use.\n\nCatch: Fargate costs more per hour. But if your traffic changes a lot, you save money because you don't pay for idle servers.\n\nWhen to pick each:\n- Fargate = Small team, simple apps, can't handle ops\n- ECS on EC2 = Big company, lots of control needed, predictable load\n\nTbh, most startups go Fargate first. Less headache.\n\nWhich one have you used? Or which would you pick for a new project? Drop your take \ud83d\udc47\n\n#AWS #DevOps #ECS #Fargate #Interview",
+    "hook_id": "2053533699371835707",
+    "thread_id": "2053533700646969395",
+    "content_hash": "344dca5d2006ad21491ed689c67f10ec"
   }
 ]
