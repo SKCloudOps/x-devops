@@ -254,5 +254,14 @@
     "hook_id": "2053259700225941925",
     "thread_id": "2053259701379334561",
     "content_hash": "512ffb8e8c93fa01606d1f7a71abd392"
+  },
+  {
+    "date": "2026-05-10T23:50:08.062152+00:00",
+    "concept": "Computer Vision Bias",
+    "hook": "Everyone says computer vision is 'unbiased AI' but your camera is literally trained on biased photos. Here's what actually happens \ud83d\udc47",
+    "thread": "Computer vision = teaching AI to 'see' like humans do. But here's the problem:\n\nIf you train a camera AI only on photos of white people's faces, it won't recognize dark skin well. It learned from biased data.\n\nReal example: A famous facial recognition system failed way more on Black faces because it saw way fewer of them in training.\n\nThis isn't the AI being mean. It's like teaching someone to spot dogs, but only showing them golden retrievers. They'll miss a poodle.\n\nWhy it matters:\n- Banks use this for ID checks\n- Cops use it to find suspects\n- Your phone uses it to unlock\n\nIf it's biased, innocent people get flagged. Job candidates get rejected unfairly.\n\nThe fix? Train on diverse photos. Test on all skin tones and faces. Catch problems before launch.\n\nBiased training data = biased AI. No shortcuts.\n\nWhat's the worst AI bias you've personally run into? \ud83d\udc47\n\n#ComputerVision #AIBias #TechEthics #MachineLearning",
+    "hook_id": "2053623651757379815",
+    "thread_id": "2053623652642418844",
+    "content_hash": "dd60a9e8065486dee2c7ec8cb8f17b2e"
   }
 ]
