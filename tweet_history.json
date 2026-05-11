@@ -1441,5 +1441,14 @@
     "hook_id": "2053912502656737545",
     "thread_id": "2053912503847907609",
     "content_hash": "98cf469575f0e44d5633f03c54a81479"
+  },
+  {
+    "date": "2026-05-11T21:04:12.764144+00:00",
+    "category": "kubernetes_interview_question",
+    "hook": "Interviewer: 'How do you pass config to a Kubernetes pod?' \u2014 Most say ConfigMap. But that's not the whole answer \ud83d\udc47",
+    "thread": "There are actually 4 ways to pass config to a pod:\n\n1. ConfigMap \u2014 for non-secret data. You store it, then mount it as a file or env var\n\n2. Secret \u2014 same as ConfigMap but encrypted. Use this for passwords, API keys, tokens\n\n3. Command args \u2014 bake it into the deployment yaml\n\n4. Environment variables \u2014 pass them directly in the pod spec\n\nHere's the real answer they want:\n\nConfigMaps are great for app settings like log levels or timeouts. Secrets are for anything sensitive.\n\nExample: Your app needs a database URL? That's a ConfigMap. Your app needs a password? That's a Secret.\n\nTwist: Most candidates forget you can reload ConfigMaps without restarting the pod if you use a tool like Reloader. That impresses interviewers.\n\nWhich method have you used most in your job? Drop your answer below \ud83d\udc47\n\n#Kubernetes #DevOps #KubernetesInterview #ConfigMap #Secrets",
+    "hook_id": "2053944283720303092",
+    "thread_id": "2053944285020471552",
+    "content_hash": "b8f87637096ef9a9e19f7eb6ea399153"
   }
 ]
