@@ -1405,5 +1405,14 @@
     "hook_id": "2053606970049859932",
     "thread_id": "2053606971408822749",
     "content_hash": "a49ddd04f6debc1e55c2ad7d264e734b"
+  },
+  {
+    "date": "2026-05-11T04:54:00.165438+00:00",
+    "category": "kubernetes_interview_question",
+    "hook": "Interviewer: 'How do you manage Kubernetes configs as code?' \u2014 Most say kubectl or Helm. But there's a better way. \ud83d\udc47",
+    "thread": "A lot of engineers think Kubernetes config management is just YAML files + Helm charts. It works, but it's messy.\n\nInfrastructure as Code tools like Pulumi let you write your K8s setup in real code \u2014 Python, Go, TypeScript, whatever you know.\n\nHere's the difference:\n\n\u274c Old way: Write YAML by hand, version it, hope it doesn't break\n\n\u2705 Better way: Write Python code that generates your K8s clusters, apps, and services. It's cleaner, reusable, and you can loop and test it.\n\nExample: Instead of a 50-line YAML file, you write a few lines of code that say \"create a namespace, add this app, set these env vars.\"\n\nPlus \u2014 you get actual error checking before you deploy. YAML doesn't catch typos until runtime.\n\nMost candidates don't mention IaC tools in interviews. If you do? You stand out.\n\nWhat's your go-to tool for managing K8s config? Helm, Pulumi, Kustomize? Drop it below \ud83d\udc47\n\n#Kubernetes #DevOps #IaC #Pulumi #InterviewTips",
+    "hook_id": "2053700122337296657",
+    "thread_id": "2053700123679441363",
+    "content_hash": "25c5a240b667693c4db8d9c9e6540e64"
   }
 ]
