@@ -1423,5 +1423,14 @@
     "hook_id": "2053842199616593972",
     "thread_id": "2053842201533469028",
     "content_hash": "82aeb88248f8d80403da4910dab5c851"
+  },
+  {
+    "date": "2026-05-11T17:08:55.477535+00:00",
+    "category": "kubernetes_interview_question",
+    "hook": "Interviewer: 'How does Cilium handle network policy differently than Calico?' \u2014 Most candidates mix them up. Would you know the answer? \ud83d\udc47",
+    "thread": "Here's the key difference:\n\nCalico uses iptables rules. It works at the Linux kernel level but gets slow when you have tons of rules.\n\nCilium uses eBPF. That's a special tech that runs inside the kernel itself. Way faster. Way more flexible.\n\nReal example:\nSay you need to block traffic between two namespaces. With Calico, your server has to check each packet against many iptables rules. Slower.\n\nWith Cilium, eBPF programs run directly in the kernel. The packet gets checked once, fast. Plus Cilium can see layer 7 stuff (like API calls) that Calico can't.\n\nWhy does this matter in an interview?\nThey want to know you get that Cilium is newer and more powerful. But also that Calico is still solid for simpler setups.\n\nBonus: Cilium also handles service mesh stuff out of the box. Calico... not so much.\n\nWhat's your go-to network plugin? Have you hit speed issues with iptables rules before? Drop your story below \ud83d\udc47\n\n#Kubernetes #Cilium #DevOpsInterview #NetworkPolicy #eBPF #Calico",
+    "hook_id": "2053885071375864288",
+    "thread_id": "2053885072801980529",
+    "content_hash": "fe8492cd7112610657c1c1cf50d34d2a"
   }
 ]
