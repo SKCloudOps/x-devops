@@ -241,5 +241,14 @@
     "hook_id": "2053543987516936441",
     "thread_id": "2053543988519403969",
     "content_hash": "d6d7cae4f1b4b82f200d9922733e246e"
+  },
+  {
+    "date": "2026-05-11T19:17:20.831823+00:00",
+    "concept": "IAM Permissions for Load Balancers",
+    "hook": "Most engineers using load balancers don't know IAM can break them silently \ud83d\udc47",
+    "thread": "Here's the thing: Your load balancer needs permission to talk to your servers. If IAM denies it? Your traffic goes nowhere. But you won't see an error. It just fails quietly.\n\nThink of it like a bouncer with no ID. He can't get in to do his job, so the club stays empty.\n\nGotcha: When you add a new target group or instance, make sure the load balancer's IAM role can actually reach it. Most people forget this and spend hours debugging network stuff when it's really a permissions thing.\n\nQuick fix: Give your load balancer's IAM role the right ec2:Describe* and elbv2:* permissions. Document which targets it needs to hit.\n\nWhat's your worst load balancer debugging story? \ud83d\udc47\n\n#DevOps #AWS #LoadBalancing #IAM",
+    "hook_id": "2053917388114960860",
+    "thread_id": "2053917389218091227",
+    "content_hash": "43b480bd4fc356d706065d302d73e233"
   }
 ]
