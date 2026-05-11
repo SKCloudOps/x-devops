@@ -1450,5 +1450,14 @@
     "hook_id": "2053944283720303092",
     "thread_id": "2053944285020471552",
     "content_hash": "b8f87637096ef9a9e19f7eb6ea399153"
+  },
+  {
+    "date": "2026-05-11T22:52:19.499061+00:00",
+    "category": "kubernetes_interview_question",
+    "hook": "Interviewer: 'What's the difference between Docker and Podman?' \u2014 Most candidates miss the key thing. Here's what you need to know \ud83d\udc47",
+    "thread": "Both run containers. That's the easy part.\n\nDocker uses a daemon \u2014 a background service that needs to run all the time. Podman doesn't need that.\n\nWhy does it matter? Docker needs root access to work. Podman can run without root. Safer.\n\nReal example:\nWith Docker: sudo docker run myapp\nWith Podman: podman run myapp (no sudo needed)\n\nAnother thing \u2014 Podman talks to Kubernetes easier. It's actually built for that.\n\nBut here's the catch: Docker is way more common. Most jobs still use it. So learn both, but Docker is your main focus.\n\nThink of it this way: Podman is Docker's safer cousin. Same job, less permissions needed.\n\nWhat's the biggest container platform difference YOU'VE run into at work? Drop it below \ud83d\udc47\n\n#Kubernetes #DevOps #Docker #Podman #InterviewTips",
+    "hook_id": "2053971489154544009",
+    "thread_id": "2053971492379972074",
+    "content_hash": "a9d69a83357de76359cec362c40d9755"
   }
 ]
