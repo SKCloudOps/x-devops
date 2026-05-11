@@ -1432,5 +1432,14 @@
     "hook_id": "2053885071375864288",
     "thread_id": "2053885072801980529",
     "content_hash": "fe8492cd7112610657c1c1cf50d34d2a"
+  },
+  {
+    "date": "2026-05-11T18:57:55.580427+00:00",
+    "category": "kubernetes_interview_question",
+    "hook": "Interviewer: 'What's the difference between EKS and Fargate?' \u2014 Most candidates mix these up. Would you? \ud83d\udc47",
+    "thread": "EKS is just Kubernetes on AWS. You manage the servers yourself (or let AWS manage them for you).\n\nFargate? That's serverless containers. You don't think about servers at all. You just say \"run this\" and AWS handles everything.\n\nThink of it like this:\n\n\u2022 EKS = You rent a kitchen and cook\n\u2022 Fargate = You order food delivered\n\nWith EKS, you pick your node size, manage updates, pay for what you use even if empty.\n\nWith Fargate, you pay per container per second. No servers to babysit. Perfect for apps that don't run 24/7.\n\nTip: In interviews, mention trade-offs. Fargate costs more per container. EKS gives you control but more work. Most real teams use both.\n\nWhich one have you actually used? Reply below \ud83d\udc47\n\n#Kubernetes #AWS #DevOps #EKS #Fargate",
+    "hook_id": "2053912502656737545",
+    "thread_id": "2053912503847907609",
+    "content_hash": "98cf469575f0e44d5633f03c54a81479"
   }
 ]
