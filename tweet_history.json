@@ -1414,5 +1414,14 @@
     "hook_id": "2053700122337296657",
     "thread_id": "2053700123679441363",
     "content_hash": "25c5a240b667693c4db8d9c9e6540e64"
+  },
+  {
+    "date": "2026-05-11T14:18:34.162055+00:00",
+    "category": "kubernetes_interview_question",
+    "hook": "Interviewer: 'How do you expose a Kubernetes service outside the cluster?' \u2014 Most say Ingress. But there's more to it. \ud83d\udc47",
+    "thread": "Here's the thing: there are actually 4 ways to expose a service. Let me break them down.\n\n1. ClusterIP \u2014 Only works inside the cluster. Default type. Good for apps talking to each other.\n\n2. NodePort \u2014 Opens a port on every node. Anyone outside can hit that port. Simple but messy for production.\n\n3. LoadBalancer \u2014 Works with cloud providers like AWS. Creates an actual load balancer in front of your nodes. Your cloud bill goes up though lol.\n\n4. Ingress \u2014 This is what people think of first. But Ingress is NOT a service type. It's a separate thing that routes HTTP traffic to services. You still need a service under it.\n\nReal example: You're running a web app. You'd use ClusterIP for the service, then an Ingress to route traffic from the internet to that service. The Ingress controller (like NGINX) handles the actual routing.\n\nMost candidates skip the difference between Ingress and LoadBalancer. That's the trick question.\n\nWhich one have you used most? Drop your answer below \ud83d\udc47\n\n#Kubernetes #DevOps #Interview #K8s #CloudNative",
+    "hook_id": "2053842199616593972",
+    "thread_id": "2053842201533469028",
+    "content_hash": "82aeb88248f8d80403da4910dab5c851"
   }
 ]
