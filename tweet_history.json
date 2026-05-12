@@ -1468,5 +1468,14 @@
     "hook_id": "2054056835309531254",
     "thread_id": "2054056836706296172",
     "content_hash": "196ef4fb252fc25198b95cedb1d595b0"
+  },
+  {
+    "date": "2026-05-12T13:47:36.473045+00:00",
+    "category": "cicd_interview_question",
+    "hook": "Interviewer: 'How do you give your app AWS permissions without storing keys?' \u2014 Most candidates panic here. You ready? \ud83d\udc47",
+    "thread": "This is IRSA (IAM Roles for Service Accounts). Super useful. Here's the deal:\n\nInstead of putting AWS keys in your code or config, you let Kubernetes talk to AWS directly.\n\nHow it works:\n1. Create an IAM role in AWS\n2. Link it to a Kubernetes service account\n3. Your pod runs under that service account\n4. AWS sees the pod's identity and grants permissions\n\nReal example: Your app needs to read secrets from AWS Secrets Manager. Without IRSA, you'd hardcode AWS access keys (bad). With IRSA, Kubernetes handles the handshake automatically.\n\nWhy it's better:\n- No keys in your code\n- Keys rotate automatically\n- Fine-grained permissions per app\n- Works on EKS out of the box\n\nCommon mistake: People think you need extra tools. Nope. It's built into EKS.\n\nHow would you explain IRSA to someone who's never used Kubernetes? Reply below \ud83d\udc47\n\n#DevOps #Kubernetes #AWS #IRSA #CI-CD",
+    "hook_id": "2054196795719258387",
+    "thread_id": "2054196797665431559",
+    "content_hash": "6a33b017731f91dfb5b12c148f400726"
   }
 ]
