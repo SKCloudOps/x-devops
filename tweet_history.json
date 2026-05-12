@@ -1477,5 +1477,14 @@
     "hook_id": "2054196795719258387",
     "thread_id": "2054196797665431559",
     "content_hash": "6a33b017731f91dfb5b12c148f400726"
+  },
+  {
+    "date": "2026-05-12T16:37:30.792756+00:00",
+    "category": "cicd_interview_question",
+    "hook": "Interviewer: 'When would you use Step Functions instead of just writing a Lambda?' \u2014 Most candidates get this wrong. \ud83d\udc47",
+    "thread": "Here's the thing: Lambda is great for simple, quick tasks. Step Functions are for workflows that need multiple steps.\n\nExample: You need to:\n1. Upload a file\n2. Check if it's valid\n3. Process it\n4. Send an email when done\n\nIf any step fails, you want to retry or notify someone. That's Step Functions.\n\nLambda alone? You'd write all that logic inside one function. Messy. Hard to debug. Step Functions breaks it into separate steps you can see and manage.\n\nKey difference: Step Functions shows you the flow visually. You can see exactly where it failed. With Lambda, you're reading logs.\n\nUse Lambda for: Simple, single tasks\nUse Step Functions for: Multi-step workflows with retries, error handling, and branching logic\n\nTbh, if your workflow has more than 2-3 steps, Step Functions saves you headaches later.\n\nWhat's a workflow you've built? Would you use Step Functions for it? Drop your answer below \ud83d\udc47\n\n#AWS #DevOps #StepFunctions #CloudEngineering #InterviewPrep",
+    "hook_id": "2054239554538983788",
+    "thread_id": "2054239555767914841",
+    "content_hash": "da65114d3fa5c697bfb8b0305a97bcde"
   }
 ]
