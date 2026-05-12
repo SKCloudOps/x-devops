@@ -1504,5 +1504,14 @@
     "hook_id": "2054306986980741134",
     "thread_id": "2054306988562010269",
     "content_hash": "21ae47b814dcc1bf07b6bc4df5bee37a"
+  },
+  {
+    "date": "2026-05-12T22:58:30.326656+00:00",
+    "category": "cicd_interview_question",
+    "hook": "Interviewer: 'How do you scale pods based on custom metrics?' \u2014 Most candidates say 'HPA' and stop. But KEDA changes the game. \ud83d\udc47",
+    "thread": "Here's the thing:\n\nHPA (Horizontal Pod Autoscaler) only watches CPU and memory. That's it. So if you need to scale based on queue depth, HTTP requests per second, or database connections? HPA can't do it.\n\nThat's where KEDA comes in.\n\nKEDA = Kubernetes Event Autoscaler. It lets you scale pods based on whatever metric you want.\n\nReal example:\nYour app processes messages from a queue. When there are 100 messages waiting, spin up 5 pods. When the queue is empty, scale down to 1.\n\nHPA can't do that. KEDA can.\n\nHow it works:\n1. KEDA watches your queue (or any event source)\n2. It reads the queue depth metric\n3. It tells Kubernetes: 'Hey, we need 5 pods'\n4. Kubernetes scales accordingly\n\nBonus: KEDA supports 50+ scalers. Kafka, AWS SQS, Prometheus, Redis, etc.\n\nSo in an interview, if they ask about custom scaling, mention:\n- HPA for CPU/memory only\n- KEDA for everything else\n\nThat's it. You'll sound like you know what you're doing.\n\nWhat metrics would YOU scale on in your current setup? Reply below \ud83d\udc47\n\n#KEDA #Kubernetes #DevOps #Autoscaling #CICD",
+    "hook_id": "2054335434034139425",
+    "thread_id": "2054335435531542886",
+    "content_hash": "668dbf56b12e1510b4d6f1ee2db139eb"
   }
 ]
