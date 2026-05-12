@@ -1486,5 +1486,14 @@
     "hook_id": "2054239554538983788",
     "thread_id": "2054239555767914841",
     "content_hash": "da65114d3fa5c697bfb8b0305a97bcde"
+  },
+  {
+    "date": "2026-05-12T18:55:35.933269+00:00",
+    "category": "cicd_interview_question",
+    "hook": "Interviewer: 'How do you keep secrets out of your CI/CD pipeline?' \u2014 Most engineers mess this up. Here's what they miss \ud83d\udc47",
+    "thread": "The wrong answer: 'We just don't commit them to git.'\n\nThat's not enough. Here's why:\n\nSecrets leak everywhere in CI/CD. Build logs. Docker images. Artifact storage. One mistake and boom \u2014 your API keys are exposed.\n\nBetter approach:\n1. Use a secrets manager (AWS KMS, HashiCorp Vault, etc.)\n2. Your CI tool pulls secrets at runtime, NOT from code\n3. Never print secrets in logs\n4. Rotate them regularly\n5. Audit who accessed what\n\nReal example: Your GitHub Actions workflow needs a database password. Don't hardcode it. Store it in GitHub Secrets. When the job runs, GitHub injects it as an env var. It never hits your repo, logs, or images.\n\nBonus tip: Scan your code with tools like GitGuardian or TruffleHog. Catch leaks before they happen.\n\nWhat's your biggest concern about secrets management \u2014 is it the setup or keeping everyone on the same page? Drop your answer below \ud83d\udc47\n\n#DevOps #CICD #Security #KMS",
+    "hook_id": "2054274304552861752",
+    "thread_id": "2054274306171879617",
+    "content_hash": "dbe75ef7964574872336197c5b2a5e1f"
   }
 ]
