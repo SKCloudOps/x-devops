@@ -250,5 +250,14 @@
     "hook_id": "2053917388114960860",
     "thread_id": "2053917389218091227",
     "content_hash": "43b480bd4fc356d706065d302d73e233"
+  },
+  {
+    "date": "2026-05-12T19:19:27.250256+00:00",
+    "concept": "VPC as a network isolation boundary",
+    "hook": "Most engineers setting up a VPC have no idea what they're actually protecting \ud83d\udc47",
+    "thread": "A VPC is basically your own private neighborhood in AWS. By default, nothing from the internet can just walk into your house.\n\nThink of it like this: without a VPC, your database is sitting in the town square. Anyone passing by can try to talk to it.\n\nWith a VPC? Your database lives inside a gated community. Only people you invite can even see it exists.\n\nThe gotcha: Just because you CREATE a VPC doesn't mean it's locked down. You still gotta set up security groups (your front door lock) and network ACLs (your fence). A VPC is just the land. You gotta build the walls.\n\nMost security issues come from engineers who think \"I made a VPC, I'm safe\" but forgot to close the gates.\n\nWhat's your biggest VPC headache right now? \ud83d\udc47\n\n#AWS #DevOps #VPC #CloudSecurity",
+    "hook_id": "2054280308648718705",
+    "thread_id": "2054280309525414244",
+    "content_hash": "1ba5b72175db6b39af7bd783c10def42"
   }
 ]
