@@ -272,5 +272,14 @@
     "hook_id": "2053987452331671676",
     "thread_id": "2053987453313138976",
     "content_hash": "40c6e356f83f9c8ce2db1eab634a43c9"
+  },
+  {
+    "date": "2026-05-12T23:57:18.788723+00:00",
+    "concept": "model_evaluation_metrics",
+    "hook": "Everyone talks about AI metrics like accuracy and F1 score. But most people can't explain why your model can have 95% accuracy and still be completely useless \ud83d\udc47",
+    "thread": "Here's the thing: accuracy is a trap.\n\nImagine a doctor's test that says \"you're healthy\" 99% of the time. Sounds great right? But what if it NEVER catches cancer? That 99% accuracy is worthless when it misses the thing that matters.\n\nThat's why we use multiple metrics:\n\n\u2022 Accuracy = How many times was the AI right overall\n\u2022 Precision = When it says YES, how often is it actually YES\n\u2022 Recall = How many of the real YESes did it catch\n\nReal example: Spam detection. You want high precision (don't flag good emails as spam) AND high recall (catch all the spam). One metric alone fails.\n\nWhy this matters: A bank's fraud detector could have perfect accuracy but miss 90% of actual fraud. A hiring AI could be \"accurate\" but reject all women. One number never tells the whole story.\n\nPick the metrics that match your actual problem. That's the game.\n\nWhat metric mistake have you seen cause real problems at work? \ud83d\udc47\n\n#AI #MachineLearning #DataScience #AIMetrics #TechTips",
+    "hook_id": "2054350233941778457",
+    "thread_id": "2054350234956832969",
+    "content_hash": "7a5baadfe02e5ebe6a0d268f6bd4da58"
   }
 ]
