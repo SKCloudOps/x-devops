@@ -1549,5 +1549,14 @@
     "hook_id": "2054670343189479832",
     "thread_id": "2054670344510664768",
     "content_hash": "1006f6d1c496114c56351f8f629f383a"
+  },
+  {
+    "date": "2026-05-13T23:03:48.659424+00:00",
+    "category": "platform_engineering_interview_question",
+    "hook": "Interviewer: 'How do you set up Prometheus to scrape metrics?' \u2014 Most candidates overthink this. Here's what they miss \ud83d\udc47",
+    "thread": "Prometheus is just a tool that pulls data from your apps and stores it.\n\nHere's the real flow:\n\n1. Your app exposes metrics on a /metrics endpoint (like port 9090)\n2. Prometheus config file (prometheus.yml) tells it WHAT to scrape and WHERE\n3. Prometheus hits that endpoint every 15 seconds (or whatever interval you set)\n4. It grabs the data and stores it\n\nThat's it. No magic.\n\nQuick example:\n\nglobal:\n  scrape_interval: 15s\nscrape_configs:\n  - job_name: 'my-app'\n    static_configs:\n      - targets: ['localhost:9090']\n\n\nWhen they ask \"how would you make sure it works?\" \u2014 just go hit the endpoint yourself. curl localhost:9090/metrics. If you see numbers, Prometheus will too.\n\nMost people fail because they talk about relabeling and service discovery before basics. Stick to the simple path first.\n\nHave you been asked this? How did you explain it? \ud83d\udc47\n\n#DevOps #Prometheus #Monitoring #InterviewPrep #Kubernetes",
+    "hook_id": "2054699155193282712",
+    "thread_id": "2054699158594888087",
+    "content_hash": "8e52c536546329a1f7db51926824e7b9"
   }
 ]
