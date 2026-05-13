@@ -1522,5 +1522,14 @@
     "hook_id": "2054420776208453747",
     "thread_id": "2054420777634615658",
     "content_hash": "3285c036e73d21bbd05a98fc96091d7f"
+  },
+  {
+    "date": "2026-05-13T14:00:27.552639+00:00",
+    "category": "platform_engineering_interview_question",
+    "hook": "Interviewer: 'What's the difference between a service mesh and a CNI plugin?' \u2014 Most candidates mix these up. Would you get it right? \ud83d\udc47",
+    "thread": "Here's the quick breakdown:\n\nCNI plugin (like Cilium):\n- Handles how pods talk to each other on the network\n- Assigns IP addresses\n- Routes traffic between nodes\n- Happens at the network layer\n\nService mesh (like Istio):\n- Sits on top of your CNI\n- Controls HOW traffic flows between services\n- Adds security rules, retries, load balancing\n- Happens at the app layer\n\nThink of it like this:\nCNI = the roads and traffic lights\nService mesh = the traffic cop managing which cars go where\n\nYou need a CNI to run Kubernetes. A service mesh is optional, but makes managing traffic easier at scale.\n\nGot asked this one? How did you answer it? Drop your take below \ud83d\udc47\n\n#DevOps #Kubernetes #ServiceMesh #Cilium #PlatformEngineering",
+    "hook_id": "2054562418106273833",
+    "thread_id": "2054562419549122962",
+    "content_hash": "d94af9d93fce92c78b4d8f6380e29c6e"
   }
 ]
