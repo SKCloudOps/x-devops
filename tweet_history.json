@@ -1513,5 +1513,14 @@
     "hook_id": "2054335434034139425",
     "thread_id": "2054335435531542886",
     "content_hash": "668dbf56b12e1510b4d6f1ee2db139eb"
+  },
+  {
+    "date": "2026-05-13T04:37:37.454952+00:00",
+    "category": "platform_engineering_interview_question",
+    "hook": "Interviewer: 'What's the difference between Tekton and Jenkins?' \u2014 Most candidates mix this up. Would you get it right? \ud83d\udc47",
+    "thread": "Here's the key thing: Jenkins is OLD school. It runs on servers. You set it up, you manage it, you babysit it.\n\nTekton is cloud-native. It's built FOR Kubernetes. Tasks run as pods. Scales up or down automatically.\n\nReal example:\n\nJenkins: You write a Groovy script. It runs on the Jenkins server. If you need more power, you buy bigger hardware.\n\nTekton: You write a Task in YAML. Kubernetes spins up a pod, runs it, cleans it up. Need 100 parallel builds? Kubernetes handles it.\n\nOther diffs:\n- Jenkins = UI + config files\n- Tekton = all YAML, GitOps friendly\n- Jenkins = you manage plugins\n- Tekton = built into your cluster\n\nTbh, think of it this way: Jenkins is like managing a personal workshop. Tekton is like renting workshop space that scales with demand.\n\nWhich CI/CD tool have you actually used? Drop your answer below \ud83d\udc47\n\n#Tekton #DevOps #CI/CD #Kubernetes #PlatformEngineering",
+    "hook_id": "2054420776208453747",
+    "thread_id": "2054420777634615658",
+    "content_hash": "3285c036e73d21bbd05a98fc96091d7f"
   }
 ]
