@@ -281,5 +281,14 @@
     "hook_id": "2054350233941778457",
     "thread_id": "2054350234956832969",
     "content_hash": "7a5baadfe02e5ebe6a0d268f6bd4da58"
+  },
+  {
+    "date": "2026-05-13T23:54:33.277283+00:00",
+    "concept": "AI Bias",
+    "hook": "Everyone says AI has 'bias' but most people think it means the AI has opinions. That's not it at all \ud83d\udc47",
+    "thread": "AI bias = the training data was skewed, so the AI learned wrong patterns.\n\nSimple example: if you train an AI on job resumes from only men, it'll think men are better at that job. Not because the AI wants to be unfair. It's just copying what it saw.\n\nIt's like if I only taught you to cook using recipes from one country. You'd think that's how ALL food works. You're not being stubborn. You just didn't learn anything else.\n\nWhy this matters: biased AI makes real decisions. Loan approvals. Hiring. Prison sentences. If the AI learned from unfair data, it'll make unfair decisions at scale.\n\nThe fix? Use diverse training data. Test for bias. Be honest about what you don't know.\n\nWhat's an example of AI bias you've actually seen in real life? \ud83d\udc47\n\n#AIEthics #MachineLearning #Bias #AI",
+    "hook_id": "2054711927801045029",
+    "thread_id": "2054711928736329884",
+    "content_hash": "873a6dda3b7e2e2926e99fc14b5ebe4b"
   }
 ]
