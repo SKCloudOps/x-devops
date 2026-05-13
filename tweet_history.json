@@ -1531,5 +1531,14 @@
     "hook_id": "2054562418106273833",
     "thread_id": "2054562419549122962",
     "content_hash": "d94af9d93fce92c78b4d8f6380e29c6e"
+  },
+  {
+    "date": "2026-05-13T18:56:30.951844+00:00",
+    "category": "platform_engineering_interview_question",
+    "hook": "Interviewer: 'How would you stop a bad deployment from reaching prod?' \u2014 Most say 'use CI/CD.' That's not the answer they want. \ud83d\udc47",
+    "thread": "They're looking for policy enforcement. This is where OPA (Open Policy Agent) comes in.\n\nOPA lets you write rules that block deployments automatically. No humans needed.\n\nHere's the idea:\n\n1. Developer pushes code\n2. CI pipeline runs tests\n3. OPA checks the code against your rules\n4. If it breaks a rule? The build stops. Dead.\n\nExample rule: \"No containers running as root.\" If someone tries it, OPA rejects it before it ships.\n\nYou write these rules in a language called Rego. Looks like:\n\nif container_user == \"root\" {\n  deny this deployment\n}\n\nIt's that simple. OPA integrates with Kubernetes, Docker, Terraform, Jenkins\u2014basically everything.\n\nWhy companies love it: You can enforce security, cost, and compliance rules without touching code. One rule stops bad stuff everywhere.\n\nPro tip for interviews: Say \"OPA enforces policy as code.\" Then give a real example like the root user one. You'll stand out.\n\nWhat's the gnarliest policy rule you've had to write? Drop it below \ud83d\udc47\n\n#DevOps #Kubernetes #OPA #PlatformEngineering #InterviewTips",
+    "hook_id": "2054636923361075201",
+    "thread_id": "2054636924749447474",
+    "content_hash": "aa14a19f64d7a50c7d87b5a64a53ded7"
   }
 ]
