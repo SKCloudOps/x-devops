@@ -1540,5 +1540,14 @@
     "hook_id": "2054636923361075201",
     "thread_id": "2054636924749447474",
     "content_hash": "aa14a19f64d7a50c7d87b5a64a53ded7"
+  },
+  {
+    "date": "2026-05-13T21:09:18.828315+00:00",
+    "category": "platform_engineering_interview_question",
+    "hook": "Interviewer: 'Explain a VPC to someone who's never heard of it.' \u2014 Most engineers overcomplicate this. You? \ud83d\udc47",
+    "thread": "A VPC is just a private network in the cloud. It's YOUR own isolated space on AWS.\n\nThink of it like this: AWS is a huge apartment building. A VPC is your own apartment. You get to decide:\n\n\u2022 Who can visit (security groups)\n\u2022 Which rooms connect (subnets)\n\u2022 What's locked (network ACLs)\n\nWithout a VPC, your databases and servers are on the public floor. Anyone could walk in.\n\nWith a VPC, you lock your door. You only let in the traffic YOU allow.\n\nHere's the thing most candidates miss: You don't need to memorize CIDR blocks or subnet math for the interview. Just explain the WHY.\n\n\"A VPC keeps my app and data private. I control what gets in and out.\" That's enough.\n\nThen if they ask deeper, you say: \"I'd use public subnets for load balancers, private subnets for databases. That way bad actors can't hit the database directly.\"\n\nSimple. Clear. You sound like you actually build things.\n\nWhat VPC question stumped you in an interview? Drop it below \ud83d\udc47\n\n#DevOps #AWS #InterviewPrep #CloudEngineering",
+    "hook_id": "2054670343189479832",
+    "thread_id": "2054670344510664768",
+    "content_hash": "1006f6d1c496114c56351f8f629f383a"
   }
 ]
