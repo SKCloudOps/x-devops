@@ -1585,5 +1585,14 @@
     "hook_id": "2054962012011024631",
     "thread_id": "2054962013567176933",
     "content_hash": "a8cf5f026490c40a2af693dab34073bd"
+  },
+  {
+    "date": "2026-05-14T18:53:34.769588+00:00",
+    "category": "terraform_iac_interview_question",
+    "hook": "Interviewer: 'How do you manage Docker images in Terraform?' \u2014 Most engineers fumble this. Would you? \ud83d\udc47",
+    "thread": "Here's the thing: Terraform doesn't build Docker images. It's not made for that.\n\nWhat Terraform DOES do:\n\u2022 Push images to a registry (like Docker Hub or ECR)\n\u2022 Pull images and run containers\n\u2022 Manage the infrastructure around them\n\nReal example:\nYou build your Docker image locally. Then you push it to AWS ECR (a registry). Terraform uses that image to spin up containers or update your ECS services.\n\nThe trick most people miss: Terraform works WITH Docker, not instead of it. Docker builds the box. Terraform deploys it.\n\nOne more thing \u2014 if you need to build images in your pipeline, that's a CI/CD job (GitHub Actions, Jenkins, etc). Terraform comes after.\n\nHow would you explain the difference between Terraform and Docker in an interview? Drop your answer below \ud83d\udc47\n\n#Terraform #Docker #DevOps #IaC #InterviewPrep",
+    "hook_id": "2054998572181946562",
+    "thread_id": "2054998573696065583",
+    "content_hash": "642fa43aff199f3f4b546d4ec2b0968c"
   }
 ]
