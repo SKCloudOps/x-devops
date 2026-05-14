@@ -259,5 +259,14 @@
     "hook_id": "2054280308648718705",
     "thread_id": "2054280309525414244",
     "content_hash": "1ba5b72175db6b39af7bd783c10def42"
+  },
+  {
+    "date": "2026-05-14T19:21:09.504502+00:00",
+    "concept": "ArgoCD Secrets Management Pattern",
+    "hook": "Most people using ArgoCD don't realize this about secrets \ud83d\udc47",
+    "thread": "ArgoCD doesn't actually store your secrets. It just watches your Git repo and syncs what's there to Kubernetes.\n\nHere's the problem: if your secrets are in Git, they're visible to anyone with repo access. Bad idea.\n\nThink of it like leaving your house keys in a mailbox. The mailman (ArgoCD) just delivers what's already there. But now everyone sees the keys.\n\nThe real solution? Use a secret manager like Sealed Secrets or External Secrets Operator. They encrypt your secrets BEFORE they hit Git. ArgoCD syncs the encrypted version. Only your cluster can decrypt them.\n\nGotcha: don't just Base64 encode secrets and commit them. That's not encryption, that's just obfuscation. Any script can decode it in 2 seconds.\n\nHow are you handling secrets with ArgoCD right now? Tell me below \ud83d\udc47\n\n#ArgoCD #DevOps #Kubernetes #SecretManagement",
+    "hook_id": "2055005513331437929",
+    "thread_id": "2055005514216448390",
+    "content_hash": "9aaf09062f10a9a315fa590f3dc7773d"
   }
 ]
