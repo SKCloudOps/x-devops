@@ -1576,5 +1576,14 @@
     "hook_id": "2054915740868759934",
     "thread_id": "2054915742244426096",
     "content_hash": "da64238b5b6a54394a88dde63a782eaf"
+  },
+  {
+    "date": "2026-05-14T16:28:18.161309+00:00",
+    "category": "terraform_iac_interview_question",
+    "hook": "Interviewer: 'How do you manage Terraform state in a team?' \u2014 Most candidates say 'remote backend' and stop. Here's what actually matters \ud83d\udc47",
+    "thread": "Remote backend is just step one. Here's what actually matters:\n\n**The Real Problem:**\nIf two engineers run terraform apply at the same time, things break. State gets corrupted. Deployments fail.\n\n**The Answer They Want:**\n1. Use remote state (S3, Azure, Terraform Cloud)\n2. Enable state locking so only one person can change it at a time\n3. Use workspaces or separate folders so staging and prod don't fight\n4. Set up version control (git) for your .tf files, NOT for state files\n\n**Real Example:**\nYou're using Terraform Cloud. Engineer A runs apply. It locks the state. Engineer B tries to apply and has to wait. When A finishes, lock releases. B can now apply safely.\n\nThis is why ArgoCD + Terraform works great together \u2014 ArgoCD pulls from git, Terraform handles the state locking. No manual conflicts.\n\n**The Mistake:**\nDon't store state in git. Ever. It has secrets in it.\n\nHow would YOU explain state locking to someone who's never heard of it? Drop your answer below \ud83d\udc47\n\n#Terraform #DevOps #IaC #Interview #ArgoCD",
+    "hook_id": "2054962012011024631",
+    "thread_id": "2054962013567176933",
+    "content_hash": "a8cf5f026490c40a2af693dab34073bd"
   }
 ]
