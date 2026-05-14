@@ -1594,5 +1594,14 @@
     "hook_id": "2054998572181946562",
     "thread_id": "2054998573696065583",
     "content_hash": "642fa43aff199f3f4b546d4ec2b0968c"
+  },
+  {
+    "date": "2026-05-14T20:54:30.108188+00:00",
+    "category": "terraform_iac_interview_question",
+    "hook": "Interviewer: 'How do you manage state when multiple people run Terraform on the same EKS cluster?' \u2014 This one trips up a lot of people \ud83d\udc47",
+    "thread": "Most engineers say \"just don't do it\" lol. But that's not real life.\n\nHere's the actual answer:\n\nYou need remote state + locking.\n\n1. Store your state file in S3 (not local)\n2. Enable DynamoDB for state locking\n3. All Terraform runs lock the same resource\n\nWhy? If two people run terraform apply at the same time, they'll step on each other. Remote locking makes sure only one person can change things at a time.\n\nExample setup:\nterraform {\n  backend \"s3\" {\n    bucket = \"my-tf-state\"\n    key = \"eks/terraform.tfstate\"\n    dynamodb_table = \"terraform-locks\"\n  }\n}\n\nBonus: Use workspaces if you need dev/prod separation. But most teams use separate state files instead.\n\nNgl, this question is about showing you know production reality isn't chaos. You think ahead about how a team actually works.\n\nHow would YOU handle this? Drop your answer \ud83d\udc47\n\n#Terraform #EKS #IaC #DevOps #Interview",
+    "hook_id": "2055029003539394618",
+    "thread_id": "2055029004814467517",
+    "content_hash": "d130c421b0cab21cc4bd3c3ce761d887"
   }
 ]
