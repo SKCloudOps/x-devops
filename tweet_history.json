@@ -1558,5 +1558,14 @@
     "hook_id": "2054699155193282712",
     "thread_id": "2054699158594888087",
     "content_hash": "8e52c536546329a1f7db51926824e7b9"
+  },
+  {
+    "date": "2026-05-14T04:36:39.945940+00:00",
+    "category": "terraform_iac_interview_question",
+    "hook": "Interviewer: 'How do you manage a service mesh with Terraform?' \u2014 Most candidates freeze here. Would you know what to say? \ud83d\udc47",
+    "thread": "Here's the thing: a service mesh (like Istio) is just extra software that handles traffic between your services. Terraform can't deploy it alone.\n\nWhat you actually do:\n\n1. Use Terraform to set up your Kubernetes cluster\n2. Use Terraform to run the service mesh install scripts (helm charts via Terraform)\n3. Then use Terraform to manage traffic rules, timeouts, retries\n\nReal example:\n\nresource \"helm_release\" \"istio\" {\n  name       = \"istio\"\n  repository = \"https://istio-release.storage.googleapis.com/charts\"\n  chart      = \"istio-base\"\n}\n\n\nThe trick: Terraform manages the *infrastructure* part. But the actual mesh config (which services talk to which) often lives in YAML files or a separate GitOps tool.\n\nMost engineers miss this: Terraform + service mesh is a team effort, not Terraform solo.\n\nHow would YOU explain this in an interview? Drop your answer below \ud83d\udc47\n\n#Terraform #Kubernetes #ServiceMesh #DevOps #IaC",
+    "hook_id": "2054782922951913944",
+    "thread_id": "2054782924306686064",
+    "content_hash": "bc4ed33eb966d0c5b538d781ce8e5d99"
   }
 ]
