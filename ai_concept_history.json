@@ -290,5 +290,14 @@
     "hook_id": "2054711927801045029",
     "thread_id": "2054711928736329884",
     "content_hash": "873a6dda3b7e2e2926e99fc14b5ebe4b"
+  },
+  {
+    "date": "2026-05-14T23:55:00.826892+00:00",
+    "concept": "Function Calling",
+    "hook": "Everyone says 'function calling' but most people think it's way more complex than it actually is. It's just giving AI a to-do list \ud83d\udc47",
+    "thread": "Here's the simple version:\n\nFunction calling = you tell the AI \"here are some things you can do\" and it picks which one to do.\n\nReal example: You build a chatbot. You give it access to:\n- Send an email\n- Look up a customer's order\n- Schedule a meeting\n\nWhen someone asks \"email my boss about the project,\" the AI doesn't write the email itself. It says \"hey, use the send_email function with this person and this message.\"\n\nYour code then actually sends it.\n\nWhy? Because AI is just good at pattern matching. It's not safe to let it do things directly. Function calling = you stay in control.\n\nIt's like telling a smart assistant \"you can use the phone, the calendar, and the file cabinet\" instead of letting them do whatever they want.\n\nHow many of you deploy AI features without function calling? Curious how you handle it \ud83d\udc47\n\n#MLOps #AIDeployment #FunctionCalling #LLMs",
+    "hook_id": "2055074431240663481",
+    "thread_id": "2055074432163479767",
+    "content_hash": "65ba9d9125e707e343bef4a43c4d525a"
   }
 ]
