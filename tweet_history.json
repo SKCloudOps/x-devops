@@ -1603,5 +1603,14 @@
     "hook_id": "2055029003539394618",
     "thread_id": "2055029004814467517",
     "content_hash": "d130c421b0cab21cc4bd3c3ce761d887"
+  },
+  {
+    "date": "2026-05-14T22:54:50.451790+00:00",
+    "category": "terraform_iac_interview_question",
+    "hook": "Interviewer: 'What's the difference between Karpenter and Cluster Autoscaler?' \u2014 Most people mix these up. Do you know? \ud83d\udc47",
+    "thread": "Both add nodes when your pods need space. But here's the difference:\n\nCluster Autoscaler: Watches pods that can't fit. Then tells your cloud provider to add a node. Slow. Takes minutes sometimes.\n\nKarpenter: Smarter. Launches nodes in seconds. Picks the cheapest node type for your workload. Removes nodes faster when you don't need them.\n\nReal example: You need 10 new pods fast.\n\nCluster Autoscaler waits, checks, then requests one big node. Your pods wait.\n\nKarpenter: Spins up the right-sized node in 20 seconds. Your pods run now.\n\nKarpenter also consolidates better. If you have 5 half-full nodes, it packs them into 3 and removes the extras. Saves money.\n\nThe catch? Karpenter is newer. Not all teams use it yet. And it only works with AWS, Azure, GCP (different versions).\n\nCluster Autoscaler works everywhere.\n\nSo in interviews, they want to know: Do you get that Karpenter is faster AND cheaper? That's the key difference.\n\nWhich one have you used? Or which would you choose? Drop your take below \ud83d\udc47\n\n#Karpenter #Kubernetes #Terraform #DevOps #InterviewTips",
+    "hook_id": "2055059287576092695",
+    "thread_id": "2055059288989548648",
+    "content_hash": "330da389d30007ed4c43f33189378144"
   }
 ]
