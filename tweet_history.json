@@ -1567,5 +1567,14 @@
     "hook_id": "2054782922951913944",
     "thread_id": "2054782924306686064",
     "content_hash": "bc4ed33eb966d0c5b538d781ce8e5d99"
+  },
+  {
+    "date": "2026-05-14T13:24:26.218768+00:00",
+    "category": "terraform_iac_interview_question",
+    "hook": "Interviewer: 'How do you manage Istio config in Terraform?' \u2014 Most candidates mix it up. Would you get this right? \ud83d\udc47",
+    "thread": "Here's the thing: You DON'T write Istio YAML inside Terraform.\n\nWhat you DO:\n1. Use Terraform to deploy Istio itself (the control plane)\n2. Use Terraform to create the namespace and inject labels\n3. THEN use kubectl or Helm for the actual Istio resources (VirtualServices, DestinationRules, etc.)\n\nWhy? Because Istio config is applied AFTER Istio runs. It's like building the house first, then decorating it.\n\nReal example:\n- Terraform: Deploy Istio via Helm chart\n- Terraform: Label the namespace (istio-injection: enabled)\n- Kubectl: Apply your VirtualService manifests\n\nSome teams use Terraform for EVERYTHING, but that's usually overkill. Keep it simple.\n\nWhat's your take \u2014 would you manage all Istio config in Terraform, or split it up? Drop your answer below \ud83d\udc47\n\n#Terraform #Istio #DevOps #IaC #KubernetesInterview",
+    "hook_id": "2054915740868759934",
+    "thread_id": "2054915742244426096",
+    "content_hash": "da64238b5b6a54394a88dde63a782eaf"
   }
 ]
