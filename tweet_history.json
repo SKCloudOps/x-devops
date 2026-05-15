@@ -1630,5 +1630,14 @@
     "hook_id": "2055277892867686520",
     "thread_id": "2055277894214033524",
     "content_hash": "92f589e19781a46b3ab31ec63b1e8b53"
+  },
+  {
+    "date": "2026-05-15T16:19:32.347607+00:00",
+    "category": "devops_trending_topic",
+    "hook": "Interviewer: 'What's Backstage and why would we use it?' \u2014 Most DevOps candidates freeze here. Would you know what to say? \ud83d\udc47",
+    "thread": "Backstage is a tool that makes it way easier to build stuff. Think of it like a self-service portal for your developers.\n\nInstead of asking ops engineers for every little thing, devs can spin up a new service or database or deployment pipeline themselves. It's built by Spotify, so yeah, it works at scale.\n\nWhy use it?\n\u2022 Devs get what they need fast (no waiting for tickets)\n\u2022 Fewer repetitive questions for your ops team\n\u2022 Everyone uses the same templates (consistency wins)\n\u2022 Less mistakes because the template handles the setup\n\nExample: A dev needs a new Node app. Without Backstage, they email you with questions. With Backstage, they fill out a form, click \"Create\", and boom\u2014git repo + pipeline + monitoring is ready.\n\nIt's basically \"developer self-service done right.\"\n\nHave you used Backstage before, or would you ask about it more in an interview? \ud83d\udc47\n\n#DevOps #Backstage #SRE #Kubernetes #CloudNative",
+    "hook_id": "2055322194427658678",
+    "thread_id": "2055322196025671682",
+    "content_hash": "051d26168fbb05a187d43401fbc2f710"
   }
 ]
