@@ -299,5 +299,14 @@
     "hook_id": "2055074431240663481",
     "thread_id": "2055074432163479767",
     "content_hash": "65ba9d9125e707e343bef4a43c4d525a"
+  },
+  {
+    "date": "2026-05-15T23:53:26.886989+00:00",
+    "concept": "tokenization_and_context",
+    "hook": "Everyone says 'context window' but most people don't get why it actually matters. Here's what you're missing \ud83d\udc47",
+    "thread": "Context window = how much text an AI can read and remember at once.\n\nThink of it like this: You're reading a book but can only keep the last 50 pages in your head. If the ending references something from page 10, you miss it.\n\nWith Claude or GPT-4, you get way more pages. You can dump a whole document, long email chain, or meeting transcript. The AI reads all of it before answering.\n\nWhy it matters:\n- Bigger window = AI can understand longer documents without forgetting\n- You can paste entire codebases, contracts, or research papers\n- Costs more (longer input = more tokens to process)\n- Some models give you 4K tokens (short). Others give 100K+ (massive)\n\nSo if you're copying huge files into ChatGPT and getting bad answers, your context window might be too small.\n\nWhat AI task have you hit the context limit on? \ud83d\udc47\n\n#AI #LLM #ContextWindow",
+    "hook_id": "2055436425089241494",
+    "thread_id": "2055436425999319330",
+    "content_hash": "05e376d2d7dfa549bde6498ac245be0c"
   }
 ]
