@@ -1648,5 +1648,14 @@
     "hook_id": "2055353180054237207",
     "thread_id": "2055353181228691747",
     "content_hash": "e429a0bfcca5c3f8544193694a28b427"
+  },
+  {
+    "date": "2026-05-15T20:41:15.609756+00:00",
+    "category": "devops_trending_topic",
+    "hook": "Interviewer: 'When would you use Fargate over EC2?' \u2014 Most candidates overthink this. Here's what they miss \ud83d\udc47",
+    "thread": "Fargate sounds cool but it's not always the right choice.\n\nFargate = You don't manage servers. AWS does it for you.\n\nEC2 = You manage the servers yourself.\n\nSo when do you pick each?\n\n**Use Fargate when:**\n- You don't want to patch servers\n- Your team is small\n- You have short tasks (batch jobs, one-off scripts)\n- You don't need to tweak kernel stuff\n- Cost doesn't kill you (Fargate is pricier)\n\n**Use EC2 when:**\n- You need to save money\n- Your app needs GPU or custom hardware\n- You run 24/7 and volume matters\n- You have Linux experts on your team\n- You need to control the OS layer\n\n**Real example:** If you run a web app with 3 containers, Fargate is less hassle. If you run 200 containers all day, EC2 saves you thousands a month.\n\nTbh most people pick Fargate first because it's easier. Then they switch to EC2 when the bill shows up.\n\nWhat's your take \u2014 do you lean Fargate or EC2? Tell me why \ud83d\udc47\n\n#DevOps #AWS #Fargate #CloudComputing #InterviewPrep",
+    "hook_id": "2055388059076837597",
+    "thread_id": "2055388060305781089",
+    "content_hash": "af9099718320b26b8e0887d5542abe3a"
   }
 ]
