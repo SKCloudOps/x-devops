@@ -1639,5 +1639,14 @@
     "hook_id": "2055322194427658678",
     "thread_id": "2055322196025671682",
     "content_hash": "051d26168fbb05a187d43401fbc2f710"
+  },
+  {
+    "date": "2026-05-15T18:22:39.800652+00:00",
+    "category": "devops_trending_topic",
+    "hook": "Interviewer: 'Explain a VPC to me like I'm not technical.' \u2014 Most engineers choke here. Would you? \ud83d\udc47",
+    "thread": "A VPC is just a private network in the cloud. Think of it like renting an apartment building.\n\nYou get:\n- Your own space (subnets)\n- Your own front door (internet gateway)\n- Your own security guard (security groups)\n- Your own walls (network ACLs)\n\nHere's the real example: You launch an EC2 server in a VPC. By default, nothing from the internet can reach it. You have to:\n\n1. Create a route table\n2. Add a route to the internet gateway\n3. Create a security group that allows traffic in\n\nWithout these steps? Your server is locked down tight.\n\nThe key thing: A VPC is just networking boundaries. It stops bad traffic from reaching your stuff by default. You have to explicitly open the doors.\n\nWhy do interviewers ask this? They want to know if you understand isolation and security. Not just if you can draw a diagram.\n\nWhat's your go-to way to explain VPCs? Reply below \ud83d\udc47\n\n#DevOps #AWS #InterviewPrep #CloudEngineering",
+    "hook_id": "2055353180054237207",
+    "thread_id": "2055353181228691747",
+    "content_hash": "e429a0bfcca5c3f8544193694a28b427"
   }
 ]
