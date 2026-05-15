@@ -1621,5 +1621,14 @@
     "hook_id": "2055146973284712559",
     "thread_id": "2055146974614278320",
     "content_hash": "427291a74377b2f6a85fbd018d1e8b7c"
+  },
+  {
+    "date": "2026-05-15T13:23:29.975482+00:00",
+    "category": "devops_trending_topic",
+    "hook": "Interviewer: 'Why use Helm instead of plain kubectl?' \u2014 Most candidates stumble here. Would you? \ud83d\udc47",
+    "thread": "Here's the thing: kubectl works fine for one app. But when you deploy 50 microservices? You're writing the same YAML over and over.\n\nHelm is like a template engine for Kubernetes. It lets you:\n\n1. Write your config once, use it everywhere\n2. Pass in different values (dev vs prod)\n3. Update all your apps at once\n\nReal example: You have a database service that runs in three environments. Without Helm, you write three separate YAML files by hand. With Helm, you write ONE template and change just the values (like database size, replicas, etc).\n\nBonus: Helm also handles rollbacks. Deploy a bad version? One command rolls you back.\n\nSo the short answer: Helm = less copy-paste, more speed, easier to manage.\n\nWhat's the trickiest Helm question you've been asked in an interview? Drop it below \ud83d\udc47\n\n#DevOps #Kubernetes #Helm #InterviewPrep",
+    "hook_id": "2055277892867686520",
+    "thread_id": "2055277894214033524",
+    "content_hash": "92f589e19781a46b3ab31ec63b1e8b53"
   }
 ]
