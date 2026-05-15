@@ -268,5 +268,14 @@
     "hook_id": "2055005513331437929",
     "thread_id": "2055005514216448390",
     "content_hash": "9aaf09062f10a9a315fa590f3dc7773d"
+  },
+  {
+    "date": "2026-05-15T19:07:07.934861+00:00",
+    "concept": "Route53_with_Service_Mesh_Routing",
+    "hook": "Most engineers using Route53 with service mesh don't realize they're doing double work \ud83d\udc47",
+    "thread": "Here's the thing: Route53 does DNS routing. Your service mesh (like Istio) also does routing.\n\nThink of it like having two bouncers at a club. Route53 picks which club location. The service mesh picks which table inside.\n\nYou don't need both doing the same job. Most teams should:\n\n1. Let Route53 handle basic DNS (simple load balancing to your mesh entry point)\n2. Let your service mesh handle the real smart stuff (weighted routes, retries, circuit breaking)\n\nGotcha: If you try to make Route53 do fancy stuff AND your mesh do fancy stuff, they fight. You get weird timeouts. You blame your infrastructure. You lose sleep.\n\nKeep Route53 simple. Let your mesh be smart.\n\nWhat's your setup look like? Route53 doing too much? \ud83d\udc47\n\n#ServiceMesh #AWS #DevOps #Kubernetes",
+    "hook_id": "2055364371187208319",
+    "thread_id": "2055364372227412359",
+    "content_hash": "4bb1203cf1e155612733293c24387489"
   }
 ]
