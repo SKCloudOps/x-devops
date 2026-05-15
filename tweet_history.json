@@ -1657,5 +1657,14 @@
     "hook_id": "2055388059076837597",
     "thread_id": "2055388060305781089",
     "content_hash": "af9099718320b26b8e0887d5542abe3a"
+  },
+  {
+    "date": "2026-05-15T22:52:39.671253+00:00",
+    "category": "devops_trending_topic",
+    "hook": "Interviewer: 'How do you lock down IAM so a hacked container can't steal secrets?' \u2014 Most candidates miss the real answer \ud83d\udc47",
+    "thread": "Here's what they want to hear:\n\nDon't store secrets IN your container. Period.\n\nInstead:\n1. Use a secrets manager (AWS Secrets Manager, HashiCorp Vault, whatever)\n2. Give your container an IAM role, not a password\n3. The role only has permission to grab ONE secret\n4. Set short expiration times\n\nReal example: Your app is running on Kubernetes. You attach an IAM role that says \"this pod can only read the database password, nothing else.\" Even if someone hacks in, they can't grab AWS keys or other secrets. They're locked out.\n\nThe trick most miss: Don't give containers broad permissions \"just in case.\" Give them the LEAST they need to run. That's called the Principle of Least Privilege.\n\nOne more thing \u2014 use short-lived tokens instead of long passwords. Tokens that expire in 1 hour beat passwords that live forever.\n\nHow do you handle secrets in your setup right now? What's been your biggest IAM mistake? Drop it below \ud83d\udc47\n\n#DevOps #IAM #Kubernetes #Security #InterviewPrep",
+    "hook_id": "2055421127044796814",
+    "thread_id": "2055421128458285231",
+    "content_hash": "c9ca47d5eb01b0923c5e6e3f9ce72e94"
   }
 ]
