@@ -277,5 +277,14 @@
     "hook_id": "2055364371187208319",
     "thread_id": "2055364372227412359",
     "content_hash": "4bb1203cf1e155612733293c24387489"
+  },
+  {
+    "date": "2026-05-16T18:32:58.895538+00:00",
+    "concept": "NLB vs ALB - When to use Network Load Balancer",
+    "hook": "Most engineers using NLB think it's just a 'faster load balancer.' But that's not why you should actually use it \ud83d\udc47",
+    "thread": "NLB = Network Load Balancer. It works at the network level (super fast, low latency). But here's the thing most people miss:\n\nThink of it like a traffic cop on a highway vs. a crossing guard at a school.\n\nALB (Application Load Balancer) = smart crossing guard. Looks at what you're carrying (your app data). Routes you based on rules.\n\nNLB = traffic cop on the highway. Doesn't care what you're carrying. Just moves traffic crazy fast. Ultra low latency.\n\nGotcha: NLB costs more AND you pay per GB of data. So don't use it unless you NEED that speed. Use ALB for most stuff.\n\nWhen DO you need NLB? Real-time gaming. Live streams. Super high traffic (millions of requests per second). Financial trading. Basically when milliseconds matter.\n\nWhat's your main use case for NLB? Or are you still figuring out which load balancer you need? Reply below \ud83d\udc47\n\n#AWS #NLB #DevOps #LoadBalancer",
+    "hook_id": "2055718164818792924",
+    "thread_id": "2055718165783458280",
+    "content_hash": "a5108481c97c6b4fcfa785447ec828c4"
   }
 ]
