@@ -1684,5 +1684,14 @@
     "hook_id": "2055632653953404997",
     "thread_id": "2055632655509594163",
     "content_hash": "067b537bbad6de60f04afe29d2490895"
+  },
+  {
+    "date": "2026-05-16T15:34:08.744674+00:00",
+    "category": "cloud_architecture_pattern",
+    "hook": "Interviewer: 'Why would you use Fargate instead of EC2?' \u2014 Most engineers get this wrong. Here's what they miss \ud83d\udc47",
+    "thread": "Fargate is AWS doing the server work for you. You just say \"run my container\" and it happens. EC2 means YOU manage the servers.\n\nFargate wins when:\n- You don't want to patch servers\n- Your apps come and go (less steady traffic)\n- You want simple scaling\n\nEC2 wins when:\n- You need full control\n- You run the same stuff 24/7\n- You want to save money (reserved instances)\n\nReal example: A job that runs once a day? Fargate. A website that runs always? Probably EC2 or both mixed together.\n\nHonest take: Most small teams pick Fargate first. It costs more per hour but saves you from headaches. Pick EC2 when you're big enough to have someone managing servers full-time.\n\nWould you use Fargate or EC2 for a side project? Drop your answer below \ud83d\udc47\n\n#AWS #Fargate #DevOps #CloudArchitecture #InterviewPrep",
+    "hook_id": "2055673158967898151",
+    "thread_id": "2055673160297480683",
+    "content_hash": "ecb5a6eaf4b74abcf17dc5768de461f6"
   }
 ]
