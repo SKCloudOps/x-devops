@@ -1702,5 +1702,14 @@
     "hook_id": "2055708481836003770",
     "thread_id": "2055708483157152185",
     "content_hash": "e3031c02be35f15c868c5041869ed939"
+  },
+  {
+    "date": "2026-05-16T20:11:59.712416+00:00",
+    "category": "cloud_architecture_pattern",
+    "hook": "Interviewer: 'Why use Aurora instead of regular RDS?' \u2014 Most candidates miss the real reason. \ud83d\udc47",
+    "thread": "Here's what people usually say: 'It's faster.' Okay, but WHY?\n\nThe real answer: Aurora splits reading and writing. Your main database handles writes. Read replicas handle all the SELECT queries.\n\nExample: Your app needs to show user dashboards (read heavy). You don't want those reads slowing down your checkout process (write heavy). With Aurora, they don't fight each other.\n\nBonus: Aurora auto-scales read replicas. More traffic? It adds replicas automatically. No manual work.\n\nThe gotcha most miss: Aurora costs more upfront. But if your app is read-heavy, you save money fast because you don't waste compute power.\n\nWhen would you NOT use Aurora? If your app does simple stuff with low traffic. Regular RDS is cheaper and simpler.\n\nHow would you explain this to a non-technical person on your team? Drop your answer below \ud83d\udc47\n\n#DevOps #AWS #CloudArchitecture #DatabaseDesign #InterviewPrep",
+    "hook_id": "2055743082113741281",
+    "thread_id": "2055743083359383888",
+    "content_hash": "99503513fb2b6e6eb5019bdd88d2c93c"
   }
 ]
