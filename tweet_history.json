@@ -1711,5 +1711,14 @@
     "hook_id": "2055743082113741281",
     "thread_id": "2055743083359383888",
     "content_hash": "99503513fb2b6e6eb5019bdd88d2c93c"
+  },
+  {
+    "date": "2026-05-16T22:42:15.753967+00:00",
+    "category": "cloud_architecture_pattern",
+    "hook": "Interviewer: 'How do you enforce policies across your Kubernetes clusters?' \u2014 Most candidates panic. Would you? \ud83d\udc47",
+    "thread": "Here's the thing: you need a policy engine. That's where OPA comes in.\n\nOPA = Open Policy Agent. It's basically a bouncer for your cluster.\n\nWhat does it do?\n- Blocks bad requests before they happen\n- Checks if pods meet security rules\n- Makes sure images come from approved registries\n- Stops containers that run as root\n\nReal example:\nYou write a policy that says 'no container can run without resource limits.' OPA checks every new pod. If it breaks the rule, OPA rejects it instantly.\n\nIt uses a language called Rego (think of it like rules you write). Simple rules = powerful control.\n\nWhy engineers love it:\n- Works with Kubernetes, Docker, Terraform, AWS policies\n- One tool for all your infrastructure\n- Catches mistakes before they become problems\n\nThat's what your interviewer wants to hear. Not 'we hope people follow rules' \u2014 but 'we enforce rules automatically.'\n\nHave you used OPA before, or is this your first time hearing about it? \ud83d\udc47\n\n#DevOps #Kubernetes #CloudSecurity #OPA #InterviewPrep",
+    "hook_id": "2055780898214162645",
+    "thread_id": "2055780899451547884",
+    "content_hash": "25377c75f83e08e19256058badd034b9"
   }
 ]
