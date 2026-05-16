@@ -1693,5 +1693,14 @@
     "hook_id": "2055673158967898151",
     "thread_id": "2055673160297480683",
     "content_hash": "ecb5a6eaf4b74abcf17dc5768de461f6"
+  },
+  {
+    "date": "2026-05-16T17:54:30.371727+00:00",
+    "category": "cloud_architecture_pattern",
+    "hook": "Interviewer: 'How do you protect your cloud from bad traffic?' \u2014 Most candidates miss the obvious answer. \ud83d\udc47",
+    "thread": "They're asking about a Web Application Firewall (WAF). Simple version: it's a shield between your users and your app.\n\nHere's what happens:\n\n1. Bad request comes in (maybe someone trying to hack you)\n2. WAF checks it against rules\n3. If it looks bad, WAF blocks it\n4. Good traffic gets through\n\nReal example: You run a website. Hackers try to inject code into your login form. A WAF catches patterns that look like code injection and says \"nope, blocked.\"\n\nWhy this matters in interviews:\n- Shows you think about security early\n- Proves you know it's NOT just firewalls\n- Tells them you understand layers of defense\n\nQuick tip: Don't just say \"use a WAF.\" Say WHERE it sits (between users and load balancer, usually) and WHAT it blocks (SQL injection, XSS, DDoS patterns).\n\nHave you gotten asked this one before? How'd you answer? \ud83d\udc47\n\n#DevOps #CloudSecurity #WAF #InterviewPrep #CloudArchitecture",
+    "hook_id": "2055708481836003770",
+    "thread_id": "2055708483157152185",
+    "content_hash": "e3031c02be35f15c868c5041869ed939"
   }
 ]
