@@ -1675,5 +1675,14 @@
     "hook_id": "2055504524987810129",
     "thread_id": "2055504526288035844",
     "content_hash": "fe469862acf7b5f93d843a80c4100e88"
+  },
+  {
+    "date": "2026-05-16T12:53:11.654063+00:00",
+    "category": "cloud_architecture_pattern",
+    "hook": "Interviewer: 'How do you scale apps based on custom metrics?' \u2014 Most candidates only know about CPU. Here's what they miss \ud83d\udc47",
+    "thread": "Here's the thing: CPU and memory scaling is basic. But what if you need to scale based on something weird? Like queue depth or API response time?\n\nThat's where KEDA comes in.\n\nKEDA = Kubernetes Event Driven Autoscaling. It's an add-on that watches custom stuff and tells Kubernetes when to scale up or down.\n\nExample: You have a job queue with 1000 messages waiting. Your app can process 10 per second. Normal autoscaling won't help \u2014 it'll only check CPU.\n\nWith KEDA, you say: \"If queue depth > 500, spin up 5 more pods.\" Done.\n\nHow it works:\n1. KEDA watches your metric source (queue, database, webhook, whatever)\n2. It calculates how many pods you need\n3. It tells Kubernetes to scale\n4. Kubernetes handles the rest\n\nWhy mention it in interviews? Shows you think beyond the basics. Not every problem is solved by CPU thresholds.\n\nHave you used KEDA or custom scalers in production? What metric did you scale on? Drop it below \ud83d\udc47\n\n#Kubernetes #DevOps #KEDA #CloudArchitecture #Autoscaling",
+    "hook_id": "2055632653953404997",
+    "thread_id": "2055632655509594163",
+    "content_hash": "067b537bbad6de60f04afe29d2490895"
   }
 ]
