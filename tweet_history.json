@@ -1666,5 +1666,14 @@
     "hook_id": "2055421127044796814",
     "thread_id": "2055421128458285231",
     "content_hash": "c9ca47d5eb01b0923c5e6e3f9ce72e94"
+  },
+  {
+    "date": "2026-05-16T04:24:03.260593+00:00",
+    "category": "cloud_architecture_pattern",
+    "hook": "Interviewer: 'Why use CloudFormation instead of clicking in the AWS console?' \u2014 Most candidates mess this up. Here's the right answer \ud83d\udc47",
+    "thread": "Here's what they're really asking: Can you explain why code beats clicking?\n\nRight answer:\n\n\"CloudFormation lets you write your whole AWS setup as code. You push it to git, version it, and repeat it everywhere. The console? That's one-off clicking. If someone deletes something by accident, you have no undo. No record. No way to spin up the same setup in another account.\n\nCode = repeatable, traceable, safe.\"\n\nBonus tip: Mention infrastructure as code (IaC). It means your infra lives in git like your app code does. You get history, reviews, rollbacks.\n\nReal example: You write a CloudFormation template once. Your team runs it for dev, staging, and prod. Same config, same servers. No manual mistakes. No \"wait, how did we set this up last time?\"\n\nThat's the win.\n\nWhat's the trickiest AWS infra question you've been asked? Drop it below \ud83d\udc47\n\n#AWS #CloudFormation #DevOps #InterviewPrep #IaC",
+    "hook_id": "2055504524987810129",
+    "thread_id": "2055504526288035844",
+    "content_hash": "fe469862acf7b5f93d843a80c4100e88"
   }
 ]
