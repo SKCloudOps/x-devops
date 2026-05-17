@@ -1738,5 +1738,14 @@
     "hook_id": "2055994387495047613",
     "thread_id": "2055994389982261499",
     "content_hash": "717ada95908e644658a335718e749ecc"
+  },
+  {
+    "date": "2026-05-17T15:37:44.539460+00:00",
+    "category": "sre_observability_question",
+    "hook": "Interviewer: 'How do you monitor network traffic between pods?' \u2014 Most candidates miss the obvious answer. Here's what they should say \ud83d\udc47",
+    "thread": "The answer they want: Use a network visibility tool.\n\nTools like Cilium, Calico, or even plain old tcpdump let you see what's talking to what.\n\nHere's the real deal:\n\n1. **Cilium** gives you packet-level visibility. You see every connection, every DNS query, every drop. It's built into the network layer.\n\n2. **Why it matters for SRE**: You can't fix problems you can't see. If a pod is slow, you need to know: Is it network latency? A bad destination? Something blocking the traffic?\n\n3. **What the interviewer wants to hear**: \"I'd start with Cilium's Hubble UI to see live traffic, then use it to check for dropped packets or weird DNS behavior.\"\n\nBonus: mention you'd combine it with prometheus metrics for the full picture.\n\nThat's it. Don't overthink it.\n\nWhat's the trickiest observability question you've hit in an interview? Drop it below \ud83d\udc47\n\n#DevOps #SRE #Kubernetes #Cilium #InterviewTips",
+    "hook_id": "2056036451586847051",
+    "thread_id": "2056036453210091836",
+    "content_hash": "5d04804b559fcb0803e264a6a94c87c8"
   }
 ]
