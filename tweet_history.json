@@ -1747,5 +1747,14 @@
     "hook_id": "2056036451586847051",
     "thread_id": "2056036453210091836",
     "content_hash": "5d04804b559fcb0803e264a6a94c87c8"
+  },
+  {
+    "date": "2026-05-17T17:57:32.710282+00:00",
+    "category": "sre_observability_question",
+    "hook": "Interviewer: 'How would you monitor Route53 health checks?' Most candidates miss the obvious answer. \ud83d\udc47",
+    "thread": "Route53 is AWS's DNS service. It routes traffic to your apps. So how do you know it's working?\n\nHealth checks. They're simple:\n\n1) Route53 sends requests to your endpoint (HTTP, TCP, whatever)\n2) If it gets back a good response, it's healthy\n3) If it fails, Route53 stops sending traffic there\n\nBUT here's what people miss:\n\nYou need to monitor THREE things:\n- Is the health check itself running? (CloudWatch alarms)\n- Are your endpoints actually healthy? (Your app logs)\n- Is Route53 doing the routing right? (Query logs)\n\nReal example: Your app crashed but Route53 still routed traffic to it for 30 seconds because health checks run every 30 seconds by default.\n\nSo you'd want:\n- CloudWatch alarms on Route53 health check status\n- App-level alerts when requests fail\n- Route53 query logs to see what's actually happening\n\nBonus: Set up multi-region failover. If one zone goes down, Route53 switches to another automatically.\n\nWhat's your go-to way to monitor Route53? Or have you been burned by this before? Drop your answer below \ud83d\udc47\n\n#SRE #AWS #DevOps #Observability #Route53",
+    "hook_id": "2056071634155401487",
+    "thread_id": "2056071635719872841",
+    "content_hash": "1109a8a3c7611be5ee237f8e2e95c427"
   }
 ]
