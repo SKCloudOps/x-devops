@@ -1765,5 +1765,14 @@
     "hook_id": "2056108968271884768",
     "thread_id": "2056108969702121955",
     "content_hash": "d938c7f05f30af948fe3d5b480537600"
+  },
+  {
+    "date": "2026-05-17T22:52:04.795259+00:00",
+    "category": "sre_observability_question",
+    "hook": "Interviewer: 'How do you monitor secret rotation?' \u2014 Most SREs fumble this one. Here's what they should say \ud83d\udc47",
+    "thread": "Secret rotation (like KMS keys) is critical. Here's the simple way to think about it:\n\nYou need THREE things:\n\n1) **Know when it rotates**\nSet up alerts. If a secret rotates and you don't know, you have a problem. Use CloudWatch or Prometheus to track rotation events.\n\n2) **Test before it matters**\nDon't wait for production to break. Rotate a test secret first. Make sure your app picks up the new one without crashing.\n\n3) **Log everything**\nTrack who rotated it, when, and what changed. If something breaks after rotation, you need a paper trail.\n\nReal example: KMS key rotation happens auto every year. But your app might cache the old key. So you need monitoring that says \"hey, key changed, restart the service.\"\n\nThe trick most engineers miss: They assume rotation is automatic and safe. Nope. You gotta watch it.\n\nWhat's the weirdest secret rotation failure you've seen? Drop it \ud83d\udc47\n\n#SRE #Observability #DevOps #KMS #SecurityOps",
+    "hook_id": "2056145756302516429",
+    "thread_id": "2056145757850280298",
+    "content_hash": "6053b174e976bf44d57b604e5849ee5b"
   }
 ]
