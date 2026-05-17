@@ -1756,5 +1756,14 @@
     "hook_id": "2056071634155401487",
     "thread_id": "2056071635719872841",
     "content_hash": "1109a8a3c7611be5ee237f8e2e95c427"
+  },
+  {
+    "date": "2026-05-17T20:25:53.812889+00:00",
+    "category": "sre_observability_question",
+    "hook": "Interviewer: 'How do you monitor secrets rotation in KMS?' \u2014 Most candidates say 'CloudWatch logs' and stop. Here's what they miss \ud83d\udc47",
+    "thread": "KMS secrets rotation isn't just about CloudWatch. You need to actually WATCH what's happening.\n\nHere's the real answer:\n\n1. **Set up CloudTrail** \u2014 logs every KMS call. Who accessed what key. When.\n\n2. **CloudWatch alarms** \u2014 trigger when rotation fails or takes too long\n\n3. **Check the key metadata** \u2014 KMS shows you the last rotation date. Compare it to your policy. Is it actually rotating?\n\n4. **Application-level checks** \u2014 your app should log when it gets a NEW key version. If it's always using old versions? Problem.\n\nReal example: I saw a team with \"automatic rotation enabled\" but their apps never grabbed the new key material. CloudWatch looked fine. But they weren't actually using rotated secrets.\n\nThe trick? Don't just monitor that rotation happened. Monitor that your apps are USING the new secrets.\n\nWhat's the trickiest secrets question you've been asked? Drop it below \ud83d\udc47\n\n#SRE #DevOps #CloudSecurity #KMS #Observability",
+    "hook_id": "2056108968271884768",
+    "thread_id": "2056108969702121955",
+    "content_hash": "d938c7f05f30af948fe3d5b480537600"
   }
 ]
