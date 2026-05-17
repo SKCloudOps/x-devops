@@ -1729,5 +1729,14 @@
     "hook_id": "2055872602636185788",
     "thread_id": "2055872603819037040",
     "content_hash": "73d40cd7f27eff4e387d351c0ffb5dae"
+  },
+  {
+    "date": "2026-05-17T12:50:35.884693+00:00",
+    "category": "sre_observability_question",
+    "hook": "Interviewer: 'How do you know if your ArgoCD deployment actually worked?' \u2014 Most candidates say 'I check the dashboard.' Wrong answer \ud83d\udc47",
+    "thread": "Here's the thing: ArgoCD syncs your code to the cluster. But sync \u2260 healthy. You need observability.\n\nThe RIGHT answer:\n\n1. Check app status in ArgoCD (synced + healthy)\n2. Check your actual pods are running (kubectl get pods)\n3. Check your app serves traffic (health checks pass)\n4. Monitor logs and metrics\n\nExample: ArgoCD says \"synced\" but your pod keeps restarting. That's a broken deployment. You'd catch this by watching pod logs, not just the ArgoCD UI.\n\nSo next time: don't stop at \"ArgoCD is synced.\" Ask \"Is my app actually healthy?\" That's the SRE mindset.\n\nHow do YOU verify a deployment worked? Drop your approach below \ud83d\udc47\n\n#DevOps #SRE #ArgoCD #Kubernetes #Observability",
+    "hook_id": "2055994387495047613",
+    "thread_id": "2055994389982261499",
+    "content_hash": "717ada95908e644658a335718e749ecc"
   }
 ]
