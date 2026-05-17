@@ -317,5 +317,14 @@
     "hook_id": "2055798039059611841",
     "thread_id": "2055798040410083822",
     "content_hash": "1526ae105f33e358915a4cd46f304057"
+  },
+  {
+    "date": "2026-05-17T23:55:31.903855+00:00",
+    "concept": "Diffusion Models",
+    "hook": "Everyone says 'diffusion models' but most people don't get how they actually work. It's way simpler than you think \ud83d\udc47",
+    "thread": "Here's the simple version:\n\nDiffusion = starting with pure noise and slowly cleaning it up until you get a real image.\n\nThink of it like a blurry photo. You add noise to a clear picture over and over. Then you teach the AI to reverse that. Start with noise \u2192 remove noise step by step \u2192 end up with a clear image.\n\nThis is how DALL-E and Midjourney actually make images. They don't draw from scratch. They start with static and guide it into being something real.\n\nWhy it matters: it's insanely good at making weird creative stuff because the AI learns what details matter at each step. Way better than older methods.\n\nThe bonus: you can guide it with just a few examples (that's the 'few-shot' part). Show it 3 dog pics and it learns dog style without retraining.\n\nWhat confuses you most about how AI makes images? Drop it below \ud83d\udc47\n\n#DiffusionModels #AI #AIArt #MachineLearning #ImageGeneration",
+    "hook_id": "2056161725200609695",
+    "thread_id": "2056161726102487298",
+    "content_hash": "ac73e224e229e8d3b78cac0860941a8f"
   }
 ]
