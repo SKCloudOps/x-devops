@@ -286,5 +286,14 @@
     "hook_id": "2055718164818792924",
     "thread_id": "2055718165783458280",
     "content_hash": "a5108481c97c6b4fcfa785447ec828c4"
+  },
+  {
+    "date": "2026-05-17T18:36:47.747402+00:00",
+    "concept": "IAM Segregation in Disaster Recovery",
+    "hook": "Most engineers skip IAM in their disaster recovery plan. Then their backup can't restore anything. Here's why \ud83d\udc47",
+    "thread": "Here's the thing: your backups are useless if the person restoring them can't access them.\n\nThink of it like this. You lock your house, store the key, then only give your brother permission to open the front door. When the house burns down and you need him to grab your backup safe? He can't get in. Same problem with IAM.\n\nWhen disaster hits, you need:\n\n1) Your backup data (obvious)\n2) A user/role that can actually restore it (not obvious)\n\nMost teams create backups under one AWS account or role. But after a breach or failure, that role might be locked, compromised, or deleted.\n\nThe fix: Create a separate, hardened IAM user or role JUST for disaster recovery. Give it only restore permissions. Store its credentials in a physical safe or separate secure location. Never touch it unless disaster hits.\n\nGotcha: Test it now. Try actually restoring from backups using that DR-only role. I've seen teams discover it doesn't work when they're already panicking.\n\nWhat's your biggest disaster recovery gap right now? \ud83d\udc47\n\n#DisasterRecovery #AWS #IAM #DevOps #CloudSecurity",
+    "hook_id": "2056081512500548096",
+    "thread_id": "2056081513519714446",
+    "content_hash": "23a2e6fcc2fd0be4cac8fb5e545af266"
   }
 ]
