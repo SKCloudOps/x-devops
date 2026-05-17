@@ -1720,5 +1720,14 @@
     "hook_id": "2055780898214162645",
     "thread_id": "2055780899451547884",
     "content_hash": "25377c75f83e08e19256058badd034b9"
+  },
+  {
+    "date": "2026-05-17T04:46:39.783829+00:00",
+    "category": "sre_observability_question",
+    "hook": "Interviewer: 'How do you monitor your monitoring?' \u2014 Most candidates blank here. Would you? \ud83d\udc47",
+    "thread": "Okay, so you set up Prometheus to scrape metrics. But what if Prometheus itself dies? Or stops scraping? Now you're flying blind.\n\nHere's the real answer:\n\nYou need to monitor Prometheus itself. Check:\n- Is it scraping targets? (up metric)\n- Is disk space filling up?\n- Are queries getting slow?\n\nPractical setup:\n1. Run a second Prometheus instance\n2. Have it scrape your main Prometheus\n3. Alert on: high disk usage, targets down, scrape failures\n\nOr use Alertmanager to route alerts to your team. Simple.\n\nOne more thing: set up a dead man's switch. It's an alert that fires if you DON'T get an alert. Sounds weird but it catches total outages.\n\nWhat monitoring gaps have burned you before? Drop it below \ud83d\udc47\n\n#SRE #Prometheus #Observability #DevOps #Monitoring",
+    "hook_id": "2055872602636185788",
+    "thread_id": "2055872603819037040",
+    "content_hash": "73d40cd7f27eff4e387d351c0ffb5dae"
   }
 ]
