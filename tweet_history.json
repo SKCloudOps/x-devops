@@ -1792,5 +1792,14 @@
     "hook_id": "2056386792132100134",
     "thread_id": "2056386793734381863",
     "content_hash": "cd7fc5df83bca5d46551b0f28dc70b62"
+  },
+  {
+    "date": "2026-05-18T17:17:34.750254+00:00",
+    "category": "networking_security_question",
+    "hook": "Interviewer: 'What's the difference between a firewall and a network security group?' \u2014 Most DevOps candidates mix these up. Would you? \ud83d\udc47",
+    "thread": "Here's the simple version:\n\nA FIREWALL is old school. It's a physical or software box that sits between your network and the internet. It blocks bad traffic coming in.\n\nA NETWORK SECURITY GROUP (NSG) is cloud-native. It's rules you write in your cloud provider (AWS, Azure, etc). Think of it as a digital bouncer for each resource.\n\nREAL EXAMPLE:\nFirewall = guard at the building entrance checking everyone\nNSG = security rules on each individual door inside the building\n\nKey difference: Firewalls protect your whole network. NSGs protect specific VMs, databases, or apps.\n\nTIP FOR INTERVIEWS:\nSay this: \"NSGs are more granular. You control traffic to each resource. Firewalls are broader \u2014 they're the first shield for your whole network.\"\n\nBoth work together in the cloud. You usually want both.\n\nWhat's the trickiest networking question you've been asked? Drop it below \ud83d\udc47\n\n#DevOps #CloudSecurity #InterviewPrep #AWS #Azure",
+    "hook_id": "2056423961622180086",
+    "thread_id": "2056423965883507104",
+    "content_hash": "7a84eb665bf491c9b9ef0b5c444118f1"
   }
 ]
