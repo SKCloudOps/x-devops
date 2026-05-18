@@ -1819,5 +1819,14 @@
     "hook_id": "2056478203997278565",
     "thread_id": "2056478205624684849",
     "content_hash": "e28989be77268344b68b34565c34bb03"
+  },
+  {
+    "date": "2026-05-18T22:59:20.509126+00:00",
+    "category": "networking_security_question",
+    "hook": "Interviewer: 'What's the difference between security groups and network ACLs?' \u2014 Most candidates mix these up. Would you? \ud83d\udc47",
+    "thread": "Ok so here's the thing:\n\nSecurity groups = firewall for your instance. Stateful. You open port 443 for HTTPS? Traffic comes back automatically. No extra rule needed.\n\nNetwork ACLs = firewall for your whole subnet. Stateless. You say \"allow port 443 in\" AND \"allow it back out.\" Both rules required.\n\nReal example:\nYou launch an RDS Aurora database. You add a security group rule: allow port 3306 from your app.\n\nBut you ALSO need the network ACL to allow that traffic IN and OUT of the subnet.\n\nMiss the ACL? Your app can't talk to the database. Confusing? Yeah.\n\nQuick tip: Security groups are first. They're stricter. Network ACLs are last resort. Most people just fix it at the security group level.\n\nHave you hit this issue in production before? Tell me about it \ud83d\udc47\n\n#DevOps #AWS #Networking #InterviewPrep #CloudSecurity",
+    "hook_id": "2056509971840352343",
+    "thread_id": "2056509973270548485",
+    "content_hash": "5a7eb5e18d98eeca9079259a524df497"
   }
 ]
