@@ -1774,5 +1774,14 @@
     "hook_id": "2056145756302516429",
     "thread_id": "2056145757850280298",
     "content_hash": "6053b174e976bf44d57b604e5849ee5b"
+  },
+  {
+    "date": "2026-05-18T05:01:19.483923+00:00",
+    "category": "networking_security_question",
+    "hook": "Interviewer: 'What's a service mesh and why do we need it?' \u2014 Most engineers fumble this one. Here's the real answer \ud83d\udc47",
+    "thread": "A service mesh is basically a helper layer between your services. It handles networking stuff so your apps don't have to.\n\nThink of it like this: Your services just talk to each other normally. The mesh sits in the middle and watches all that traffic.\n\nWhat does it do?\n\u2022 Keeps track of who's talking to who\n\u2022 Retries failed calls automatically\n\u2022 Encrypts traffic between services\n\u2022 Slows down or blocks bad requests\n\nReal example: You have 10 microservices. Without a mesh, each one needs its own retry logic, logging, security rules. That's messy.\n\nWith a mesh (like Istio)? One place to configure it all. It works for every service automatically.\n\nWhy not just code it in? Because you'd repeat the same logic everywhere. The mesh handles it cleanly.\n\nTbh it's overkill for small setups. But once you hit 50+ services? Game changer.\n\nBetter answer than: 'It manages east-west traffic' \ud83d\ude02\n\nWhat service mesh question stumped you in an interview? Drop it below \ud83d\udc47\n\n#DevOps #Kubernetes #ServiceMesh #InterviewPrep",
+    "hook_id": "2056238680088383736",
+    "thread_id": "2056238681401221235",
+    "content_hash": "9ea1d7304e0abfe5108a2e71bcbd0b35"
   }
 ]
