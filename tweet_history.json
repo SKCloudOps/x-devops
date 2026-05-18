@@ -1783,5 +1783,14 @@
     "hook_id": "2056238680088383736",
     "thread_id": "2056238681401221235",
     "content_hash": "9ea1d7304e0abfe5108a2e71bcbd0b35"
+  },
+  {
+    "date": "2026-05-18T14:49:52.226334+00:00",
+    "category": "networking_security_question",
+    "hook": "Interviewer: 'What's OPA and why would we use it?' \u2014 Most engineers confuse it with something else. Would you? \ud83d\udc47",
+    "thread": "OPA = Open Policy Agent. It's not a firewall or a network tool. It's a policy engine.\n\nThink of it like a bouncer at a club. The bouncer doesn't let you in unless you follow the rules. OPA works the same way.\n\nYou write rules that say things like:\n\u2022 Only this image registry is allowed\n\u2022 Only ports 80 and 443 can be open\n\u2022 Requests need these headers\n\nWhen something tries to happen in your system (deploy a container, create a resource, make an API call), OPA checks the rules first. If it matches\u2014allow it. If not\u2014block it.\n\nReal example:\nYour company says all containers must come from your private registry. Without OPA, someone could sneak in a random Docker image. With OPA, it gets rejected automatically. No manual checking needed.\n\nIt's used a lot in Kubernetes to enforce security policies before things run. Way cleaner than hoping people follow the rules.\n\nEver had to enforce a policy across your whole team? What was your workaround before you found tools like this? \ud83d\udc47\n\n#DevOps #Kubernetes #Security #OPA #Interview",
+    "hook_id": "2056386792132100134",
+    "thread_id": "2056386793734381863",
+    "content_hash": "cd7fc5df83bca5d46551b0f28dc70b62"
   }
 ]
