@@ -1810,5 +1810,14 @@
     "hook_id": "2056447476027011573",
     "thread_id": "2056447477306257864",
     "content_hash": "3a93de363e3e019dfc11123ea2a3e9c4"
+  },
+  {
+    "date": "2026-05-18T20:53:06.509201+00:00",
+    "category": "networking_security_question",
+    "hook": "Interviewer: 'How do you know who deleted that S3 bucket?' \u2014 Most candidates panic here. Would you? \ud83d\udc47",
+    "thread": "Here's the answer they want to hear:\n\nCloudTrail. It's AWS's audit log. Every action in your account gets recorded there \u2014 who did it, when, and what they changed.\n\nPractical example:\n- Someone deletes an S3 bucket at 2pm\n- You go to CloudTrail\n- Search for \"DeleteBucket\"\n- See the user, IP, timestamp, everything\n\nWhy this matters: It's your proof. You can show who did it, prove it wasn't you, and fix access if needed.\n\nOne tip: Turn CloudTrail on FROM DAY ONE. If it's not on, you've got no logs. Too late then.\n\nBonus point: Mention you'd also check CloudWatch for alerts. Shows you think beyond just logs.\n\nHave you used CloudTrail to track down an issue? What did you find? Drop it below \ud83d\udc47\n\n#AWS #CloudTrail #DevOps #Security #InterviewPrep",
+    "hook_id": "2056478203997278565",
+    "thread_id": "2056478205624684849",
+    "content_hash": "e28989be77268344b68b34565c34bb03"
   }
 ]
