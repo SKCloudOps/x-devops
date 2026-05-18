@@ -1801,5 +1801,14 @@
     "hook_id": "2056423961622180086",
     "thread_id": "2056423965883507104",
     "content_hash": "7a84eb665bf491c9b9ef0b5c444118f1"
+  },
+  {
+    "date": "2026-05-18T18:51:00.310777+00:00",
+    "category": "networking_security_question",
+    "hook": "Interviewer: 'What's a network security group?' \u2014 Most candidates mix it up with firewalls. Here's the real answer \ud83d\udc47",
+    "thread": "A network security group (NSG) is just a list of allow/block rules for your cloud traffic.\n\nThink of it like a bouncer at a club:\n- Who can come in? (inbound rules)\n- Who can leave? (outbound rules)\n\nExample: You set a rule that says \"only let traffic on port 443 from 0.0.0.0\" \u2014 boom, HTTPS gets through, everything else gets blocked.\n\nWhy this matters in interviews:\n- It's cloud-specific (Azure, AWS has Security Groups too)\n- You need to understand inbound vs outbound\n- Real job: you'll attach NSGs to VMs or subnets\n\nCommon mistake: Saying it's the same as a firewall. Nope. An NSG is ONE layer. A firewall is different software. Both can protect you, but they work at different levels.\n\nPro tip: When they ask, mention you'd default-deny everything, then open only what you need. That's the security mindset they want to hear.\n\nWhat's your go-to answer for NSG questions? Ever gotten tripped up on inbound vs outbound? Drop it below \ud83d\udc47\n\n#DevOps #CloudSecurity #InterviewPrep #NetworkSecurity #AzureJobs",
+    "hook_id": "2056447476027011573",
+    "thread_id": "2056447477306257864",
+    "content_hash": "3a93de363e3e019dfc11123ea2a3e9c4"
   }
 ]
