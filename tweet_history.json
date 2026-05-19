@@ -1855,5 +1855,14 @@
     "hook_id": "2056788310857548264",
     "thread_id": "2056788312711442443",
     "content_hash": "3bc9621b735e421c426218095ed96496"
+  },
+  {
+    "date": "2026-05-19T18:59:52.361103+00:00",
+    "category": "container_orchestration_question",
+    "hook": "Interviewer: 'How do you stop bad pods from running in Kubernetes?' \u2014 Most candidates don't mention policy. Would you? \ud83d\udc47",
+    "thread": "Here's the thing: Kubernetes doesn't stop bad stuff by default. You need a gatekeeper.\n\nThat's where OPA comes in. OPA = Open Policy Agent. It's like a bouncer for your cluster.\n\nHere's how it works:\n\n1. Write a policy (in plain English, kinda)\n2. Any new pod gets checked against it\n3. Bad pods get blocked before they even start\n\nReal example: You want to block pods that run as root (security risk). You write a policy saying \"no root containers.\" Someone tries to deploy a container as root? BLOCKED. Never runs.\n\nWhy interviewers ask this:\n- Shows you care about security\n- Proves you know policies beat manual checking\n- You understand automation stops mistakes early\n\nQuick tip: You don't need to know OPA syntax perfectly. Just say: \"I'd use a policy tool like OPA to enforce rules before pods launch.\" That's enough.\n\nWhat policies would YOU enforce on your cluster first? Drop your answer below \ud83d\udc47\n\n#Kubernetes #DevOps #ContainerSecurity #OPA #InterviewPrep",
+    "hook_id": "2056812095170080994",
+    "thread_id": "2056812096742977767",
+    "content_hash": "533ba13c3fd3963761247b3740f2bd04"
   }
 ]
