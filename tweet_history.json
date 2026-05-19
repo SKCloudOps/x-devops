@@ -1846,5 +1846,14 @@
     "hook_id": "2056744035012981246",
     "thread_id": "2056744036443263335",
     "content_hash": "3bfb09bb27d822ec4da57f673855ebbc"
+  },
+  {
+    "date": "2026-05-19T17:25:21.786530+00:00",
+    "category": "container_orchestration_question",
+    "hook": "Interviewer: 'How do you monitor security threats in your Kubernetes cluster?' \u2014 Most candidates miss the obvious answer. \ud83d\udc47",
+    "thread": "Here's what they're really asking: How do you catch bad stuff happening in your cluster?\n\nThe answer? Use tools like GuardDuty (if you're on AWS) or similar security monitoring. These watch your cluster for weird activity.\n\nBut here's what most engineers miss:\n\nIt's not just about having the tool. You need to:\n\n1. Turn on logging for your API server\n2. Set alerts for suspicious stuff (failed logins, unusual network traffic)\n3. Review logs regularly, not just when something breaks\n4. Know what normal looks like first\n\nReal example: GuardDuty spots a pod trying to connect to a weird IP address. Without alerts set up? You never know. With alerts? You get a message right away.\n\nBonus tip: Most clusters have terrible visibility into what's actually running. Start there before you get fancy with tools.\n\nWhat security questions have caught you off guard in interviews? Drop your story below \ud83d\udc47\n\n#Kubernetes #DevOps #SecurityMonitoring #ClusterSecurity #InterviewTips",
+    "hook_id": "2056788310857548264",
+    "thread_id": "2056788312711442443",
+    "content_hash": "3bc9621b735e421c426218095ed96496"
   }
 ]
