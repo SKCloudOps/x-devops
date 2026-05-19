@@ -1828,5 +1828,14 @@
     "hook_id": "2056509971840352343",
     "thread_id": "2056509973270548485",
     "content_hash": "5a7eb5e18d98eeca9079259a524df497"
+  },
+  {
+    "date": "2026-05-19T04:53:36.667340+00:00",
+    "category": "container_orchestration_question",
+    "hook": "Interviewer: 'How does ArgoCD know when to deploy?' \u2014 Most candidates say 'it pulls from git' and stop there. But there's more \ud83d\udc47",
+    "thread": "ArgoCD watches your git repo. When you push code, ArgoCD sees the change and deploys it. That's the basic idea.\n\nBut here's what most miss:\n\nArgoCD doesn't just check once. It keeps checking your repo every few minutes (default is 3 mins). This is called \"pull-based\" deployment.\n\nWhy's this better than other tools?\n\nNo secrets sitting around. Your deployment server pulls from git. Git doesn't push to your cluster. Way safer.\n\nExample: You update deployment.yaml in git. ArgoCD sees it. Boom. Your app updates. No webhooks needed. No exposed endpoints.\n\nThe catch? If git is down, deployments are stuck until it's back up.\n\nHow would YOU explain this to someone new to GitOps? Reply below \ud83d\udc47\n\n#ArgoCD #Kubernetes #DevOps #GitOps",
+    "hook_id": "2056599126775652358",
+    "thread_id": "2056599128155512922",
+    "content_hash": "91664f3e483d28a570a9e87eae1e22d6"
   }
 ]
