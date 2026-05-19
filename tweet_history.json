@@ -1837,5 +1837,14 @@
     "hook_id": "2056599126775652358",
     "thread_id": "2056599128155512922",
     "content_hash": "91664f3e483d28a570a9e87eae1e22d6"
+  },
+  {
+    "date": "2026-05-19T14:29:25.521786+00:00",
+    "category": "container_orchestration_question",
+    "hook": "Interviewer: 'What's Istio and why would we use it?' \u2014 Most candidates say 'service mesh' and stop. Here's what they miss \ud83d\udc47",
+    "thread": "Istio is a tool that sits between your containers and handles the talking between them. Think of it as a traffic cop for your apps.\n\nWithout Istio: Your code handles retries, timeouts, load balancing, all that stuff.\n\nWith Istio: Istio does it for you. Your code just sends requests.\n\nReal example: Your payment service calls order service. Order service is slow today.\n\nWithout Istio: Payment code needs retry logic, circuit breaker, all hardcoded.\n\nWith Istio: You just set retry rules in a config file. Done. Payment code stays simple.\n\nThe real win? You get traffic rules, security, monitoring \u2014 without touching your app code. That's the flex.\n\nHave you used Istio in a real project? What was the biggest pain point? \ud83d\udc47\n\n#DevOps #Kubernetes #Istio #ServiceMesh #InterviewPrep",
+    "hook_id": "2056744035012981246",
+    "thread_id": "2056744036443263335",
+    "content_hash": "3bfb09bb27d822ec4da57f673855ebbc"
   }
 ]
