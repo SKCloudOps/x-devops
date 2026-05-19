@@ -326,5 +326,14 @@
     "hook_id": "2056161725200609695",
     "thread_id": "2056161726102487298",
     "content_hash": "ac73e224e229e8d3b78cac0860941a8f"
+  },
+  {
+    "date": "2026-05-19T00:03:20.996177+00:00",
+    "concept": "fine-tuning",
+    "hook": "Everyone says 'fine-tune your model' but most people think it means something way more complicated than it actually is \ud83d\udc47",
+    "thread": "Fine-tuning is just teaching an AI something specific using your own data.\n\nThink of it like this: You buy a smart assistant trained on everything. But you want it to sound like YOUR company. So you show it 100 examples of how your team talks, writes emails, answers questions.\n\nThe AI learns your style. Now it's custom for you.\n\nWhy it matters:\n- Costs way less than training from scratch\n- Takes days, not months\n- Your data stays private (you control it)\n- Works better than generic AI for your exact job\n\nYou don't need a PhD to do it either. Most AI platforms have a button that says 'fine-tune' and walks you through it.\n\nWhat's something you wish AI could do better for your team? \ud83d\udc47\n\n#AI #FineTuning #AIInfrastructure #MachineLearning",
+    "hook_id": "2056526080316469339",
+    "thread_id": "2056526081423794205",
+    "content_hash": "a5398b2adbfd5eefcfebb66c9f961616"
   }
 ]
