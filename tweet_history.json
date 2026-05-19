@@ -1864,5 +1864,14 @@
     "hook_id": "2056812095170080994",
     "thread_id": "2056812096742977767",
     "content_hash": "533ba13c3fd3963761247b3740f2bd04"
+  },
+  {
+    "date": "2026-05-19T21:04:00.748250+00:00",
+    "category": "container_orchestration_question",
+    "hook": "Interviewer: 'How do you give a pod AWS permissions?' \u2014 Most candidates say 'use env vars'. Wrong move \ud83d\udc47",
+    "thread": "Here's the right answer: Use IRSA (IAM Roles for Service Accounts).\n\nWhy? Because env vars with AWS keys are a security mess. Anyone who gets into your pod sees your keys.\n\nWith IRSA, you do this:\n\n1. Create an IAM role in AWS\n2. Link it to a Kubernetes service account\n3. The pod gets temp credentials that expire\n\nExample: Your app needs S3 access. Instead of hardcoding keys in env vars, IRSA handles it. The pod gets short-lived tokens. If someone breaks in, those tokens die in an hour. Keys last forever.\n\nBonus: No secrets in your code. No .env files. No GitHub leaks.\n\nInterviewers LOVE this answer because it shows you care about security.\n\nHave you used IRSA before? Or still stuck with env vars? Drop your answer below \ud83d\udc47\n\n#DevOps #Kubernetes #AWS #ContainerSecurity #InterviewPrep",
+    "hook_id": "2056843336162709627",
+    "thread_id": "2056843337504878917",
+    "content_hash": "b6f726f77c413d93c259d73f167cb919"
   }
 ]
