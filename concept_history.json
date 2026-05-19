@@ -295,5 +295,14 @@
     "hook_id": "2056081512500548096",
     "thread_id": "2056081513519714446",
     "content_hash": "23a2e6fcc2fd0be4cac8fb5e545af266"
+  },
+  {
+    "date": "2026-05-19T19:27:32.503367+00:00",
+    "concept": "Terraform Module Logging and Observability",
+    "hook": "Most engineers using Terraform modules don't log what's actually happening inside them \ud83d\udc47",
+    "thread": "Here's the thing: your Terraform module runs fine locally. Then in CI/CD it fails. But you have no idea why because you didn't add logging.\n\nThink of it like this: a module is a black box. When stuff breaks, you're blind.\n\nWhat you should do:\n\n1. Add output values that show what happened\n2. Use `terraform console` to debug locally first\n3. Log your variables at the top of main.tf\n4. Add debug outputs for things like resource IDs\n\nGotcha: Don't log secrets or passwords lol. Filter those out with `sensitive = true`\n\nExample:\noutput \"created_instance_id\" {\n  value = aws_instance.web.id\n  description = \"For debugging\"\n}\n\nThen in your CI logs you can actually see what resources got made.\n\nWhat's your biggest Terraform debugging pain point? \ud83d\udc47\n\n#Terraform #DevOps #IaC #Logging",
+    "hook_id": "2056819058863947952",
+    "thread_id": "2056819059941838906",
+    "content_hash": "2b90e63cf925019d147ebc8e9b789676"
   }
 ]
