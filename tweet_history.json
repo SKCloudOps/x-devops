@@ -1873,5 +1873,14 @@
     "hook_id": "2056843336162709627",
     "thread_id": "2056843337504878917",
     "content_hash": "b6f726f77c413d93c259d73f167cb919"
+  },
+  {
+    "date": "2026-05-19T23:00:41.010695+00:00",
+    "category": "container_orchestration_question",
+    "hook": "Interviewer: 'How do you deploy containers to Kubernetes from GitHub Actions?' \u2014 This trips up so many engineers. Here's what you need to know \ud83d\udc47",
+    "thread": "The basic flow:\n\n1. You push code to GitHub\n2. GitHub Actions runs your build\n3. It builds a Docker image\n4. Pushes it to a registry (DockerHub, ECR, etc)\n5. Then it tells Kubernetes to pull and run that new image\n\nHere's a simple example:\n\nYour GitHub Actions workflow does:\n- Build the Docker image\n- Push to ECR (Amazon's image storage)\n- Run a kubectl command to update your deployment\n\nThat kubectl command is the key part. It updates your Kubernetes deployment with the new image tag.\n\nOne pro tip: Don't hardcode your image tag. Use the GitHub commit SHA or a version number. That way you know exactly which code is running.\n\nMost people forget to mention how GitHub Actions talks to Kubernetes \u2014 it needs API credentials. You store those as secrets in GitHub, not in your code.\n\nWhat's the trickiest part of CI/CD you've struggled with? Drop it below \ud83d\udc47\n\n#DevOps #Kubernetes #GitHubActions #Docker #CI/CD",
+    "hook_id": "2056872697385394436",
+    "thread_id": "2056872698823974951",
+    "content_hash": "7c13ea407b3ef6a964066d6a31ee464f"
   }
 ]
