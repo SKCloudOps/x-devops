@@ -335,5 +335,14 @@
     "hook_id": "2056526080316469339",
     "thread_id": "2056526081423794205",
     "content_hash": "a5398b2adbfd5eefcfebb66c9f961616"
+  },
+  {
+    "date": "2026-05-20T00:01:27.466502+00:00",
+    "concept": "neural_networks_basics",
+    "hook": "Everyone says 'neural networks' but most people think it's way more complex than it actually is. It's just... math that learns patterns \ud83d\udc47",
+    "thread": "Here's the simple version:\n\nA neural network is like a really dumb student that gets smarter by seeing examples.\n\nYou show it 1,000 pictures of cats. It learns: \"oh, pointy ears + whiskers = cat.\"\n\nThen you show it a new cat picture. It guesses \"cat\" because it spotted those patterns.\n\nThat's it. No magic.\n\nIt's layers of math doing one job: find the pattern, make a guess, check if you were right, adjust slightly, repeat 1 million times.\n\nWhy this matters? Neural networks power basically every AI you use:\n- ChatGPT recognizes words\n- Your phone unlocks with your face\n- Netflix suggests shows\n\nThey're not \"thinking.\" They're just pattern-matching machines that got really, really good at their job.\n\nThe CNN part? That's just a type of neural network good at spotting visual patterns (like finding what's in a photo).\n\nWhat confused you most when learning about AI? Drop it below \ud83d\udc47\n\n#AI #NeuralNetworks #MachineLearning #TechExplained",
+    "hook_id": "2056887992149553365",
+    "thread_id": "2056887993164615811",
+    "content_hash": "2a44404ed54b27d0605da4022a2f5907"
   }
 ]
