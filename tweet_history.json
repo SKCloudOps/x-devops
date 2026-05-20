@@ -1900,5 +1900,14 @@
     "hook_id": "2057106313604407480",
     "thread_id": "2057106314959196396",
     "content_hash": "5e55636c8e28887f1a27cf5213091722"
+  },
+  {
+    "date": "2026-05-20T17:39:24.593424+00:00",
+    "category": "aws_interview_question",
+    "hook": "Interviewer: 'What's Helm and why use it?' \u2014 Most candidates say 'it's a package manager' and stop there. That's incomplete. \ud83d\udc47",
+    "thread": "Helm is a package manager for Kubernetes. But here's what makes it useful:\n\nWithout Helm: You write 10+ YAML files by hand. Same stuff over and over. Hard to update. Easy to mess up.\n\nWith Helm: You use a template. Fill in values once. Deploy the whole app with one command.\n\nReal example:\n- You're deploying a database. It needs a service, deployment, config map, and secrets.\n- Without Helm: Write 4 YAML files, update them manually each time.\n- With Helm: Run `helm install mydb bitnami/mysql --set password=xyz`. Done.\n\nBonus: Share charts with your team. Someone else can deploy the same app without knowing all the details.\n\nThat's it. Helm saves time and prevents mistakes. It's like a template engine for your Kubernetes configs.\n\nWhat's the hardest part of Helm you've dealt with? Drop it below \ud83d\udc47\n\n#Kubernetes #Helm #DevOps #AWS #CloudNative",
+    "hook_id": "2057154234056089668",
+    "thread_id": "2057154235469639917",
+    "content_hash": "14b9e11ad56e76d89b899a71381e22da"
   }
 ]
