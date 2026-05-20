@@ -1918,5 +1918,14 @@
     "hook_id": "2057180653536350274",
     "thread_id": "2057180655285346585",
     "content_hash": "e7b3956ab87c5de84dada9dfe8871217"
+  },
+  {
+    "date": "2026-05-20T21:19:07.546073+00:00",
+    "category": "aws_interview_question",
+    "hook": "Interviewer: 'How do you know WHO changed your AWS resources?' \u2014 Most candidates miss the obvious answer. \ud83d\udc47",
+    "thread": "CloudTrail. That's it.\n\nCloudTrail logs every API call in your AWS account. Who made it, when, what changed, from where \u2014 all of it.\n\nReal example: Someone deleted a database by accident. CloudTrail shows:\n- User name\n- Time it happened\n- IP address\n- Exact API call used\n\nYou can even set up alerts. If someone tries to turn off CloudTrail itself (red flag!), you get notified right away.\n\nPro tip for interviews: Mention you'd combine CloudTrail with CloudWatch for monitoring. Shows you think about the whole picture.\n\nWhat's the most important AWS audit question YOU'VE been asked? Drop it below \ud83d\udc47\n\n#AWS #DevOps #CloudTrail #AWSInterview #CloudSecurity",
+    "hook_id": "2057209527611920895",
+    "thread_id": "2057209528769536184",
+    "content_hash": "55baf9e92320314cf6bc823350309504"
   }
 ]
