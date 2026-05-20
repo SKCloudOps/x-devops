@@ -304,5 +304,14 @@
     "hook_id": "2056819058863947952",
     "thread_id": "2056819059941838906",
     "content_hash": "2b90e63cf925019d147ebc8e9b789676"
+  },
+  {
+    "date": "2026-05-20T19:41:10.405250+00:00",
+    "concept": "AWS Security Groups + Jenkins Exposure Risk",
+    "hook": "Most engineers using Jenkins in AWS don't know this: your security groups might be letting hackers in. Here's why \ud83d\udc47",
+    "thread": "Security groups are like bouncers at a club. They control who gets in and out.\n\nHere's the gotcha: lots of teams open port 8080 (Jenkins) to the whole internet (0.0.0.0/0). That's like leaving the front door unlocked.\n\nWhy? Lazy setup. They think \"I'll fix it later.\"\n\nDon't do that.\n\nInstead:\n- Put Jenkins in a private subnet (hidden from the internet)\n- Use a VPN or bastion host to reach it\n- If you MUST expose it, use an Application Load Balancer with authentication first\n- Restrict port 8080 to only your team's IP or your VPC\n\nReal talk: most breaches come from basic config mistakes, not fancy hacks.\n\nOne more tip: your Jenkins box needs to reach AWS APIs (S3, EC2, etc). Use an IAM role, not hardcoded keys. Keys in Jenkins configs get found by scrapers in like 5 minutes.\n\nWhat's your biggest Jenkins security headache right now? \ud83d\udc47\n\n#AWS #Jenkins #DevOps #Security",
+    "hook_id": "2057184877125030364",
+    "thread_id": "2057184878248984699",
+    "content_hash": "c351a7fa11e967ea2c47422a200712ae"
   }
 ]
