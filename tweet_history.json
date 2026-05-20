@@ -1927,5 +1927,14 @@
     "hook_id": "2057209527611920895",
     "thread_id": "2057209528769536184",
     "content_hash": "55baf9e92320314cf6bc823350309504"
+  },
+  {
+    "date": "2026-05-20T23:10:56.890163+00:00",
+    "category": "aws_interview_question",
+    "hook": "Interviewer: 'How do you roll back a CloudFormation stack?' \u2014 Most candidates freeze here. Would you know what to say? \ud83d\udc47",
+    "thread": "Here's the thing: CloudFormation keeps a history of every change. So rolling back is actually pretty simple.\n\nWhen you update a stack and something breaks, you have two main moves:\n\n1. **Use the rollback button** \u2014 AWS can auto-revert to the last good version. Just tell it to rollback and it undoes the bad changes.\n\n2. **Manual fix** \u2014 Edit your template, fix the problem, and update the stack again. This is safer if the rollback might cause issues.\n\nExample: You push a bad template that breaks your database. Hit rollback. CloudFormation reverts to your last working template in like 5 minutes. Stack is back to normal.\n\nOne trick most people miss: You can also set a **rollback policy** before updating. If the update fails, CloudFormation auto-rolls back without you doing anything.\n\nWhat's the weirdest stack failure you've had to recover from? Drop it below \ud83d\udc47\n\n#AWS #CloudFormation #DevOps #AWSJobs #InterviewPrep",
+    "hook_id": "2057237668447044021",
+    "thread_id": "2057237669852156220",
+    "content_hash": "90682f1e9df30cdad4781c9e84512163"
   }
 ]
