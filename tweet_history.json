@@ -1882,5 +1882,14 @@
     "hook_id": "2056872697385394436",
     "thread_id": "2056872698823974951",
     "content_hash": "7c13ea407b3ef6a964066d6a31ee464f"
+  },
+  {
+    "date": "2026-05-20T04:57:47.716886+00:00",
+    "category": "aws_interview_question",
+    "hook": "Interviewer: 'How do you auto-scale based on custom metrics?' \u2014 Most say Kubernetes HPA. But there's a better tool. \ud83d\udc47",
+    "thread": "Here's the thing: HPA works fine for CPU/memory. But what if you need to scale based on queue depth? Or API latency? That's where KEDA comes in.\n\nKEDA = Kubernetes Event Driven Autoscaling.\n\nInstead of just looking at pod metrics, KEDA can tap into external systems:\n\n\u2022 SQS queue depth\n\u2022 RabbitMQ messages waiting\n\u2022 Prometheus custom metrics\n\u2022 HTTP endpoints\n\u2022 Basically anything\n\nREAL EXAMPLE:\nYou have a job processor. When AWS SQS queue gets backed up, you want more pods. With KEDA, you write a simple YAML:\n\nScaledObject that watches SQS \u2192 if 100+ messages \u2192 spin up 10 pods\n\nHPA can't do that out of the box.\n\nWhy this matters in interviews:\n- Shows you know HPA's limits\n- Proves you've thought about real workloads\n- Tells them you can pick the right tool\n\nBonus: Most candidates don't know KEDA exists. If you mention it, you stand out.\n\nWhat metrics have YOU had to scale on in production? Drop it below \ud83d\udc47\n\n#KEDA #Kubernetes #AWS #DevOps #Autoscaling",
+    "hook_id": "2056962567164023260",
+    "thread_id": "2056962568942403697",
+    "content_hash": "7df3725d2a42f72f1933cd79410119d1"
   }
 ]
