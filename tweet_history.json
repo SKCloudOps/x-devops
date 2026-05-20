@@ -1909,5 +1909,14 @@
     "hook_id": "2057154234056089668",
     "thread_id": "2057154235469639917",
     "content_hash": "14b9e11ad56e76d89b899a71381e22da"
+  },
+  {
+    "date": "2026-05-20T19:24:23.597269+00:00",
+    "category": "aws_interview_question",
+    "hook": "Interviewer: 'What's the difference between ECS and Kubernetes?' \u2014 Ngl, most candidates struggle with this. Would you? \ud83d\udc47",
+    "thread": "Here's the thing: they both run containers. But they work different ways.\n\nECS is AWS-only. You give it containers, it runs them on EC2 machines or Fargate (which is serverless). Super simple. Less to think about.\n\nKubernetes is open source. Works anywhere \u2014 AWS, Google Cloud, your laptop. Way more powerful. Way more complex. You manage way more stuff.\n\nReal example:\n\nWith ECS: \"Run this Docker image\" \u2192 AWS handles it. Done.\n\nWith K8s: \"Run this. Auto-scale it. Update it without stopping. Spread it across nodes.\" \u2192 You gotta set all that up.\n\nSo when do you pick ECS? You're all-in on AWS and want simple. You don't need crazy features.\n\nWhen K8s? You want flexibility. Maybe you'll use multiple clouds. Or you need advanced stuff like rolling updates built-in.\n\nHonest take: if you're just starting, ECS is easier to learn. But K8s is what's hot right now.\n\nWhich one have you worked with? Or got grilled on in an interview? Drop it below \ud83d\udc47\n\n#AWS #ECS #DevOps #Kubernetes #InterviewPrep",
+    "hook_id": "2057180653536350274",
+    "thread_id": "2057180655285346585",
+    "content_hash": "e7b3956ab87c5de84dada9dfe8871217"
   }
 ]
