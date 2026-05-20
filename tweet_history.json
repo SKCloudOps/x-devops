@@ -1891,5 +1891,14 @@
     "hook_id": "2056962567164023260",
     "thread_id": "2056962568942403697",
     "content_hash": "7df3725d2a42f72f1933cd79410119d1"
+  },
+  {
+    "date": "2026-05-20T14:28:59.468837+00:00",
+    "category": "aws_interview_question",
+    "hook": "Interviewer: 'What's the difference between Aurora and RDS?' \u2014 Most candidates mix this up. Would you nail it? \ud83d\udc47",
+    "thread": "Here's the thing: RDS is like renting a car. Aurora is like renting a better car that also drives itself.\n\nRDS: You pick your database (MySQL, Postgres, etc). AWS runs it. You pay per instance.\n\nAurora: AWS built their own database. It's faster, cheaper at scale, and fixes itself. Plus it auto-scales your storage.\n\nReal example:\n- RDS: You run out of disk space. You manually add more storage (downtime might happen).\n- Aurora: Automatically adds storage for you. No stress.\n\nWhen to use Aurora: You need speed, reliability, or you're running big apps.\n\nWhen to use RDS: You need a specific database that Aurora doesn't offer yet. Or you're just starting out and want simple.\n\nHonest take: If you're at a cloud-first company, they probably want Aurora. It's their baby.\n\nWhich one have you actually used? Or is this your first time learning the diff? Drop your take below \ud83d\udc47\n\n#AWS #Databases #DevOpsInterview #Aurora #CloudEngineer",
+    "hook_id": "2057106313604407480",
+    "thread_id": "2057106314959196396",
+    "content_hash": "5e55636c8e28887f1a27cf5213091722"
   }
 ]
