@@ -353,5 +353,14 @@
     "hook_id": "2057251340934365646",
     "thread_id": "2057251341903282263",
     "content_hash": "41ecedbb7f21e0daf90f9467ec5da766"
+  },
+  {
+    "date": "2026-05-21T23:59:42.378594+00:00",
+    "concept": "prompt_engineering",
+    "hook": "Everyone says 'prompt engineering' like it's magic. Honestly? It's just learning to ask AI the right way. Here's what actually works \ud83d\udc47",
+    "thread": "Prompt engineering = being clear and specific with your AI requests instead of vague.\n\nThink of it like ordering food:\n\n\u274c Bad: \"Make something good\"\n\u2705 Good: \"Make a grilled chicken sandwich with no mayo, extra lettuce, on wheat bread\"\n\nAI is the same. The more details you give, the better the output.\n\nWhy? Because AI doesn't read your mind. It just predicts the next word based on what you write. So if you're vague, it guesses wrong.\n\nReal example:\n\u274c \"Write about dogs\"\n\u2705 \"Write a 200-word blog post about why golden retrievers are good family pets. Use simple language. Include 3 benefits.\"\n\nSecond one? Way better output every time.\n\nBonus: Small tweaks save you hours of editing. Takes 30 seconds to write a good prompt. Saves you 30 minutes of fixing bad results.\n\nWhat's the worst prompt you've tried with AI? \ud83d\udc47\n\n#PromptEngineering #AI #ChatGPT #VisionModels #TechTips",
+    "hook_id": "2057612327109754990",
+    "thread_id": "2057612328057643441",
+    "content_hash": "ca2657e9b45df3f5f61729fe2014809e"
   }
 ]
