@@ -1963,5 +1963,14 @@
     "hook_id": "2057510291370614857",
     "thread_id": "2057510292683362627",
     "content_hash": "8af401aab3e8329625808344d873fbb4"
+  },
+  {
+    "date": "2026-05-21T18:58:26.885901+00:00",
+    "category": "kubernetes_interview_question",
+    "hook": "Interviewer: 'How do you route traffic to your Kubernetes services?' \u2014 Most candidates say 'Ingress' and stop. Here's what they miss \ud83d\udc47",
+    "thread": "There's a big difference between an Ingress and an API Gateway, and ngl, a lot of people mix them up.\n\nIngress = simple HTTP routing. Points traffic to your services based on hostname or URL path. Built into Kubernetes.\n\nAPI Gateway = way more powerful. Rate limiting, authentication, request transformation, logging. It's an actual app that sits in front of your cluster.\n\nReal example:\n- You need basic routing? Use Ingress.\n- You need to protect APIs, add auth, or log every request? Use an API Gateway (like Kong, AWS API Gateway, or Envoy).\n\nThe catch: Ingress is simpler but limited. API Gateway is stronger but adds complexity.\n\nIn an interview, explain BOTH. Show you know when to pick each one. That's what separates good engineers from great ones.\n\nWhat's the trickiest routing question you've been asked in a Kubernetes interview? Drop it below \ud83d\udc47\n\n#Kubernetes #DevOps #InterviewPrep #K8s",
+    "hook_id": "2057536512485445892",
+    "thread_id": "2057536513974452728",
+    "content_hash": "3644d9131c552f22c24e639273a5a48e"
   }
 ]
