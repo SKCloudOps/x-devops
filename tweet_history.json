@@ -1936,5 +1936,14 @@
     "hook_id": "2057237668447044021",
     "thread_id": "2057237669852156220",
     "content_hash": "90682f1e9df30cdad4781c9e84512163"
+  },
+  {
+    "date": "2026-05-21T05:03:31.804720+00:00",
+    "category": "kubernetes_interview_question",
+    "hook": "Interviewer: 'How do you keep secrets safe in Kubernetes?' \u2014 Most candidates say 'use Secrets' and stop there. That's not enough. \ud83d\udc47",
+    "thread": "Here's the thing: Kubernetes Secrets are just base64 encoded. That's not encryption. Anyone with cluster access can read them.\n\nThe real answer? You need encryption at rest.\n\nHere's what you should say:\n\n1. Use a KMS (Key Management Service) to encrypt Secrets. AWS KMS, Google Cloud KMS, whatever your cloud provider has.\n\n2. When Secrets are stored in etcd (Kubernetes' database), they get encrypted with a key you control. Not just encoded.\n\n3. Only people with KMS access can decrypt them. That's real security.\n\nExample: In AWS, you'd set up KMS and tell Kubernetes to use it. Now your Secrets stay locked even if someone steals your database.\n\nBonus tip: Also use RBAC. Limit who can even read Secrets in the first place.\n\nThe interviewer wants to hear you know the difference between encoding and encryption. That's the gotcha.\n\nHow would YOU explain this to someone who just learned Kubernetes? Drop your answer below \ud83d\udc47\n\n#Kubernetes #DevOps #InterviewPrep #KMS #CloudSecurity",
+    "hook_id": "2057326398654853253",
+    "thread_id": "2057326400051544268",
+    "content_hash": "3159000cc80694f147789244243fd9ca"
   }
 ]
