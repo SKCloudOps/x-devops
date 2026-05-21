@@ -313,5 +313,14 @@
     "hook_id": "2057184877125030364",
     "thread_id": "2057184878248984699",
     "content_hash": "c351a7fa11e967ea2c47422a200712ae"
+  },
+  {
+    "date": "2026-05-21T19:27:37.989123+00:00",
+    "concept": "Kubernetes vs Serverless (Lambda) Architecture",
+    "hook": "Most Kubernetes engineers don't realize: serverless (Lambda) and K8s are solving the SAME problem differently \ud83d\udc47",
+    "thread": "Here's the thing. Both Lambda and Kubernetes let you run code without managing servers.\n\nLambda = \"I'll spin up servers for you. You just send code.\" You don't think about infrastructure at all.\n\nKubernetes = \"Here's a playground. You manage how your code runs.\" More control, more work.\n\nReal talk: Lambda is like hiring a taxi. You get in, go where you need, pay per ride. Done.\n\nK8s is like owning a car. You buy it, maintain it, decide the route, pay for gas. Way more control.\n\nThe gotcha? Lambda is cheap for small stuff. But if you're running it 24/7, Kubernetes costs less. Lambda also has limits\u201410 minute timeout, can't handle huge workloads.\n\nK8s has no time limit. Can run anything. But you gotta manage it yourself.\n\nPick Lambda if you want simple. Pick K8s if you want power.\n\nWhat's YOUR bigger headache right now\u2014managing K8s or hitting Lambda limits? \ud83d\udc47\n\n#Kubernetes #Serverless #Lambda #DevOps #CloudNative",
+    "hook_id": "2057543857651212428",
+    "thread_id": "2057543858687250441",
+    "content_hash": "d51878dc23a1057e70f1054fcc048165"
   }
 ]
