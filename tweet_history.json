@@ -1981,5 +1981,14 @@
     "hook_id": "2057570760382627950",
     "thread_id": "2057570761808757197",
     "content_hash": "af949523c29570df17c6070af5fc10e3"
+  },
+  {
+    "date": "2026-05-21T23:01:34.576003+00:00",
+    "category": "kubernetes_interview_question",
+    "hook": "Interviewer: 'How do you manage Kubernetes config across dev, staging, and prod?' \u2014 Most candidates struggle here. Would you? \ud83d\udc47",
+    "thread": "This one's tricky because there's no single right answer. But here's what separates good answers from great ones.\n\nMost people say: \"Use different YAML files for each env.\"\n\nThat works, but it's messy. You end up copy-pasting configs and fixing bugs in three places.\n\nBetter approach: Use a tool that lets you build configs from pieces.\n\nThink of it like this:\n- Write your base app config once (replicas, container image, ports)\n- Then layer env-specific stuff on top (prod gets 5 replicas, dev gets 1)\n- One source of truth, less copy-paste mistakes\n\nTools that do this:\n- Kustomize (built into kubectl, free)\n- Helm (more powerful, but steeper learning curve)\n- CDK for Kubernetes (write code instead of YAML)\n\nA real example with Kustomize:\nBase folder: your app deployment\nOverlay folder (dev): scale down to 1 replica\nOverlay folder (prod): scale to 5 replicas, add resource limits\n\nRun: kubectl apply -k ./overlays/prod/\nDone.\n\nThe big point interviewers want to hear: \"I avoid managing three separate YAML files. I use a tool that generates them from a base template.\"\n\nThat shows you think about maintainability, not just getting it working.\n\nHow would you answer this one? What tool do you reach for? Drop it below \ud83d\udc47\n\n#Kubernetes #DevOps #InterviewPrep #K8s #CloudNative",
+    "hook_id": "2057597697729728703",
+    "thread_id": "2057597699155800501",
+    "content_hash": "3b16452d69c5bd00af58ece0b09fb94c"
   }
 ]
