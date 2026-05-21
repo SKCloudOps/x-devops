@@ -1972,5 +1972,14 @@
     "hook_id": "2057536512485445892",
     "thread_id": "2057536513974452728",
     "content_hash": "3644d9131c552f22c24e639273a5a48e"
+  },
+  {
+    "date": "2026-05-21T21:14:32.215080+00:00",
+    "category": "kubernetes_interview_question",
+    "hook": "Interviewer: 'How do you manage Kubernetes configs across dev, staging, and prod?' \u2014 Most candidates get this wrong. Here's what they miss \ud83d\udc47",
+    "thread": "The trap: saying \"I just use different YAML files.\" Nope. That's manual and error-prone.\n\nBetter answer: Use a tool to template your configs. Terraform, Helm, or Kustomize all work.\n\nHere's a real example:\n\nYou have one app. Same image, different replicas per env.\n- Dev: 1 replica\n- Prod: 3 replicas\n\nWith Terraform, you define it once:\n\nreplicas = var.environment == \"prod\" ? 3 : 1\n\nOne source of truth. No copy-paste mistakes. Easy to update.\n\nWhy this wins:\n\u2713 Less YAML duplication\n\u2713 Consistent across all envs\n\u2713 Easy to audit changes\n\u2713 Catches mistakes early\n\nBonus: mention you'd use a CI/CD pipeline to apply these automatically. That's the chef's kiss.\n\nHow do YOU handle multi-env configs? Drop your approach below \ud83d\udc47\n\n#Kubernetes #DevOps #Terraform #InterviewTips",
+    "hook_id": "2057570760382627950",
+    "thread_id": "2057570761808757197",
+    "content_hash": "af949523c29570df17c6070af5fc10e3"
   }
 ]
