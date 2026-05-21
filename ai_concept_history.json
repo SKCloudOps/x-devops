@@ -344,5 +344,14 @@
     "hook_id": "2056887992149553365",
     "thread_id": "2056887993164615811",
     "content_hash": "2a44404ed54b27d0605da4022a2f5907"
+  },
+  {
+    "date": "2026-05-21T00:05:16.554234+00:00",
+    "concept": "context_window",
+    "hook": "Everyone says 'context window' but most people don't actually know what it means. Let me break it down \ud83d\udc47",
+    "thread": "A context window is just how much text an AI can read at one time.\n\nThink of it like a person's attention span. If you give someone 5 pages to read, they remember it all. Give them 500 pages? They'll forget the beginning.\n\nSame with AI. ChatGPT-4 has a context window of 8,000 words (or more in the bigger version). That's roughly how much text it can \"see\" and understand in one conversation.\n\nWhy does this matter? If you paste a 20-page document and ask the AI questions about page 1, it might forget it. The AI can only work with what's in its context window.\n\nPro tip: If you're working with long documents, split them up or use tools that can handle more context. Don't waste time pasting things the AI can't actually hold in its \"brain.\"\n\nWhat AI concept confused you the most when you started? \ud83d\udc47\n\n#AI #PromptEngineering #AIExplained #LLMs",
+    "hook_id": "2057251340934365646",
+    "thread_id": "2057251341903282263",
+    "content_hash": "41ecedbb7f21e0daf90f9467ec5da766"
   }
 ]
