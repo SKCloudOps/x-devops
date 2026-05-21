@@ -1954,5 +1954,14 @@
     "hook_id": "2057469932695064918",
     "thread_id": "2057469934259618029",
     "content_hash": "47c8b3a4213efde096d3ae64b65860e5"
+  },
+  {
+    "date": "2026-05-21T17:14:15.229657+00:00",
+    "category": "kubernetes_interview_question",
+    "hook": "Interviewer: 'How do Kubernetes pods talk to each other across nodes?' \u2014 Most people get this wrong. Here's what they miss \ud83d\udc47",
+    "thread": "OK so here's the thing. Pods on the same node? They just talk directly. Easy.\n\nBut pods on DIFFERENT nodes? That's where people mess up.\n\nKubernetes gives each pod its own IP address. When a pod on Node A talks to a pod on Node B, the network has to route that traffic.\n\nHere's the key: Kubernetes needs a network plugin (called a CNI) to handle this. It sets up routes so traffic finds the right pod, even across nodes.\n\nIn AWS? You'd use something like the VPC CNI plugin. It makes sure pods on different EC2 instances can reach each other using AWS VPC networking.\n\nTLDR: Pods get IPs \u2192 CNI plugin routes traffic between nodes \u2192 pods talk to each other. Done.\n\nBonus tip: This is WHY you need a network policy if you want to block traffic between pods. By default? They can all reach each other.\n\nHow would you explain this to someone who's never heard of CNI plugins? Reply below \ud83d\udc47\n\n#Kubernetes #DevOps #InterviewPrep #K8s #CloudNative",
+    "hook_id": "2057510291370614857",
+    "thread_id": "2057510292683362627",
+    "content_hash": "8af401aab3e8329625808344d873fbb4"
   }
 ]
