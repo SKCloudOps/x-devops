@@ -2017,5 +2017,14 @@
     "hook_id": "2057864981463339097",
     "thread_id": "2057864983115952240",
     "content_hash": "3184c09f172804e89503968a626bbf02"
+  },
+  {
+    "date": "2026-05-22T18:54:15.852358+00:00",
+    "category": "cicd_interview_question",
+    "hook": "Interviewer: 'How do you know if your CI/CD pipeline is actually working?' \u2014 Most say 'it doesn't error' lol. That's not it \ud83d\udc47",
+    "thread": "Real answer: You need to SEE what's happening. That's where Grafana comes in.\n\nGrafana is a tool that shows you charts and graphs about your pipeline. You can see:\n\n\u2022 How long builds take\n\u2022 How many deployments fail\n\u2022 If your servers are healthy\n\u2022 When stuff breaks\n\nExample: Your pipeline says \"success\" but your app is down. Bad! Grafana would show you the server is out of memory or crashing.\n\nSo in an interview, say:\n\"I'd hook up Grafana to track build times, deployment success rates, and app health. Then I'd set alerts so the team knows when something's wrong.\"\n\nThat shows you think about the whole picture, not just \"did the code push?\"\n\nWhat's your go-to tool for watching your pipelines? Grafana, DataDog, something else? Tell me below \ud83d\udc47\n\n#CICD #DevOps #Grafana #InterviewPrep #Monitoring",
+    "hook_id": "2057897847270560012",
+    "thread_id": "2057897848851829189",
+    "content_hash": "793737a7c917504756dea05323ef144a"
   }
 ]
