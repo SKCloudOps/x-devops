@@ -322,5 +322,14 @@
     "hook_id": "2057543857651212428",
     "thread_id": "2057543858687250441",
     "content_hash": "d51878dc23a1057e70f1054fcc048165"
+  },
+  {
+    "date": "2026-05-22T19:14:14.115462+00:00",
+    "concept": "Helm as a templating engine vs package manager",
+    "hook": "Most engineers using Helm every day don't know this: you can totally skip the chart and just use it as a templating tool \ud83d\udc47",
+    "thread": "Here's the thing: Helm is two things at once.\n\n1) A package manager (like npm for Kubernetes)\n2) A templating engine\n\nMost people only use it as #1. They download a chart, tweak a few values, and deploy. That's fine.\n\nBut here's what's wild: you can use Helm JUST to generate YAML files. No package needed.\n\nReal example: You write one Kubernetes manifest. But you need 3 versions\u2014dev, staging, prod. Instead of copy-pasting 3 files, you use Helm variables {{ .Values.replicas }} and run:\n\nhelm template my-app . --values dev.yaml > dev.yaml\nhelm template my-app . --values prod.yaml > prod.yaml\n\nSame template. Different values. Done.\n\nThe gotcha? Most tutorials skip this. They jump straight to \"download a chart from a repo.\" But templating is where the real power is. You can version control your deployments as code way easier.\n\nWhat's your Helm workflow look like? Are you using it for packages, templating, or both? \ud83d\udc47\n\n#Helm #Kubernetes #DevOps #CI/CD",
+    "hook_id": "2057902873665548669",
+    "thread_id": "2057902874701533314",
+    "content_hash": "4aa7e2604f3928d9a367551ca4d82e39"
   }
 ]
