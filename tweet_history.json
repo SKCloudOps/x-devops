@@ -2026,5 +2026,14 @@
     "hook_id": "2057897847270560012",
     "thread_id": "2057897848851829189",
     "content_hash": "793737a7c917504756dea05323ef144a"
+  },
+  {
+    "date": "2026-05-22T20:54:22.629920+00:00",
+    "category": "cicd_interview_question",
+    "hook": "Interviewer: 'How do you isolate your CI/CD pipeline in a VPC?' \u2014 Most candidates overthink this. Here's the real answer \ud83d\udc47",
+    "thread": "It's simple:\n\n1. Your VPC is just a private network. Put your CI/CD servers inside it.\n\n2. No one from the internet can reach them directly. That's the whole point.\n\n3. Your runner (like Jenkins or GitLab) sits in the VPC. It pulls code from GitHub. It builds stuff. It pushes to your apps \u2014 all inside the network.\n\n4. If you need to talk to stuff outside (like public Docker registry), use a NAT gateway. It lets outbound traffic through but blocks inbound.\n\nWhy this matters: Your pipeline is safer. Hackers can't randomly poke at your CI/CD servers. They're hidden.\n\nBonus tip: Most jobs also add security groups (think of them as firewall rules) to only let specific traffic in. Example: Only port 22 for SSH from your office IP.\n\nReal example: Your GitHub sends a webhook \u2192 hits your CI/CD server in the VPC \u2192 runs build \u2192 deploys to prod. All secure, all internal.\n\nThe trick: Don't make it sound fancy. Just say 'private network, only what we need gets in or out.'\n\nWhat's your VPC setup at work? Do you use a NAT gateway? Drop it below \ud83d\udc47\n\n#CICD #DevOps #AWS #Networking #InterviewTips",
+    "hook_id": "2057928074906173651",
+    "thread_id": "2057928076294545596",
+    "content_hash": "64c86f275fdaefc0e150b6ade2337e3c"
   }
 ]
