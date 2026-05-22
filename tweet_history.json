@@ -1999,5 +1999,14 @@
     "hook_id": "2057686724415742340",
     "thread_id": "2057686725971849344",
     "content_hash": "f67839feab54941a2bfbc971596b96e0"
+  },
+  {
+    "date": "2026-05-22T14:10:25.561327+00:00",
+    "category": "cicd_interview_question",
+    "hook": "Interviewer: 'How do you audit who changed what in your AWS infra?' Most candidates say CloudTrail and stop. That's not the full answer \ud83d\udc47",
+    "thread": "CloudTrail logs API calls. That's step one. But here's what they really want to hear:\n\n1. CloudTrail captures WHO did WHAT and WHEN\n2. You need to actually READ those logs (use CloudWatch or S3)\n3. Set up alerts for risky changes (like IAM tweaks)\n4. Combine it with AWS Config to track resource changes over time\n\nReal example: Someone deletes a security group. CloudTrail shows the API call. AWS Config shows the group is gone. Together? You've got the full story.\n\nBonus points: Mention compliance. \"We keep CloudTrail logs for 90 days in S3 for audit trails.\"\n\nThat's what separates \"I know CloudTrail exists\" from \"I actually use it.\"\n\nWhat's the gnarliest audit question you've gotten? Or do you use a different tool? Drop it \ud83d\udc47\n\n#DevOps #AWS #CloudTrail #CICD #InterviewPrep",
+    "hook_id": "2057826417203724727",
+    "thread_id": "2057826418671624335",
+    "content_hash": "9878684bedf0c518cf55900eeca6183e"
   }
 ]
