@@ -2035,5 +2035,14 @@
     "hook_id": "2057928074906173651",
     "thread_id": "2057928076294545596",
     "content_hash": "64c86f275fdaefc0e150b6ade2337e3c"
+  },
+  {
+    "date": "2026-05-22T22:56:09.578389+00:00",
+    "category": "cicd_interview_question",
+    "hook": "Interviewer: 'What's the difference between Helm and kubectl?' \u2014 Most engineers mix these up. Would you? \ud83d\udc47",
+    "thread": "Here's the thing:\n\nkubectl = the tool. It talks to Kubernetes directly. You write YAML files, kubectl sends them to the cluster.\n\nHelm = a package manager ON TOP of kubectl. Think of it like npm for Kubernetes.\n\nReal example:\n\nWith kubectl alone, you deploy an app like this:\n- Write 5 YAML files (deployment, service, configmap, etc)\n- Run kubectl apply on each one\n- If you need to deploy again with different values, you edit the files by hand\n\nWith Helm:\n- Someone packages all those files as a \"chart\"\n- You just run: helm install my-app ./chart\n- Need different values? helm install my-app ./chart --set replicas=3\n- Need to remove it? helm uninstall my-app. Everything goes away.\n\nHelm also handles templating. Same chart, different environments. No copy-paste YAML.\n\nBottom line: kubectl is the engine. Helm is the package manager. You need kubectl to run Helm. They work together.\n\nWhat's the trickiest CI/CD question YOU'VE been asked? Drop it below \ud83d\udc47\n\n#DevOps #Kubernetes #Helm #CICD #Interview",
+    "hook_id": "2057958722698363052",
+    "thread_id": "2057958723914702982",
+    "content_hash": "49a307fe1fa748db4496a62941083e3b"
   }
 ]
