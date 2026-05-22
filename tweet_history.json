@@ -1990,5 +1990,14 @@
     "hook_id": "2057597697729728703",
     "thread_id": "2057597699155800501",
     "content_hash": "3b16452d69c5bd00af58ece0b09fb94c"
+  },
+  {
+    "date": "2026-05-22T04:55:20.241733+00:00",
+    "category": "cicd_interview_question",
+    "hook": "Interviewer: 'How would you block a bad container from running?' \u2014 Most say 'use a security tool' then blank. Here's what they miss \ud83d\udc47",
+    "thread": "They're asking about policy enforcement. OPA (Open Policy Agent) is the answer most places want to hear.\n\nHere's the simple version:\n\nOPA is like a bouncer at your cluster. Before anything runs, OPA checks it against rules you wrote.\n\nExample: You could write a rule that says 'no containers running as root.' When someone tries to deploy a pod that runs as root, OPA says 'nope' and blocks it.\n\nWhy it matters in interviews:\n- Shows you know policy > just permissions\n- Proves you think about security early\n- Real companies use this (not just theory)\n\nQuick tip: Mention it works with Kubernetes, Docker, Terraform, etc. Not just one tool. That impresses people.\n\nYou don't need to memorize Rego syntax. Just know: OPA lets you write rules to approve or reject stuff before it runs.\n\nWhat's your go-to answer when they ask about policy enforcement? Drop it below \ud83d\udc47\n\n#DevOps #Kubernetes #SecurityPolicy #Interviews #CI/CD",
+    "hook_id": "2057686724415742340",
+    "thread_id": "2057686725971849344",
+    "content_hash": "f67839feab54941a2bfbc971596b96e0"
   }
 ]
