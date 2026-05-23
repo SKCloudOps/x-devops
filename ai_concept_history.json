@@ -371,5 +371,14 @@
     "hook_id": "2057975876499779931",
     "thread_id": "2057975878307459237",
     "content_hash": "7dc97a593ab6ba1fd0dd05fd09c00bc0"
+  },
+  {
+    "date": "2026-05-23T23:54:42.259479+00:00",
+    "concept": "fine-tuning",
+    "hook": "Everyone talks about fine-tuning AI models. But most people don't actually know what it does or why you'd need it \ud83d\udc47",
+    "thread": "Fine-tuning is just teaching an AI to be better at ONE specific job.\n\nThink of it like this: ChatGPT is trained on billions of web pages. It's pretty good at everything. But it sucks at your job.\n\nSo you give it 100 examples of YOUR work. You show it: \"Here's how we write emails. Here's how we format reports. Here's what we care about.\"\n\nNow it learns YOUR style. YOUR rules. YOUR shortcuts.\n\nIt's not learning from scratch. It's not retraining on the internet. You're just saying: \"I know you're smart, but please be smart MY way.\"\n\nWhy it matters? Because generic AI = generic results. Fine-tuned AI = your AI. Faster. Cheaper. Actually useful.\n\nThe kicker? You don't need thousands of examples. Sometimes 50-100 good ones is enough.\n\nWhat job would you fine-tune an AI to do? \ud83d\udc47\n\n#FinetuningAI #MachineLearning #AIatWork",
+    "hook_id": "2058335843027177814",
+    "thread_id": "2058335844956598299",
+    "content_hash": "12780394cd057f06c58a8cd8add87527"
   }
 ]
