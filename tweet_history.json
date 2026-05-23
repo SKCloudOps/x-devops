@@ -2062,5 +2062,14 @@
     "hook_id": "2058169641243972062",
     "thread_id": "2058169642531610657",
     "content_hash": "a609ee0ee315b05374d434b8ec72b7f7"
+  },
+  {
+    "date": "2026-05-23T15:42:02.852259+00:00",
+    "category": "platform_engineering_interview_question",
+    "hook": "Interviewer: 'When would you use SNS over SQS?' \u2014 Most engineers mix these up. Would you nail this? \ud83d\udc47",
+    "thread": "SNS and SQS do different jobs. Let me break it down:\n\nSNS = broadcaster. One message goes to many places at once. Like yelling in a room and everyone hears it.\n\nSQS = mailbox. One message waits for one worker to grab it. Like leaving a note on a desk.\n\nReal example:\n- Use SNS when you need multiple systems to react to something. Payment processed? Tell email service, analytics, fraud check, AND shipping \u2014 all at once.\n- Use SQS when you have a long task queue. Orders piling up? Workers pull from the queue one by one and process them.\n\nNgl, the trick most candidates miss: SNS and SQS work great TOGETHER. Send to SNS, then have SQS pull from it. Best of both worlds.\n\nWhen was the last time you had to pick between these two? How did you decide? \ud83d\udc47\n\n#DevOps #AWS #PlatformEngineering #InterviewPrep #SNS",
+    "hook_id": "2058211862248878321",
+    "thread_id": "2058211863809134956",
+    "content_hash": "6b508b16e6f701fcbfd832548bde978c"
   }
 ]
