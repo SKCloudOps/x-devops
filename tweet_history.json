@@ -2071,5 +2071,14 @@
     "hook_id": "2058211862248878321",
     "thread_id": "2058211863809134956",
     "content_hash": "6b508b16e6f701fcbfd832548bde978c"
+  },
+  {
+    "date": "2026-05-23T18:01:01.589345+00:00",
+    "category": "platform_engineering_interview_question",
+    "hook": "Interviewer: 'What's ArgoCD and why would you use it?' \u2014 Most candidates describe it wrong. Would you nail this? \ud83d\udc47",
+    "thread": "ArgoCD is a tool that watches your code repo and keeps your apps in sync automatically.\n\nHere's the simple version:\n\n1. You push code to GitHub (or GitLab, etc.)\n2. ArgoCD sees the change\n3. It automatically updates your running app\n\nNo manual kubectl commands needed.\n\nWhy use it?\n\u2014 Faster deployments\n\u2014 Less human mistakes\n\u2014 Your repo becomes the truth (what's in Git is what's running)\n\u2014 You can roll back by just reverting a commit\n\nReal example: You update your deployment.yaml file. ArgoCD notices in seconds and deploys it to your Kubernetes cluster. Done.\n\nBonus tip: Interviewers love when you mention \"GitOps\" \u2014 it's just the idea of managing everything through Git instead of running commands by hand.\n\nHow would YOU explain ArgoCD to someone who's never heard of it? \ud83d\udc47\n\n#ArgoCD #Kubernetes #DevOps #GitOps #PlatformEngineering",
+    "hook_id": "2058246837925257262",
+    "thread_id": "2058246839120646584",
+    "content_hash": "6b5a3d36f0c06062b6e9c4a8801c448c"
   }
 ]
