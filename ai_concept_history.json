@@ -362,5 +362,14 @@
     "hook_id": "2057612327109754990",
     "thread_id": "2057612328057643441",
     "content_hash": "ca2657e9b45df3f5f61729fe2014809e"
+  },
+  {
+    "date": "2026-05-23T00:04:19.517452+00:00",
+    "concept": "Fine-tuning and Reward Models",
+    "hook": "Everyone says 'fine-tuning' but most people think it means something way more complex than it actually is \ud83d\udc47",
+    "thread": "Fine-tuning is just teaching an AI to be better at ONE specific job.\n\nThink of it like this: You buy a general contractor. They can build houses, fix cars, install plumbing. But you only need someone who fixes plumbing.\n\nSo you spend a week training them on YOUR plumbing style. Your weird pipes. Your code. Your way of writing.\n\nNow they're still that same contractor. But they're WAY better at plumbing for you.\n\nThat's fine-tuning:\n- Start with a base AI (trained on everything)\n- Show it examples of YOUR specific task\n- It gets really good at that one thing\n\nWhy it matters: You don't need to build AI from scratch. You start with something that already works and just point it at your problem.\n\nBonus: A reward model is how you tell the AI 'this answer was good' vs 'that one sucked' so it learns what you actually want.\n\nWhat AI task would you fine-tune if you could? \ud83d\udc47\n\n#AI #MachineLearning #FineTuning #AITraining",
+    "hook_id": "2057975876499779931",
+    "thread_id": "2057975878307459237",
+    "content_hash": "7dc97a593ab6ba1fd0dd05fd09c00bc0"
   }
 ]
