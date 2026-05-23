@@ -2080,5 +2080,14 @@
     "hook_id": "2058246837925257262",
     "thread_id": "2058246839120646584",
     "content_hash": "6b5a3d36f0c06062b6e9c4a8801c448c"
+  },
+  {
+    "date": "2026-05-23T20:26:30.870126+00:00",
+    "category": "platform_engineering_interview_question",
+    "hook": "Interviewer: 'How do you give an EC2 instance access to S3 without hardcoding AWS keys?' \u2014 Most candidates blank here \ud83d\udc47",
+    "thread": "This is where IRSA comes in. IRSA = IAM Roles for Service Accounts.\n\nHere's the simple version:\n\nInstead of putting your AWS keys in code (bad idea), you attach a role to your EC2 instance. The instance can then ask AWS 'hey, can I access this S3 bucket?' and AWS says yes or no based on the role.\n\nREAL EXAMPLE:\n1. Create an IAM role that says 'this role can read S3'\n2. Attach that role to your EC2 instance\n3. Your app on the EC2 instance can now read S3 \u2014 no keys needed\n\nWhy this matters:\n- No hardcoded credentials to leak\n- Easy to rotate or revoke access\n- Super secure\n\nThe trick most people miss: The EC2 instance uses a metadata service to grab temporary credentials from AWS. Your app doesn't even know it's happening.\n\nHow would you explain this to someone who's never used AWS before? Drop your answer below \ud83d\udc47\n\n#DevOps #AWS #InterviewPrep #IRSA #CloudSecurity",
+    "hook_id": "2058283451137290379",
+    "thread_id": "2058283452395663468",
+    "content_hash": "de66e11202ebc40db821067d9bc330d6"
   }
 ]
