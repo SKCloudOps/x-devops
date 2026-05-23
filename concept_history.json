@@ -331,5 +331,14 @@
     "hook_id": "2057902873665548669",
     "thread_id": "2057902874701533314",
     "content_hash": "4aa7e2604f3928d9a367551ca4d82e39"
+  },
+  {
+    "date": "2026-05-23T18:35:31.419368+00:00",
+    "concept": "GitHub Actions Secret Masking and Security",
+    "hook": "Most people using GitHub Actions for the first time don't know this: your secrets aren't actually secret in logs. Here's why \ud83d\udc47",
+    "thread": "Here's the thing: GitHub Actions masks your secrets in the UI logs. But if you echo or print them in a script, they STILL get exposed to anyone who reads your workflow.\n\nThink of it like this. Your boss gives you a password to the safe. GitHub hides it when logs are displayed. But if you write it on a whiteboard in the office, it's there for everyone to see.\n\nThe gotcha: GitHub only masks secrets that are EXACT matches. If you use them in a string like \"password123-extra\", the masking won't catch it.\n\nBetter move: never log secrets. Use GitHub's built-in masked outputs instead. Or better yet, don't touch secrets in scripts at all. Pass them directly to the tool that needs them.\n\nWhat's caught you off guard with secrets in CI/CD? Drop a comment \ud83d\udc47\n\n#GitHubActions #DevOps #IaC #CI-CD #Security",
+    "hook_id": "2058255519593157078",
+    "thread_id": "2058255520574624106",
+    "content_hash": "9cc5c693d2fd812dc87a388edd8c2e79"
   }
 ]
