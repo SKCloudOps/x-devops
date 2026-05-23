@@ -2053,5 +2053,14 @@
     "hook_id": "2058043342043197624",
     "thread_id": "2058043343452430583",
     "content_hash": "5acceb1cc547ffea283b1c3ff80fdd78"
+  },
+  {
+    "date": "2026-05-23T12:54:16.500262+00:00",
+    "category": "platform_engineering_interview_question",
+    "hook": "Interviewer: 'What's the difference between CloudFormation and CDK?' \u2014 Most engineers mix these up. Would you nail this? \ud83d\udc47",
+    "thread": "CloudFormation is the base tool. It uses JSON or YAML files to describe AWS stuff.\n\nCDK is a layer on top. You write code (Python, TypeScript, etc.) and it builds CloudFormation templates for you.\n\nReal example:\nWith CloudFormation, you write 100 lines of YAML for an S3 bucket and permissions.\n\nWith CDK, you write 5 lines of Python:\n\nbucket = s3.Bucket(self, \"my-bucket\")\n\n\nThat's it. CDK handles all the YAML in the background.\n\nWhy pick CDK? Less repetition. More like real coding. Easier to test. You can use loops and variables.\n\nThe catch? You need to know what CloudFormation does underneath. CDK doesn't replace that knowledge.\n\nNailed this question before? Or did it trip you up? Drop your answer below \ud83d\udc47\n\n#DevOps #AWS #CDK #CloudFormation #InterviewPrep",
+    "hook_id": "2058169641243972062",
+    "thread_id": "2058169642531610657",
+    "content_hash": "a609ee0ee315b05374d434b8ec72b7f7"
   }
 ]
