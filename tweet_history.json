@@ -2044,5 +2044,14 @@
     "hook_id": "2057958722698363052",
     "thread_id": "2057958723914702982",
     "content_hash": "49a307fe1fa748db4496a62941083e3b"
+  },
+  {
+    "date": "2026-05-23T04:32:24.469374+00:00",
+    "category": "platform_engineering_interview_question",
+    "hook": "Interviewer: 'When would you use SNS over SQS?' \u2014 Most engineers get this wrong. Here's the real answer \ud83d\udc47",
+    "thread": "SNS and SQS do different jobs. Don't mix them up.\n\nSNS = broadcast. One message goes to MANY places at once. Like a megaphone.\n\nSQS = queue. One message goes to ONE worker. That worker picks it up when ready. Like a mailbox.\n\nReal example:\n- SNS: \"New user signed up!\" \u2192 Tell email service, billing, analytics all at once\n- SQS: \"Process payment\" \u2192 Put it in a queue. One payment worker grabs it, processes, moves on.\n\nHere's the trick: You can actually use BOTH together. SNS publishes \u2192 SQS queues receive. Now each service gets the message at its own pace without losing it.\n\nWhen they ask this, just say:\n\"SQS for one-to-one work. SNS for one-to-many notifications. Use them together when you need reliability + speed.\"\n\nThat's it. You sound like you know what you're talking about.\n\nWhich one have you actually used in a real project? Drop your answer below \ud83d\udc47\n\n#DevOps #AWS #InterviewPrep #PlatformEngineering",
+    "hook_id": "2058043342043197624",
+    "thread_id": "2058043343452430583",
+    "content_hash": "5acceb1cc547ffea283b1c3ff80fdd78"
   }
 ]
