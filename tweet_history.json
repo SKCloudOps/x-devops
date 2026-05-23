@@ -2089,5 +2089,14 @@
     "hook_id": "2058283451137290379",
     "thread_id": "2058283452395663468",
     "content_hash": "de66e11202ebc40db821067d9bc330d6"
+  },
+  {
+    "date": "2026-05-23T22:50:57.929654+00:00",
+    "category": "platform_engineering_interview_question",
+    "hook": "Interviewer: 'How would you handle traffic spikes at your API Gateway?' \u2014 Most engineers overthink this. Here's what they miss \ud83d\udc47",
+    "thread": "The trick? You don't stop the spike. You manage it.\n\nHere's the real answer:\n\n1. **Rate limiting** \u2014 Tell clients \"slow down.\" Set limits per user or IP. If they hit the limit, they wait or get rejected. Simple.\n\n2. **Auto-scaling** \u2014 Add more servers when traffic goes up. Remove them when it drops. Takes a few minutes but it works.\n\n3. **Caching** \u2014 Don't hit your backend for every request. Cache common responses. Serve them fast.\n\n4. **Queue requests** \u2014 If your backend can't handle everything right now, queue the requests. Process them when you have capacity.\n\nReal example: Black Friday sale hits. Traffic jumps 10x. Your API Gateway:\n- Rejects requests over the rate limit\n- Spins up 5 new servers (takes 2 mins)\n- Serves cached product pages\n- Queues checkout requests\n\nBackend stays alive. Users get fast responses. Done.\n\nMost engineers talk about \"load balancing\" and \"circuit breakers\" \u2014 correct words, but they miss the actual strategy. You're protecting your system, not trying to process everything.\n\nWhich one of these would you explain first in an interview? Drop your answer \ud83d\udc47\n\n#PlatformEngineering #DevOpsInterview #APIGateway #SiteReliability",
+    "hook_id": "2058319803157475410",
+    "thread_id": "2058319804638097768",
+    "content_hash": "b69d831539d429f948af41394434d4a1"
   }
 ]
