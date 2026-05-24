@@ -340,5 +340,14 @@
     "hook_id": "2058255519593157078",
     "thread_id": "2058255520574624106",
     "content_hash": "9cc5c693d2fd812dc87a388edd8c2e79"
+  },
+  {
+    "date": "2026-05-24T18:41:26.349041+00:00",
+    "concept": "Vault Secret Injection in Containers",
+    "hook": "Most engineers using Vault in containers don't know this: your secrets aren't safe just because they're encrypted \ud83d\udc47",
+    "thread": "Here's the thing: Vault stores your secrets (API keys, passwords, certs). But if your container can access Vault, so can anyone who breaks into that container.\n\nThink of it like this: Vault is a bank vault. Your container is a messenger. The messenger knows the combination. If someone mugs the messenger, they get the code.\n\nThe gotcha? People set Vault credentials in env vars or config files inside the container. That's like writing the bank code on a sticky note.\n\nBetter move: Use Vault's Agent to inject secrets ONLY when your app needs them. Rotate credentials often. Don't let secrets sit around.\n\nAlso: restrict what each container can access in Vault. If your payment service gets hacked, it shouldn't have access to your database passwords.\n\nHow are you handling secrets in your containers right now? Are you rotating them? Reply below \ud83d\udc47\n\n#DevOps #Vault #ContainerSecurity #Secrets",
+    "hook_id": "2058619396000784734",
+    "thread_id": "2058619397108027743",
+    "content_hash": "7b4ea83682ff6f67255bdde70ad01c0e"
   }
 ]
