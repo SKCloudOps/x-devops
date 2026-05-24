@@ -2143,5 +2143,14 @@
     "hook_id": "2058647140562243946",
     "thread_id": "2058647141950668925",
     "content_hash": "1b7906e94892210c22cbd96e005ce858"
+  },
+  {
+    "date": "2026-05-24T22:56:12.545805+00:00",
+    "category": "terraform_iac_interview_question",
+    "hook": "Interviewer: 'How do you scan your AWS resources for security issues using Terraform?' \u2014 Most candidates miss the easy answer. \ud83d\udc47",
+    "thread": "A lot of people think you need to do it all manually. Wrong.\n\nYou can use AWS SecurityHub with Terraform to find problems automatically.\n\nHere's how it works:\n\n1. Create SecurityHub in Terraform\n2. It scans your AWS stuff (EC2, S3, RDS, etc)\n3. It finds misconfigs and bad settings\n4. You get findings you can act on\n\nExample:\n\nresource \"aws_securityhub_account\" \"main\" {\n  enable_default_standards = true\n}\n\n\nBoom. Now SecurityHub checks your whole account.\n\nThe trick most people miss? You can use findings in your Terraform code. Pull them back, check if your resources passed compliance. Then fail your deploy if they didn't.\n\nIt's like adding a security gate to your infrastructure.\n\nNgl, this impresses interviewers because most engineers don't know Terraform and SecurityHub work together.\n\nWhat security scanning tools have you actually used in your projects? Drop them below \ud83d\udc47\n\n#Terraform #AWS #DevOps #SecurityHub #IaC #Interview",
+    "hook_id": "2058683509665833130",
+    "thread_id": "2058683512048210383",
+    "content_hash": "840dbfbe912d12caddbb8c985c5e6405"
   }
 ]
