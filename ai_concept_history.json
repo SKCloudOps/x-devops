@@ -380,5 +380,14 @@
     "hook_id": "2058335843027177814",
     "thread_id": "2058335844956598299",
     "content_hash": "12780394cd057f06c58a8cd8add87527"
+  },
+  {
+    "date": "2026-05-24T23:57:38.371954+00:00",
+    "concept": "embeddings_and_vectors",
+    "hook": "Everyone says 'embeddings' like it's magic. But honestly? It's just a way to turn words into numbers so AI can understand them \ud83d\udc47",
+    "thread": "Here's the simple version:\n\nAn embedding is just a list of numbers that represents a word or idea.\n\nThink of it like GPS coordinates. \"Paris\" isn't a location\u2014it's latitude and longitude. Same idea. \"Cat\" becomes something like [0.2, -0.5, 0.9, 0.1...].\n\nWhy numbers? Because AI math works with numbers, not words. Numbers let the AI see that \"cat\" and \"kitten\" are similar (their number lists are close to each other). But \"cat\" and \"refrigerator\" are totally different (their numbers are far apart).\n\nThis matters because:\n- Search engines use it to find relevant results\n- ChatGPT uses it to understand what you mean\n- Recommendation systems use it to find similar products\n\nThe AI doesn't actually \"understand\" anything. It's just doing math on lists of numbers. But when those numbers are good, the results feel smart.\n\nWhat's one AI concept that still feels like magic to you? \ud83d\udc47\n\n#AI #Embeddings #MachineLearning #AIDemystified",
+    "hook_id": "2058698970474459232",
+    "thread_id": "2058698971518787737",
+    "content_hash": "aca11493ea3698eb8cdf1fb96661681f"
   }
 ]
