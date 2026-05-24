@@ -2125,5 +2125,14 @@
     "hook_id": "2058574625458561313",
     "thread_id": "2058574626851020994",
     "content_hash": "1b19eb506231576d4233b927b5277c55"
+  },
+  {
+    "date": "2026-05-24T17:58:03.938105+00:00",
+    "category": "terraform_iac_interview_question",
+    "hook": "Interviewer: 'How do you protect sensitive data in Terraform?' \u2014 Most engineers fumble this. Would you? \ud83d\udc47",
+    "thread": "Here's the real answer:\n\nNever put secrets directly in your code. That's like leaving your front door unlocked.\n\nInstead, use these shields:\n\n1. **Terraform Cloud/Enterprise** \u2014 They store secrets safely. Your code just asks for them.\n\n2. **AWS Secrets Manager or HashiCorp Vault** \u2014 Keep passwords and API keys outside your repo. Pull them when you need them.\n\n3. **Use .gitignore** \u2014 Never commit .tfvars files with actual secrets. Ever.\n\n4. **Encrypt your state file** \u2014 Your state file holds all the secrets. Lock it down with encryption.\n\nReal example:\n\nvariable \"db_password\" {\n  type = string\n  sensitive = true\n}\n\n\nThat \"sensitive = true\" hides it from logs. Smart.\n\nThe key: Keep secrets outside your repo. Always.\n\nWhat's the trickiest secret management scenario you've dealt with? Drop it below \ud83d\udc47\n\n#Terraform #DevOps #Infrastructure #IaC #Interview",
+    "hook_id": "2058608480508874917",
+    "thread_id": "2058608481846911486",
+    "content_hash": "30016f87727b5d2d35a8de2597be1b40"
   }
 ]
