@@ -2107,5 +2107,14 @@
     "hook_id": "2058412019301200326",
     "thread_id": "2058412020685209932",
     "content_hash": "b6eb94abe7f394b13537d53ad0fa6fd9"
+  },
+  {
+    "date": "2026-05-24T12:55:00.227857+00:00",
+    "category": "terraform_iac_interview_question",
+    "hook": "Interviewer: 'How do you manage CloudFront cache invalidation in Terraform?' \u2014 Most candidates get this wrong. \ud83d\udc47",
+    "thread": "Here's the thing: You can't just change your S3 bucket and expect CloudFront to serve new files. The cache doesn't know.\n\nYou need to tell CloudFront \"hey, this stuff is old, grab it again.\"\n\nTwo ways to do it in Terraform:\n\n1. **Manual invalidation** \u2014 Use aws_cloudfront_invalidation resource. You specify which files to refresh (like /* for everything).\n\n2. **Auto-invalidate with etag** \u2014 Hash your files and let Terraform trigger invalidation when files actually change.\n\nExample that actually works:\n\naws_cloudfront_invalidation {\n  distribution_id = aws_cloudfront_distribution.my_site.id\n  paths = [\"/index.html\", \"/*\"]\n}\n\nTip: Don't invalidate EVERYTHING every time. It costs money and slows down your users. Only invalidate what changed.\n\nMost engineers waste money here lol.\n\nHow do you handle cache busting in your projects? Drop your approach below \ud83d\udc47\n\n#Terraform #CloudFront #DevOps #IaC #AWS",
+    "hook_id": "2058532212346114366",
+    "thread_id": "2058532213797380161",
+    "content_hash": "401cd56825825c981a3470e2067cfcc4"
   }
 ]
