@@ -2116,5 +2116,14 @@
     "hook_id": "2058532212346114366",
     "thread_id": "2058532213797380161",
     "content_hash": "401cd56825825c981a3470e2067cfcc4"
+  },
+  {
+    "date": "2026-05-24T15:43:32.295524+00:00",
+    "category": "terraform_iac_interview_question",
+    "hook": "Interviewer: 'Why use Terraform over CloudFormation?' \u2014 Most candidates say 'it's better' and panic. Here's what actually matters \ud83d\udc47",
+    "thread": "The real answer? Both work. But here's what to actually say:\n\nTerraform:\n\u2022 Works with AWS, Azure, Google Cloud, etc. Not locked to one cloud.\n\u2022 Easier to read. HCL is simpler than JSON.\n\u2022 You can reuse code across different projects.\n\nCloudFormation:\n\u2022 AWS-only (that's a feature if you're all-in on AWS).\n\u2022 Built right into AWS. No extra tool.\n\u2022 Native integrations with every AWS service.\n\nHonest take? Pick based on your needs, not hype. Using CloudFormation at a startup on AWS? Smart move. Multi-cloud? Terraform makes sense.\n\nDon't say one is 'better.' Say why YOU'D pick one for THIS job.\n\nWhat's your go-to IaC tool and why? Tell me below \ud83d\udc47\n\n#Terraform #CloudFormation #DevOps #IaC #AWSJobs",
+    "hook_id": "2058574625458561313",
+    "thread_id": "2058574626851020994",
+    "content_hash": "1b19eb506231576d4233b927b5277c55"
   }
 ]
