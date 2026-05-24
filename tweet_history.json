@@ -2134,5 +2134,14 @@
     "hook_id": "2058608480508874917",
     "thread_id": "2058608481846911486",
     "content_hash": "30016f87727b5d2d35a8de2597be1b40"
+  },
+  {
+    "date": "2026-05-24T20:31:41.231510+00:00",
+    "category": "terraform_iac_interview_question",
+    "hook": "Interviewer: 'Why use Terraform over CDK?' \u2014 Most engineers mix these up. Would you nail this? \ud83d\udc47",
+    "thread": "Here's the thing: they're solving different problems.\n\nTerraform = Write your infra in HCL. Works with ANY cloud. AWS, GCP, Azure. You learn it once, use it everywhere.\n\nCDK = Write infra in code (Python, TypeScript, Go). Feels like regular programming. But it's AWS-only right now.\n\nIn an interview, say this:\n\n'Terraform wins if you:\n- Use multiple clouds\n- Want something simple and declarative\n- Have ops people (not just devs) managing infra\n\nCDK wins if you:\n- Only use AWS\n- Have developers writing infra\n- Want loops, functions, and reusable code\n\nThey're not enemies. Some teams use both.\n\nWhich one would YOU reach for first at a new job? Reply below \ud83d\udc47\n\n#Terraform #AWS #CDK #DevOps #IaC #Infrastructure",
+    "hook_id": "2058647140562243946",
+    "thread_id": "2058647141950668925",
+    "content_hash": "1b7906e94892210c22cbd96e005ce858"
   }
 ]
