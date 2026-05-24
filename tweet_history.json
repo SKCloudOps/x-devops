@@ -2098,5 +2098,14 @@
     "hook_id": "2058319803157475410",
     "thread_id": "2058319804638097768",
     "content_hash": "b69d831539d429f948af41394434d4a1"
+  },
+  {
+    "date": "2026-05-24T04:57:23.952756+00:00",
+    "category": "terraform_iac_interview_question",
+    "hook": "Interviewer: 'How do you manage Terraform state in a team?' \u2014 Most candidates get this wrong. Here's what they miss \ud83d\udc47",
+    "thread": "The bad answer: 'Just commit it to Git lol'\n\nWrong. Your state file has secrets. Passwords. API keys. You don't want that in Git.\n\nThe RIGHT answer:\n\n1. Use remote state. Store it in S3, Terraform Cloud, or Azure Storage. NOT local.\n\n2. Enable state locking. If two people run terraform at once, bad things happen. Locking stops that.\n\n3. Encrypt it. Turn on encryption at rest so even AWS can't read your secrets.\n\n4. Control who touches it. Use IAM rules. Only your team can access it.\n\nReal example:\nYou push Terraform code to Git. ArgoCD or a CI/CD tool picks it up and runs it. The state file lives in S3 with encryption on. Done.\n\nThis is how teams actually do it. Not perfect Git history \u2014 you're protecting your infrastructure.\n\nWhat's your team's state setup? Drop it below \ud83d\udc47\n\n#Terraform #IaC #DevOps #AWS",
+    "hook_id": "2058412019301200326",
+    "thread_id": "2058412020685209932",
+    "content_hash": "b6eb94abe7f394b13537d53ad0fa6fd9"
   }
 ]
