@@ -2179,5 +2179,14 @@
     "hook_id": "2058950702756770284",
     "thread_id": "2058950704178553154",
     "content_hash": "3a14ae3bc79b6d1ec76e7727a33cfed1"
+  },
+  {
+    "date": "2026-05-25T18:25:16.645734+00:00",
+    "category": "devops_trending_topic",
+    "hook": "Interviewer: 'What's a buildpack and why would you use one?' \u2014 Most DevOps engineers fumble this. Would you? \ud83d\udc47",
+    "thread": "Buildpacks turn your code into a container image without you writing a Dockerfile. That's it.\n\nInstead of:\n1. Write Dockerfile\n2. Build image\n3. Push to registry\n\nYou just:\n1. Push your code\n2. Buildpack detects what language it is\n3. Image ready to go\n\nExample: You push a Node.js app. The buildpack finds package.json, installs deps, sets up the runtime, boom \u2014 you have a working container. No Dockerfile needed.\n\nWhy use it?\n- Faster (less to write)\n- Safer (less human error)\n- Standard (same process every time)\n\nPopular ones: Cloud Native Buildpacks (CNB), Heroku buildpacks, Spring Boot buildpacks.\n\nHonest take: You probably don't use them daily unless you're on Heroku or Cloud Foundry. But they're gaining traction because they're lazy-dev friendly.\n\nWould you use buildpacks at your job? Or stick with Dockerfiles? Drop your take below \ud83d\udc47\n\n#DevOps #Buildpacks #Docker #Containerization #InterviewPrep",
+    "hook_id": "2058977716498538871",
+    "thread_id": "2058977717744189630",
+    "content_hash": "3739718a57bccc1b733b67ecc9460665"
   }
 ]
