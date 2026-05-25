@@ -2161,5 +2161,14 @@
     "hook_id": "2058778773139444210",
     "thread_id": "2058778774338961612",
     "content_hash": "20f60459c02455731e394b01ba64b922"
+  },
+  {
+    "date": "2026-05-25T14:28:37.285182+00:00",
+    "category": "devops_trending_topic",
+    "hook": "Interviewer: 'How do you know who deleted that S3 bucket?' \u2014 Most candidates panic. Here's what they miss \ud83d\udc47",
+    "thread": "CloudTrail is your audit log. It records every API call in your AWS account.\n\nSomeone deleted your bucket? CloudTrail logged it.\n\nHere's what to look for:\n\n1. Go to CloudTrail console\n2. Look for 'DeleteBucket' event\n3. Check the 'userIdentity' field \u2014 shows WHO did it\n4. Check the 'sourceIPAddress' \u2014 shows WHERE it came from\n5. Check 'eventTime' \u2014 shows WHEN it happened\n\nReal example: You see a DeleteBucket call at 3 AM from an old IP. Red flag. Probably a security issue.\n\nBonus tip: Enable CloudTrail logging for ALL regions. Not just one. People miss this.\n\nAlso: CloudTrail data goes to S3. But by default it only keeps 90 days. If you need longer history, set up S3 storage.\n\nThat's it. You just solved the mystery.\n\nHave you had to track down who changed something in AWS? How'd you find them? \ud83d\udc47\n\n#DevOps #AWS #CloudTrail #AWSInterview #Troubleshooting",
+    "hook_id": "2058918159936041208",
+    "thread_id": "2058918161282383888",
+    "content_hash": "2120b9f2b69312cb11e6bf62c84670f3"
   }
 ]
