@@ -349,5 +349,14 @@
     "hook_id": "2058619396000784734",
     "thread_id": "2058619397108027743",
     "content_hash": "7b4ea83682ff6f67255bdde70ad01c0e"
+  },
+  {
+    "date": "2026-05-25T19:05:57.998301+00:00",
+    "concept": "Helm Secrets and Git Exposure Risk",
+    "hook": "Most engineers using Helm don't know this: your chart can leak secrets into git. Here's why \ud83d\udc47",
+    "thread": "Helm charts are awesome for deploying apps. But here's the trap:\n\nIf you hardcode secrets (API keys, passwords) into your values.yaml file, they live in your git repo. Forever. Even if you delete them later.\n\nWhy? Git keeps history. Anyone with repo access sees them.\n\nThe fix: Use Helm secrets or external tools.\n\n1. Never put real secrets in values.yaml\n2. Use a secrets manager (AWS Secrets Manager, Vault, whatever)\n3. Reference the secret name instead of the actual value\n4. Let your CI/CD inject the real secret at deploy time\n\nThink of it like this: Your chart is a blueprint. The secrets manager is the safe. Keep them separate.\n\nOne gotcha: Helm doesn't encrypt values by default. If someone gets your cluster, they can see secrets in etcd. Use encryption at rest too.\n\nWhat's your biggest Helm security headache right now? \ud83d\udc47\n\n#Helm #CloudSecurity #Kubernetes #DevOps #SecretManagement",
+    "hook_id": "2058987956577190242",
+    "thread_id": "2058987957546000794",
+    "content_hash": "6960bdec34eb6c1fd0ea8bb02322f173"
   }
 ]
