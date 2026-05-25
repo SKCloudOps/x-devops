@@ -2197,5 +2197,14 @@
     "hook_id": "2059014082712277416",
     "thread_id": "2059014083978854521",
     "content_hash": "b478cc77721781ea03bc0d5d5516dea6"
+  },
+  {
+    "date": "2026-05-25T22:58:52.675280+00:00",
+    "category": "devops_trending_topic",
+    "hook": "Interviewer: 'What's the difference between OPA and a network policy?' \u2014 Most engineers mix these up. Here's what they miss \ud83d\udc47",
+    "thread": "OPA and network policies do different jobs. Don't confuse them.\n\nNetwork Policy = stops traffic between pods. That's it. Port level stuff.\n\nOPA (Open Policy Agent) = says yes or no to ANY decision. Can it access this? Can it deploy this? Can it read that secret?\n\nReal example:\n\nNetwork Policy blocks Pod A from talking to Pod B on port 5432. Good.\n\nBut Pod A could still TRY to connect 100 times. OPA can say: \"Nope, Pod A isn't allowed to even REQUEST that connection.\" It catches it earlier.\n\nAnother one: You deploy a container image. Network Policy doesn't care. OPA can block it because the image isn't from your trusted registry.\n\nSo here's the trick: Use Network Policy for traffic control. Use OPA for permission gates BEFORE things happen.\n\nThey work together, but they're not the same thing.\n\nWhat policy question tripped you up in an interview? Drop it \ud83d\udc47\n\n#DevOps #Kubernetes #OPA #InterviewPrep #SecurityPolicy",
+    "hook_id": "2059046570264268845",
+    "thread_id": "2059046571572854955",
+    "content_hash": "18fe8208b4e5aba003849ee630201eb1"
   }
 ]
