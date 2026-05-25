@@ -2170,5 +2170,14 @@
     "hook_id": "2058918159936041208",
     "thread_id": "2058918161282383888",
     "content_hash": "2120b9f2b69312cb11e6bf62c84670f3"
+  },
+  {
+    "date": "2026-05-25T16:37:56.114655+00:00",
+    "category": "devops_trending_topic",
+    "hook": "Interviewer: 'What's the difference between EventBridge and SQS?' \u2014 Most candidates mix these up. Would you nail it? \ud83d\udc47",
+    "thread": "Here's the thing: they're both AWS services, but they do different jobs.\n\nSQS is a message queue. You throw messages in. Workers pull them out one at a time. It's simple and reliable.\n\nEventBridge is an event router. You send events from different sources. Rules match the events. Then they get sent to the right place.\n\nReal example:\n\nSQS: \"Customer ordered something.\" Workers process orders one by one.\n\nEventBridge: \"Customer ordered something.\" Now you want to trigger notifications, update inventory, log it, AND send it to your data team. EventBridge routes that one event to all those places at once.\n\nThe key? EventBridge handles complex routing. SQS handles simple queuing. EventBridge is better when you need multiple things to happen from one event.\n\nWhich one would you pick for sending the same event to 5 different services? Drop your answer \ud83d\udc47\n\n#AWS #DevOps #SystemsDesign #EventDriven",
+    "hook_id": "2058950702756770284",
+    "thread_id": "2058950704178553154",
+    "content_hash": "3a14ae3bc79b6d1ec76e7727a33cfed1"
   }
 ]
