@@ -2188,5 +2188,14 @@
     "hook_id": "2058977716498538871",
     "thread_id": "2058977717744189630",
     "content_hash": "3739718a57bccc1b733b67ecc9460665"
+  },
+  {
+    "date": "2026-05-25T20:49:47.033801+00:00",
+    "category": "devops_trending_topic",
+    "hook": "Interviewer: 'Walk me through how you'd set up IAM for a new microservice.' Most candidates freeze. Would you? \ud83d\udc47",
+    "thread": "Here's the simple version:\n\n1. Create a service account (not a real person, just your app)\n2. Give it only the permissions it needs (not admin, lol)\n3. Use roles to organize those permissions\n4. Rotate credentials regularly\n\nReal example: Your payment service doesn't need access to logs. So don't give it that role. It only talks to your payment API. That's it.\n\nThe key thing interviewers want to hear: least privilege. Give each service the bare minimum to do its job. Nothing more.\n\nWhy? If someone hacks that service, they can't touch your database or read your secrets.\n\nExtra tip: Use short-lived tokens if you can. They expire fast, so damage is limited.\n\nWhat's the trickiest IAM setup you've had to explain in an interview? Drop it below \ud83d\udc47\n\n#DevOps #IAM #InterviewPrep #Kubernetes #AWS",
+    "hook_id": "2059014082712277416",
+    "thread_id": "2059014083978854521",
+    "content_hash": "b478cc77721781ea03bc0d5d5516dea6"
   }
 ]
