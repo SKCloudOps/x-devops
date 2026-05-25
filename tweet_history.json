@@ -2152,5 +2152,14 @@
     "hook_id": "2058683509665833130",
     "thread_id": "2058683512048210383",
     "content_hash": "840dbfbe912d12caddbb8c985c5e6405"
+  },
+  {
+    "date": "2026-05-25T05:14:44.840919+00:00",
+    "category": "devops_trending_topic",
+    "hook": "Interviewer: 'What's the difference between HPA and KEDA?' \u2014 Most candidates mix these up. Would you? \ud83d\udc47",
+    "thread": "Great question. They both scale your apps, but in different ways.\n\nHPA (Horizontal Pod Autoscaler) watches CPU and memory. When your pods use too much, it spins up more copies. Super simple.\n\nKEDA (Kubernetes Event-Driven Autoscaling) is smarter. It scales based on real events \u2014 like messages in a queue, HTTP requests per second, or database load.\n\nREAL EXAMPLE:\n- HPA: \"Your app uses 80% CPU, add more pods\"\n- KEDA: \"There are 50 messages waiting in RabbitMQ, add 5 pods to process them faster\"\n\nKEDA wins when you care about actual work, not just resources. Perfect for jobs, queues, and event-driven stuff.\n\nPro tip: You can use both together. HPA handles general load. KEDA handles specific events.\n\nWhich one have you used in a real project? Or would you use both? Drop your experience below \ud83d\udc47\n\n#DevOps #Kubernetes #KEDA #HPA #InterviewPrep #CloudNative",
+    "hook_id": "2058778773139444210",
+    "thread_id": "2058778774338961612",
+    "content_hash": "20f60459c02455731e394b01ba64b922"
   }
 ]
