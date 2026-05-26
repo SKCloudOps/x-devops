@@ -2251,5 +2251,14 @@
     "hook_id": "2059382199355633821",
     "thread_id": "2059382200701956403",
     "content_hash": "975741297fc491fddbd4a057eb93c23d"
+  },
+  {
+    "date": "2026-05-26T23:07:53.790850+00:00",
+    "category": "cloud_architecture_pattern",
+    "hook": "Interviewer: 'When would you pick ECS over Kubernetes?' \u2014 Most candidates get this wrong. Here's what they miss \ud83d\udc47",
+    "thread": "ECS is AWS's container thing. Kubernetes is the open-source king.\n\nHere's the honest breakdown:\n\nECS wins if:\n- You're all-in on AWS\n- Your team is small\n- You don't want to manage a cluster\n- AWS handles it for you\n\nKubernetes wins if:\n- You need to move between cloud providers\n- Your team knows it well\n- You want more control\n- You're running tons of containers\n\nReal example: A startup with 5 engineers and an AWS account? Pick ECS. Takes 30 minutes to set up.\n\nA big company with teams everywhere? Kubernetes. More portable, more flexibility.\n\nHonest take \u2014 most small teams pick ECS and never regret it. Less to learn, less to manage.\n\nWhich one have you actually used in production? Or would you go different? Drop your take \ud83d\udc47\n\n#ECS #Kubernetes #DevOps #CloudArchitecture #ContainerOrchestration",
+    "hook_id": "2059411227667800072",
+    "thread_id": "2059411229039374583",
+    "content_hash": "de30fdfdccd00c8c35afffab9f7146be"
   }
 ]
