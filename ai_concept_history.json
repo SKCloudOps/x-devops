@@ -389,5 +389,14 @@
     "hook_id": "2058698970474459232",
     "thread_id": "2058698971518787737",
     "content_hash": "aca11493ea3698eb8cdf1fb96661681f"
+  },
+  {
+    "date": "2026-05-26T00:03:05.269028+00:00",
+    "concept": "Function Calling",
+    "hook": "Everyone says 'function calling' but most people have no idea what it actually does. It's way simpler than it sounds \ud83d\udc47",
+    "thread": "Function calling is just giving your AI a list of tools it can use.\n\nLike this: You ask ChatGPT \"What's the weather?\" Normally it'd say \"I don't know, I can't check the internet.\" But with function calling, you give it access to a weather tool. It sees the question, picks the right tool, calls it, gets the answer, then tells you.\n\nReal example: A customer service AI gets a message \"Cancel my order.\" Instead of guessing, it calls your cancel_order() function with the order ID. The tool does the work. The AI just connects the dots.\n\nWhy it matters: This is how AI actually gets stuff DONE instead of just chatting. Banks use it to move money. Stores use it to check inventory. It's the bridge between \"smart AI\" and \"useful AI.\"\n\nThink of it like giving an assistant a phone number to call when they need something. Without it, they're just helpful to talk to. With it, they can actually take action.\n\nWhat tool would you most want an AI to have access to at your job? \ud83d\udc47\n\n#AIAgents #FunctionCalling #AITools #GenAI",
+    "hook_id": "2059062729420247330",
+    "thread_id": "2059062730472972648",
+    "content_hash": "b1c3b33190ed3435f338cb92d2367cea"
   }
 ]
