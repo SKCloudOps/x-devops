@@ -2224,5 +2224,14 @@
     "hook_id": "2059281656347775326",
     "thread_id": "2059281658151313881",
     "content_hash": "9f28993bc475029755cc75517be4e7f1"
+  },
+  {
+    "date": "2026-05-26T17:43:20.996783+00:00",
+    "category": "cloud_architecture_pattern",
+    "hook": "Interviewer: 'Why do we need an API Gateway?' \u2014 Most candidates say 'routing' and stop. There's way more. \ud83d\udc47",
+    "thread": "API Gateway is like a bouncer at a club. It sits in front of your services and handles:\n\n1. ROUTING \u2014 sends requests to the right service\n2. RATE LIMITING \u2014 stops people from spamming your API\n3. AUTH \u2014 checks if you're allowed in\n4. LOGGING \u2014 tracks who did what\n\nReal example: You've got 5 microservices. Without a gateway, your client talks to all 5 directly. That's chaos. With a gateway? One front door. One place to add security, monitoring, and rules.\n\nBonus: You can update your services without breaking clients. The gateway stays the same.\n\nMost candidates miss the 'single point of control' part. That's the real value.\n\nWhat's your take \u2014 would you add anything else? Drop it below \ud83d\udc47\n\n#DevOps #CloudArchitecture #InterviewPrep #Microservices #APIGateway",
+    "hook_id": "2059329552845807948",
+    "thread_id": "2059329554129326386",
+    "content_hash": "f995deb15c83f9d82d518c2b36d7ac75"
   }
 ]
