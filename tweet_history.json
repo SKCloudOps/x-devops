@@ -2215,5 +2215,14 @@
     "hook_id": "2059136555369767279",
     "thread_id": "2059136556787478674",
     "content_hash": "8945a71f934380970290477ced087edc"
+  },
+  {
+    "date": "2026-05-26T14:33:01.689063+00:00",
+    "category": "cloud_architecture_pattern",
+    "hook": "Interviewer: 'Why use Helm instead of just kubectl apply?' \u2014 Most candidates mess this up. Here's the right answer \ud83d\udc47",
+    "thread": "Helm is a package manager for Kubernetes. Think of it like npm for your app configs.\n\nWithout Helm:\n- You manage 50 YAML files by hand\n- You copy-paste configs for prod vs staging\n- One typo breaks everything\n- Updating versions is a nightmare\n\nWith Helm:\n- Templates handle the repetition\n- One command deploys everything\n- Easy to version and rollback\n- Share configs with your team\n\nReal example: Say you deploy Nginx. With kubectl, you write the YAML once. But what if you need 3 copies in different namespaces? You edit the same file over and over.\n\nWith Helm, you write ONE template. Change a variable (like namespace or replica count). One command deploys everywhere.\n\nBonus: Helm charts are reusable. Someone else built a chart for Postgres? Use it. Don't reinvent.\n\nThat's it. Helm = less copy-paste, more automation.\n\nWhat's the most annoying YAML management problem you've hit? Drop it below \ud83d\udc47\n\n#Kubernetes #Helm #DevOps #CloudNative",
+    "hook_id": "2059281656347775326",
+    "thread_id": "2059281658151313881",
+    "content_hash": "9f28993bc475029755cc75517be4e7f1"
   }
 ]
