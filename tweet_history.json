@@ -2242,5 +2242,14 @@
     "hook_id": "2059354256226803775",
     "thread_id": "2059354258604995019",
     "content_hash": "2e01f27eb00b250f9d311116d11eef78"
+  },
+  {
+    "date": "2026-05-26T21:12:32.890479+00:00",
+    "category": "cloud_architecture_pattern",
+    "hook": "Interviewer: 'Why would you put CloudFront in front of your app?' \u2014 Most candidates say 'speed' and stop there. Here's what they miss \ud83d\udc47",
+    "thread": "CloudFront is a CDN (content delivery network). Think of it like this: instead of everyone hitting your main server, CloudFront keeps copies of your stuff at servers all over the world.\n\nSo when someone in London asks for a file, they get it from a server near them. Fast. Not from your server in Ohio.\n\nBUT here's what most candidates miss:\n\n1. It's not just for speed. It's also a shield. Stops bad traffic before it hits your app.\n\n2. You can cache smart. \"Hey CloudFront, keep this for 1 hour, refresh that every minute.\"\n\n3. It saves your wallet. Less traffic = less load on your servers = lower bills.\n\nReal example: You're running a video site. New video drops. 100k people want it. Without CloudFront? Your server gets crushed. With it? CloudFront spreads the load across the world. Your app just chills.\n\nOne more thing: CloudFront can compress images, block countries, and even run code at the edge (close to users) before they hit your app.\n\nSo next time, don't just say \"it's fast.\" Say: \"We use it to cache content globally, protect our app, and save money.\" That's the full picture.\n\nWhat's the trickiest CDN question you've been asked? Drop it below \ud83d\udc47\n\n#DevOps #CloudArchitecture #AWS #SystemsDesign #InterviewPrep",
+    "hook_id": "2059382199355633821",
+    "thread_id": "2059382200701956403",
+    "content_hash": "975741297fc491fddbd4a057eb93c23d"
   }
 ]
