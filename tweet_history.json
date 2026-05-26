@@ -2233,5 +2233,14 @@
     "hook_id": "2059329552845807948",
     "thread_id": "2059329554129326386",
     "content_hash": "f995deb15c83f9d82d518c2b36d7ac75"
+  },
+  {
+    "date": "2026-05-26T19:21:30.990569+00:00",
+    "category": "cloud_architecture_pattern",
+    "hook": "Interviewer: 'What's a service mesh and why would we actually use one?' \u2014 Most candidates overthink this. Here's the real answer \ud83d\udc47",
+    "thread": "A service mesh is a tool that sits between your services and handles all the network traffic between them.\n\nInstead of coding retry logic, load balancing, and security into every service, the mesh does it for you.\n\nReal example:\n- Your payment service talks to your order service\n- Without a mesh: you write code in payment to retry if order fails\n- With a mesh: the mesh sees the failure, retries, and logs it automatically\n\nWhy use one?\n1. You stop copying the same networking code everywhere\n2. You can change how services talk without changing their code\n3. Built-in security between services (mTLS)\n4. Better visibility into what's breaking\n\nThe catch? It adds complexity. More tools to learn. More things that can break.\n\nNot every team needs it. Small teams with few services? Skip it. Big teams with 50+ services? It pays off.\n\nHonest take: don't force a mesh into your architecture just because it sounds cool.\n\nWhat's your take \u2014 have you used one? Did it help or create more headaches? \ud83d\udc47\n\n#ServiceMesh #DevOps #CloudArchitecture #Kubernetes #InterviewPrep",
+    "hook_id": "2059354256226803775",
+    "thread_id": "2059354258604995019",
+    "content_hash": "2e01f27eb00b250f9d311116d11eef78"
   }
 ]
