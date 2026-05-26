@@ -358,5 +358,14 @@
     "hook_id": "2058987956577190242",
     "thread_id": "2058987957546000794",
     "content_hash": "6960bdec34eb6c1fd0ea8bb02322f173"
+  },
+  {
+    "date": "2026-05-26T19:34:18.399225+00:00",
+    "concept": "Ansible Callbacks for Observability",
+    "hook": "Most engineers using Ansible don't realize their playbooks are basically blind. They run commands but have zero visibility into what actually happened. Here's why that's a problem \ud83d\udc47",
+    "thread": "Think of Ansible like sending a mail carrier to 50 houses. Without tracking, you don't know if they delivered anything, if doors were locked, or if half the houses got skipped.\n\nThat's what happens when you run Ansible playbooks without monitoring. You hit 'execute' and hope.\n\nThe fix? Use Ansible callbacks. They're plugins that watch your playbook run in real-time. You get logs, metrics, and alerts when something breaks.\n\nGotcha most people miss: Ansible doesn't fail loud by default. A task can half-work and your playbook keeps going. You won't know until everything's broken in prod.\n\nHook up callbacks to your monitoring system (Prometheus, DataDog, New Relic). Now you see what's actually happening on all your servers.\n\nDo you track your Ansible runs? What's your biggest blind spot right now? \ud83d\udc47\n\n#Ansible #DevOps #Monitoring #Infrastructure",
+    "hook_id": "2059357476407939519",
+    "thread_id": "2059357477460672613",
+    "content_hash": "db9bc82fc9f47c611ac88034c0eab4a2"
   }
 ]
