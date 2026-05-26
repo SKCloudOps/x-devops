@@ -2206,5 +2206,14 @@
     "hook_id": "2059046570264268845",
     "thread_id": "2059046571572854955",
     "content_hash": "18fe8208b4e5aba003849ee630201eb1"
+  },
+  {
+    "date": "2026-05-26T04:56:26.829185+00:00",
+    "category": "cloud_architecture_pattern",
+    "hook": "Interviewer: 'How do you scale Kubernetes nodes automatically?' \u2014 Most say 'autoscaling' and stop there. But there's a better way. \ud83d\udc47",
+    "thread": "Here's the thing. The old way uses Cluster Autoscaler. It watches your pods, sees they need space, then spins up nodes. Works okay.\n\nBut Karpenter? It's smarter.\n\nKarpenter looks at your pods BEFORE they get stuck. It grabs the cheapest node type that fits. Spot instances included. You can save 70% on compute costs.\n\nExample: Your app needs 10 pods. Cluster Autoscaler might spin up two big expensive nodes. Karpenter might use one cheap node + spot instances instead.\n\nWhy it matters in interviews:\n- Shows you know the difference between reactive vs smart scaling\n- Proves you care about cost (companies love this)\n- It's what modern teams actually use now\n\nThe interview answer: 'I'd use Karpenter because it's faster, cheaper, and consolidates nodes better than the older approach.'\n\nHave you used Karpenter in production? What was your biggest surprise? Drop it below \ud83d\udc47\n\n#Kubernetes #DevOps #CloudArchitecture #Karpenter #ContainerOrchestration",
+    "hook_id": "2059136555369767279",
+    "thread_id": "2059136556787478674",
+    "content_hash": "8945a71f934380970290477ced087edc"
   }
 ]
