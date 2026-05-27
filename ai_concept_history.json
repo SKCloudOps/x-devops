@@ -398,5 +398,14 @@
     "hook_id": "2059062729420247330",
     "thread_id": "2059062730472972648",
     "content_hash": "b1c3b33190ed3435f338cb92d2367cea"
+  },
+  {
+    "date": "2026-05-27T00:01:33.229176+00:00",
+    "concept": "Tool Use in AI",
+    "hook": "Everyone says AI needs 'tool use' but most people think it means something it doesn't. Here's what's actually happening \ud83d\udc47",
+    "thread": "Tool use just means: the AI can call other programs or functions to get things done.\n\nThink of it like a person who can't do math in their head, so they grab a calculator. Or someone who needs info, so they Google it.\n\nThe AI by itself can't actually do certain tasks (like math, search the web, or send an email). So we give it access to tools:\n- A calculator function\n- A search API\n- An email sender\n\nWhen you ask: \"What's the weather and add 20% tax to $50?\"\n\nThe AI thinks: \"I need the weather tool AND the calculator tool.\" It calls them both, gets the results back, and combines them into an answer for you.\n\nWhy does this matter? Because it makes AI way more useful in the real world. Instead of just talking, it can actually DO stuff\u2014book meetings, pull data from your databases, run reports.\n\nWithout tool use, an AI is just a chat buddy. With it? It becomes a real assistant.\n\nWhat tasks do you wish AI could actually DO for you at work? \ud83d\udc47\n\n#AI #MachineLearning #ToolUse #AIBasics",
+    "hook_id": "2059424731284009288",
+    "thread_id": "2059424732328432056",
+    "content_hash": "1455add7fae8d3be74cf47bb8d64dc1a"
   }
 ]
