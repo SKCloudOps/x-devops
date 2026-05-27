@@ -367,5 +367,14 @@
     "hook_id": "2059357476407939519",
     "thread_id": "2059357477460672613",
     "content_hash": "db9bc82fc9f47c611ac88034c0eab4a2"
+  },
+  {
+    "date": "2026-05-27T19:37:32.672702+00:00",
+    "concept": "Helm charts for serverless deployments",
+    "hook": "The Helm + serverless thing nobody tells you about \ud83d\udc47",
+    "thread": "Most people think Helm charts are just for Kubernetes. But here's the thing: Helm doesn't actually know if you're deploying to serverless or not.\n\nThink of it like this: Helm is a recipe book. The recipe says \"add 2 eggs and bake.\" The recipe doesn't care if you use a home oven or a fancy restaurant oven. Same recipe. Different hardware.\n\nWith serverless (AWS Lambda, Google Cloud Functions), you still need configs, secrets, environment variables, and versions tracked. Helm can handle all that. You write your chart once, and it works for Lambda, containers, or both.\n\nThe gotcha? Most serverless deployments skip Helm because people think it's \"just for Kubernetes.\" Then they end up managing configs by hand. Don't do that. Use Helm. It saves you from deployment chaos.\n\nAre you using Helm for your serverless stack, or managing configs manually? \ud83d\udc47\n\n#Serverless #Helm #Kubernetes #DevOps #CloudNative",
+    "hook_id": "2059720679193215379",
+    "thread_id": "2059720680115937398",
+    "content_hash": "9ecab8aff8fec0faeda2b9132a5c36c9"
   }
 ]
