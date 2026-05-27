@@ -2305,5 +2305,14 @@
     "hook_id": "2059746865147453562",
     "thread_id": "2059746866519032034",
     "content_hash": "e7a84e9bf124662c11404b9f0be53ab3"
+  },
+  {
+    "date": "2026-05-27T23:14:51.335262+00:00",
+    "category": "sre_observability_question",
+    "hook": "Interviewer: 'How do you monitor secrets rotation?' \u2014 Most engineers panic here. Would you? \ud83d\udc47",
+    "thread": "Here's the thing: you can't actually see the secrets themselves (and you shouldn't try to).\n\nBut you CAN monitor the rotation events.\n\nWhat you'd do:\n\n1. Log every time a secret gets rotated. Use CloudTrail, Audit logs, whatever your platform has.\n\n2. Set up alerts. If a secret HASN'T rotated in 90 days but should have? Alert.\n\n3. Track the timestamp. Store it somewhere safe. Check it regularly.\n\n4. Test it works. Rotate a test secret. Make sure your monitoring catches it.\n\nReal example: AWS KMS key rotation. You enable automatic rotation. CloudTrail logs it. You query CloudTrail in your monitoring tool. Done.\n\nThe key insight? You're not watching the secret value. You're watching the rotation event itself. Totally different.\n\nWhat's the trickiest monitoring question you've been asked? Drop it below \ud83d\udc47\n\n#SRE #Observability #DevOpsInterview #SecretsManagement #CloudSecurity",
+    "hook_id": "2059775367104319944",
+    "thread_id": "2059775368215876032",
+    "content_hash": "5ad4047b26a287db55d6afd83f7b622c"
   }
 ]
