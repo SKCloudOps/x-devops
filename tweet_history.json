@@ -2296,5 +2296,14 @@
     "hook_id": "2059717337327047153",
     "thread_id": "2059717338736308668",
     "content_hash": "829be4ae0f659f76e3e1a3ecc225095f"
+  },
+  {
+    "date": "2026-05-27T21:21:35.999592+00:00",
+    "category": "sre_observability_question",
+    "hook": "Interviewer: 'How do you know if your container is actually healthy?' \u2014 Most say 'it's running.' That's wrong. \ud83d\udc47",
+    "thread": "Health checks are WAY more than just 'is the process alive.'\n\nA container can be running but broken. Your app might be stuck in a loop. The database connection hung. The API is timing out.\n\nThat's where health checks come in. They're your early warning system.\n\n**Here's how:**\n\n1. **Liveness probe** \u2014 Is my app still alive? If not, kill it and start fresh.\n\n2. **Readiness probe** \u2014 Is my app ready to handle traffic? Don't send requests to it if it's still warming up.\n\n**Real example:**\nYou're running a Node app. Just because the process started doesn't mean it finished connecting to the database.\n\nYour health check hits an endpoint like /health that checks:\n- Can I talk to the database?\n- Is my cache working?\n- Am I overloaded?\n\nIf any of those fail, you tell Kubernetes \"don't send me traffic yet\" or \"restart me.\"\n\nWithout this? Your app looks fine but users get errors.\n\nWhat's the trickiest health check failure you've debugged? Drop it below \ud83d\udc47\n\n#DevOps #Kubernetes #SRE #Docker #Observability",
+    "hook_id": "2059746865147453562",
+    "thread_id": "2059746866519032034",
+    "content_hash": "e7a84e9bf124662c11404b9f0be53ab3"
   }
 ]
