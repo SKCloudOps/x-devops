@@ -2269,5 +2269,14 @@
     "hook_id": "2059502190805332016",
     "thread_id": "2059502192055173124",
     "content_hash": "ddaca7a9424e966720c477ccd0a76a46"
+  },
+  {
+    "date": "2026-05-27T14:49:58.374080+00:00",
+    "category": "sre_observability_question",
+    "hook": "Interviewer: 'How do you monitor CloudFront if you can't see inside it?' \u2014 Most candidates get stuck here. Would you? \ud83d\udc47",
+    "thread": "Here's the thing: CloudFront is AWS's CDN. You don't control the servers. So how do you know if it's working?\n\nAnswer: You monitor what YOU can see.\n\n1. CloudFront logs \u2014 Every request gets logged. Parse them to find slow requests, errors, or weird traffic.\n\n2. Origin metrics \u2014 Watch your backend. If CloudFront is working, your origin shouldn't get hammered with repeat requests.\n\n3. CloudWatch metrics \u2014 CloudFront gives you cache hit ratio, error rates, request counts. That's gold.\n\n4. Real user monitoring \u2014 Use tools like DataDog or New Relic. They show you actual load times from real people.\n\nReal example: Your cache hit ratio drops from 90% to 60%. That tells you something changed \u2014 maybe your TTL, maybe your origin is returning new headers. Now you dig.\n\nThe trick? Don't try to see inside CloudFront. Monitor the edges. Watch your origin. Check the logs. That's enough.\n\nHave you had to troubleshoot a CDN before? How'd you do it? \ud83d\udc47\n\n#SRE #Observability #CloudFront #AWS #DevOpsInterview",
+    "hook_id": "2059648308843303054",
+    "thread_id": "2059648310336467427",
+    "content_hash": "a998549258af348933373dc32545c189"
   }
 ]
