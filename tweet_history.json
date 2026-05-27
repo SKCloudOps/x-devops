@@ -2260,5 +2260,14 @@
     "hook_id": "2059411227667800072",
     "thread_id": "2059411229039374583",
     "content_hash": "de30fdfdccd00c8c35afffab9f7146be"
+  },
+  {
+    "date": "2026-05-27T05:09:21.066719+00:00",
+    "category": "sre_observability_question",
+    "hook": "Interviewer: 'How do buildpacks help with observability?' \u2014 Most SREs miss this. Would you? \ud83d\udc47",
+    "thread": "Buildpacks don't directly give you metrics or logs. But here's what they DO:\n\nBuildpacks automatically set up your app with the right dependencies. That means your app can send data to your monitoring tools right away.\n\nExample: A buildpack detects your Node app. It adds the right APM agent. Now your traces work without you doing extra work.\n\nThe real win? Less manual setup = fewer mistakes = better observability from day one.\n\nThink of it as \"ops-ready by default.\"\n\nThe trick question part: buildpacks are about building, not observing. But good builds = easier monitoring.\n\nWhat observability tools have you set up during deployments? How could buildpacks have saved you time? Drop your answer \ud83d\udc47\n\n#SRE #DevOps #Observability #Buildpacks #InterviewPrep",
+    "hook_id": "2059502190805332016",
+    "thread_id": "2059502192055173124",
+    "content_hash": "ddaca7a9424e966720c477ccd0a76a46"
   }
 ]
