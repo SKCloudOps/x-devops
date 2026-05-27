@@ -2278,5 +2278,14 @@
     "hook_id": "2059648308843303054",
     "thread_id": "2059648310336467427",
     "content_hash": "a998549258af348933373dc32545c189"
+  },
+  {
+    "date": "2026-05-27T17:41:23.969347+00:00",
+    "category": "sre_observability_question",
+    "hook": "Interviewer: 'Walk me through setting up monitoring from scratch.' \u2014 Most engineers freeze here. Would you know where to start? \ud83d\udc47",
+    "thread": "Here's the thing: monitoring isn't just about dashboards. It's about asking the right questions first.\n\nStart with three things:\n\n1. METRICS \u2014 What numbers matter? CPU, memory, response time, errors. Pick the ones that matter to your app.\n\n2. LOGS \u2014 Where does your app write stuff? Get those logs in one place so you can actually find bugs.\n\n3. ALERTS \u2014 When does it matter enough to wake you up? Not every spike needs an alarm.\n\nThen you add tools. Prometheus scrapes metrics. Grafana makes pretty dashboards. ELK or Loki stores logs.\n\nBut here's what most engineers miss: you don't need all the fancy tools right away. Start simple. One metric. One log stream. One alert.\n\nReal example: You don't need 50 dashboards day one. Start with response time + error rate. That's it. You can add more later.\n\nThe trap? Building a dashboard that nobody looks at because it has 200 panels and tells you nothing.\n\nWhat's the hardest part about monitoring you've dealt with? Share below \ud83d\udc47\n\n#SRE #Observability #Monitoring #DevOps #Grafana",
+    "hook_id": "2059691449881337991",
+    "thread_id": "2059691451231895836",
+    "content_hash": "3e868aa8df6581e74f51831cc4a5cd7d"
   }
 ]
