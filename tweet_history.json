@@ -2287,5 +2287,14 @@
     "hook_id": "2059691449881337991",
     "thread_id": "2059691451231895836",
     "content_hash": "3e868aa8df6581e74f51831cc4a5cd7d"
+  },
+  {
+    "date": "2026-05-27T19:24:16.022993+00:00",
+    "category": "sre_observability_question",
+    "hook": "Interviewer: 'How would you debug a slow request in Istio?' \u2014 Most candidates struggle here. What's your move? \ud83d\udc47",
+    "thread": "Here's the real answer:\n\nIstio sits between your apps. It watches traffic. When something's slow, you check THREE things:\n\n1) SERVICE MESH METRICS\nCheck how long requests sit in Istio's proxy. Use Prometheus. Look for \"istio_request_duration_milliseconds\". High? Istio's the bottleneck.\n\n2) DISTRIBUTED TRACING\nUse Jaeger or Zipkin. Trace follows your request through every service. You see exactly where it slows down. Is it your app? Or waiting on another service?\n\n3) LOGS + POD METRICS\nCheck if your pods are overloaded. CPU? Memory? Network? Istio can't fix a broken app.\n\nREAL TIP: Start with tracing first. It's the fastest way to spot the culprit. Then drill into metrics.\n\nMost engineers skip tracing and guess. That's the mistake.\n\nWhen you interview, say: \"I'd enable Jaeger tracing, check request path, then look at service metrics.\" Boom. You sound sharp.\n\nWhat's the trickiest observability question you've gotten? Drop it below \ud83d\udc47\n\n#SRE #Istio #Observability #DevOpsInterview",
+    "hook_id": "2059717337327047153",
+    "thread_id": "2059717338736308668",
+    "content_hash": "829be4ae0f659f76e3e1a3ecc225095f"
   }
 ]
