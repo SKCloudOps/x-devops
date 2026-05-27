@@ -407,5 +407,14 @@
     "hook_id": "2059424731284009288",
     "thread_id": "2059424732328432056",
     "content_hash": "1455add7fae8d3be74cf47bb8d64dc1a"
+  },
+  {
+    "date": "2026-05-27T23:58:52.555894+00:00",
+    "concept": "Vision Model",
+    "hook": "Everyone says 'vision model' like it's magic. It's just AI that learned to see by looking at millions of pictures. Here's what that actually means \ud83d\udc47",
+    "thread": "A vision model is basically a student who studied billions of photos.\n\nYou show it a picture, and it can tell you what's in it. Is that a dog? A car? A person smiling?\n\nHow does it work? Simple:\n\n1. Show it 1 billion labeled photos (\"this is a cat, this is a dog\")\n2. It learns patterns - what makes a cat look like a cat\n3. When you show it a NEW photo, it uses those patterns to guess what it sees\n\nReal world: It's like if you studied 1000 dog photos, you'd get really good at spotting dogs in crowds. Even dogs you've never seen before.\n\nWhy it matters: Vision models power your phone's face unlock, Instagram's photo tags, and doctors finding tumors in X-rays. They're wrong sometimes, but they're fast and cheap.\n\nWhat confuses you most about how AI \"sees\" things? \ud83d\udc47\n\n#AI #MachineLearning #VisionAI #TechExplained",
+    "hook_id": "2059786444546130203",
+    "thread_id": "2059786445993193832",
+    "content_hash": "cd86410015844578a6e5f2f12c65948d"
   }
 ]
