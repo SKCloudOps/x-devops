@@ -2341,5 +2341,14 @@
     "hook_id": "2060055772407742517",
     "thread_id": "2060055773804400640",
     "content_hash": "16742b11400ffebbbbbeffb32a77d7ba"
+  },
+  {
+    "date": "2026-05-28T19:35:07.330084+00:00",
+    "category": "networking_security_question",
+    "hook": "Interviewer: 'What's the difference between Podman and Docker?' \u2014 Most candidates say 'same thing' and lose points. Here's what they miss \ud83d\udc47",
+    "thread": "Okay so here's the real answer:\n\nDocker = client-server. One big daemon runs as root. Everything talks to it.\n\nPodman = no daemon. Each container runs on its own. No root needed.\n\nWhy does this matter? Security, mainly. Docker daemon gets hacked? Your whole system is toast. Podman's containers are isolated by default.\n\nReal example: You're on a shared server. With Docker, any user who can touch Docker can become root. Bad. With Podman? Each user runs their own containers. Way safer.\n\nOne more thing people miss: Podman can run Docker images. So you're not learning a new syntax. It's a drop-in replacement.\n\nBonus tip for your interview: Mention that Podman plays nice with Kubernetes too. Shows you know the bigger picture.\n\nWhich one have you actually used in production? Reply below \ud83d\udc47\n\n#Podman #Docker #DevOps #ContainerSecurity #Kubernetes",
+    "hook_id": "2060082456615604706",
+    "thread_id": "2060082458301767894",
+    "content_hash": "fe6df0e9e46a4f91264df801f98ea32b"
   }
 ]
