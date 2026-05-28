@@ -2350,5 +2350,14 @@
     "hook_id": "2060082456615604706",
     "thread_id": "2060082458301767894",
     "content_hash": "fe6df0e9e46a4f91264df801f98ea32b"
+  },
+  {
+    "date": "2026-05-28T21:32:23.320355+00:00",
+    "category": "networking_security_question",
+    "hook": "Interviewer: 'Walk me through how you'd secure a config file with secrets.' \u2014 Most engineers mess this up. Would you? \ud83d\udc47",
+    "thread": "Here's what NOT to do: Don't hardcode secrets in your code. Don't commit them to git. Don't put them in plain text files.\n\nWhat TO do instead:\n\n1. Use a secrets manager (like HashiCorp Vault or AWS Secrets Manager). Your app asks the manager for the secret at runtime.\n\n2. Use environment variables. Store the actual secret somewhere safe (your cloud provider, a secrets tool). Your app reads it from the environment, not a file.\n\n3. Rotate secrets regularly. If a secret leaks, change it everywhere.\n\nReal example: Your Kubernetes pod needs a database password. Don't write it in your config file. Instead, create a Kubernetes Secret object. Mount it in your pod. Your app reads it from a mounted file or env var. The secret stays encrypted in Kubernetes.\n\nWhy this matters? If your repo gets leaked, attackers get nothing. If your server gets hacked, they still can't use old secrets because you rotated them.\n\nWhat's your go-to method for handling secrets in your current role? Drop it below \ud83d\udc47\n\n#DevOps #Kubernetes #Security #SysAdmin #CloudOps",
+    "hook_id": "2060111967696687386",
+    "thread_id": "2060111969403719792",
+    "content_hash": "3ca9f919b9c4dad7471e2904fc36855c"
   }
 ]
