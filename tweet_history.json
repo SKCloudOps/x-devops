@@ -2359,5 +2359,14 @@
     "hook_id": "2060111967696687386",
     "thread_id": "2060111969403719792",
     "content_hash": "3ca9f919b9c4dad7471e2904fc36855c"
+  },
+  {
+    "date": "2026-05-28T23:13:50.062928+00:00",
+    "category": "networking_security_question",
+    "hook": "Interviewer: 'How do you secure traffic between pods in EKS?' \u2014 Most candidates freeze. Here's what they miss \ud83d\udc47",
+    "thread": "The trap: saying 'use a firewall' or 'network policies' without explaining HOW.\n\nHere's the real answer:\n\nPods talk to each other inside your cluster by default. No auth. Anyone can listen.\n\nYou need THREE things:\n\n1. NETWORK POLICIES \u2014 Think of them like firewall rules but for pods. You write YAML that says 'Pod A can talk to Pod B, but Pod C cannot.' EKS uses something called Calico or Cilium to actually enforce these.\n\n2. SERVICE MESH (optional) \u2014 Tools like Istio add encryption + auth at the container level. Every pod gets a certificate. Pods check each other's certs before talking.\n\n3. mTLS (mutual TLS) \u2014 Both sides prove who they are before sharing data. \"Hey, I'm Pod A with certificate X.\" \"Okay, I'm Pod B with certificate Y. Let's talk.\"\n\nReal example:\n- You have a web pod and a database pod\n- Without network policies, anyone in the cluster can hit your database\n- With policies, only the web pod's IP range can reach port 5432\n- With mTLS, the database pod also checks that the web pod has a valid cert\n\nMost interviews just want to hear: 'I'd use network policies to block bad traffic, then layer on mTLS for extra security.'\n\nWhat's the trickiest EKS security question you've been asked? Drop it below \ud83d\udc47\n\n#EKS #Kubernetes #DevOps #NetworkSecurity #InterviewPrep",
+    "hook_id": "2060137497552621982",
+    "thread_id": "2060137499071050103",
+    "content_hash": "0bf9c1d979e80b7e7700ca3a6e500070"
   }
 ]
