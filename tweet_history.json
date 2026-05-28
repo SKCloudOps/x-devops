@@ -2314,5 +2314,14 @@
     "hook_id": "2059775367104319944",
     "thread_id": "2059775368215876032",
     "content_hash": "5ad4047b26a287db55d6afd83f7b622c"
+  },
+  {
+    "date": "2026-05-28T05:03:03.126715+00:00",
+    "category": "networking_security_question",
+    "hook": "Interviewer: 'How does ArgoCD keep your deployments secure?' \u2014 Most candidates miss the real answer here \ud83d\udc47",
+    "thread": "ArgoCD doesn't actually deploy anything itself. It watches your git repo. When code changes, it syncs what's in git to your cluster. No more manual deploys.\n\nWhy is this secure? Git is your source of truth. Every change is tracked. You can see who changed what and when.\n\nReal example: You push a new app version to git. ArgoCD sees it, pulls the change, and deploys it automatically. If something goes wrong, you revert the git commit. ArgoCD syncs back to the old version.\n\nBonus tip: Use git branch protection rules + require code reviews. Now every deployment needs approval. That's security through process.\n\nMost people think ArgoCD is just \"automation.\" Nope. It's audit trail + repeatability + source control as your safety net.\n\nHow would YOU explain ArgoCD's security benefits in an interview? Drop your answer below \ud83d\udc47\n\n#DevOps #ArgoCD #Kubernetes #GitOps #SecurityFirst",
+    "hook_id": "2059862993312067932",
+    "thread_id": "2059862994666885533",
+    "content_hash": "455e864c15713eebfb277f818dec0e6d"
   }
 ]
