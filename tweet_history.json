@@ -2323,5 +2323,14 @@
     "hook_id": "2059862993312067932",
     "thread_id": "2059862994666885533",
     "content_hash": "455e864c15713eebfb277f818dec0e6d"
+  },
+  {
+    "date": "2026-05-28T15:01:03.787213+00:00",
+    "category": "networking_security_question",
+    "hook": "Interviewer: 'How would you use CloudFront to stop DDoS attacks?' \u2014 Most candidates miss the real answer. \ud83d\udc47",
+    "thread": "Here's the thing: CloudFront isn't a DDoS solution by itself. But it helps in a specific way.\n\nCloudFront sits between users and your origin server. It absorbs traffic spikes. If attackers hammer your site, CloudFront eats the hits first.\n\nBut the REAL answer? You layer it:\n\n1. CloudFront caches content\n2. AWS Shield (comes free) blocks common attacks\n3. WAF rules filter bad requests\n4. Rate limiting stops brute force\n\nExample: Attacker sends 10k requests per second. CloudFront spreads them across edge servers. Shield spots the pattern. WAF blocks it. Your origin never sees it.\n\nThat's the interview answer they want to hear. Not just 'CloudFront stops DDoS' \u2014 that's wrong. Say 'CloudFront is ONE layer in a defense stack.'\n\nHonestly, this trips people up because they think one tool = one job. Security doesn't work that way.\n\nWhat's your go-to DDoS defense? Or got asked this one before? \ud83d\udc47\n\n#DevOps #AWS #CloudFront #Security #Interview",
+    "hook_id": "2060013487322018160",
+    "thread_id": "2060013488999698520",
+    "content_hash": "5bd8506dbf0145f1133808662f0977d8"
   }
 ]
