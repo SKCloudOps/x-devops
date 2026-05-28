@@ -2332,5 +2332,14 @@
     "hook_id": "2060013487322018160",
     "thread_id": "2060013488999698520",
     "content_hash": "5bd8506dbf0145f1133808662f0977d8"
+  },
+  {
+    "date": "2026-05-28T17:49:05.243736+00:00",
+    "category": "networking_security_question",
+    "hook": "Interviewer: 'What's the difference between a service mesh and a network policy?' \u2014 Most candidates mix these up. Would you? \ud83d\udc47",
+    "thread": "Here's the simple version:\n\nNetwork Policy = a firewall rule for your pods. It says \"pod A can talk to pod B, but not pod C.\" That's it. Basic traffic control.\n\nService Mesh = way more. It watches ALL traffic between your apps. Adds retries, load balancing, security, and tracing. Think of it as a smart traffic cop that does security AND performance stuff.\n\nReal example: Network policy stops the bad request. Service mesh stops it AND logs it AND retries it if it fails.\n\nYou don't need both. Start with network policy. Add a mesh (like Istio) only when you need the extra power.\n\nMost engineers get this backwards in interviews. Don't be one of them.\n\nWhich one would you use first in a new cluster? Reply below \ud83d\udc47\n\n#DevOps #Kubernetes #Networking",
+    "hook_id": "2060055772407742517",
+    "thread_id": "2060055773804400640",
+    "content_hash": "16742b11400ffebbbbbeffb32a77d7ba"
   }
 ]
