@@ -376,5 +376,14 @@
     "hook_id": "2059720679193215379",
     "thread_id": "2059720680115937398",
     "content_hash": "9ecab8aff8fec0faeda2b9132a5c36c9"
+  },
+  {
+    "date": "2026-05-28T19:54:28.097797+00:00",
+    "concept": "SNS Message Size Limits",
+    "hook": "Most engineers using SNS don't realize this one thing breaks their messages \ud83d\udc47",
+    "thread": "SNS has a 256KB message size limit. Hit that? Your message just dies silently.\n\nThink of it like a mailbox. You can't stuff an entire filing cabinet through the slot. Too big? Mail gets rejected.\n\nThe gotcha: AWS doesn't always tell you it failed. Your app just won't get the notification.\n\nFix: Use SNS + SQS together. SNS sends a pointer to the message (tiny). SQS holds the big payload. Your app grabs it from the queue.\n\nOr break large messages into chunks before sending.\n\nWhat's the biggest SNS issue you've hit in production? \ud83d\udc47\n\n#DevOps #AWS #SNS",
+    "hook_id": "2060087326059999248",
+    "thread_id": "2060087326986961268",
+    "content_hash": "042a1fd5cc4562b2cfe6745e72ae5ccd"
   }
 ]
