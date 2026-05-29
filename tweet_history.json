@@ -2368,5 +2368,14 @@
     "hook_id": "2060137497552621982",
     "thread_id": "2060137499071050103",
     "content_hash": "0bf9c1d979e80b7e7700ca3a6e500070"
+  },
+  {
+    "date": "2026-05-29T05:05:19.571711+00:00",
+    "category": "container_orchestration_question",
+    "hook": "Interviewer: 'What does a service mesh actually do?' \u2014 Most engineers fumble this one. Here's what they miss \ud83d\udc47",
+    "thread": "A service mesh is just a helper layer between your containers. It sits there and watches all the traffic flowing between them.\n\nThink of it like this: Your apps talk to each other. But they don't talk directly anymore \u2014 the mesh intercepts everything.\n\nWhat can it do?\n\n\u2022 See what traffic is going where (observability)\n\u2022 Slow down bad requests automatically (rate limiting)\n\u2022 Retry failed calls without the app knowing\n\u2022 Lock down which apps can talk to which apps (security)\n\nReal example: You have Service A calling Service B. Without a mesh, A just shoots requests at B and hopes. With a mesh? The mesh catches the request, checks if it's allowed, maybe retries it if it fails, then logs everything that happened.\n\nPopular ones: Istio, Linkerd, Consul.\n\nHonest take: Most companies don't need one starting out. They add complexity. But once you're running tons of services? Game changer.\n\nHow would YOU explain a service mesh in an interview? Drop your answer below \ud83d\udc47\n\n#DevOps #Kubernetes #ServiceMesh #InterviewPrep #ContainerOrchestration",
+    "hook_id": "2060225953511453047",
+    "thread_id": "2060225954903884159",
+    "content_hash": "d92a548caf6df2dba7c400e125abeb89"
   }
 ]
