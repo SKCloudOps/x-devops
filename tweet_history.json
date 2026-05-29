@@ -2395,5 +2395,14 @@
     "hook_id": "2060418372471591055",
     "thread_id": "2060418373998256624",
     "content_hash": "53e127492af5f99da70fa9ef8fdcda33"
+  },
+  {
+    "date": "2026-05-29T19:31:22.603339+00:00",
+    "category": "container_orchestration_question",
+    "hook": "Interviewer: 'How do you stop a pod without losing traffic?' \u2014 Most candidates get this wrong. Here's what they miss \ud83d\udc47",
+    "thread": "They say 'just delete it' lol. WRONG.\n\nYou need a Graceful Shutdown. Here's how:\n\n1. Pod gets a stop signal\n2. App finishes what it's doing (requests in flight)\n3. New traffic stops coming in\n4. Pod shuts down cleanly\n\nIn Kubernetes, you set a 'termination grace period' \u2014 gives your app time to wrap up. Default is 30 seconds.\n\nReal example:\nYour web app handles a payment request. If you kill the pod mid-request, the payment fails. Bad.\n\nWith graceful shutdown:\n- Pod gets signal\n- App finishes the payment\n- Pod exits\n- No lost transactions\n\nPro tip: Use preStop hooks. Tell your app to stop accepting new connections BEFORE it shuts down. That's how you shield your traffic.\n\nHave you faced a scenario where a pod crashed mid-transaction? How'd you handle it? Drop your war story below \ud83d\udc47\n\n#DevOps #Kubernetes #ContainerOrchestration #InterviewPrep #SRE",
+    "hook_id": "2060443902209826927",
+    "thread_id": "2060443903535317102",
+    "content_hash": "7488dbf51f7a1ae8f523080220d81137"
   }
 ]
