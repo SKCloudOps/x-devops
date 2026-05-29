@@ -2404,5 +2404,14 @@
     "hook_id": "2060443902209826927",
     "thread_id": "2060443903535317102",
     "content_hash": "7488dbf51f7a1ae8f523080220d81137"
+  },
+  {
+    "date": "2026-05-29T21:23:11.863955+00:00",
+    "category": "container_orchestration_question",
+    "hook": "Interviewer: 'How do you monitor Kubernetes in production?' \u2014 Most candidates say Prometheus and stop. That's not enough. \ud83d\udc47",
+    "thread": "Here's what they're really asking: Can you actually USE monitoring tools?\n\nPrometheus scrapes metrics. That's step one. But here's what matters:\n\n1. Know WHAT to monitor\n- Pod restarts (crash loop?)\n- CPU and memory usage\n- Network latency\n- Job failures\n\n2. Set up ALERTS\nDon't just collect data. Set thresholds. If a pod keeps restarting, alert NOW.\n\nExample: \"Pod restarted 5 times in 10 minutes? Send me a Slack message.\"\n\n3. Actually READ the alerts\nThis one's tricky. New engineers collect metrics but ignore them.\n\nReal answer: \"I'd use Prometheus to scrape metrics every 15 seconds. Alertmanager sends alerts to Slack when things break. Then I actually check Slack and fix stuff.\"\n\nThat's it. Simple. Shows you've done this before.\n\nHave you set up Prometheus alerts in a real job? What did you monitor? \ud83d\udc47\n\n#Kubernetes #DevOps #Monitoring #Prometheus #Interview",
+    "hook_id": "2060472042705535292",
+    "thread_id": "2060472044295262438",
+    "content_hash": "9a89bf3f343c81e27b90162144149282"
   }
 ]
