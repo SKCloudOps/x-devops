@@ -2413,5 +2413,14 @@
     "hook_id": "2060472042705535292",
     "thread_id": "2060472044295262438",
     "content_hash": "9a89bf3f343c81e27b90162144149282"
+  },
+  {
+    "date": "2026-05-29T23:09:33.251604+00:00",
+    "category": "container_orchestration_question",
+    "hook": "Interviewer: 'How would you stop a bad deployment in Kubernetes?' \u2014 Most candidates miss the real answer here \ud83d\udc47",
+    "thread": "They say 'use RBAC' or 'network policies.' Good start. But the real answer? Policy as Code.\n\nOPA (Open Policy Agent) lets you write rules that say: 'no images from untrusted registries' or 'no root containers' \u2014 and they run BEFORE anything gets deployed.\n\nHere's the flow:\n\n1. Dev pushes code\n2. Image gets built\n3. Gatekeeper (OPA's Kubernetes buddy) checks it against your policies\n4. If it breaks a rule? Denied. Done.\n\nExample rule: Only allow images from your company's registry. If someone tries to use Docker Hub? Blocked immediately.\n\nRBAC just controls WHO can do things. OPA controls WHAT can be deployed, no matter who tries it.\n\nThat's the difference interviewers want you to know.\n\nWould you answer this the same way? Or is there another tool you'd use instead? Drop your take \ud83d\udc47\n\n#Kubernetes #DevOps #OPA #ContainerSecurity #Interview",
+    "hook_id": "2060498808081940538",
+    "thread_id": "2060498809810047136",
+    "content_hash": "219628b7354288c557f70f4c4bfdf1a5"
   }
 ]
