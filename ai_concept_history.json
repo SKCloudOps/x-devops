@@ -416,5 +416,14 @@
     "hook_id": "2059786444546130203",
     "thread_id": "2059786445993193832",
     "content_hash": "cd86410015844578a6e5f2f12c65948d"
+  },
+  {
+    "date": "2026-05-29T00:08:34.902791+00:00",
+    "concept": "Function Calling",
+    "hook": "Everyone says 'function calling' but most people think it means something way more complicated than it actually is \ud83d\udc47",
+    "thread": "Function calling is just: you tell an AI \"here are some tools you can use\" and it decides which one to use and when.\n\nThink of it like a pizza shop. The AI is the cashier. You give it access to:\n- Order pizza tool\n- Check status tool\n- Cancel order tool\n\nCustomer says \"where's my pizza?\" The AI looks at what tools it has, picks \"check status\", and runs it. That's it.\n\nWhy it matters: Instead of the AI just talking AT you, it can actually DO things. It can:\n- Look up real data\n- Make changes in your systems\n- Take action, not just chat\n\nWithout function calling? The AI just makes stuff up. With it? It actually uses your real tools.\n\nWhat AI feature has confused you most at work? \ud83d\udc47\n\n#AI #FunctionCalling #LLMs #NLP",
+    "hook_id": "2060151275753459994",
+    "thread_id": "2060151276651119033",
+    "content_hash": "eb80ff84b8bf39864927af508badead4"
   }
 ]
