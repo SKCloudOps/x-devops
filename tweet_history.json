@@ -2386,5 +2386,14 @@
     "hook_id": "2060368978430636532",
     "thread_id": "2060368980171223484",
     "content_hash": "f6481584bb7b75ae8bece7a89adc4542"
+  },
+  {
+    "date": "2026-05-29T17:49:55.860415+00:00",
+    "category": "container_orchestration_question",
+    "hook": "Interviewer: 'How do you monitor your Kubernetes cluster?' \u2014 Most candidates say Prometheus. But that's only half the answer. \ud83d\udc47",
+    "thread": "Here's the real answer they're looking for:\n\nYou need TWO things working together:\n\n1. COLLECT metrics (Prometheus)\n2. VISUALIZE them (Grafana)\n\nPrometheus scrapes your cluster every 15 seconds. It pulls data from your pods, nodes, everything. But it's just a database.\n\nGrafana reads that data and makes dashboards. Pretty graphs. Alerts when things break.\n\nHere's what trips people up: They think one tool does it all. Nope.\n\nA real answer sounds like this:\n\"We run Prometheus to collect metrics from our cluster. Grafana pulls from Prometheus and shows us dashboards. If CPU goes above 80%, Grafana sends us a Slack alert.\"\n\nThat's it. Simple. Shows you get the whole picture.\n\nBonus tip: In your interview, mention you'd monitor:\n- Pod restarts\n- Node CPU/memory\n- Container network traffic\n- API response time\n\nNow they know you think about real problems, not just buzzwords.\n\nWhat's the hardest monitoring question you've gotten? Drop it below \ud83d\udc47\n\n#Kubernetes #DevOps #Monitoring #Grafana #CloudNative",
+    "hook_id": "2060418372471591055",
+    "thread_id": "2060418373998256624",
+    "content_hash": "53e127492af5f99da70fa9ef8fdcda33"
   }
 ]
