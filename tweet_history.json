@@ -2377,5 +2377,14 @@
     "hook_id": "2060225953511453047",
     "thread_id": "2060225954903884159",
     "content_hash": "d92a548caf6df2dba7c400e125abeb89"
+  },
+  {
+    "date": "2026-05-29T14:33:39.463545+00:00",
+    "category": "container_orchestration_question",
+    "hook": "Interviewer: 'What's a service mesh and why do you need one?' \u2014 This trips up more engineers than you'd think. Thread \ud83d\udc47",
+    "thread": "A service mesh is basically a tool that sits between your containers and handles all the talking between them.\n\nWithout it: Your app code has to deal with retries, timeouts, and load balancing. Messy.\n\nWith it (like Istio): The mesh does that stuff for you. Your code just sends requests. The mesh handles the rest.\n\nReal example:\nTwo services need to talk. Service A calls Service B.\n\nWithout mesh: Service A code has retry logic. Service A code has circuit breaker. Service A code checks health.\n\nWith mesh: Service A just makes the call. The mesh sidecars (tiny containers next to each service) handle retries, circuit breaks, and health checks. Your code stays clean.\n\nWhen to use it:\n- You have tons of services talking to each other\n- You need strong traffic control\n- You want observability (seeing what's happening)\n\nWhen you DON'T need it:\n- You have 5 services or less\n- You're just getting started with containers\n- It's overkill for your app\n\nHonest take: Most companies don't need a service mesh yet. But if you're managing 20+ services? Yeah, it saves headaches.\n\nHave you used Istio or Linkerd in an interview? How'd you explain it? Drop your answer \ud83d\udc47\n\n#Kubernetes #ServiceMesh #DevOps #ContainerOrchestration #InterviewPrep",
+    "hook_id": "2060368978430636532",
+    "thread_id": "2060368980171223484",
+    "content_hash": "f6481584bb7b75ae8bece7a89adc4542"
   }
 ]
