@@ -385,5 +385,14 @@
     "hook_id": "2060087326059999248",
     "thread_id": "2060087326986961268",
     "content_hash": "042a1fd5cc4562b2cfe6745e72ae5ccd"
+  },
+  {
+    "date": "2026-05-29T19:54:26.619991+00:00",
+    "concept": "DynamoDB Partition and Sort Key Design",
+    "hook": "Most engineers using DynamoDB don't know this: your query can be 100x slower if you mess up your key design \ud83d\udc47",
+    "thread": "DynamoDB is super fast. But only if you ask for data the right way.\n\nThink of it like a library. If you organize books by color, finding all red books is instant. But finding all books written in 1995? That's slow.\n\nDynamoDB works the same way:\n\n\u2022 Your Partition Key (the main one) decides which server holds the data. Pick something you'll always search by first.\n\n\u2022 Your Sort Key (optional) lets you find stuff within that group. Like finding red books published in 1995.\n\nGotcha: If you design your keys wrong, you'll do \"scans\" instead of \"queries\". Scans check EVERY row. Queries go straight to what you need.\n\nExample: Don't use email as your partition key if you query by user ID most of the time. Use user ID instead.\n\nOne more thing: DynamoDB charges you for every item it scans, not just the ones you get back. Bad key design = expensive bills fast.\n\nWhat's your biggest DynamoDB headache right now? Design issues? Query speed? Drop it below \ud83d\udc47\n\n#DynamoDB #AWS #DevOps #Database #Linux",
+    "hook_id": "2060449707592499460",
+    "thread_id": "2060449708611621053",
+    "content_hash": "d77912755d3a76693519f8dc72ef8fe5"
   }
 ]
