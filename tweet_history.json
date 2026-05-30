@@ -2422,5 +2422,14 @@
     "hook_id": "2060498808081940538",
     "thread_id": "2060498809810047136",
     "content_hash": "219628b7354288c557f70f4c4bfdf1a5"
+  },
+  {
+    "date": "2026-05-30T04:44:10.956186+00:00",
+    "category": "aws_interview_question",
+    "hook": "Interviewer: 'How do you give an EC2 instance permission to read S3 without using long-term keys?' \u2014 Most candidates blank here \ud83d\udc47",
+    "thread": "This is IRSA. It stands for IAM Roles for Service Accounts. But don't let the name fool you \u2014 it's actually about EC2 instances.\n\nHere's the simple version:\n\n1. Create an IAM role\n2. Attach a policy that lets it read S3\n3. Assign that role to your EC2 instance\n4. Done. No keys needed.\n\nInside the instance, your app just asks AWS: 'Hey, what can I do?' AWS checks the role and says 'You can read this S3 bucket.' Your app gets temporary credentials automatically.\n\nWhy this matters: No secret keys to store. No keys to rotate. AWS handles it all. Way more secure.\n\nReal example: Your app on EC2 needs to download files from S3. Instead of storing AWS_ACCESS_KEY in a config file (yikes), you just attach the role. The app pulls temp credentials from the instance metadata. Clean.\n\nOne tip: The role name and the policy name are different things. Role = who you are. Policy = what you can do. Don't mix them up in the interview.\n\nHave you used IRSA in a real project? What tripped you up? Drop it below \ud83d\udc47\n\n#AWS #DevOps #IAM #EC2 #Interview",
+    "hook_id": "2060583020248076699",
+    "thread_id": "2060583021799952797",
+    "content_hash": "4f59d0228e5094f0bd95d5b4afb39598"
   }
 ]
