@@ -425,5 +425,14 @@
     "hook_id": "2060151275753459994",
     "thread_id": "2060151276651119033",
     "content_hash": "eb80ff84b8bf39864927af508badead4"
+  },
+  {
+    "date": "2026-05-30T23:58:29.454142+00:00",
+    "concept": "Computer Vision Basics",
+    "hook": "Everyone says 'computer vision' but most people think it's just cameras. It's way cooler than that \ud83d\udc47",
+    "thread": "Computer vision = teaching AI to actually SEE and understand images like you do.\n\nNot just 'detect cat' or 'count objects.' I mean really understand what's happening.\n\nThink of it like training a kid. You show them a photo of a dog and say 'that's a dog.' After seeing thousands of dogs, they get it. They know a dog from any angle, any breed, any lighting.\n\nThat's what we do with AI. Feed it millions of images. It learns patterns. Now it can:\n\n\u2022 Spot defects on factory parts\n\u2022 Read text in photos\n\u2022 Recognize faces\n\u2022 Drive cars (kinda)\n\u2022 Check if someone's actually using the gym equipment you paid for lol\n\nWhy it matters? Companies save millions. Doctors catch diseases earlier. Self-checkout actually works now.\n\nThe wild part? The AI isn't using 'eyes' like you. It's finding mathematical patterns in pixels. But it works.\n\nWhat's a computer vision task you see in real life that blows your mind? Drop it below \ud83d\udc47\n\n#ComputerVision #AI #MachineLearning #TechExplained",
+    "hook_id": "2060873511988834551",
+    "thread_id": "2060873513003815411",
+    "content_hash": "ab6844f98a71e0cafb11832354f6bacd"
   }
 ]
