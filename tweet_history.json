@@ -2431,5 +2431,14 @@
     "hook_id": "2060583020248076699",
     "thread_id": "2060583021799952797",
     "content_hash": "4f59d0228e5094f0bd95d5b4afb39598"
+  },
+  {
+    "date": "2026-05-30T15:47:11.083138+00:00",
+    "category": "aws_interview_question",
+    "hook": "Interviewer: 'Why use Helm instead of plain Kubernetes files?' \u2014 This trips up most candidates. What would you say? \ud83d\udc47",
+    "thread": "Helm is just a package manager for Kubernetes. Think of it like npm for Node.js.\n\nWithout Helm: You write 10 YAML files by hand. Change one value? Edit every file.\n\nWith Helm: One chart. One values.yaml file. Change a number once, boom, it rolls out everywhere.\n\nReal example:\nYou're deploying an app to dev, staging, and prod. Each needs different replicas and memory limits.\n\nPlain K8s: Copy-paste 10 files. Change names manually. Mistakes everywhere.\n\nHelm: One template. Three values files. Run 'helm install' three times with different values. Done.\n\nBonus: Helm handles rollbacks. One command to go back if something breaks.\n\nAlso: Helm charts are reusable. Someone already packaged PostgreSQL or Nginx. Just 'helm install postgres'. No reinventing the wheel.\n\nThat's it. Helm = less copy-paste, fewer mistakes, easier updates.\n\nHave you used Helm in an interview or actual job? How'd you explain it? \ud83d\udc47\n\n#DevOps #Kubernetes #Helm #AWS #InterviewPrep",
+    "hook_id": "2060749870278090821",
+    "thread_id": "2060749871666323941",
+    "content_hash": "716c1a75a3060eeea7f9b41fb69ae441"
   }
 ]
