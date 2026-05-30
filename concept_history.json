@@ -394,5 +394,14 @@
     "hook_id": "2060449707592499460",
     "thread_id": "2060449708611621053",
     "content_hash": "d77912755d3a76693519f8dc72ef8fe5"
+  },
+  {
+    "date": "2026-05-30T18:41:43.665481+00:00",
+    "concept": "Git branches are pointers, not copies",
+    "hook": "Most engineers using Git every day don't know this: your branches aren't actually separate. Here's what's really happening \ud83d\udc47",
+    "thread": "Git branches are just pointers. They're like sticky notes on commits, not actual copies of your code.\n\nHere's the thing: when you create a branch, Git doesn't copy files. It just makes a label that points to a commit. Switch branches? The label moves. Your files update. That's it.\n\nReal talk: this is why merging is so fast. You're not moving huge folders around. You're just merging the actual changes (the diffs) between two points in history.\n\nGotcha nobody mentions: if you delete a branch locally, the commits don't vanish. The commits still exist. The label just disappears. You can still get them back with git reflog.\n\nThink of it like Netflix. You're not downloading each show. You're just getting access to watch it. Delete the bookmark? The show still exists on their servers.\n\nThis changes how you think about branching strategy. Create branches freely. They're cheap. Merge often. Don't stress.\n\nWhat's your biggest Git mistake that would've been avoided if you knew this? Drop it below \ud83d\udc47\n\n#Git #DevOps #VersionControl #GitTips",
+    "hook_id": "2060793795986239821",
+    "thread_id": "2060793796963525125",
+    "content_hash": "814be5dda71c7c9bc208da3725eb6f5b"
   }
 ]
