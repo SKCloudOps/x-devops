@@ -2458,5 +2458,14 @@
     "hook_id": "2060821972775297290",
     "thread_id": "2060821974180331816",
     "content_hash": "f8bda72736ed57c869ccb9526d65669f"
+  },
+  {
+    "date": "2026-05-30T22:55:44.294038+00:00",
+    "category": "aws_interview_question",
+    "hook": "Interviewer: 'What's the difference between Helm and kubectl?' \u2014 Most people mix these up. Would you get it right? \ud83d\udc47",
+    "thread": "Here's the simple way to think about it:\n\nkubectl = the tool that talks to Kubernetes. You use it to run commands. Deploy pods. Check logs. Basic stuff.\n\nHelm = a package manager for Kubernetes. Like npm for Node or pip for Python. It helps you install and manage full apps, not just single things.\n\nReal example:\n\nWith kubectl, you'd manually write YAML files for a database setup. Maybe 10 files. Deploy each one. Manage versions.\n\nWith Helm, someone already packaged a database (like PostgreSQL). You run one command and boom \u2014 the whole thing is up. Charts = pre-made packages. Way faster.\n\nThink of it this way:\nkubectl = the engine\nHelm = the car factory\n\nBoth needed. kubectl does the work. Helm saves you time.\n\nWhat's the trickiest Helm question you've been asked in an interview? Drop it below \ud83d\udc47\n\n#DevOps #Kubernetes #Helm #AWS #InterviewPrep",
+    "hook_id": "2060857719087677741",
+    "thread_id": "2060857720643661828",
+    "content_hash": "f4f6ac6b40740bf371598694ebb01411"
   }
 ]
