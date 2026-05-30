@@ -2440,5 +2440,14 @@
     "hook_id": "2060749870278090821",
     "thread_id": "2060749871666323941",
     "content_hash": "716c1a75a3060eeea7f9b41fb69ae441"
+  },
+  {
+    "date": "2026-05-30T18:02:24.723138+00:00",
+    "category": "aws_interview_question",
+    "hook": "Interviewer: 'What's the difference between SNS and SQS?' \u2014 Most engineers fumble this. Would you nail it? \ud83d\udc47",
+    "thread": "SNS = someone yelling in a room. Everyone in the room hears it. SQS = a mailbox. Messages sit there until someone picks them up.\n\nSNS is PUSH. It sends your message right now to whoever's subscribed.\n\nSQS is PULL. Your app grabs messages when it's ready.\n\nReal example:\n\nYou run an online store. Order placed \u2192 SNS fires \u2192 your email service, SMS service, and analytics all get the event at the same time. They don't wait. That's SNS.\n\nBut what if your SMS service is slow or down? SNS already sent it. The message might get lost.\n\nWith SQS, your workers can grab orders one at a time from the queue. If one crashes, the message stays in the queue. Another worker picks it up later. More reliable for critical stuff.\n\nQuick tip: Use SNS when speed matters and you have multiple subscribers. Use SQS when you need a buffer between services.\n\nWhat's your go-to use case for each? Drop it below \ud83d\udc47\n\n#AWS #DevOps #InterviewPrep #SNS #SQS",
+    "hook_id": "2060783901425926502",
+    "thread_id": "2060783902768103578",
+    "content_hash": "b55f86a1e705ab79ef3c2552561834f1"
   }
 ]
