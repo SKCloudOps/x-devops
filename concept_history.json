@@ -403,5 +403,14 @@
     "hook_id": "2060793795986239821",
     "thread_id": "2060793796963525125",
     "content_hash": "814be5dda71c7c9bc208da3725eb6f5b"
+  },
+  {
+    "date": "2026-05-31T18:47:02.280233+00:00",
+    "concept": "CloudWatch Alarms and Observability",
+    "hook": "Most engineers set up CloudWatch alarms but never check if they're actually firing. Here's the problem \ud83d\udc47",
+    "thread": "Your alarm looks good on paper. But if nobody's listening when it goes off, it's useless.\n\nThink of it like a smoke detector in your house. Sure, it's installed. But if the batteries are dead or it's pointed at the wall, it won't help when there's a fire.\n\nCommon mistakes:\n\n1. Alarms go to a chat nobody reads\n2. You set the threshold too high (ignores real problems)\n3. You set it too low (gets ignored as noise)\n4. You never actually tested if the alert works\n\nHere's the fix: Actually trigger your alarm. Intentionally spike your metric. See if YOU get notified. See if your team reacts.\n\nAlso? Log into CloudWatch once a week and look at those graphs. Seriously. You'll spot patterns you'd miss waiting for alerts.\n\nWhat's your biggest CloudWatch fail? Wrong alerts? Alerts nobody pays attention to? Tell me \ud83d\udc47\n\n#DevOps #AWS #CloudWatch #Monitoring #Scaling",
+    "hook_id": "2061157520215859433",
+    "thread_id": "2061157521188893168",
+    "content_hash": "a887a56cc4336cd2a1e7ca9516e67996"
   }
 ]
