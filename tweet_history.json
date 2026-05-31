@@ -2467,5 +2467,14 @@
     "hook_id": "2060857719087677741",
     "thread_id": "2060857720643661828",
     "content_hash": "f4f6ac6b40740bf371598694ebb01411"
+  },
+  {
+    "date": "2026-05-31T05:12:58.056883+00:00",
+    "category": "kubernetes_interview_question",
+    "hook": "Interviewer: 'How do you manage secrets in Kubernetes?' \u2014 Most candidates say 'use Secrets' and stop. That's not the real answer. \ud83d\udc47",
+    "thread": "Here's what they actually want to hear:\n\nKubernetes Secrets are base64 encoded by default. That's NOT encryption. Anyone with cluster access can read them.\n\nThe right answer? Use an external secret manager like Vault, AWS Secrets Manager, or HashiCorp Vault.\n\nHere's the flow:\n\n1. Store your actual secrets outside the cluster\n2. Your app authenticates to Vault (not to Kubernetes)\n3. Vault gives your pod the secret it needs\n4. Pod uses it, and that's it\n\nWhy this matters: If someone breaks into your cluster, they don't get all your secrets. Vault was never there.\n\nBonus tip: Use tools like External Secrets Operator or Sealed Secrets if your company isn't ready for Vault yet. But mention Vault in the interview \u2014 it shows you know the real solution.\n\nDo you use Vault in production, or are you still storing secrets in etcd? Be honest below \ud83d\udc47\n\n#Kubernetes #DevOps #SecretManagement #Vault #InterviewTips",
+    "hook_id": "2060952652247130186",
+    "thread_id": "2060952653576675480",
+    "content_hash": "f4d0bc80b7f40d2036c6cd4c3e4f4d3c"
   }
 ]
