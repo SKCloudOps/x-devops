@@ -2476,5 +2476,14 @@
     "hook_id": "2060952652247130186",
     "thread_id": "2060952653576675480",
     "content_hash": "f4d0bc80b7f40d2036c6cd4c3e4f4d3c"
+  },
+  {
+    "date": "2026-05-31T18:01:05.962947+00:00",
+    "category": "kubernetes_interview_question",
+    "hook": "Interviewer: 'What's the difference between Flux and Helm?' \u2014 Most people mix these up. Here's the real answer \ud83d\udc47",
+    "thread": "Helm is a package manager. Think of it like npm or apt. It helps you install and update apps on Kubernetes.\n\nFlux is a GitOps tool. It watches your Git repo. When you push changes, Flux pulls them and updates your cluster automatically.\n\nBig difference:\n\n\u274c Helm: You run commands to deploy. Manual.\n\n\u2705 Flux: Your Git repo is the source of truth. Flux keeps your cluster in sync with it.\n\nReal example:\nYou want to upgrade nginx from 1.20 to 1.21.\n\nWith Helm: You run `helm upgrade` command manually.\n\nWith Flux: You change the version in your Git repo. Flux sees the change and auto-upgrades. Done.\n\nFlux also catches drift. If someone manually deletes a pod, Flux notices and fixes it. Your repo is always the real state.\n\nThat's the key: Git as the single source of truth. Helm is just a tool to package and install. Flux is the automation.\n\nWhich would you rather manage \u2014 running commands all day, or letting Git do the work? \ud83d\udc47\n\n#Kubernetes #Flux #GitOps #DevOps",
+    "hook_id": "2061145958457516334",
+    "thread_id": "2061145960353333272",
+    "content_hash": "5934d9fabc9c0314b01683d6db954649"
   }
 ]
