@@ -2485,5 +2485,14 @@
     "hook_id": "2061145958457516334",
     "thread_id": "2061145960353333272",
     "content_hash": "5934d9fabc9c0314b01683d6db954649"
+  },
+  {
+    "date": "2026-05-31T22:57:50.009159+00:00",
+    "category": "kubernetes_interview_question",
+    "hook": "Interviewer: 'How do you update a ConfigMap without restarting your pods?' \u2014 Most candidates get this wrong. \ud83d\udc47",
+    "thread": "Here's the thing: just changing a ConfigMap doesn't magically update your running pods. Your app won't see the new values unless you reload it.\n\nThree ways to handle this:\n\n1. RESTART THE POD (easiest)\nDelete your pod. Kubernetes spins up a new one. It reads the fresh ConfigMap. Done.\n\n2. USE A SIDECAR (clever)\nRun a small container that watches the ConfigMap. When it changes, the sidecar tells your app to reload config. No restart needed.\n\n3. BUILD IT INTO YOUR APP (best long-term)\nMake your app check for config changes every X seconds. It reloads automatically. No DevOps magic needed.\n\nFor interviews, say option 1 first (it's honest and simple). Then mention you'd use option 3 in production so your app doesn't have hard stops.\n\nHere's a bonus tip: if your team uses tools like Reloader or Wave, those watch ConfigMaps and bounce pods for you. Mention that and you'll sound sharp.\n\nWhat's your go-to approach? Have you hit this in a real job? Drop your answer \ud83d\udc47\n\n#Kubernetes #DevOps #InterviewPrep #K8s",
+    "hook_id": "2061220634307203209",
+    "thread_id": "2061220635888525498",
+    "content_hash": "4d7df3ce085c4ce44b54f7e699d22600"
   }
 ]
