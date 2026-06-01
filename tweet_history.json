@@ -2503,5 +2503,14 @@
     "hook_id": "2061325184745849023",
     "thread_id": "2061325186176082264",
     "content_hash": "d8706a4fcd38a93a8f901ae05f6d858e"
+  },
+  {
+    "date": "2026-06-01T17:10:55.162361+00:00",
+    "category": "cicd_interview_question",
+    "hook": "Interviewer: 'How do you handle CloudFormation stack updates without downtime?' \u2014 Most engineers panic here. Thread \ud83d\udc47",
+    "thread": "Here's the real talk:\n\nCloudFormation tries to update resources in place. Sometimes that works. Sometimes it breaks everything.\n\nWhen it breaks? You get a rollback. Your whole stack goes back to how it was.\n\nTo avoid downtime, you need a strategy:\n\n1. **Blue-green deploys** \u2014 Keep two stacks running. Switch traffic to the new one when it's ready. If it fails, switch back.\n\n2. **Update policies** \u2014 Tell CloudFormation to create a new resource BEFORE deleting the old one. Keeps your app online during the swap.\n\n3. **Stack policies** \u2014 Lock down which resources can change. Prevents accidental updates to critical stuff.\n\nReal example: You're updating an EC2 instance. If CloudFormation has to replace it (not just update it), your app goes down. With a blue-green approach? You spin up a new instance, test it, then switch over. Zero downtime.\n\nThe key: Plan for failures. Always assume something will break.\n\nWhat's your go-to strategy for zero-downtime updates? Drop it below \ud83d\udc47\n\n#CloudFormation #DevOps #CICD #AWS #Interview",
+    "hook_id": "2061495718506844375",
+    "thread_id": "2061495719983243651",
+    "content_hash": "b6e740db679e1af316f2a60abaff0f6e"
   }
 ]
