@@ -2494,5 +2494,14 @@
     "hook_id": "2061220634307203209",
     "thread_id": "2061220635888525498",
     "content_hash": "4d7df3ce085c4ce44b54f7e699d22600"
+  },
+  {
+    "date": "2026-06-01T05:53:16.721824+00:00",
+    "category": "cicd_interview_question",
+    "hook": "Interviewer: 'What's the difference between Docker and Podman?' \u2014 Most candidates mix this up. Would you nail it? \ud83d\udc47",
+    "thread": "Here's the thing: Docker uses a daemon. Podman doesn't.\n\nDocker: Your containers run through a central service (the daemon). Everything goes through that one process.\n\nPodman: No daemon needed. Each container runs on its own. Way more lightweight.\n\nWhy does this matter in interviews?\n\nIt shows you get the actual difference, not just \"they both do containers.\"\n\nReal example:\nIf Docker's daemon crashes, all your containers go down. With Podman, they keep running. One of the big wins.\n\nAlso: Podman plays nicer with Kubernetes because it follows the same container standards. Docker added shims to fit in.\n\nBonus tip: Podman can run rootless (no special permissions). Docker needs root. Security win.\n\nThe gotcha: Docker's still more common in most shops. But knowing WHY Podman exists makes you look sharp in the interview.\n\nHave you used Podman in a real project, or is Docker your only tool? Drop your take below \ud83d\udc47\n\n#DevOps #CICD #Docker #Podman #InterviewPrep",
+    "hook_id": "2061325184745849023",
+    "thread_id": "2061325186176082264",
+    "content_hash": "d8706a4fcd38a93a8f901ae05f6d858e"
   }
 ]
