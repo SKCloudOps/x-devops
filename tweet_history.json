@@ -2530,5 +2530,14 @@
     "hook_id": "2061551846364447153",
     "thread_id": "2061551847580832090",
     "content_hash": "58e45fcd7ddea4a5322952bc97fce97f"
+  },
+  {
+    "date": "2026-06-01T22:21:38.376979+00:00",
+    "category": "cicd_interview_question",
+    "hook": "Interviewer: 'When would you use Lambda instead of containers?' \u2014 This trips up so many engineers. Here's the real answer \ud83d\udc47",
+    "thread": "Lambda is great when:\n\n1. You need something quick and cheap\n2. Your code runs for under 15 minutes\n3. Traffic is unpredictable (spiky)\n\nContainers are better when:\n\n1. Your app runs 24/7\n2. You need full control of the environment\n3. You're already using Kubernetes\n\nReal example: Processing files uploaded to S3? Lambda is perfect. It wakes up, does the work, goes back to sleep. You pay only for the seconds it runs.\n\nBut if you're running a web API all day? Containers win. Lambda would cost way more.\n\nPro tip: Lambda is lazy by default. Containers need you to manage them. Pick based on your traffic pattern, not hype.\n\nWhat's your take \u2014 have you hit a situation where you chose wrong? \ud83d\udc47\n\n#DevOps #AWS #Lambda #CICD #ContainerOrchestration",
+    "hook_id": "2061573913407091112",
+    "thread_id": "2061573915130974483",
+    "content_hash": "8c206d3f3579978ce31eacf8665f2418"
   }
 ]
