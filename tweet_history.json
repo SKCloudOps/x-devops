@@ -2539,5 +2539,14 @@
     "hook_id": "2061573913407091112",
     "thread_id": "2061573915130974483",
     "content_hash": "8c206d3f3579978ce31eacf8665f2418"
+  },
+  {
+    "date": "2026-06-01T23:25:16.037424+00:00",
+    "category": "cicd_interview_question",
+    "hook": "Interviewer: 'How does ArgoCD differ from Helm?' \u2014 Most engineers fumble this. Would you? \ud83d\udc47",
+    "thread": "Here's the clean answer:\n\nHelm is a package manager. It lets you write templates and push them out. You run it once, it deploys. Done.\n\nArgoCD is a watcher. You point it at a git repo. It watches that repo 24/7. If the repo changes, ArgoCD notices and syncs your cluster to match.\n\nKey difference: Helm pushes changes. ArgoCD pulls and keeps things in sync.\n\nReal example:\n- Helm: You run 'helm upgrade' \u2192 app updates\n- ArgoCD: You change a line in git \u2192 ArgoCD sees it \u2192 app updates automatically\n\nBonus: ArgoCD is GitOps. Your git repo is the source of truth. You audit everything. You can revert by reverting git.\n\nTbh, teams often use both. Helm for packaging. ArgoCD for keeping it synced and in control.\n\nWhat's your team's setup? Do you use ArgoCD, Helm, or both? Drop a reply \ud83d\udc47\n\n#DevOps #ArgoCD #Helm #CI #CD #Kubernetes #GitOps",
+    "hook_id": "2061589925347086646",
+    "thread_id": "2061589927616290988",
+    "content_hash": "1085d02d5b0c0903c67199d76538dc3d"
   }
 ]
