@@ -2512,5 +2512,14 @@
     "hook_id": "2061495718506844375",
     "thread_id": "2061495719983243651",
     "content_hash": "b6e740db679e1af316f2a60abaff0f6e"
+  },
+  {
+    "date": "2026-06-01T19:28:49.911776+00:00",
+    "category": "cicd_interview_question",
+    "hook": "Interviewer: 'How do you handle secrets in GitHub Actions?' \u2014 Most candidates say the wrong thing. Would you? \ud83d\udc47",
+    "thread": "Here's what NOT to say: 'I just put them in the code' or 'I use environment variables'.\n\nRight answer? GitHub Actions has a built-in Secrets feature.\n\nHow it works:\n1. Go to your repo settings\n2. Click 'Secrets and variables'\n3. Add your secret (API key, password, etc)\n4. In your workflow file, use: ${{ secrets.YOUR_SECRET_NAME }}\n\nExample:\n\n- name: Deploy\n  env:\n    DB_PASSWORD: ${{ secrets.DB_PASSWORD }}\n  run: ./deploy.sh\n\n\nWhy this matters? GitHub encrypts secrets. They don't show in logs. Way safer than hardcoding.\n\nBonus tip: Use 'needs' to share secrets between jobs without exposing them in the output.\n\nWhat's the trickiest secrets question you've been asked? Drop it below \ud83d\udc47\n\n#GitHubActions #DevOps #CICD #Interview #SecretManagement",
+    "hook_id": "2061530425626144863",
+    "thread_id": "2061530426817347970",
+    "content_hash": "8914a1c22b82f4b9e9c9c0e930af1b59"
   }
 ]
