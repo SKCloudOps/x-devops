@@ -2521,5 +2521,14 @@
     "hook_id": "2061530425626144863",
     "thread_id": "2061530426817347970",
     "content_hash": "8914a1c22b82f4b9e9c9c0e930af1b59"
+  },
+  {
+    "date": "2026-06-01T20:53:57.016520+00:00",
+    "category": "cicd_interview_question",
+    "hook": "Interviewer: 'What's Istio and why would you actually use it?' \u2014 Most candidates confuse it with Kubernetes. Here's the real answer \ud83d\udc47",
+    "thread": "Istio is a service mesh. That means it sits between your apps and handles traffic.\n\nThink of it like a traffic cop for your containers.\n\nKubernetes runs your apps. Istio watches how they talk to each other.\n\nWhat does it DO?\n\n\u2022 Route traffic smart ways (A/B testing, canary deploys)\n\u2022 Add security between services (mTLS \u2014 encrypted by default)\n\u2022 Retry failed calls automatically\n\u2022 Track what's working and what's broken\n\nREAL EXAMPLE:\nYou deploy a new version to 10% of users first. Istio handles that split. If it breaks, rollback fast. No code changes needed.\n\nTHE CATCH:\nMore moving parts = more to debug. You don't always need it. Use it when you have lots of services talking to each other.\n\nHonest take? Istio is powerful but can feel like overkill for small teams.\n\nWould you use Istio in your stack or stick with something lighter? Drop your take below \ud83d\udc47\n\n#DevOps #Kubernetes #ServiceMesh #CICD #InterviewPrep",
+    "hook_id": "2061551846364447153",
+    "thread_id": "2061551847580832090",
+    "content_hash": "58e45fcd7ddea4a5322952bc97fce97f"
   }
 ]
