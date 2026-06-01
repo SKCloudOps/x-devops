@@ -434,5 +434,14 @@
     "hook_id": "2060873511988834551",
     "thread_id": "2060873513003815411",
     "content_hash": "ab6844f98a71e0cafb11832354f6bacd"
+  },
+  {
+    "date": "2026-06-01T00:03:38.802280+00:00",
+    "concept": "weighted_evaluation_metrics",
+    "hook": "Everyone says 'weighted metrics' but can't explain why you'd weight one thing more than another. Let me fix that \ud83d\udc47",
+    "thread": "Here's the simple version:\n\nImagine you're grading a student. You could count every assignment equally. But that's dumb \u2014 the final exam should matter MORE than a quiz.\n\nWeighted metrics = you decide what counts more.\n\nIn AI: Say you build a model to catch spam emails. False alarms (blocking real mail) are really bad. Missing spam is okay. So you tell the model: \"Make false alarms 10x worse when you calculate your score.\"\n\nNow it's biased toward not blocking good emails.\n\nWhy this matters:\n- Not everything is equally important\n- Your real-world costs are different\n- A \"90% accurate\" model might be terrible if it's wrong on the stuff that matters\n\nSimple rule: Think about what hurts more if you get it wrong. Weight that heavier.\n\nWhat metric do you wish you understood better? \ud83d\udc47\n\n#AI #MachineLearning #DataScience #Metrics",
+    "hook_id": "2061237197433381000",
+    "thread_id": "2061237198385467577",
+    "content_hash": "e126df20dabab71fdde07de7ef9b4c08"
   }
 ]
