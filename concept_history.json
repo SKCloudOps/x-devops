@@ -412,5 +412,14 @@
     "hook_id": "2061157520215859433",
     "thread_id": "2061157521188893168",
     "content_hash": "a887a56cc4336cd2a1e7ca9516e67996"
+  },
+  {
+    "date": "2026-06-01T21:08:07.379352+00:00",
+    "concept": "EKS Persistent Storage and Database Durability",
+    "hook": "Most engineers running databases on EKS don't know this: your pod can die and take your data with it. Here's why \ud83d\udc47",
+    "thread": "EKS runs containers. Containers are temporary. They spin up, do work, then get deleted.\n\nIf your database lives INSIDE the pod, it dies when the pod dies. All your data? Gone. Like writing in sand.\n\nThat's why you use persistent volumes (PV). They're storage that lives OUTSIDE the pod.\n\nThink of it like this:\n- Pod = your laptop\n- Persistent volume = your external hard drive\n\nYour laptop crashes? You get a new one. But your hard drive is still there with all your files.\n\nGotcha nobody talks about: even with PVs, you need backups. A PV can fail too. And EKS clusters can get deleted. Always back up your database somewhere else (like S3 or RDS).\n\nReal talk: most outages happen because someone didn't plan for \"what if the whole EKS cluster dies?\" Don't be that person.\n\nWhat database setup mistakes have bitten you on EKS? Reply below \ud83d\udc47\n\n#EKS #Kubernetes #DevOps #Databases #AWS",
+    "hook_id": "2061555412961214482",
+    "thread_id": "2061555414127247773",
+    "content_hash": "c56fc5a0c8ab1af314bb837275b4398f"
   }
 ]
