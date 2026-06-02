@@ -2593,5 +2593,14 @@
     "hook_id": "2061932761988964790",
     "thread_id": "2061932763587002721",
     "content_hash": "af38d0d350c10ad86f9ef28932c0f45b"
+  },
+  {
+    "date": "2026-06-02T23:43:54.105920+00:00",
+    "category": "platform_engineering_interview_question",
+    "hook": "Interviewer: 'How do you find security issues across all your AWS accounts?' \u2014 Most candidates miss the obvious tool. Would you? \ud83d\udc47",
+    "thread": "This is where SecurityHub comes in. It's basically a dashboard that watches all your AWS stuff for problems.\n\nHere's the real answer:\n\nSecurityHub scans your accounts and finds things like:\n- Open security groups (bad)\n- Unencrypted databases (bad)\n- IAM issues (real bad)\n\nIt pulls data from lots of AWS tools (GuardDuty, Config, Inspector) and shows it in one place. You don't have to jump between 10 tabs.\n\nPro tip for interviews: mention you'd set up automated responses. Like \"if SecurityHub finds X, auto-fix it with Lambda\" \u2014 shows you think beyond just checking.\n\nReal world? We use it to track compliance. Every finding gets a score. We work through them by priority.\n\nWhat's your go-to tool for finding security gaps across accounts? Drop it below \ud83d\udc47\n\n#AWS #SecurityHub #DevOps #PlatformEngineering #CloudSecurity",
+    "hook_id": "2061957003732271224",
+    "thread_id": "2061957005103825051",
+    "content_hash": "207950ed592637c1bc60f72db55cec14"
   }
 ]
