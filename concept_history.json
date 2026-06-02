@@ -421,5 +421,14 @@
     "hook_id": "2061555412961214482",
     "thread_id": "2061555414127247773",
     "content_hash": "c56fc5a0c8ab1af314bb837275b4398f"
+  },
+  {
+    "date": "2026-06-02T20:27:25.544359+00:00",
+    "concept": "ALB_DNS_Routing",
+    "hook": "Most engineers setting up ALBs don't realize this one thing breaks their DNS \ud83d\udc47",
+    "thread": "When you create an ALB in AWS, it gets a DNS name like \"my-alb-123456.us-east-1.elb.amazonaws.com\"\n\nHere's the gotcha: that DNS name changes if you recreate the ALB. So don't hardcode it in your app or give it to customers.\n\nInstead, use a CNAME record (or Route53 alias). Point your clean domain name (like \"api.myapp.com\") to the ALB's DNS name.\n\nThink of it like this: the ALB is like a delivery truck that might change. Your domain is the address on the envelope. If the truck changes, you just update the mapping. Customers always use the envelope address.\n\nThe tip? Use Route53 alias records instead of CNAME if you can. They're faster and you don't pay extra for DNS queries.\n\nHow do you handle ALB DNS in your projects? Do you use Route53 or manage CNAMEs elsewhere? \ud83d\udc47\n\n#AWS #ALB #DNS #DevOps #CloudArchitecture",
+    "hook_id": "2061907558638428548",
+    "thread_id": "2061907560202924147",
+    "content_hash": "a4edd504ea94783f8833fe8e3833ef94"
   }
 ]
