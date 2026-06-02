@@ -2566,5 +2566,14 @@
     "hook_id": "2061838623905911220",
     "thread_id": "2061838625596162159",
     "content_hash": "0418ed5197990a639c298e4593da138d"
+  },
+  {
+    "date": "2026-06-02T18:21:17.358563+00:00",
+    "category": "platform_engineering_interview_question",
+    "hook": "Interviewer: 'When would you pick DynamoDB over a regular database?' \u2014 Most candidates say 'it scales' and move on. That's not the real answer \ud83d\udc47",
+    "thread": "Here's what they actually want to hear:\n\nDynamoDB is for when you need FAST reads and writes at ANY scale. Like millions of requests per second.\n\nBUT \u2014 and this is the catch \u2014 you need to know your access patterns FIRST.\n\nWhy? Because DynamoDB doesn't let you query however you want. You pick a partition key and sort key upfront. That's it. No random joins.\n\nReal example:\n- Building a gaming leaderboard? DynamoDB wins. You know you'll query by player ID or game ID.\n- Building a blog? Stick with PostgreSQL. You'll want to search by tags, dates, authors \u2014 too many random ways to query.\n\nAlso: DynamoDB costs money PER REQUEST. Regular databases cost per storage. So a high-traffic app saves money with DynamoDB. A low-traffic app with lots of storage? Regular DB is cheaper.\n\nThe trick: Don't say 'it scales.' Say 'it's built for predictable access patterns and high throughput.'",
+    "hook_id": "2061875815084916927",
+    "thread_id": "2061875816875835645",
+    "content_hash": "1812e54a1d23846f227e217253424fe6"
   }
 ]
