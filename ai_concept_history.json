@@ -443,5 +443,14 @@
     "hook_id": "2061237197433381000",
     "thread_id": "2061237198385467577",
     "content_hash": "e126df20dabab71fdde07de7ef9b4c08"
+  },
+  {
+    "date": "2026-06-02T00:11:13.820276+00:00",
+    "concept": "AI Bias and Training Data",
+    "hook": "Everyone says 'bias in AI' but most people think it means the AI is mean. Actually it's way simpler than that \ud83d\udc47",
+    "thread": "Bias in AI is just when your training data isn't balanced.\n\nThink of it like this: if you only showed a camera pictures of dogs from one breed, it would get really bad at spotting other breeds. It's not that the camera is prejudiced. It just learned from a limited view.\n\nSame with AI. If you train a hiring tool on mostly male engineers, it'll favor men. Not on purpose\u2014it just learned from skewed data.\n\nWhy this matters? Bad AI bias costs real money and hurts real people. A loan AI trained on old lending patterns might reject applicants it shouldn't. A medical AI trained on one demographic might fail for another.\n\nThe fix isn't magic\u2014it's checking your training data, using diverse examples, and testing on different groups.\n\nHave you seen bias pop up in AI you use? What happened? \ud83d\udc47\n\n#AI #Ethics #MachineLearning #Bias",
+    "hook_id": "2061601493325922607",
+    "thread_id": "2061601494596731029",
+    "content_hash": "6358b317ccbeb1d35f37346a89ae8874"
   }
 ]
