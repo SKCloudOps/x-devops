@@ -2584,5 +2584,14 @@
     "hook_id": "2061902325828960633",
     "thread_id": "2061902327200530567",
     "content_hash": "2395f75318893258efc2bb240aaa0b6d"
+  },
+  {
+    "date": "2026-06-02T22:07:34.497389+00:00",
+    "category": "platform_engineering_interview_question",
+    "hook": "Interviewer: 'When would you NOT use Lambda?' \u2014 Most candidates say 'never.' That's wrong. \ud83d\udc47",
+    "thread": "Lambda is great for quick tasks. But it falls apart for certain jobs.\n\nDON'T use Lambda when:\n\n1. Long-running work (>15 min)\nLambda times out. Your batch job dies mid-process. Use EC2 or ECS instead.\n\n2. Heavy CPU/memory needs\nLambda maxes out at 10GB RAM. Training models? Processing huge files? Pick a real server.\n\n3. Predictable, constant load\nLambda cold starts hurt. If your app runs 24/7, just run it on EC2. Cheaper. No surprises.\n\n4. You need local storage\nLambda's /tmp is small and temporary. Need a big database? Nope.\n\n5. Complex networking\nIf you need direct access to databases inside a VPC, the setup gets messy. Better options exist.\n\nThe trick? Lambda = event-driven, short tasks. Think: \"Someone uploaded a file, resize the image, done.\" Not: \"Run my data pipeline for 2 hours.\"\n\nWhen have you hit Lambda limits in your own work? Drop your story below \ud83d\udc47\n\n#DevOps #AWS #Lambda #PlatformEngineering",
+    "hook_id": "2061932761988964790",
+    "thread_id": "2061932763587002721",
+    "content_hash": "af38d0d350c10ad86f9ef28932c0f45b"
   }
 ]
