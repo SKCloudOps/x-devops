@@ -2557,5 +2557,14 @@
     "hook_id": "2061679776914395176",
     "thread_id": "2061679778600570956",
     "content_hash": "c4c992ce04443715d1dfe52dd84df787"
+  },
+  {
+    "date": "2026-06-02T15:53:30.270099+00:00",
+    "category": "platform_engineering_interview_question",
+    "hook": "Interviewer: 'How do you know if your app is down?' \u2014 Most say 'check Prometheus' but can't explain why. Would you? \ud83d\udc47",
+    "thread": "Here's the thing: Prometheus is just a tool that scrapes metrics from your apps. It collects numbers like CPU, memory, requests per second.\n\nBut here's what matters in the interview:\n\nPrometheus stores the data. Then you SET UP ALERTS.\n\nYou tell it: 'If requests drop below 10/sec for 5 mins, send me an alert.'\n\nWithout alerts? You're just staring at dashboards all day hoping you catch a problem.\n\nREAL EXAMPLE:\nYour app crashes at 3am. No one's watching. With alerts set up, your phone buzzes. You know instantly.\n\nThat's why they ask about Prometheus. They want to know you get it \u2014 monitoring isn't just collecting data. It's being ALERTED when stuff breaks.\n\nThe interview trick: Talk about scraping, storing metrics, AND alerting. Most candidates only mention one or two.\n\nHow do you currently set up alerts in your stack? Drop your answer below \ud83d\udc47\n\n#DevOps #Prometheus #Monitoring #KubernetesInterviews #SRE",
+    "hook_id": "2061838623905911220",
+    "thread_id": "2061838625596162159",
+    "content_hash": "0418ed5197990a639c298e4593da138d"
   }
 ]
