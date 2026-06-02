@@ -2575,5 +2575,14 @@
     "hook_id": "2061875815084916927",
     "thread_id": "2061875816875835645",
     "content_hash": "1812e54a1d23846f227e217253424fe6"
+  },
+  {
+    "date": "2026-06-02T20:06:37.871651+00:00",
+    "category": "platform_engineering_interview_question",
+    "hook": "Interviewer: 'Walk me through setting up monitoring for a new service.' \u2014 Most engineers freeze here. Would you know where to start? \ud83d\udc47",
+    "thread": "Here's the approach that gets you hired:\n\n1. START WITH WHAT TO MEASURE\nAsk: What matters? Response time? Error rate? CPU usage? Pick 3-4 metrics that actually show if the service is healthy.\n\n2. PICK YOUR TOOLS\nPrometheus collects the metrics. Grafana shows them on a dashboard. That's it. Don't overcomplicate.\n\n3. INSTRUMENT YOUR APP\nAdd code to your service that sends metrics to Prometheus. Libraries make this easy \u2014 one line usually.\n\n4. BUILD A DASHBOARD\nIn Grafana, create graphs for each metric. One graph per metric. Label them clearly so anyone can read it.\n\n5. SET ALERTS\nIf error rate jumps or response time tanks, send an alert (email, Slack, whatever). Tell the team right away.\n\nBONUS: Mention you'd also set up logging (ELK stack or similar) so you can dig deeper when something breaks.\n\nThat's the full picture. It sounds like a lot but it's just: measure \u2192 store \u2192 display \u2192 alert.\n\nWhat's the trickiest monitoring question you've gotten? Drop it below \ud83d\udc47\n\n#DevOps #Monitoring #Grafana #PlatformEngineering #InterviewPrep",
+    "hook_id": "2061902325828960633",
+    "thread_id": "2061902327200530567",
+    "content_hash": "2395f75318893258efc2bb240aaa0b6d"
   }
 ]
