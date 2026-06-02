@@ -2548,5 +2548,14 @@
     "hook_id": "2061589925347086646",
     "thread_id": "2061589927616290988",
     "content_hash": "1085d02d5b0c0903c67199d76538dc3d"
+  },
+  {
+    "date": "2026-06-02T05:22:18.197215+00:00",
+    "category": "platform_engineering_interview_question",
+    "hook": "Interviewer: 'When would you use Step Functions instead of Lambda?' \u2014 Most candidates get this wrong. Here's the real answer \ud83d\udc47",
+    "thread": "Step Functions are for workflows. Lambda is just one function.\n\nUse Step Functions when you need:\n\u2192 Multiple steps that run in order\n\u2192 Pauses or waits between steps\n\u2192 Different paths based on data\n\u2192 Easy way to see what happened\n\nReal example: Order processing.\n\n1. Check payment (Lambda)\n2. Wait for approval (pause)\n3. If approved \u2192 ship. If not \u2192 refund (branching)\n4. Send email (Lambda)\n\nWith just Lambda? You'd write code to handle all that. With Step Functions? You draw it out visually. Runs the steps for you.\n\nThink of it like this: Lambda = one action. Step Functions = a recipe with many actions.\n\nOne more thing: Step Functions costs less for workflows because it waits without running code. Lambda charges while running.\n\nWhen have you had to pick between them? Drop your answer below \ud83d\udc47\n\n#DevOps #AWS #StepFunctions #InterviewPrep #CloudArchitecture",
+    "hook_id": "2061679776914395176",
+    "thread_id": "2061679778600570956",
+    "content_hash": "c4c992ce04443715d1dfe52dd84df787"
   }
 ]
