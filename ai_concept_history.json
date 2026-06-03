@@ -452,5 +452,14 @@
     "hook_id": "2061601493325922607",
     "thread_id": "2061601494596731029",
     "content_hash": "6358b317ccbeb1d35f37346a89ae8874"
+  },
+  {
+    "date": "2026-06-03T00:25:40.421845+00:00",
+    "concept": "MLOps and Model Deployment",
+    "hook": "Everyone says 'deploy your model' like it's simple. But getting an AI into production is way harder than training it. Here's why \ud83d\udc47",
+    "thread": "Training an AI model is like teaching someone to play chess. Deployment is like making sure they can play chess at a tournament, in any weather, with 1000 people watching.\n\nWhen you train, you work in a clean lab with perfect data. But real life is messy.\n\nDeployment means:\n- Your model runs 24/7 without breaking\n- It handles weird inputs you never saw before\n- It stays fast (not just accurate)\n- It doesn't mysteriously get worse over time\n- It doesn't cost $10k a day to run\n\nMost AI projects die here. The model works great in notebooks but falls apart in production.\n\nThis is MLOps. It's the boring but critical work that makes AI actually useful instead of just a cool demo.\n\nWhat part of taking AI to production seems most confusing\u2014keeping it running fast, or dealing with new unexpected data? \ud83d\udc47\n\n#MLOps #AI #SoftwareEngineering #MachineLearning",
+    "hook_id": "2061967515815641526",
+    "thread_id": "2061967517388616041",
+    "content_hash": "09839ebc8057257b2e3a247acb344ff2"
   }
 ]
