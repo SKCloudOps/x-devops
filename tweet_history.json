@@ -2602,5 +2602,14 @@
     "hook_id": "2061957003732271224",
     "thread_id": "2061957005103825051",
     "content_hash": "207950ed592637c1bc60f72db55cec14"
+  },
+  {
+    "date": "2026-06-03T05:55:35.220278+00:00",
+    "category": "terraform_iac_interview_question",
+    "hook": "Interviewer: 'Why use Terraform instead of CloudFormation?' \u2014 Most candidates fumble this. Would you nail it? \ud83d\udc47",
+    "thread": "Here's the thing: Both work. But here's why Terraform wins for most teams.\n\nTerraform works with AWS, Azure, Google Cloud, and 300+ other services. CloudFormation? Just AWS.\n\nSo if you use multiple clouds (or might someday), Terraform's your friend.\n\nReal example: Your company uses AWS for compute but Google Cloud for data. With Terraform, you write one language for both. With CloudFormation, you're stuck learning two different tools.\n\nAnother win: Terraform's easier to read. It looks more like normal code. CloudFormation JSON? Honestly, it's a pain to look at.\n\nOne more thing \u2014 Terraform keeps your code in version control better. You see exactly what changed and why.\n\nNow, CDK (AWS Cloud Development Kit) is different. It lets you write infrastructure in Python or TypeScript, then converts to CloudFormation behind the scenes. It's slick if you only use AWS.\n\nBottom line: Terraform = multi-cloud flexibility. CloudFormation = AWS only. CDK = AWS only but nicer syntax.\n\nWhich one do you use most? Reply below \ud83d\udc47\n\n#Terraform #Infrastructure #DevOpsInterviews #IaC #AWS",
+    "hook_id": "2062050541279039784",
+    "thread_id": "2062050542797365665",
+    "content_hash": "ff47dd2b8aeac6395e688fc07c454f70"
   }
 ]
