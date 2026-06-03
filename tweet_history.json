@@ -2647,5 +2647,14 @@
     "hook_id": "2062296332132397167",
     "thread_id": "2062296333675843648",
     "content_hash": "3dfad0fa423492a772fc225a8911c782"
+  },
+  {
+    "date": "2026-06-03T23:40:56.670799+00:00",
+    "category": "terraform_iac_interview_question",
+    "hook": "Interviewer: 'Walk me through your VPC setup in Terraform' \u2014 Most engineers fumble this. Would you? \ud83d\udc47",
+    "thread": "Here's how to nail it:\n\nStart simple. A VPC is just a network space in AWS. In Terraform, you define it like this:\n\nresource \"aws_vpc\" \"main\" {\n  cidr_block = \"10.0.0.0/16\"\n}\n\nThen add subnets (smaller chunks inside your VPC). Public subnets get internet access. Private ones don't.\n\nNext, mention an internet gateway. That's what lets your public subnet talk to the outside world.\n\nThen talk about route tables. They're like GPS for your network traffic. \"If traffic goes here, send it there.\"\n\nReal tip: In interviews, draw this out or describe it step by step. Don't just code dump. Show you understand WHAT each piece does, not just HOW to write it.\n\nSay something like: \"I'd create a VPC, add a public subnet for my web servers, a private subnet for my database, then set up routing so traffic flows right.\"\n\nThat's it. Simple. Clear. Shows you know the why.\n\nHow would YOU explain a VPC setup? Tell me your approach \ud83d\udc47\n\n#Terraform #AWS #DevOps #IaC #Interview",
+    "hook_id": "2062318647423426635",
+    "thread_id": "2062318648765653247",
+    "content_hash": "2a2e0d3352084e4011855a9c1f4a85e9"
   }
 ]
