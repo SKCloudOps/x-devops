@@ -2638,5 +2638,14 @@
     "hook_id": "2062267494417801338",
     "thread_id": "2062267495730532411",
     "content_hash": "4101314c6b391bb5ebad755d61361bca"
+  },
+  {
+    "date": "2026-06-03T22:12:16.348772+00:00",
+    "category": "terraform_iac_interview_question",
+    "hook": "Interviewer: 'How do you manage Docker images with Terraform?' \u2014 Most candidates get this wrong. Here's what they miss \ud83d\udc47",
+    "thread": "You don't actually manage Docker images IN Terraform. That's the key thing.\n\nTerraform manages INFRASTRUCTURE. Docker manages containers.\n\nHere's what you actually do:\n\n1. Build your Docker image separately (docker build command or CI/CD pipeline)\n2. Push it to a registry (Docker Hub, ECR, etc)\n3. Use Terraform to create the infrastructure that RUNS it\n\nExample: You use Terraform to spin up an ECS cluster or a Kubernetes cluster. Then you tell it \"use this Docker image from this registry.\" But Terraform isn't building or managing the image itself.\n\nCommon mistake? Trying to use Terraform to build Docker images. That's not its job. Use a docker_image data source only to reference images that already exist.\n\nThink of it like this: Docker = making the cake. Terraform = building the kitchen to run the cake in.\n\nWhat's your approach? Do you manage Docker images and infrastructure together, or keep them separate? \ud83d\udc47\n\n#Terraform #Docker #DevOps #IaC #CloudEngineering",
+    "hook_id": "2062296332132397167",
+    "thread_id": "2062296333675843648",
+    "content_hash": "3dfad0fa423492a772fc225a8911c782"
   }
 ]
