@@ -2629,5 +2629,14 @@
     "hook_id": "2062241668137677207",
     "thread_id": "2062241669479817258",
     "content_hash": "65eee2a9e365c5dccde987a32f35e544"
+  },
+  {
+    "date": "2026-06-03T20:17:40.849296+00:00",
+    "category": "terraform_iac_interview_question",
+    "hook": "Interviewer: 'How do you manage Terraform state in a team?' \u2014 Most candidates say 'remote backend' and stop. That's not the full answer \ud83d\udc47",
+    "thread": "Here's what they actually want to hear:\n\n1. YES, use remote state (S3, Azure, GCS)\nWhy? Your laptop crashes. Your team needs the same state.\n\n2. Lock it\nWithout locking, two people can change things at once. State gets messed up. Bad.\n\n3. Separate state files\nDon't put prod and dev in the same state file. One typo breaks everything.\n\n4. Limit who can change it\nUse IAM permissions. Not everyone should be able to run terraform apply.\n\nREAL EXAMPLE:\nWe store state in S3. DynamoDB locks changes while someone's running apply. Different folders for dev, staging, prod. Only certain people can change prod.\n\nThe trap? Candidates forget the locking part. They think remote state = solved. Nope. You need to actually prevent conflicts.\n\nWhat's your approach to state management? Do you do anything else? Drop it below \ud83d\udc47\n\n#Terraform #DevOps #IaC #Interview #AWS",
+    "hook_id": "2062267494417801338",
+    "thread_id": "2062267495730532411",
+    "content_hash": "4101314c6b391bb5ebad755d61361bca"
   }
 ]
