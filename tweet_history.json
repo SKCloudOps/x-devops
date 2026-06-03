@@ -2611,5 +2611,14 @@
     "hook_id": "2062050541279039784",
     "thread_id": "2062050542797365665",
     "content_hash": "ff47dd2b8aeac6395e688fc07c454f70"
+  },
+  {
+    "date": "2026-06-03T16:10:50.101785+00:00",
+    "category": "terraform_iac_interview_question",
+    "hook": "Interviewer: 'How do you scan your AWS infrastructure for security issues?' \u2014 Most say CloudTrail. That's not it. \ud83d\udc47",
+    "thread": "They're looking for SecurityHub. It's AWS's tool that checks your stuff for problems.\n\nHere's the difference:\n\u2022 CloudTrail = logs what happened\n\u2022 SecurityHub = finds what's wrong\n\nIn Terraform, you'd enable it like this:\n\nresource \"aws_securityhub_account\" \"main\" {\n  enable_default_standards = true\n}\n\nThen it scans your EC2, RDS, IAM, S3 \u2014 everything. Finds misconfigs and compliance issues.\n\nThe real answer they want: \"I'd use SecurityHub to continuously check for security problems, then fix them in code before deploying.\"\n\nWhat's the weirdest security issue you've found in your own AWS account? Drop it below \ud83d\udc47\n\n#Terraform #AWS #DevOps #IaC #SecurityHub",
+    "hook_id": "2062205373465940029",
+    "thread_id": "2062205374946582619",
+    "content_hash": "8cd505e77fb4527b64c8d22f8c11efab"
   }
 ]
