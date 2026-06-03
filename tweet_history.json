@@ -2620,5 +2620,14 @@
     "hook_id": "2062205373465940029",
     "thread_id": "2062205374946582619",
     "content_hash": "8cd505e77fb4527b64c8d22f8c11efab"
+  },
+  {
+    "date": "2026-06-03T18:35:03.434496+00:00",
+    "category": "terraform_iac_interview_question",
+    "hook": "Interviewer: 'How do you protect sensitive data in Terraform?' \u2014 Most candidates mess this up. Here's what they miss \ud83d\udc47",
+    "thread": "Here's the thing: putting secrets in your code is a big NO.\n\nThe right way? Use a secrets manager.\n\nTerraform has a few shields:\n\n1\ufe0f\u20e3 AWS Secrets Manager\n2\ufe0f\u20e3 HashiCorp Vault\n3\ufe0f\u20e3 .tfvars files (but never commit these)\n4\ufe0f\u20e3 Environment variables\n\nBest practice: Store secrets outside your code. Reference them in Terraform using data sources or variables.\n\nExample:\ndata \"aws_secretsmanager_secret_version\" \"db_password\" {\n  secret_id = \"prod-db-password\"\n}\n\nThen use that value in your resource. Your secrets stay safe. Your code stays clean.\n\nBonus tip: Use \"sensitive = true\" on outputs so Terraform doesn't print them in logs.\n\nWhat's your go-to method for handling secrets in Terraform? Drop it below \ud83d\udc47\n\n#Terraform #DevOps #IaC #AWS #Interview",
+    "hook_id": "2062241668137677207",
+    "thread_id": "2062241669479817258",
+    "content_hash": "65eee2a9e365c5dccde987a32f35e544"
   }
 ]
