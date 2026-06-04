@@ -461,5 +461,14 @@
     "hook_id": "2061967515815641526",
     "thread_id": "2061967517388616041",
     "content_hash": "09839ebc8057257b2e3a247acb344ff2"
+  },
+  {
+    "date": "2026-06-04T00:28:40.162705+00:00",
+    "concept": "context_window_and_tokenization",
+    "hook": "Everyone says 'context window' but most people don't get why it actually matters. Here's the simple truth \ud83d\udc47",
+    "thread": "Your AI has a short-term memory limit. It can only read so many words at once before it forgets the beginning.\n\nThink of it like this: You're reading a book but can only hold 20 pages in your brain at a time. If the book is 100 pages, you'll forget what happened early on.\n\nTokens are just tiny word pieces. When you paste 10,000 words into ChatGPT, it counts them as tokens. Once it hits its limit (like 128k tokens for GPT-4), it can't see anything older.\n\nWhy this matters:\n- Long documents = AI forgets context\n- It might repeat itself or miss important details\n- You need to break big tasks into chunks\n- Or use tools that re-read your documents (that's RAG)\n\nPro tip: If your AI gives you garbage output on long texts, the context window probably hit its wall.\n\nWhat AI concept confuses your team the most? Drop it below \ud83d\udc47\n\n#AI #LLMs #TokenizationExplained #AIBasics #ContextMatters",
+    "hook_id": "2062330658106581036",
+    "thread_id": "2062330659104821369",
+    "content_hash": "8fbc861f1538e3946f16f25ba3ff3148"
   }
 ]
