@@ -2665,5 +2665,14 @@
     "hook_id": "2062542001052979469",
     "thread_id": "2062542002739151145",
     "content_hash": "42756e1420a4e5845684a8efe6e49df5"
+  },
+  {
+    "date": "2026-06-04T17:28:52.866501+00:00",
+    "category": "devops_trending_topic",
+    "hook": "Interviewer: 'What's the difference between a container and a VM?' \u2014 Most engineers fumble this one. Here's the real answer \ud83d\udc47",
+    "thread": "A VM is a fake computer. It pretends to be a whole machine with its own OS, disk, memory \u2014 everything.\n\nA container is just your app + what it needs to run. It shares the real computer's OS with other containers.\n\nWhy it matters:\n\nVMs = slower, bigger, use way more resources\nContainers = fast, small, you can run 100 on one machine\n\nReal example:\nIf you need to run Python 3.11, a database, and a web server:\n\n\ud83d\udd34 VM way: Install 3 full operating systems. Each one takes 5GB+ of disk.\n\n\ud83d\udfe2 Container way: Pack them each in their own box. Total size: maybe 500MB. They all share the same Linux kernel underneath.\n\nThat's why Docker is so popular. It made containers dead simple to use.\n\nBit of a bonus: VMs are more locked down (better security isolation). Containers are lighter but all share the OS, so one bad app can hurt others. But in practice? Containers win for speed and cost.\n\nHow would YOU explain this in an interview? Any tips you'd add? Drop them below \ud83d\udc47\n\n#DevOps #Docker #Containers #Interview #VMs",
+    "hook_id": "2062587402237947953",
+    "thread_id": "2062587403760533664",
+    "content_hash": "e748a54f5dbbde993c0cf55dfa7b4e48"
   }
 ]
