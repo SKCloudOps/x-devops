@@ -2656,5 +2656,14 @@
     "hook_id": "2062318647423426635",
     "thread_id": "2062318648765653247",
     "content_hash": "2a2e0d3352084e4011855a9c1f4a85e9"
+  },
+  {
+    "date": "2026-06-04T14:28:28.422241+00:00",
+    "category": "devops_trending_topic",
+    "hook": "Interviewer: 'What's a buildpack and why would you use one?' \u2014 Most candidates confuse it with Docker. Here's what you need to know \ud83d\udc47",
+    "thread": "A buildpack is just a tool that takes your code and builds it into a container image. No Dockerfile needed.\n\nThink of it like this:\n- You push your code\n- Buildpack detects what language it is (Node, Python, Java, etc)\n- It automatically installs dependencies\n- Creates a working container\n\nWhy use it? Speed and consistency. You don't write a Dockerfile. The buildpack handles everything.\n\nReal example: Heroku uses buildpacks. You git push your Node app, Heroku's buildpack runs, detects package.json, installs npm packages, sets up the runtime. Done.\n\nKey difference from Docker: With Docker you write exact steps. With buildpacks? They figure it out.\n\nWhen would you pick buildpacks? When you want fast deployments and don't want to maintain Dockerfiles. When you want less configuration.\n\nWhat's your experience with buildpacks? Or are you Team Dockerfile all the way? \ud83d\udc47\n\n#DevOps #Kubernetes #Docker #CloudNative #InterviewPrep",
+    "hook_id": "2062542001052979469",
+    "thread_id": "2062542002739151145",
+    "content_hash": "42756e1420a4e5845684a8efe6e49df5"
   }
 ]
