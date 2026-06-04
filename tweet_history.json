@@ -2674,5 +2674,14 @@
     "hook_id": "2062587402237947953",
     "thread_id": "2062587403760533664",
     "content_hash": "e748a54f5dbbde993c0cf55dfa7b4e48"
+  },
+  {
+    "date": "2026-06-04T19:22:55.308754+00:00",
+    "category": "devops_trending_topic",
+    "hook": "Interviewer: 'What's the difference between CDK and CloudFormation?' \u2014 Most engineers mix these up. Would you? \ud83d\udc47",
+    "thread": "Here's the thing: CloudFormation is the old way. You write YAML or JSON. It's like writing a recipe by hand.\n\nCDK is newer. You write actual code. Python, TypeScript, whatever. Then it turns into CloudFormation behind the scenes.\n\nReal example:\n\nCloudFormation:\n\nResources:\n  MyBucket:\n    Type: AWS::S3::Bucket\n    Properties:\n      BucketName: my-bucket\n\n\nCDK (TypeScript):\n\nconst bucket = new s3.Bucket(this, 'MyBucket', {\n  bucketName: 'my-bucket'\n});\n\n\nSame result. But CDK is way easier to read and reuse.\n\nWhy pick CDK? You get loops, functions, variables. You can write actual logic. No more copy-pasting YAML.\n\nWhy stick with CloudFormation? Smaller projects. Less moving parts. Your team knows it.\n\nPro tip: CDK still generates CloudFormation. So they work together. Not enemies.\n\nHave you used CDK yet? Or still rocking CloudFormation? Let me know \ud83d\udc47\n\n#AWS #CDK #CloudFormation #DevOps #IaC",
+    "hook_id": "2062616101775679820",
+    "thread_id": "2062616103088521601",
+    "content_hash": "982d1ee009e6b76a39b43e7ce4fee277"
   }
 ]
