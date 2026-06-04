@@ -430,5 +430,14 @@
     "hook_id": "2061907558638428548",
     "thread_id": "2061907560202924147",
     "content_hash": "a4edd504ea94783f8833fe8e3833ef94"
+  },
+  {
+    "date": "2026-06-04T19:38:04.329671+00:00",
+    "concept": "service_mesh_metrics_visibility",
+    "hook": "Most engineers using Grafana with a service mesh don't know this: your dashboards might be lying to you \ud83d\udc47",
+    "thread": "Here's the thing. A service mesh (like Istio) adds a layer between all your services. It watches traffic, handles retries, does load balancing.\n\nBut Grafana only sees what you tell it to see. If you're not scraping metrics from the mesh itself, you're missing half the story.\n\nThink of it like this: You're watching your app's performance, but you're only looking at one camera. The mesh is doing work behind the scenes \u2014 retrying failed requests, routing around bad servers \u2014 and Grafana has no idea it's happening.\n\nGotcha: By default, Prometheus (what feeds Grafana) doesn't automatically scrape your mesh's metrics. You gotta tell it to. Add the mesh's metrics endpoint to your Prometheus config, or you'll think your services are way slower/flakier than they actually are.\n\nProof: Check your latency. Your app says p99 is 500ms. But the mesh handled 50 retries invisibly. You're seeing the app time, not the actual user experience.\n\nDo you check your mesh metrics, or just your app metrics? What's confused you most about this? \ud83d\udc47\n\n#ServiceMesh #Grafana #DevOps #Prometheus #Observability",
+    "hook_id": "2062619914687459530",
+    "thread_id": "2062619915727565245",
+    "content_hash": "9223f90fbaeb29e706d06c9369242520"
   }
 ]
