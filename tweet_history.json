@@ -2683,5 +2683,14 @@
     "hook_id": "2062616101775679820",
     "thread_id": "2062616103088521601",
     "content_hash": "982d1ee009e6b76a39b43e7ce4fee277"
+  },
+  {
+    "date": "2026-06-04T21:13:07.310216+00:00",
+    "category": "devops_trending_topic",
+    "hook": "Interviewer: 'How do you handle DynamoDB hot partitions?' \u2014 Most candidates panic here. Would you know what to say? \ud83d\udc47",
+    "thread": "A hot partition is when all your traffic hits one part of DynamoDB at once. Think of it like everyone in a store lining up at one checkout.\n\nWhat happens? You hit your throughput limit. Your app slows down. Users get mad.\n\nHow to fix it:\n\n1. Add a random number to your key \u2014 spreads the load across partitions\n2. Use DynamoDB Streams \u2014 read the hot data separately \n3. Cache it with ElastiCache \u2014 stop hitting DynamoDB so much\n4. Design better keys from the start \u2014 don't use timestamps as your main key if everyone's writing to \"today\"\n\nReal example: You're logging events. If your key is just the date, all writes go to the same partition on that day. Bad.\n\nInstead: date + random(1-100). Now writes spread across 100 partitions. Problem solved.\n\nBiggest mistake? Waiting until production to find this out.\n\nWhat's your go-to strategy when you spot a hot partition? Reply below \ud83d\udc47\n\n#DynamoDB #DevOps #AWS #SystemDesign #InterviewPrep",
+    "hook_id": "2062643833943232879",
+    "thread_id": "2062643835813949937",
+    "content_hash": "4645492a6c9e5f3a52cfffc2bd6be62a"
   }
 ]
