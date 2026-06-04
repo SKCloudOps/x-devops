@@ -2692,5 +2692,14 @@
     "hook_id": "2062643833943232879",
     "thread_id": "2062643835813949937",
     "content_hash": "4645492a6c9e5f3a52cfffc2bd6be62a"
+  },
+  {
+    "date": "2026-06-04T23:07:08.003615+00:00",
+    "category": "devops_trending_topic",
+    "hook": "Interviewer: 'How would you cache a website using CloudFront?' \u2014 Most engineers overthink this. Here's what they miss \ud83d\udc47",
+    "thread": "CloudFront is just a CDN. Sounds fancy, but it's simple:\n\n1. Your website sits in an origin (like S3 or your server)\n2. CloudFront copies your stuff to servers around the world\n3. Users get your content from the closest server. Fast.\n\nThat's it.\n\nIn an interview, they want to hear:\n- Set up an origin (S3 bucket)\n- Create a CloudFront distribution pointing to it\n- Set cache rules (what to cache, how long)\n- Users now load faster because they're not always hitting your main server\n\nReal example: Say you host a photo app. Without CloudFront, everyone downloads from one place. With it? Photos come from a server near them. 50ms instead of 500ms.\n\nCommon miss: Engineers say \"I'll cache everything forever.\" Wrong. Cache images for days. Cache HTML for minutes. Cache API calls? Usually don't.\n\nThat's the answer they're looking for. Simple and practical.\n\nWhat's the trickiest CDN or caching question you've been asked? Drop it below \ud83d\udc47\n\n#DevOps #CloudFront #AWS #InterviewPrep #CDN",
+    "hook_id": "2062672526048714945",
+    "thread_id": "2062672527697047934",
+    "content_hash": "775e1529c4b01a19c36a182f44e5b9e6"
   }
 ]
