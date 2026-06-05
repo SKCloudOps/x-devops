@@ -439,5 +439,14 @@
     "hook_id": "2062619914687459530",
     "thread_id": "2062619915727565245",
     "content_hash": "9223f90fbaeb29e706d06c9369242520"
+  },
+  {
+    "date": "2026-06-05T19:20:26.987597+00:00",
+    "concept": "VPC Subnets and Network Segmentation",
+    "hook": "Most engineers set up a VPC and forget about it. But 1 mistake here breaks everything else \ud83d\udc47",
+    "thread": "Here's the thing: your VPC needs subnets. Subnets are like rooms in your house. You wouldn't put your kitchen sink in the bedroom, right?\n\nSame deal. Public subnets (facing the internet) go on one side. Private subnets (hidden from internet) go on the other.\n\nThe gotcha? Engineers often throw everything in a public subnet. Looks simpler. But now your database is exposed. Your app can talk to the world. Bad idea.\n\nReal example: put your web servers in public subnets. Put your databases in private subnets. Only the web servers can reach the database. Internet can't reach it directly.\n\nOne more thing nobody mentions: your subnet's CIDR block (the IP range) can't overlap with other subnets in the same VPC. It's like two rooms can't use the same door.\n\nWhat's the biggest VPC mistake you've made or seen? \ud83d\udc47\n\n#AWS #VPC #DevOps #CloudInfra #SubnetsBasics",
+    "hook_id": "2062977867374563379",
+    "thread_id": "2062977868716806638",
+    "content_hash": "84ab4d18b6f7d28f2359b7647faff9b0"
   }
 ]
