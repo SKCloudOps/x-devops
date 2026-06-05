@@ -2701,5 +2701,14 @@
     "hook_id": "2062672526048714945",
     "thread_id": "2062672527697047934",
     "content_hash": "775e1529c4b01a19c36a182f44e5b9e6"
+  },
+  {
+    "date": "2026-06-05T05:09:46.003393+00:00",
+    "category": "cloud_architecture_pattern",
+    "hook": "Interviewer: 'How do you keep your secrets safe in the cloud?' \u2014 Most candidates get this wrong. Here's what they miss \ud83d\udc47",
+    "thread": "Secrets are things like passwords, API keys, database creds. You can't just hardcode them in your app or commit them to git.\n\nBest practice? Use a secrets manager like AWS Secrets Manager or HashiCorp Vault.\n\nHere's how it works:\n\n1. Store your secrets in the manager\n2. Your app asks for the secret when it starts\n3. The manager gives it to your app (not stored locally)\n4. If the secret changes, you update it once\u2014no redeploying\n\nWhy this matters:\n- If someone gets your code, they don't get passwords\n- You can rotate secrets without stopping your app\n- You can audit who accessed what\n- Different apps can have different secrets\n\nOne more thing: KMS (Key Management Service) is usually paired with this. KMS encrypts the secrets so even AWS can't read them without your permission. It's like a safe inside a safe.\n\nReal example: Production database password lives in Secrets Manager, encrypted by KMS. Your Lambda function grabs it at runtime. Clean and secure.\n\nWhat's the trickiest secrets question you've been asked in an interview? \ud83d\udc47\n\n#DevOps #CloudSecurity #AWS #InterviewPrep",
+    "hook_id": "2062763785874759959",
+    "thread_id": "2062763787460255809",
+    "content_hash": "f061a6359ec5cbe30be2efec40cf2448"
   }
 ]
