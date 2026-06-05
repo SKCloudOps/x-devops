@@ -2737,5 +2737,14 @@
     "hook_id": "2062971964138868997",
     "thread_id": "2062971965925679593",
     "content_hash": "388b654ba31f347675c784fdfe0530fc"
+  },
+  {
+    "date": "2026-06-05T21:09:51.784089+00:00",
+    "category": "cloud_architecture_pattern",
+    "hook": "Interviewer: 'How do you manage configs across dev, staging, and prod?' \u2014 This trips up most engineers. Here's the right answer \ud83d\udc47",
+    "thread": "Most people say 'we use env vars' and stop. That's incomplete.\n\nHere's what they're really asking:\n\n1. HOW do you store configs?\n- Use a config management tool (ConfigMap in Kubernetes, Secrets Manager in AWS, etc)\n- NOT hardcoded in your app\n- NOT in git repos (security risk)\n\n2. HOW do you keep them separate?\n- One config per environment\n- Load the right one when your app starts\n- Example: app checks if NODE_ENV=prod, then loads prod secrets\n\n3. HOW do you update them?\n- Change the config, restart the app\n- Or use a tool that hot-reloads (fancy but optional)\n\nReal example:\nDev team uses ConfigMap for database URLs. Prod team uses AWS Secrets Manager. Same app code. Different configs. Problem solved.\n\nThe trick: Show you know configs are SEPARATE from code. That's what they want to hear.\n\nHow do you handle configs in your current role? Drop it below \ud83d\udc47\n\n#DevOps #CloudArchitecture #Kubernetes #Interview",
+    "hook_id": "2063005401839272048",
+    "thread_id": "2063005403479195743",
+    "content_hash": "b4315733848898ab29dea555b75098ac"
   }
 ]
