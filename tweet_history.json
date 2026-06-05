@@ -2710,5 +2710,14 @@
     "hook_id": "2062763785874759959",
     "thread_id": "2062763787460255809",
     "content_hash": "f061a6359ec5cbe30be2efec40cf2448"
+  },
+  {
+    "date": "2026-06-05T14:19:12.379103+00:00",
+    "category": "cloud_architecture_pattern",
+    "hook": "Interviewer: 'What's Crossplane?' \u2014 Most candidates say 'infrastructure tool' and stop there. Here's what they miss \ud83d\udc47",
+    "thread": "Crossplane lets you manage cloud stuff using Kubernetes. Instead of logging into AWS or Azure, you just write YAML and kubectl apply it.\n\nWhy this matters in interviews:\n\nMost people just say \"it manages infrastructure.\" That's true but boring.\n\nThe real answer:\n\nCrossplane is a control plane. It watches your YAML files. When you change something, it talks to AWS/Azure/GCP and makes those changes real. It's like having Kubernetes drive your cloud account.\n\nQuick example:\nYou write a YAML file that says \"I want an S3 bucket.\" Crossplane reads it. Then it actually creates the bucket in AWS. You never touch the AWS console.\n\nWhy companies care:\n\n- One tool for everything (Kubernetes)\n- You can version control your cloud stuff\n- Same workflow for apps AND infrastructure\n- Engineers don't need AWS console access\n\nBonus tip for interviews:\nMention that Crossplane is \"infrastructure as code\" but done inside Kubernetes. That shows you get the bigger picture.\n\nWhat's your take on managing cloud stuff this way? Would you use Crossplane at your company? \ud83d\udc47\n\n#Crossplane #DevOps #Kubernetes #CloudArchitecture #InfrastructureAsCode",
+    "hook_id": "2062902056298709175",
+    "thread_id": "2062902058244804918",
+    "content_hash": "170a46a170d450a7ad0a4bd0b15d3855"
   }
 ]
