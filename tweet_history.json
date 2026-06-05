@@ -2746,5 +2746,14 @@
     "hook_id": "2063005401839272048",
     "thread_id": "2063005403479195743",
     "content_hash": "b4315733848898ab29dea555b75098ac"
+  },
+  {
+    "date": "2026-06-05T23:06:06.431009+00:00",
+    "category": "cloud_architecture_pattern",
+    "hook": "Interviewer: 'How do you manage infrastructure as code?' \u2014 Most say CloudFormation. Then they freeze. Here's what they miss \ud83d\udc47",
+    "thread": "CloudFormation is just a way to write your AWS setup in a text file instead of clicking around in the console.\n\nBUT here's the thing: A lot of people treat it like a magic wand. They don't understand WHEN it's actually the right tool.\n\nReal talk:\n\nCloudFormation is great when you need to:\n\u2014 Spin up the same setup 10 times\n\u2014 Change things and roll back fast\n\u2014 Share code with your team\n\u2014 Track who changed what\n\nIt sucks when you:\n\u2014 Need to manage 500+ resources (gets slow)\n\u2014 Have super custom logic\n\u2014 Work with other clouds too\n\nThe secret? Ask yourself: \"Do I need repeatability and version control?\" If yes, use it. If you're just testing something quick? Just use the console.\n\nAlso, write templates small. Don't dump your whole app in one file. Break it into pieces. Makes updates way less risky.\n\nHonestly, this is what separates people who just know CloudFormation from people who actually understand when to use it.\n\nWhat's your take \u2014 do you prefer CloudFormation or Terraform? Drop your answer below \ud83d\udc47\n\n#AWS #CloudFormation #IaC #DevOps #InterviewTips",
+    "hook_id": "2063034655524168132",
+    "thread_id": "2063034657298399284",
+    "content_hash": "4111550d71693f730f1e48c1908a0f2a"
   }
 ]
