@@ -2719,5 +2719,14 @@
     "hook_id": "2062902056298709175",
     "thread_id": "2062902058244804918",
     "content_hash": "170a46a170d450a7ad0a4bd0b15d3855"
+  },
+  {
+    "date": "2026-06-05T16:59:26.405671+00:00",
+    "category": "cloud_architecture_pattern",
+    "hook": "Interviewer: 'How do you handle node failures in EKS?' \u2014 Most people just say 'auto scaling.' That's not the full answer \ud83d\udc47",
+    "thread": "Here's what they actually want to hear:\n\nWhen a node dies in EKS, three things happen:\n\n1. Kubernetes notices the node is gone (takes ~40 seconds)\n2. It reschedules pods to healthy nodes\n3. Auto Scaling Group spins up a new node\n\nBUT \u2014 if you don't set pod requests/limits, the new node might be too small. Your pods fail to reschedule. Boom.\n\nThe real answer: Use resource requests, set pod disruption budgets, and enable cluster autoscaler. That way when a node fails, your pods move smoothly and a fresh node joins without drama.\n\nAlso mention: Spot instances are cheaper but can die anytime. Good for non-critical stuff. Use on-demand for critical apps.\n\nWhat's the trickiest EKS question you've gotten? Drop it below \ud83d\udc47\n\n#EKS #Kubernetes #DevOps #CloudArchitecture",
+    "hook_id": "2062942381003923636",
+    "thread_id": "2062942382564241513",
+    "content_hash": "ac9b8cded00c4b3abcd6b53abdcace67"
   }
 ]
