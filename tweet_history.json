@@ -2728,5 +2728,14 @@
     "hook_id": "2062942381003923636",
     "thread_id": "2062942382564241513",
     "content_hash": "ac9b8cded00c4b3abcd6b53abdcace67"
+  },
+  {
+    "date": "2026-06-05T18:56:59.644461+00:00",
+    "category": "cloud_architecture_pattern",
+    "hook": "Interviewer: 'Design a CI/CD pipeline for us.' \u2014 Most candidates miss the obvious thing. Here's what they should say \ud83d\udc47",
+    "thread": "Here's the thing: a good pipeline is like an assembly line. Code comes in one end. A working app comes out the other.\n\nMost people jump straight to tools (GitHub Actions, Jenkins, whatever). But that's backwards.\n\nStart with the STEPS:\n\n1\ufe0f\u20e3 Code pushed \u2192 run tests\n2\ufe0f\u20e3 Tests pass \u2192 build the app\n3\ufe0f\u20e3 Build works \u2192 deploy to staging\n4\ufe0f\u20e3 Manual check \u2192 deploy to production\n\nEach step blocks the next. If tests fail, don't build. If build fails, don't deploy.\n\nTHEN pick your tool. GitHub Actions is great because it's free, simple, and built into GitHub.\n\nThe real answer? Describe the FLOW first. The tool is just the thing that runs it.\n\nWhat's your go-to CI/CD tool? Do you start with the flow or jump to tools? \ud83d\udc47\n\n#DevOps #GitHub #CICD #Interviews",
+    "hook_id": "2062971964138868997",
+    "thread_id": "2062971965925679593",
+    "content_hash": "388b654ba31f347675c784fdfe0530fc"
   }
 ]
