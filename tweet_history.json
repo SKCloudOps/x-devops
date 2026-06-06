@@ -2755,5 +2755,14 @@
     "hook_id": "2063034655524168132",
     "thread_id": "2063034657298399284",
     "content_hash": "4111550d71693f730f1e48c1908a0f2a"
+  },
+  {
+    "date": "2026-06-06T04:45:45.550211+00:00",
+    "category": "sre_observability_question",
+    "hook": "Interviewer: 'How do you monitor config drift?' \u2014 Most SREs mess this up. Here's what they miss \ud83d\udc47",
+    "thread": "Config drift = your actual system doesn't match what you wrote down.\n\nExample: You deploy with Terraform. Then someone SSH's in and changes a setting. Now prod is different from your code. Bad.\n\nHow to catch it:\n\n1. Check your configs regularly. Don't just deploy once and forget.\n\n2. Use tools that scan. Prometheus scrapes metrics. But you also need config audits. Tools like Ansible or Chef can compare what should be vs what is.\n\n3. Alert when something changes. If a file gets edited, you should know.\n\n4. Version everything. Git repo = single source of truth. Always.\n\nReal tip: Most teams find drift by accident. Mature teams check for it every day. Automated scans beat manual reviews.\n\nThe goal: Your code should match your servers. Always. No surprises at 2am.\n\nHow do YOU handle config drift at your job? Drop your method below \ud83d\udc47\n\n#SRE #Observability #DevOps #Monitoring #ConfigManagement",
+    "hook_id": "2063120131509862568",
+    "thread_id": "2063120132852048344",
+    "content_hash": "ed71642f3f1a2efe66bde21c1cb953e5"
   }
 ]
