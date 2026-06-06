@@ -2773,5 +2773,14 @@
     "hook_id": "2063245192392761712",
     "thread_id": "2063245193776935270",
     "content_hash": "3d1ccaf7620de2b5b717964c7852acae"
+  },
+  {
+    "date": "2026-06-06T15:51:12.672031+00:00",
+    "category": "sre_observability_question",
+    "hook": "Interviewer: 'How do you monitor ArgoCD deployments?' \u2014 Most candidates miss the obvious thing. \ud83d\udc47",
+    "thread": "Here's what you need to say:\n\nArgoCD syncs your code to your cluster. So you watch TWO things:\n\n1) **Is ArgoCD itself healthy?** Check its pod logs. Is it running? Any errors?\n\n2) **Did the sync work?** Look at what ArgoCD actually deployed. Did your app start? Is it running the right version?\n\nThe trick most people miss: Just because ArgoCD says \"synced\" doesn't mean your app is healthy.\n\nExample: ArgoCD synced a bad Docker image. Your pod won't start. You need alerts on:\n- Pod restart count (goes up = problem)\n- ArgoCD sync status (failed = problem)\n- Your app's actual metrics (response time, errors)\n\nUse Prometheus to scrape ArgoCD's metrics. Set up alerts. That's it.\n\nWhat's your go-to tool for monitoring ArgoCD in production? Drop it below \ud83d\udc47\n\n#DevOps #ArgoCD #SRE #Kubernetes #Monitoring",
+    "hook_id": "2063287597288308798",
+    "thread_id": "2063287599477698965",
+    "content_hash": "9a703f7ab1cf3b78265cc643c18412c1"
   }
 ]
