@@ -2800,5 +2800,14 @@
     "hook_id": "2063360682553213030",
     "thread_id": "2063360684172218606",
     "content_hash": "48cb6355b597c93b7ea6392349018aba"
+  },
+  {
+    "date": "2026-06-06T23:00:54.247315+00:00",
+    "category": "sre_observability_question",
+    "hook": "Interviewer: 'How do you track who deleted that database?' \u2014 Most candidates panic. Here's what they miss \ud83d\udc47",
+    "thread": "CloudTrail logs every action in AWS. Who did it, when, and what they changed. That's your audit trail.\n\nHere's the thing:\n\n**The question is really asking:** Can you connect an incident to a person?\n\n**What to say:**\n'I'd check CloudTrail. Filter for the delete event. Look at the user ID and timestamp. Then cross-reference with your team's calendar or logs to see who was working.'\n\n**Real example:**\nSomeone deletes an RDS database at 3am. You pull CloudTrail, see it was user 'jenkins-deploy', check your deployment logs, and realize a bad script ran. Not a person. Problem found.\n\n**The trick most miss:**\nCloudTrail isn't on by default for everything. You need to enable it BEFORE bad stuff happens. If it's off, you're blind.\n\n**Pro tip:** Set up CloudWatch alarms on CloudTrail events. Don't wait until something breaks to go digging.\n\nWhat's the messiest 'who deleted this' situation you've had to debug? Drop it below \ud83d\udc47\n\n#SRE #AWS #DevOps #Observability #CloudTrail",
+    "hook_id": "2063395733911318972",
+    "thread_id": "2063395735651893423",
+    "content_hash": "3a29ae0c3a52200bc4dd9b677948f2cc"
   }
 ]
