@@ -2782,5 +2782,14 @@
     "hook_id": "2063287597288308798",
     "thread_id": "2063287599477698965",
     "content_hash": "9a703f7ab1cf3b78265cc643c18412c1"
+  },
+  {
+    "date": "2026-06-06T18:04:25.271690+00:00",
+    "category": "sre_observability_question",
+    "hook": "Interviewer: 'How do you monitor if your monitoring is actually working?' \u2014 Most candidates miss this. \ud83d\udc47",
+    "thread": "Here's the thing: You set up Prometheus to track your app. But what if Prometheus crashes? Or your scrape jobs fail silently?\n\nYou need to watch the watcher.\n\nSome ways to do this:\n\n1. **Alert on missing metrics** \u2014 If you haven't seen a metric in 5 minutes, something's broken. Set up an alert.\n\n2. **Check Prometheus itself** \u2014 Monitor the Prometheus server's disk space, memory, and CPU. It can fill up and stop collecting data.\n\n3. **Test your alerting chain** \u2014 Send a fake alert once a week. If you don't get it, your Slack/PagerDuty is broken.\n\n4. **Look at scrape success rates** \u2014 Prometheus tracks this automatically. If it drops below 99%, you're losing data.\n\nReal example: Your app is down but your dashboard looks fine. Why? Prometheus stopped scraping 20 minutes ago and nobody noticed.\n\nThat's why you monitor the monitor.\n\nWhat's the messiest monitoring failure you've seen? Drop it below \ud83d\udc47\n\n#SRE #Prometheus #Observability #DevOps",
+    "hook_id": "2063321121579999394",
+    "thread_id": "2063321123362615510",
+    "content_hash": "0a8fb5506deb0009e2748157502f18f7"
   }
 ]
