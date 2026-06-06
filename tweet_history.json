@@ -2791,5 +2791,14 @@
     "hook_id": "2063321121579999394",
     "thread_id": "2063321123362615510",
     "content_hash": "0a8fb5506deb0009e2748157502f18f7"
+  },
+  {
+    "date": "2026-06-06T20:41:37.397711+00:00",
+    "category": "sre_observability_question",
+    "hook": "Interviewer: 'How does Istio help you see what's happening in your cluster?' \u2014 Most candidates get lost here. Would you? \ud83d\udc47",
+    "thread": "Istio is a tool that sits between your services and watches all the traffic flowing through them. Think of it like a security camera for your network.\n\nHere's what it does:\n\n1. **Collects traffic data** \u2014 Every request between services gets logged. You see who talks to who, how fast, and if anything fails.\n\n2. **Gives you metrics** \u2014 You get numbers like response times, error rates, and how much data moved. Your monitoring tool (like Prometheus) grabs these.\n\n3. **Traces requests** \u2014 You can follow one request as it hops between 5 different services. Super helpful when something breaks.\n\nReal example: Your checkout service is slow. Without Istio, you dig through logs. With Istio, you see in seconds that the payment service is timing out.\n\nThe key part interviewers want: Istio gives visibility without changing your app code. It works quietly in the background.\n\nWhat's your go-to tool for seeing traffic between services? Let me know \ud83d\udc47\n\n#SRE #Kubernetes #Istio #Observability #DevOps",
+    "hook_id": "2063360682553213030",
+    "thread_id": "2063360684172218606",
+    "content_hash": "48cb6355b597c93b7ea6392349018aba"
   }
 ]
