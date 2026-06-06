@@ -2764,5 +2764,14 @@
     "hook_id": "2063120131509862568",
     "thread_id": "2063120132852048344",
     "content_hash": "ed71642f3f1a2efe66bde21c1cb953e5"
+  },
+  {
+    "date": "2026-06-06T13:02:42.254018+00:00",
+    "category": "sre_observability_question",
+    "hook": "Interviewer: 'How do you monitor if your Prometheus scrape is failing?' \u2014 Most candidates miss the obvious answer \ud83d\udc47",
+    "thread": "Here's what they're really asking: Your Prometheus server scrapes metrics from apps every 15 seconds. But what if it can't reach an app? What do you see?\n\nMost people say: 'Check the logs.'\n\nWrong. You should look at the `up` metric.\n\nPrometheus auto-creates an `up` metric for EVERY target it scrapes. It's 1 if the scrape worked. It's 0 if it failed.\n\nSo you'd query: `up{job=\"my-app\"}` and it shows 0? Your app is down or unreachable.\n\nThen you can set an alert: If up == 0 for 5 minutes, page me.\n\nThat's it. Simple. But ngl, most people don't know about the `up` metric until they hit this in production.\n\nHow would YOU spot a failed Prometheus scrape? Reply below \ud83d\udc47\n\n#Prometheus #SRE #DevOps #Monitoring",
+    "hook_id": "2063245192392761712",
+    "thread_id": "2063245193776935270",
+    "content_hash": "3d1ccaf7620de2b5b717964c7852acae"
   }
 ]
