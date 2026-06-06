@@ -479,5 +479,14 @@
     "hook_id": "2062686764112691208",
     "thread_id": "2062686765194821777",
     "content_hash": "3e893775dcd79b858f946462ddb35c79"
+  },
+  {
+    "date": "2026-06-06T00:03:55.969860+00:00",
+    "concept": "diffusion_models",
+    "hook": "Everyone says 'diffusion models' like it's magic. But it's actually just teaching AI to reverse noise. Here's what that means \ud83d\udc47",
+    "thread": "Imagine you have a photo, then slowly add static/noise to it until it's just blurry garbage.\n\nA diffusion model learns that process backwards. Show it the garbage \u2192 it predicts the noise \u2192 removes it \u2192 gets closer to a real image.\n\nDo this step by step, thousands of times, and you go from pure noise to a actual picture of whatever you wanted.\n\nWhy it matters: This is how DALL-E, Midjourney, and Stable Diffusion make images. You write \"cat on a skateboard\" \u2192 AI adds structure to random noise in the right direction \u2192 you get your image.\n\nIt's slower than other AI methods but way better at creative stuff.\n\nWhat AI concept would you want explained this simply next? \ud83d\udc47\n\n#AI #DiffusionModels #MachineLearning #GenerativeAI",
+    "hook_id": "2063049208576491656",
+    "thread_id": "2063049209641848858",
+    "content_hash": "49a1a702ef20a61634635bbaaf845e7d"
   }
 ]
