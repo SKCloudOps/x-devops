@@ -448,5 +448,14 @@
     "hook_id": "2062977867374563379",
     "thread_id": "2062977868716806638",
     "content_hash": "84ab4d18b6f7d28f2359b7647faff9b0"
+  },
+  {
+    "date": "2026-06-06T18:50:01.939724+00:00",
+    "concept": "Kubernetes etcd backups and disaster recovery",
+    "hook": "Most Kubernetes engineers don't back up their etcd database. Then disaster hits. Here's why that's a problem \ud83d\udc47",
+    "thread": "Your Kubernetes cluster is like a ship. The etcd database is the captain's log. It stores EVERYTHING\u2014your pods, services, secrets, configs. All of it.\n\nIf your etcd crashes and you don't have a backup? Your entire cluster state is gone. You can't just restart and get your apps back. You have to rebuild from scratch.\n\nThe gotcha: etcd backups are NOT automatic by default. You need to set them up yourself. Most teams learn this the hard way.\n\nHere's what actually works:\n1. Snapshot etcd regularly (every hour or so)\n2. Store snapshots somewhere safe (S3, GCS, whatever)\n3. Test restores every month (seriously, do this)\n4. Keep at least 7 days of snapshots\n\nReal talk: If you're running managed Kubernetes (EKS, GKE, AKS), they handle etcd for you. But if you own the cluster? This is on you.\n\nWhat's your biggest fear with Kubernetes? Lost state or something else? \ud83d\udc47\n\n#Kubernetes #DisasterRecovery #DevOps #etcd",
+    "hook_id": "2063332600689676311",
+    "thread_id": "2063332601792700456",
+    "content_hash": "c127c3cb1ba3899acfabf752617bea12"
   }
 ]
