@@ -2854,5 +2854,14 @@
     "hook_id": "2063724511032181207",
     "thread_id": "2063724512907084051",
     "content_hash": "b9c38b9c6838ac23262f91633354a70e"
+  },
+  {
+    "date": "2026-06-07T23:02:47.174413+00:00",
+    "category": "networking_security_question",
+    "hook": "Interviewer: 'How do you keep secrets out of your Git repo?' \u2014 ngl, most people mess this up \ud83d\udc47",
+    "thread": "Here's what happens: You commit a password or API key to Git. Someone clones your repo. They now have your secret. Game over.\n\nThe fix? Use a .gitignore file.\n\nBasically:\n1. Create a file called .gitignore in your repo root\n2. Add lines like: .env, secrets.txt, config.yaml\n3. Commit the .gitignore file itself\n4. Now Git will SKIP those files forever\n\nReal example:\n\n# .gitignore\n.env\n*.pem\nsecrets/\n\n\nBonus tip: If you already pushed secrets, you can't just delete them. You need to scrub the whole Git history using tools like git-filter-branch or BFG Repo-Cleaner.\n\nThen rotate your actual passwords or keys. Someone might have seen them already.\n\nWhat's your worst secret-in-Git story? Or would you handle this differently? Drop it below \ud83d\udc47\n\n#DevOps #Security #Git #Interview",
+    "hook_id": "2063758595825479707",
+    "thread_id": "2063758597285179655",
+    "content_hash": "b6fd6b5e0ea7f7959d2cf06ef357c0c8"
   }
 ]
