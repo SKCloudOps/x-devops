@@ -2818,5 +2818,14 @@
     "hook_id": "2063490061941846481",
     "thread_id": "2063490063455899675",
     "content_hash": "ff7a29cccf19b32947260545af16270e"
+  },
+  {
+    "date": "2026-06-07T13:15:26.156340+00:00",
+    "category": "networking_security_question",
+    "hook": "Interviewer: 'How do you manage secrets in Terraform?' \u2014 Most candidates say the wrong thing. Here's what they miss \ud83d\udc47",
+    "thread": "Here's the trap: saying 'I just put them in my .tf files' is a red flag. Bad idea. Your secrets get checked into git. Now everyone sees them.\n\nThe RIGHT answer:\n\n1. Use a secrets manager (AWS Secrets Manager, HashiCorp Vault, Azure Key Vault)\n2. Pull secrets at runtime, don't store them in code\n3. Use terraform.tfvars and add it to .gitignore\n4. Or use environment variables\n\nReal example: Instead of:\ndb_password = \"mysecret123\"\n\nDo this:\ndata \"aws_secretsmanager_secret_version\" \"db_pass\" {\n  secret_id = \"prod-db-password\"\n}\n\nThen reference it. The secret stays in the vault. Terraform just reads it when it needs it.\n\nBonus: Never log your secrets. Use sensitive = true on outputs.\n\nWhat's the messiest secret management mistake you've seen? Drop it below \ud83d\udc47\n\n#Terraform #DevOps #IaC #AWS #Security",
+    "hook_id": "2063610779006329163",
+    "thread_id": "2063610781996912672",
+    "content_hash": "f1d865197b053fd43afec8d26f30f59e"
   }
 ]
