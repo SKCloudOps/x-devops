@@ -2809,5 +2809,14 @@
     "hook_id": "2063395733911318972",
     "thread_id": "2063395735651893423",
     "content_hash": "3a29ae0c3a52200bc4dd9b677948f2cc"
+  },
+  {
+    "date": "2026-06-07T05:15:43.722947+00:00",
+    "category": "networking_security_question",
+    "hook": "Interviewer: 'Walk me through how IAM works.' \u2014 Most engineers freeze here. Would you nail this? \ud83d\udc47",
+    "thread": "IAM = Identity and Access Management. Think of it like a bouncer at a club.\n\nThe bouncer checks:\n1. WHO you are (identity)\n2. WHAT you're allowed to do (permissions)\n\nIn AWS:\n- You create a USER (that's the person)\n- You attach a POLICY (that's the permission slip)\n- The policy says \"this user can read files from S3 but NOT delete them\"\n\nReal example: Your app needs to upload files to S3. You don't give it your main AWS password (bad idea). Instead, you create an IAM user just for that app with ONE permission: \"upload to S3 only.\"\n\nIf that user's password leaks? No problem. It can only upload. It can't delete your whole database.\n\nKey thing most people miss: IAM isn't just about users. It's about LEAST PRIVILEGE \u2014 give everything the minimum access it needs. Nothing more.\n\nHow would YOU explain IAM to someone who's never used AWS? Drop your answer below \ud83d\udc47\n\n#DevOps #AWS #IAM #InterviewPrep #SecurityFirst",
+    "hook_id": "2063490061941846481",
+    "thread_id": "2063490063455899675",
+    "content_hash": "ff7a29cccf19b32947260545af16270e"
   }
 ]
