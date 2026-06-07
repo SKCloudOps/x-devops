@@ -2827,5 +2827,14 @@
     "hook_id": "2063610779006329163",
     "thread_id": "2063610781996912672",
     "content_hash": "f1d865197b053fd43afec8d26f30f59e"
+  },
+  {
+    "date": "2026-06-07T15:51:14.086895+00:00",
+    "category": "networking_security_question",
+    "hook": "Interviewer: 'What's the difference between Docker and Podman?' \u2014 Most candidates say 'Podman is just Docker without the daemon.' That's not wrong but... \ud83d\udc47",
+    "thread": "Here's what they're actually looking for:\n\nDocker uses a central daemon. One process runs in the background managing ALL containers. If it crashes, all containers go down.\n\nPodman? No daemon needed. Each container runs independently. One crashes, the rest keep going.\n\nWhy does this matter in interviews?\n\nThey want to know you understand:\n1. Docker = centralized (simpler, but one point of failure)\n2. Podman = decentralized (safer, more flexible)\n\nBonus point: Podman is daemonless AND rootless. You can run containers without special permissions. Docker can too now, but Podman does it by default.\n\nReal example: Your CI/CD pipeline. With Docker, if the daemon dies, your whole pipeline stops. With Podman, individual jobs keep running.\n\nNot trying to say one's better\u2014they both work. But showing you know WHY they're different? That's what gets you the offer.\n\nWhat's the trickiest container question you've been asked in an interview? Drop it below \ud83d\udc47\n\n#DevOps #Containers #Podman #Docker #InterviewPrep #Linux",
+    "hook_id": "2063649992234197052",
+    "thread_id": "2063649993790284278",
+    "content_hash": "1e607a9aa4b704144ae4f127d3339fd5"
   }
 ]
