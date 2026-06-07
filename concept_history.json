@@ -457,5 +457,14 @@
     "hook_id": "2063332600689676311",
     "thread_id": "2063332601792700456",
     "content_hash": "c127c3cb1ba3899acfabf752617bea12"
+  },
+  {
+    "date": "2026-06-07T18:50:51.836551+00:00",
+    "concept": "Helm Charts and API Gateway Separation",
+    "hook": "Most engineers deploy Helm charts to Kubernetes without knowing this one thing about API Gateway \ud83d\udc47",
+    "thread": "When you use Helm to deploy your app, it creates all your services. But your API Gateway? That's separate.\n\nThink of it like this: Helm is the moving truck that sets up your furniture inside the house. The API Gateway is the front door lock and mailbox outside.\n\nThe gotcha: Your Helm chart can create a Kubernetes Service, but it won't know about rate limits, auth rules, or traffic policies. Those live in the API Gateway config.\n\nSo you need TWO things:\n1. Helm chart for your app\n2. Separate Gateway config (often YAML or Terraform)\n\nIf you skip step 2, your app deploys fine but nobody can actually talk to it properly. Your routes are there, but no throttling, no JWT checks, nothing.\n\nPro tip: Some teams commit both to the same repo with clear folders. Makes it way easier to remember they're connected.\n\nWhat's your biggest pain point with Helm and Gateway setup? Reply below \ud83d\udc47\n\n#Kubernetes #Helm #APIGateway #DevOps",
+    "hook_id": "2063695197889040843",
+    "thread_id": "2063695198992089096",
+    "content_hash": "0f0dcf6596d333d5c239589c990091ce"
   }
 ]
