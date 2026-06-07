@@ -2836,5 +2836,14 @@
     "hook_id": "2063649992234197052",
     "thread_id": "2063649993790284278",
     "content_hash": "1e607a9aa4b704144ae4f127d3339fd5"
+  },
+  {
+    "date": "2026-06-07T18:03:53.976373+00:00",
+    "category": "networking_security_question",
+    "hook": "Interviewer: 'What's the difference between a network policy and a service mesh?' \u2014 Most people confuse these. Would you? \ud83d\udc47",
+    "thread": "Great question. They're different things.\n\nNetwork Policy = basic firewall rules. \"Let pod A talk to pod B. Block everything else.\" That's it. Built into Kubernetes. Simple.\n\nService Mesh (like Cilium) = way more. It watches traffic. Adds security. Retries failed requests. Tracks how fast things are. Fixes problems automatically.\n\nThink of it this way:\n\nNetwork Policy = a locked door.\n\nService Mesh = a locked door + security camera + person checking who comes in + logging everything.\n\nNetwork policy is cheaper and lighter. Good for simple setups.\n\nService mesh is heavier but gives you superpowers for debugging and safety.\n\nIn an interview, say: \"Network policy is layer 3 and 4 (IP and ports). Service mesh works at layer 7 (actual requests). Pick based on what you need.\"\n\nBetter answer: Both together is often best.\n\nWhich one have you used in production? Drop your experience below \ud83d\udc47\n\n#DevOps #Kubernetes #NetworkPolicy #Cilium #SRE",
+    "hook_id": "2063683378394583527",
+    "thread_id": "2063683379988402376",
+    "content_hash": "8f82ce254fbfe2a150522b3b6adf3c12"
   }
 ]
