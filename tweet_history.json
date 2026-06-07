@@ -2845,5 +2845,14 @@
     "hook_id": "2063683378394583527",
     "thread_id": "2063683379988402376",
     "content_hash": "8f82ce254fbfe2a150522b3b6adf3c12"
+  },
+  {
+    "date": "2026-06-07T20:47:20.816834+00:00",
+    "category": "networking_security_question",
+    "hook": "Interviewer: 'What's a service mesh and why would we use one?' \u2014 Most candidates give a vague answer. Here's what they miss \ud83d\udc47",
+    "thread": "A service mesh is like a traffic cop for your microservices.\n\nWithout it: Your apps talk directly to each other. If one is slow or broken, everything feels it. You're blind.\n\nWith it (like Istio): A mesh watches ALL the traffic. It can:\n\n\u2713 Retry failed calls automatically\n\u2713 Route traffic around broken services\n\u2713 Show you exactly what's slow\n\u2713 Add security between services\n\nReal example: Service A calls Service B 100 times/sec. Service B starts failing. Without a mesh, A keeps hammering it. With a mesh, traffic gets rerouted or retried. Problem solved.\n\nThe catch? Meshes add complexity. You need more CPU, more monitoring, more headaches. Only add one if you've got like 10+ services talking to each other.\n\nDon't use a mesh just because it sounds cool.\n\nHave you actually used a service mesh in production? What was the biggest pain? Reply below \ud83d\udc47\n\n#DevOps #Kubernetes #ServiceMesh #InterviewTips #CloudNative",
+    "hook_id": "2063724511032181207",
+    "thread_id": "2063724512907084051",
+    "content_hash": "b9c38b9c6838ac23262f91633354a70e"
   }
 ]
