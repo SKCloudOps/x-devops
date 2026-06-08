@@ -497,5 +497,14 @@
     "hook_id": "2063411121504076107",
     "thread_id": "2063411122724540561",
     "content_hash": "ec07fb36d404836301574c6d70803ab9"
+  },
+  {
+    "date": "2026-06-08T00:04:00.293450+00:00",
+    "concept": "Model Weights",
+    "hook": "Everyone says 'model weights' but most people have no idea what that actually means. Here's the simple version \ud83d\udc47",
+    "thread": "Think of an AI model like a recipe.\n\nWeights are just the amounts of each ingredient.\n\nYou have flour (weight = 2 cups), sugar (weight = 1 cup), butter (weight = 0.5 cup). Change any weight slightly? The cake tastes totally different.\n\nSame with AI. A language model has billions of numbers (weights) that tell it how much to \"pay attention\" to different words. When you train an AI, you're just tuning these numbers over and over until it gets better at its job.\n\nWhy does this matter? Because:\n\n\u2022 Model size = how many weights it has\n\u2022 Training time = how long it takes to tune them\n\u2022 Storage = weights take up disk space (GPT-4 has billions)\n\u2022 Fine-tuning = you adjust existing weights for your specific task\n\nWhen people say \"we quantized the weights,\" they mean \"we made these numbers smaller to save space.\"\n\nThat's it. Weights = the actual learned data inside an AI. Everything else is just moving them around.\n\nWhat part of AI infrastructure confuses you the most right now? \ud83d\udc47\n\n#AI #MachineLearning #AIBasics #Tech",
+    "hook_id": "2063774002431000642",
+    "thread_id": "2063774003513151502",
+    "content_hash": "163f01a883d315feacf3462dd9bb8beb"
   }
 ]
