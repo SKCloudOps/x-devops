@@ -5,3 +5,4 @@ venv/
 .venv/
 repo_validation_*.html
 report_data_*.json
+.validation-logs/
