@@ -1,0 +1,11 @@
+[Unit]
+Description=Daily Repository Validation Timer
+Requires=daily-repo-validation.service
+
+[Timer]
+OnCalendar=daily
+OnCalendar=*-*-* 08:00:00
+Persistent=true
+
+[Install]
+WantedBy=timers.target

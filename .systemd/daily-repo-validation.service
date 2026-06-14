@@ -1,0 +1,10 @@
+[Unit]
+Description=Daily Repository Validation
+After=network.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=/home/user/x-devops
+ExecStart=/home/user/x-devops/scripts/daily-validation-task.sh
+StandardOutput=journal
+StandardError=journal
