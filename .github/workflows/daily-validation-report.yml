@@ -2,21 +2,22 @@ name: Daily Repository Validation Report
 
 on:
   schedule:
-    # Runs at 9 AM UTC every day (adjust the time as needed)
-    # Format: minute hour day month day-of-week
-    - cron: '0 9 * * *'
-  # Allow manual triggering
-  workflow_dispatch:
+    - cron: '0 9 * * *'  # Run daily at 9 AM UTC
+  workflow_dispatch:  # Allow manual trigger
+
+permissions:
+  contents: read
 
 jobs:
   validate-and-report:
     runs-on: ubuntu-latest
+    name: Validate Repository and Send Report
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0  # Full history for commit analysis
+          fetch-depth: 0  # Full history for accurate git log
 
       - name: Set up Python
         uses: actions/setup-python@v4
@@ -26,9 +27,6 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      - name: Fetch latest changes
-        run: git fetch origin
-
       - name: Run validation and send report
         env:
           GMAIL_SENDER_EMAIL: ${{ secrets.GMAIL_SENDER_EMAIL }}
@@ -36,10 +34,10 @@ jobs:
           GMAIL_RECIPIENT_EMAIL: ${{ secrets.GMAIL_RECIPIENT_EMAIL }}
         run: python3 send_gmail_report.py
 
-      - name: Upload report logs
+      - name: Upload logs as artifact
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v3
         with:
           name: validation-report-logs
-          path: report_data_*.json
-          retention-days: 7
+          path: report_logs.txt
+          retention-days: 30
